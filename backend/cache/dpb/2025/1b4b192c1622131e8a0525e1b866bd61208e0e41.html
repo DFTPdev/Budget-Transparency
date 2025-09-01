@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" type="text/css" href="/static/css/styles2.css">
+  
+ <!--- Embedded Styles --->
+<STYLE Type="text/css">
+  
+  @page {size: letter landscape; margin: 2cm;}
+  .sticky-container {
+      position: -webkit-sticky; /* For Safari */
+      position: sticky;
+      top: 0;
+      z-index: 1000; /* Optional: Ensures the sticky container stays on top */
+  }
+  .tableX th { font-size:.85em; cursor:pointer; }
+</STYLE>
+<script>
+  function go() {
+     document.getElementById('inputform').submit();
+  }
+  function allagy() {
+    clearfields();
+    document.getElementsByName("Fields")[1].checked = true;
+    document.getElementsByName("Fields")[3].checked = true;
+    document.getElementsByName("Fields")[4].checked = true;
+    document.getElementById("chkAllDollars").checked = true;
+    document.getElementById("chkGFDollars").checked = false;
+    document.getElementById("chkNGFDollars").checked = false;
+    document.getElementById("chkAllPositions").checked = true;
+    document.getElementById("chkGFPositions").checked = false;
+    document.getElementById("chkNGFPositions").checked = false;
+    go();
+  }
+  function allpgm() {
+    clearfields();
+    document.getElementsByName("Fields")[2].checked = true;
+    document.getElementsByName("Fields")[5].checked = true;
+    document.getElementById("chkAllDollars").checked = true;
+    document.getElementById("chkGFDollars").checked = false;
+    document.getElementById("chkNGFDollars").checked = false;
+    document.getElementById("chkAllPositions").checked = true;
+    document.getElementById("chkGFPositions").checked = false;
+    document.getElementById("chkNGFPositions").checked = false;
+    go();
+  }
+  function allgf() {
+    clearfields();
+    document.getElementsByName("Fields")[3].checked = true;
+    document.getElementById("chkAllDollars").checked = false;
+    document.getElementById("chkGFDollars").checked = true;
+    document.getElementById("chkNGFDollars").checked = false;
+    document.getElementById("chkAllPositions").checked = false;
+    document.getElementById("chkGFPositions").checked = true;
+    document.getElementById("chkNGFPositions").checked = false;
+    go();
+  }
+  function allngf() {
+    clearfields();
+    document.getElementsByName("Fields")[3].checked = true;
+    document.getElementById("chkAllDollars").checked = false;
+    document.getElementById("chkGFDollars").checked = false;
+    document.getElementById("chkNGFDollars").checked = true;
+    document.getElementById("chkAllPositions").checked = false;
+    document.getElementById("chkGFPositions").checked = false;
+    document.getElementById("chkNGFPositions").checked = true;
+    go();
+  }
+  function fndgrp() {
+    clearfields();
+    document.getElementsByName("Fields")[7].checked = true;
+    document.getElementsByName("Fields")[10].checked = true;
+    document.getElementById("chkAllDollars").checked = true;
+    document.getElementById("chkGFDollars").checked = false;
+    document.getElementById("chkNGFDollars").checked = false;
+    document.getElementById("chkAllPositions").checked = true;
+    document.getElementById("chkGFPositions").checked = false;
+    document.getElementById("chkNGFPositions").checked = false;
+    go();
+  }
+  function clearfields()
+  { 
+    // Select all checkboxes with the name 'Field'
+    var checkboxes = document.getElementsByName("Fields");
+    // Loop through each checkbox and uncheck it
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = false;
+    }
+    document.getElementById("AdHocValue1").value = '';
+    document.getElementById("AdHocValue2").value = '';
+  }
+</script>
+
+
+    
+  <title>pdoc_op (DPB Website Public Reports)</title>
+  <!-- Additional meta tags, stylesheets, or scripts can be added here -->
+  <script src="/static/jquery/jquery-3.7.1.min.js"></script>
+  <script>
+    function toggleUserInfo() {
+                var userInfoDiv = document.getElementById("userinfo");
+                if (userInfoDiv.style.display === "none") {
+                    userInfoDiv.style.display = "block";
+                } else {
+                    userInfoDiv.style.display = "none";
+                }
+            }
+    function toggleDiv(divId) {
+        var div = document.getElementById(divId);
+        if (div.style.display === 'none' || div.style.display === '') 
+          div.style.display = 'block';
+        else
+          div.style.display = 'none';
+    }    
+    function setsort(X) {
+    // Get the form field with id "sort"
+    var sortorderField = document.getElementById('sort');
+    // Make sure export is set back to empty for the browser
+    document.getElementById('export').value = '';
+    if (sortorderField.value == X + ' asc') 
+    {
+      // if the current value is this field ascending set the sort to this field desc
+      sortorderField.value = X + ' desc';
+    } else 
+    {
+      // else set the sort new sort field ascending
+      sortorderField.value = X + ' asc';
+    }
+    go();
+  }
+  </script>
+</head>
+<body>
+
+  
+    <div id="header">
+        <!--- Now start the agency banner --->
+        <div id="smallbanner">
+        <div style="float:left; width:600px;">
+            &nbsp;
+            <a href="https://dpb.virginia.gov"><img src="/static/images/dpblogo_white34x34.jpg" alt="DPB Website" alt="DPB Logo" border="0"></a>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <a href="https://dpb.virginia.gov" style="color:#FFFFFF;	font-family: arial;	font-weight:bold;">DPB Home</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="https://dpb.virginia.gov/budget" style="color:#FFFFFF;	font-family: arial;	font-weight:bold;">Virginia's Budget</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            
+        </div>
+        
+            <div style="float:left; width:300px">
+                
+                <div style="float:left; padding-right: 20px; color:khaki; font-weight:normal; font-size:.8em; cursor:pointer; text-decoration:underline;" onclick="toggleUserInfo();">
+                
+                <div id="userinfo" style="color:blue; padding:4px; background-color:honeydew; border:1px solid blue; display:none;">
+                    Email: <br>
+                    Login: <br>
+                    User Type: <br>
+                </div>
+                </div>    
+            </div>
+        
+        </div>
+        <div style="clear:both; font-size:0px;">&nbsp;</div>
+    </div>
+    
+  <div class="BDTitle">The 2025 Executive Budget Document</div>
+  <div style="background-color:#eeeeee; border-bottom:1px solid #999999; width:980px; margin-bottom:7px;">
+     <div style="text-align:center; padding:7px; font-weight:bold;">
+        Governor Youngkin&#x27;s Proposed Amendments to the 2024-2026 Biennial Budget
+     </div>
+     <div>
+        
+          <div style="float:left;font-size:.9em;">&nbsp;<a href="pdoc2025" class="linkmblue">Back to Front Page</a></div>
+        
+        <div style="float:right; font-style:italic;font-size:.9em;">Released on December 18, 2025&nbsp;</div>
+        <div style="clear:both; font-size:0pt;">&nbsp;</div>
+     </div>
+  </div>
+
+  <div id="content">
+    <!-- Main Content Block -->
+    <main>
+<!--- In addition to pdoclist.py being the python view for all buddoc years, I am going to try and use this one -->
+<!--- template for all buddoc years.  As long as the basic format of this operating budget summary data is identical or close to -->
+<!--  then this will work. -->
+
+<div style="width:100%; padding:2px; margin-bottom:10px; font-size:.9em; text-align:center;">
+  Choose one of the common views below or open the 
+  <span onclick="document.getElementById('ReportFilter').style.display='block';" style="color:blue;cursor:pointer;">Advanced Options</span>
+  <div style="margin-top: 10px;">
+    • <span style="color:blue;cursor:pointer;" onclick="allagy();">All State Agencies</span>
+  	• <span style="color:blue;cursor:pointer;" onclick="allpgm();">All State Programs</span>
+    • <span style="color:blue;cursor:pointer;" onclick="allgf();">General Fund Summary</span>
+    • <span style="color:blue;cursor:pointer;" onclick="allngf();">Nongeneral Fund Summary</span>
+    • <span style="color:blue;cursor:pointer;" onclick="fndgrp();">Budget By Fund Group</span>
+  </div>
+</div>
+
+<!--- MAIN REPORT FILTER --->
+<div id="ReportFilter" style="display:none;  width:820px; border:0x; margin-bottom:5px; margin-top:0px; padding:0px;">
+  <form id="inputform" name="inputform" action="pdoc_op" method="post">
+    <input type="hidden" id="sort" name="sort" value="SecretarialAreaTitle ASC">
+    <input type="hidden" id="export" name="export" value="">
+    <input type="hidden" id="Year" name="Year" value="2025">
+    <input type="hidden" name="FirstRun" value="False">
+    <input type="hidden" name="csrfmiddlewaretoken" value="LVAJoyQukQw35hwp1XNsEhN1QzytFIyiOmXE3jxxCKNW6RvSgjrahRLRljhMZuZy">  
+
+    <div style="background-color:#eeeeee; padding:9px; border:1px solid #aaaaaa; width:820px;">
+      <div style="float:left; width:400px;">
+        <div style="font-size:.9em; font-weight:bold; margin-bottom:5px;">
+          Select Fields to Include
+        </div>
+        <table class="table00">
+          <tr>
+            <td style="width:16px;"><input name="Fields" value="SecretarialAreaCode" type="checkbox" ></td>
+            <td style="padding-top:2px;">Sec Area Code</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="AgencyCode" type="checkbox" Checked></td>
+            <td style="padding-top:2px;">Agency Code</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="ProgramCode" type="checkbox" ></td>
+            <td style="padding-top:2px;">Program Code</td>
+          </tr>
+          <tr>
+            <td style="width:16px;"><input name="Fields" value="SecretarialAreaName" type="checkbox" Checked></td>
+            <td style="padding-top:2px;">Sec Area Name</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="AgencyName" type="checkbox" Checked></td>
+            <td style="padding-top:2px;">Agency Name</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="ProgramTitle" type="checkbox" ></td>
+            <td style="padding-top:2px;">Program Title</td>
+          </tr>
+
+          <tr>
+            <td style="width:16px;"><input name="Fields" value="ServiceAreaCode" type="checkbox" ></td>
+            <td style="padding-top:2px;">Service Area Code</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="FundGroupCode" type="checkbox" ></td>
+            <td style="padding-top:2px;">Fund Group Code</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="FundCode" type="checkbox" ></td>
+            <td style="padding-top:2px;">Fund Detail Code</td>
+          </tr>
+          <tr>
+            <td style="width:16px;"><input name="Fields" value="ServiceAreaTitle" type="checkbox" ></td>
+            <td style="padding-top:2px;">Service Area Title</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="FundGroupTitle" type="checkbox" ></td>
+            <td style="padding-top:2px;">Fund Group Title</td>
+            <td style="width:16px;padding-left:10px;"><input name="Fields" value="FundTitle" type="checkbox" ></td>
+            <td style="padding-top:2px;">Fund Detail Title</td>
+          </tr>
+
+          <tr>
+            <td style="width:16px;"><input name="Fields" value="SubobjectCode" type="checkbox" ></td>
+            <td style="padding-top:2px;">Subobject Code</td>
+          </tr>
+          <tr>
+            <td style="width:16px;"><input name="Fields" value="SubobjectName" type="checkbox" ></td>
+            <td style="padding-top:2px;">Subobject Name</td>
+          </tr>
+        </table>
+        <br>
+        <table class="table01">
+          <tr>
+            <td style="font-size:.9em; font-weight:bold; padding-top:4px;">Dollars</td>
+            <input type="hidden" name="chkAllDollars" value="False">
+            <td><input type="checkbox" id="chkAllDollars" name="chkAllDollars" value="True" style="vertical-align:middle;" checked>All Funds</td>
+            <td><input type="checkbox" id="chkGFDollars" name="chkGFDollars" value="True" style="vertical-align:middle;" >General Funds</td>
+            <td><input type="checkbox" id="chkNGFDollars" name="chkNGFDollars" value="True" style="vertical-align:middle;" >Nongeneral Funds</td>
+          </tr>
+          <tr>
+            <td style="font-size:.9em; font-weight:bold; padding-top:4px;">Positions</td>
+            <input type="hidden" name="chkAllPositions" value="False">
+            <td><input type="checkbox" id="chkAllPositions" name="chkAllPositions" value="True" style="vertical-align:middle;" checked>All Funds</td>
+            <td><input type="checkbox" id="chkGFPositions" name="chkGFPositions" value="True" style="vertical-align:middle;" >General Funds</td>
+            <td><input type="checkbox" id="chkNGFPositions" name="chkNGFPositions" value="True" style="vertical-align:middle;" >Nongeneral Funds</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="float:left; width:400px;">
+        <div style="font-size:.9em; font-weight:bold; margin-bottom:5px;">
+          Ad Hoc Filters
+        </div>
+        <table class="table01">
+          <tr>
+            <td style="padding-left:4px; font-size:.9em; font-style:italic;">Field</td>
+            <td style="padding-left:4px; font-size:.9em; font-style:italic;">Operator</td>
+            <td style="padding-left:4px; font-size:.9em; font-style:italic;">Value</td>
+          </tr>
+          <tr>
+            <td style="padding:3px;">
+              <select name="AdHocField1">
+                
+                    <option value="SecretarialAreaCode" >Secretarial Area Code</option>
+                
+                    <option value="SecretarialAreaName" selected>Secretarial Area Name</option>
+                
+                    <option value="AgencyName" >Agency Name</option>
+                
+                    <option value="AgencyCode" >Agency Code</option>
+                
+                    <option value="ProgramCode" >Program Code</option>
+                
+                    <option value="ProgramName" >Program Name</option>
+                
+                    <option value="ServiceAreaCode" >Service Area Code</option>
+                
+                    <option value="ServiceAreaName" >Service Area Name</option>
+                
+                    <option value="FundGroupCode" >Fund Group Code</option>
+                
+                    <option value="FundGroupName" >Fund Group Name</option>
+                
+                    <option value="FundCode" >Fund Code</option>
+                
+                    <option value="FundName" >Fund Name</option>
+                
+                    <option value="SubobjectCode" >Subobject Code</option>
+                
+                    <option value="SubobjectName" >Subobject Name</option>
+                                  
+              </select>
+            </td>
+            <td style="padding:3px;">
+              <select name="AdHocOperator1">
+                <option value="=" selected>Equals</option>
+                <option value="<>" >Not Equal</option>
+                <option value=">" >Greater Than</option>
+                <option value="<" >Less Than</option>
+                <option value=">=" >Greater or Equal</option>
+                <option value="<=" >Less or Equal</option>
+                <option value="IN" >In Set</option>
+                <option value="LIKE" >Contains</option>
+              </select>
+            </td>
+            <td style="padding:3px;"><input type="text" value='Education' id="AdHocValue1" name="AdHocValue1" style="width:120px; font-size:.8em;"></td>
+          </tr>
+          <tr>
+            <td style="padding:3px;">
+              <select name="AdHocField2">
+                
+                    <option value="SecretarialAreaCode" >Secretarial Area Code</option>
+                
+                    <option value="SecretarialAreaName" >Secretarial Area Name</option>
+                
+                    <option value="AgencyName" >Agency Name</option>
+                
+                    <option value="AgencyCode" >Agency Code</option>
+                
+                    <option value="ProgramCode" >Program Code</option>
+                
+                    <option value="ProgramName" >Program Name</option>
+                
+                    <option value="ServiceAreaCode" >Service Area Code</option>
+                
+                    <option value="ServiceAreaName" >Service Area Name</option>
+                
+                    <option value="FundGroupCode" >Fund Group Code</option>
+                
+                    <option value="FundGroupName" >Fund Group Name</option>
+                
+                    <option value="FundCode" >Fund Code</option>
+                
+                    <option value="FundName" >Fund Name</option>
+                
+                    <option value="SubobjectCode" >Subobject Code</option>
+                
+                    <option value="SubobjectName" >Subobject Name</option>
+                                  
+              </select>
+            </td>
+            <td style="padding:3px;">
+              <select name="AdHocOperator2">
+                <option value="=" selected>Equals</option>
+                <option value="<>" >Not Equal</option>
+                <option value=">" >Greater Than</option>
+                <option value="<" >Less Than</option>
+                <option value=">=" >Greater or Equal</option>
+                <option value="<=" >Less or Equal</option>
+                <option value="IN" >In Set</option>
+                <option value="LIKE" >Contains</option>
+              </select>
+            </td>
+            <td style="padding:3px;"><input type="text" value='' id="AdHocValue2" name="AdHocValue2" style="width:120px; font-size:.8em;"></td>
+          </tr>
+        </table>
+
+      </div>
+      <div style="clear:left;">&nbsp;</div>
+      <button class="button1" onclick="event.preventDefault();document.getElementById('export').value='';go();">Submit</button>
+    </div>
+  </form>
+</div>
+<br>
+
+
+
+<div style="width: 100%; display: flex; justify-content: center;">
+
+  <div>
+    <div style="color:#156115; margin-bottom:4px;">
+      
+        You can click on an agency to see all budget details for that agency
+      
+    </div>
+    <table class="tableX">
+        <input type="hidden" name="csrfmiddlewaretoken" value="LVAJoyQukQw35hwp1XNsEhN1QzytFIyiOmXE3jxxCKNW6RvSgjrahRLRljhMZuZy">  
+
+      <tr>
+        
+        <th onclick="setsort('SecretarialAreaName');">Secretarial Area Name</th>
+        <th onclick="setsort('AgencyCode');">Agency Code</th>
+        <th onclick="setsort('AgencyName');">Agency Name</th>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <th onclick="setsort('D1');">FY2025 Dollars</th>
+          <th onclick="setsort('D2');">FY2026 Dollars</th>
+        
+        
+        
+        
+          <th onclick="setsort('P1');">FY2025 Positions</th>
+          <th onclick="setsort('P2');">FY2026 Positions</th>
+        
+        
+        
+      </tr>
+
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=242" class="linkblack">242</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=242" class="linkblack">Christopher Newport University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$6,770,800</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=234" class="linkblack">234</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=234" class="linkblack">Cooperative Extension and Agricultural Research Services</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$0</td>
+            <td style="text-align:right;">$1,400,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=201" class="linkblack">201</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=201" class="linkblack">Department of Education, Central Office Operations</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$27,864,381</td>
+            <td style="text-align:right;">$35,297,289</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">44.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=197" class="linkblack">197</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=197" class="linkblack">Direct Aid to Public Education</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$764,198,025</td>
+            <td style="text-align:right;">$758,816,948</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=247" class="linkblack">247</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=247" class="linkblack">George Mason University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$13,116,000</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=216" class="linkblack">216</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=216" class="linkblack">James Madison University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$5,906,900</td>
+            <td style="text-align:right;">$1,609,363</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=214" class="linkblack">214</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=214" class="linkblack">Longwood University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$1,532,900</td>
+            <td style="text-align:right;">$150,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=938" class="linkblack">938</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=938" class="linkblack">New College Institute</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$500,000</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=213" class="linkblack">213</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=213" class="linkblack">Norfolk State University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$16,153,200</td>
+            <td style="text-align:right;">$15,000,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=221" class="linkblack">221</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=221" class="linkblack">Old Dominion University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$13,895,200</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=217" class="linkblack">217</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=217" class="linkblack">Radford University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$4,492,100</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=241" class="linkblack">241</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=241" class="linkblack">Richard Bland College</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$360,700</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=935" class="linkblack">935</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=935" class="linkblack">Roanoke Higher Education Authority</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$645,172</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=937" class="linkblack">937</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=937" class="linkblack">Southern Virginia Higher Education Center</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$0</td>
+            <td style="text-align:right;"><span class="Red">($1,200,000)</span></td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=245" class="linkblack">245</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=245" class="linkblack">State Council of Higher Education for Virginia</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$74,600,000</td>
+            <td style="text-align:right;">$56,405,949</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">1.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=204" class="linkblack">204</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=204" class="linkblack">The College of William and Mary in Virginia</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$8,514,900</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=202" class="linkblack">202</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=202" class="linkblack">The Library Of Virginia</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$5,154,313</td>
+            <td style="text-align:right;">$5,432,142</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=146" class="linkblack">146</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=146" class="linkblack">The Science Museum of Virginia</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$0</td>
+            <td style="text-align:right;">$250,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">3.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=215" class="linkblack">215</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=215" class="linkblack">University of Mary Washington</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$5,645,300</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=207" class="linkblack">207</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=207" class="linkblack">University of Virginia</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$6,288,700</td>
+            <td style="text-align:right;">$35,412,774</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=209" class="linkblack">209</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=209" class="linkblack">University of Virginia Medical Center</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$8,314,754</td>
+            <td style="text-align:right;">$120,447,299</td>
+          
+          
+          
+          
+            <td style="text-align:right;">620.00</td>
+            <td style="text-align:right;">853.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=246" class="linkblack">246</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=246" class="linkblack">University of Virginia&#x27;s College at Wise</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$1,122,800</td>
+            <td style="text-align:right;">$8,900,528</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=148" class="linkblack">148</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=148" class="linkblack">Virginia Commission for the Arts</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$2,150,000</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=236" class="linkblack">236</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=236" class="linkblack">Virginia Commonwealth University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$9,378,200</td>
+            <td style="text-align:right;">$61,000,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=260" class="linkblack">260</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=260" class="linkblack">Virginia Community College System</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$13,339,100</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=229" class="linkblack">229</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=229" class="linkblack">Virginia Cooperative Extension and Agricultural Experiment Station</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$750,000</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=268" class="linkblack">268</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=268" class="linkblack">Virginia Institute of Marine Science</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$1,465,000</td>
+            <td style="text-align:right;">$910,772</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">6.85</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=211" class="linkblack">211</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=211" class="linkblack">Virginia Military Institute</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$1,226,100</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=238" class="linkblack">238</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=238" class="linkblack">Virginia Museum of Fine Arts</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$248,909</td>
+            <td style="text-align:right;">$0</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=942" class="linkblack">942</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=942" class="linkblack">Virginia Museum of Natural History</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$0</td>
+            <td style="text-align:right;">$73,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=208" class="linkblack">208</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=208" class="linkblack">Virginia Polytechnic Institute and State University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$14,545,000</td>
+            <td style="text-align:right;">$138,600,378</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=218" class="linkblack">218</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=218" class="linkblack">Virginia School for the Deaf and the Blind</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$0</td>
+            <td style="text-align:right;">$75,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+      
+        <tr>
+          
+          <td><a href="pdoc_op?Year=2025&Fields=SecretarialAreaName,AgencyName,AgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1==&AdHocValue1=Education" class="linkblack">Education</a></td>
+          <td style="text-align:center;"><a href="pdocagy?Year=2025&agencycode=212" class="linkblack">212</a></td>
+          <td><a href="pdocagy?Year=2025&agencycode=212" class="linkblack">Virginia State University</a></td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <td style="text-align:right;">$11,838,100</td>
+            <td style="text-align:right;">$28,500,000</td>
+          
+          
+          
+          
+            <td style="text-align:right;">0.00</td>
+            <td style="text-align:right;">0.00</td>
+          
+          
+          
+        </tr>
+       
+
+      <tr>
+        <td style="background-color:#eeffee;" colspan="3">
+          <div style="float:right;">Totals &nbsp;</div>
+          row count = 33
+        </td>
+          
+            <td style="background-color:#eeffee; text-align:right;">$1,020,016,554</td>
+            <td style="background-color:#eeffee; text-align:right;">$1,267,081,442</td>
+          
+          
+          
+          
+            <td style="background-color:#eeffee; text-align:right;">620.00</td>
+            <td style="background-color:#eeffee; text-align:right;">907.85</td>
+          
+          
+          
+      </tr>
+    </table>
+  </div>
+</div>
+<br><br>
+
+      
+<div style="color:slateblue; font-size:.85em; text-decoration:underline; cursor:pointer;" onclick="document.getElementById('peek-a-boo').style.display='block';">
+  pdoc_op - Executive Budget Document Operating Budget Details - 08-09-2025 18:57:57
+</div>
+<!--- This is a footer that is included at the bottom of most reports that will show the user --->
+<!--- a URL that can be copied to the clipboard and will show DPB users more inside baseball information --->   
+
+<script>
+    function copyToClipboard() {
+        var url = document.getElementById('myURL').textContent;
+        var dummyInput = document.createElement("input");
+        document.body.appendChild(dummyInput);
+        dummyInput.setAttribute("value", url);
+        dummyInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummyInput);
+        alert("URL copied to clipboard: " + url);
+    }
+</script>
+
+<div id="peek-a-boo" style="font-size: .95em; font-family:Lucida Console, Cascadia Console, Courier New; color:mediumblue; margin-top:10px; margin-left:10px; padding:10px; border:1px solid slategray; background-color:lightyellow; overflow-wrap: break-word; width: 700px; display:none;">
+  <div style="margin-bottom:6px; font-family:verdana, arial; color:darkred;">
+    URL to run this report &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <button id="copyButton" onclick="copyToClipboard()" style="font-size:.9em;">Copy</button> <span style="color:black;">this URL to clipboard</span>
+  </div>
+  <div id="myURL">https://reports.dpb.virginia.gov/pdoc_op?Year={Year}&amp;Biennium=2024-2026&amp;ComboFilter=gh&amp;Fields=SecretarialAreaName%2CAgencyName%2CAgencyCode&amp;AdHocField1=SecretarialAreaName&amp;AdHocOperator1=%3D&amp;AdHocValue1=Education&amp;AdHocField2=&amp;AdHocOperator2=%3D&amp;AdHocValue2=&amp;sort=SecretarialAreaTitle%20ASC</div>
+
+  
+  
+</div>    
+
+
+</main>
+  </div>
+
+<div id="pleasewait" class="Pop1" style="display:none;text-align:center;z-index:1001">
+  <div style="float:center;background-color:white; border:1px solid lightcoral;padding:10px;">
+    <img src="/static/images/wait1.gif" style="margin-right: 4px;">
+  </div>
+</div>
+<div id="pleasewaitexport" class="Pop1" style="display:none;text-align:center; cursor:pointer;z-index:1001" onclick="document.getElementById('pleasewaitexport').style.display='none';">
+  <div style="float:center;background-color:white; border:1px solid lightcoral;padding:10px; width:200px; height:180px;">
+    Exporting your data....
+    <br><br><br>
+    <span style="color:blue;text-decoration:underline;">close window</span>
+  </div>
+</div>
+</body>
+</html>

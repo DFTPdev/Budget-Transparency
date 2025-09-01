@@ -1,0 +1,11 @@
+{
+  "memberIndexUrl": "https://budget.lis.virginia.gov/Amendment/Member/2025/1/House/",
+  "sessionLabel": "2025 Session - House",
+  "downloadDir": "./lis_downloads",
+  "outDir": "./out",
+  "houseRosterPath": "./scripts/house_delegates_roster_enriched.json",
+  "strictHouseOnly": true,
+  "keepRawCsv": true,
+  "headless": false,
+  "slowMo": 25
+}

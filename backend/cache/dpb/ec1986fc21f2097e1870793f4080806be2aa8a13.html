@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" type="text/css" href="/static/css/styles2.css">
+  
+ <!--- Embedded Styles --->
+<STYLE Type="text/css">
+  
+  @page {size: letter landscape; margin: 2cm;}
+  .sticky-container {
+      position: -webkit-sticky; /* For Safari */
+      position: sticky;
+      top: 0;
+      z-index: 1000; /* Optional: Ensures the sticky container stays on top */
+  }
+  .tableX th { cursor:pointer; }
+  .tableZ { width:800px; }
+  .tableZ td { 
+    border:0px;
+    font-size:1.2em;
+    font-weight:bold;
+    color:#5a0303
+  }
+  .tableB { width:800px; }
+  .tableB th { 
+    border:0px;
+    font-size:1em;
+    color:#5a0303;
+    font-weight:bold;
+    background-color:transparent;
+    text-align:left;
+  }
+  .tableB td { 
+    border:0px;
+    font-size:1em;
+  }
+  .tableC td {
+    border:1px solid #8d8b8b;
+    font-size:.95em;
+  }
+</STYLE>
+
+    
+  <title>pdocagy (DPB Website Public Reports)</title>
+  <!-- Additional meta tags, stylesheets, or scripts can be added here -->
+  <script src="/static/jquery/jquery-3.7.1.min.js"></script>
+  <script>
+    function toggleUserInfo() {
+                var userInfoDiv = document.getElementById("userinfo");
+                if (userInfoDiv.style.display === "none") {
+                    userInfoDiv.style.display = "block";
+                } else {
+                    userInfoDiv.style.display = "none";
+                }
+            }
+    function toggleDiv(divId) {
+        var div = document.getElementById(divId);
+        if (div.style.display === 'none' || div.style.display === '') 
+          div.style.display = 'block';
+        else
+          div.style.display = 'none';
+    }    
+    function setsort(X) {
+    // Get the form field with id "sort"
+    var sortorderField = document.getElementById('sort');
+    // Make sure export is set back to empty for the browser
+    document.getElementById('export').value = '';
+    if (sortorderField.value == X + ' asc') 
+    {
+      // if the current value is this field ascending set the sort to this field desc
+      sortorderField.value = X + ' desc';
+    } else 
+    {
+      // else set the sort new sort field ascending
+      sortorderField.value = X + ' asc';
+    }
+    go();
+  }
+  </script>
+</head>
+<body>
+
+  
+    <div id="header">
+        <!--- Now start the agency banner --->
+        <div id="smallbanner">
+        <div style="float:left; width:600px;">
+            &nbsp;
+            <a href="https://dpb.virginia.gov"><img src="/static/images/dpblogo_white34x34.jpg" alt="DPB Website" alt="DPB Logo" border="0"></a>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <a href="https://dpb.virginia.gov" style="color:#FFFFFF;	font-family: arial;	font-weight:bold;">DPB Home</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="https://dpb.virginia.gov/budget" style="color:#FFFFFF;	font-family: arial;	font-weight:bold;">Virginia's Budget</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            
+        </div>
+        
+            <div style="float:left; width:300px">
+                
+                <div style="float:left; padding-right: 20px; color:khaki; font-weight:normal; font-size:.8em; cursor:pointer; text-decoration:underline;" onclick="toggleUserInfo();">
+                
+                <div id="userinfo" style="color:blue; padding:4px; background-color:honeydew; border:1px solid blue; display:none;">
+                    Email: <br>
+                    Login: <br>
+                    User Type: <br>
+                </div>
+                </div>    
+            </div>
+        
+        </div>
+        <div style="clear:both; font-size:0px;">&nbsp;</div>
+    </div>
+    
+  <div class="BDTitle">The 2025 Executive Budget Document</div>
+  <div style="background-color:#eeeeee; border-bottom:1px solid #999999; width:980px; margin-bottom:7px;">
+     <div style="text-align:center; padding:7px; font-weight:bold;">
+        Governor Youngkin&#x27;s Proposed Amendments to the 2024-2026 Biennial Budget
+     </div>
+     <div>
+        
+          <div style="float:left;font-size:.9em;">&nbsp;<a href="pdoc2025" class="linkmblue">Back to Front Page</a></div>
+        
+        <div style="float:right; font-style:italic;font-size:.9em;">Released on December 18, 2025&nbsp;</div>
+        <div style="clear:both; font-size:0pt;">&nbsp;</div>
+     </div>
+  </div>
+
+  <div id="content">
+    <!-- Main Content Block -->
+    <main>
+
+  <table class="tableZ">
+    <tr>
+      <td style="text-align:center;">Direct Aid to Public Education [197]</td>
+    </tr>
+  </table>
+
+  
+    <table class="tableB" style="margin-bottom:8px;">
+      
+        <tr>
+          
+            <td style="font-size:.9em;">Secretarial Area: Education</td>
+          
+        </tr>
+      
+    </table>
+  
+
+  
+
+  <table class="tableB" style="margin-bottom:8px; margin-top:10px">
+    <tr>
+      <th>Operating Budget Summary</th>
+    </tr>
+    <tr>
+      <td>
+        This table shows the Governor's proposed budget for the next two years and the agency's official budget for the previous six years.<br>
+        <span style="color:blue; cursor:pointer;" onclick="getElementById('More').style.display='block';">more...</span>
+        <div id="More" style="display:none; padding-top: 6px; cursor:pointer;">
+           More historical data is available for this agency on DPB's website under the 
+           <a href="http://dpb.virginia.gov/budget/budget.cfm">Virginia's Budget page.</a> If you click on the Budget Round Description links under any of the "DPB Appropriation Database" tables and open the filter you can select various fields to get greater detail and you can select the official chapter data going back for several decades. The "Caboose" chapters are the final biennial budget approved by the General Assembly and signed into Law.
+           <a href="h100">Check it out here</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+   
+  <table class="tableX">
+    <tr>
+      <th>Biennium</th>
+      <th>Fiscal Year</th>
+      <th>Source</th>
+      <th>GF</th>
+      <th>NGF</th>
+      <th>Total</th>
+    </tr>
+    
+      
+        <tr>
+          <td style="width:90px;">2020-2022</td>
+          <td style="width:90px;">2021</td>
+          <td style="width:240px">Chapter 1, 2022 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">$6,857,617,198</td>
+          <td style="width:110px;text-align:right;">$1,992,351,356</td>
+          <td style="width:110px;text-align:right;">$8,849,968,554</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">2021-2024</td>
+          <td style="width:90px;">2022</td>
+          <td style="width:240px">Chapter1, 2024 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">$9,143,956,725</td>
+          <td style="width:110px;text-align:right;">$1,960,365,888</td>
+          <td style="width:110px;text-align:right;">$11,104,322,613</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">2020-2022</td>
+          <td style="width:90px;">2022</td>
+          <td style="width:240px">Chapter 1, 2022 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">$7,180,933,220</td>
+          <td style="width:110px;text-align:right;">$2,004,726,703</td>
+          <td style="width:110px;text-align:right;">$9,185,659,923</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">2021-2024</td>
+          <td style="width:90px;">2023</td>
+          <td style="width:240px">Chapter1, 2024 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">$8,928,053,096</td>
+          <td style="width:110px;text-align:right;">$2,070,513,379</td>
+          <td style="width:110px;text-align:right;">$10,998,566,475</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2024-2026</td>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2025</td>
+          <td style="color:#5f195f; font-weight:bold; width:240px;">Governor&#x27;s Proposed Budget</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">$9,717,024,215</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">$2,970,205,077</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">$12,687,229,292</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">2024 Appropriation</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">$9,671,035,619</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$2,302,639,586</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$11,973,675,205</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">Governor&#x27;s Amendments</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">$45,988,596</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$667,565,491</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$713,554,087</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2024-2026</td>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2026</td>
+          <td style="color:#5f195f; font-weight:bold; width:240px;">Governor&#x27;s Proposed Budget</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">$9,940,982,485</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">$2,739,366,371</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">$12,680,348,856</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">2024 Appropriation</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">$9,822,713,068</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$2,340,289,780</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$12,163,002,848</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">Governor&#x27;s Amendments</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">$118,269,417</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$399,076,591</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">$517,346,008</td>
+        </tr>
+      
+    
+  </table>
+
+
+  <table class="tableB" style="margin-bottom:8px; margin-top: 16px;">
+    <tr>
+      <th>Positions Budget Summary</th>
+    </tr>
+  </table>
+   
+  <table class="tableX">
+    <tr>
+      <th>Biennium</th>
+      <th>Fiscal Year</th>
+      <th>Source</th>
+      <th>GF</th>
+      <th>NGF</th>
+      <th>Total</th>
+    </tr>
+    
+      
+        <tr>
+          <td style="width:90px;">2020-2022</td>
+          <td style="width:90px;">2021</td>
+          <td style="width:240px">Chapter 1, 2022 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">2021-2024</td>
+          <td style="width:90px;">2022</td>
+          <td style="width:240px">Chapter1, 2024 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">2020-2022</td>
+          <td style="width:90px;">2022</td>
+          <td style="width:240px">Chapter 1, 2022 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">2021-2024</td>
+          <td style="width:90px;">2023</td>
+          <td style="width:240px">Chapter1, 2024 Acts of Assembly</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+          <td style="width:110px;text-align:right;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2024-2026</td>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2025</td>
+          <td style="color:#5f195f; font-weight:bold; width:240px;">Proposed Positions</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">0.00</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">0.00</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">2024 Appropriation</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">Governor&#x27;s Amendments</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2024-2026</td>
+          <td style="color:#5f195f; font-weight:bold; width:90px;">2026</td>
+          <td style="color:#5f195f; font-weight:bold; width:240px;">Proposed Positions</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">0.00</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">0.00</td>
+          <td style="text-align:right;color:#5f195f; font-weight:bold; width:110px;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">2024 Appropriation</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+        </tr>
+      
+    
+      
+        <tr>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:90px;">&nbsp;</td>
+          <td style="width:240px;font-style:italic;padding-left:30px;">Governor&#x27;s Amendments</td>
+          <td style="width:110px;font-style:italic;text-align:right;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+          <td style="width:110px;font-style:italic;text-align:right;;padding-right:25px;">0.00</td>
+        </tr>
+      
+    
+  </table>
+
+
+  <table class="tableB" style="margin-bottom:8px; margin-top: 16px;">
+    <tr>
+      <th>Operating Budget Addenda <span style="font-size:.9em;font-style:italic;color:black;font-weight:normal;">(in order of greatest impact)</span></th>
+    </tr>
+  </table>
+  
+  
+    <table class="tableB">
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Increase federal appropriation</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Increases federal nongeneral fund appropriation based on estimated revenues and anticipated reimbursements to local school divisions.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                
+                  <tr>
+                    <td style="border:0px;">Nongeneral Fund</td>
+                    <td style="text-align:right;">$356,667,442</td>
+                    <td style="text-align:right;">$356,667,442</td>
+                  </tr>
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Increase support for school construction</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Increases funding for the School Construction Assistance Program from expected revenues to the School Construction Fund and a one time deposit from the Literary Fund.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                
+                  <tr>
+                    <td style="border:0px;">Nongeneral Fund</td>
+                    <td style="text-align:right;">$270,000,000</td>
+                    <td style="text-align:right;">$20,000,000</td>
+                  </tr>
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update Lottery proceeds for public education</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Adjusts funding to reflect changes in the estimate of Lottery proceeds to support K-12 public education. The 2025 Lottery proceeds estimate increases from $903.0 million in Chapter 2 to $943.8 million and the 2026 estimate increases from $853.0 in Chapter 2 to $875.3 million.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;"><span class="Red">($40,898,050)</span></td>
+                    <td style="text-align:right;"><span class="Red">($22,409,145)</span></td>
+                  </tr>
+                
+                
+                  <tr>
+                    <td style="border:0px;">Nongeneral Fund</td>
+                    <td style="text-align:right;">$40,898,049</td>
+                    <td style="text-align:right;">$22,409,149</td>
+                  </tr>
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update English Language Learner data</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Updates cost of the English Learner Teacher Standards of Quality program to reflect updated data for verified English learners, including updated proficiency level data.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$48,806,812</td>
+                    <td style="text-align:right;">$61,878,962</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Provide Virginia Opportunity Scholarships</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Provides funding for Virginia Opportunity Scholarships to award grants to eligible economically disadvantaged students to cover the costs of attending an accredited private school in the Commonwealth.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$0</td>
+                    <td style="text-align:right;">$50,000,000</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update sales tax revenue for public education</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Updates funding provided to local school divisions based on the latest sales tax forecast.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$20,000,089</td>
+                    <td style="text-align:right;">$18,408,591</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update Average Daily Membership projections based on actual Fall Membership</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Updates Average Daily Membership projections based on actual Fall Membership data submitted by local school divisions in fall 2024.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$13,303,251</td>
+                    <td style="text-align:right;">$20,545,855</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Establish new Lab Schools in partnership with Historically Black Colleges and Universities</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Provides funding to the College Partnership Laboratory School Fund to be used for planning, start-up, and operating grant awards to support new lab schools in partnership with Historically Black Colleges and Universities in Virginia.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$25,000,000</td>
+                    <td style="text-align:right;">$0</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update the cost of Lottery-funded programs</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Adjusts state support for Lottery-funded programs based on actual participation and updated projections.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;"><span class="Red">($13,252,266)</span></td>
+                    <td style="text-align:right;"><span class="Red">($8,921,946)</span></td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update costs of Incentive programs</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Adjusts funding for certain educational programs that exceed the foundation of the Standards of Quality. These programs are designed to address educational needs of specific targeted student populations. Funding for these programs is primarily formula-driven and subject to changes in membership, participation rates, and test scores.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;"><span class="Red">($4,548,253)</span></td>
+                    <td style="text-align:right;"><span class="Red">($362,914)</span></td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update program participation for Remedial Summer School</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Updates the state cost of Remedial Summer School based on data submitted by divisions in fall 2024 reflecting actual summer 2024 participation.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;"><span class="Red">($2,914,657)</span></td>
+                    <td style="text-align:right;">$0</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update sales tax distribution for school age population</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Updates the sales tax distribution to local school divisions based on the latest yearly estimate of school age population from the Weldon Cooper Center for Public Service.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$0</td>
+                    <td style="text-align:right;"><span class="Red">($1,611,338)</span></td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update costs of Categorical programs</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">
+Adjusts funding for certain educational programs that exceed the foundation of the Standards of Quality. State or federal statutes or regulations mandate most categorical programs. These adjustments update the cost of continuing the current programs with the required data revisions.
+</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$291,956</td>
+                    <td style="text-align:right;">$297,219</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Update Fall membership data in Direct Aid program formulas</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Updates the Fall Membership data used in certain Direct Aid to Public Education program funding formulas based on actual data submitted by school divisions in fall 2024.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$259,714</td>
+                    <td style="text-align:right;">$304,133</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Increase funding for vision screening grants</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Increases appropriation provided for school divisions to pay for a portion of the vision screening of students in kindergarten, grade two or three, and grades seven and ten.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;">$0</td>
+                    <td style="text-align:right;">$200,000</td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Capture savings from regional Career and Technical Education center consolidation</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Captures savings from regional grants to career and technical education centers from the consolidation of two divisions.</td>
+        </tr>
+        
+          <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:.9em; padding:4px;">
+              <table class="tableC">
+                <tr>
+                  <th>&nbsp;</th>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2025</td>
+                  <td style="width:100px; border:0px; text-align:center;">FY 2026</td>
+                </tr>
+                
+                  <tr>
+                    <td style="border:0px;">General Fund</td>
+                    <td style="text-align:right;"><span class="Red">($60,000)</span></td>
+                    <td style="text-align:right;"><span class="Red">($60,000)</span></td>
+                  </tr>
+                
+                
+                
+              </table>
+            </td>
+          </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Serve additional children through modified Early Childhood Care and Education program requirements</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Makes several changes to requirements for the Child Care Subsidy Program, the Mixed Delivery Initiative, and the Virginia Preschool Initiative in order to increase the number of children served. Changes include updating family copay and work requirements for the Child Care Subsidy Program and the Mixed Delivery Initiative, removing the cap on the local composite index for the Virginia Preschool Initiative beginning in FY 2026, directing attendance requirements to be updated, and limiting new Child Care Subsidy Program enrollment to birth-to-five children and establishing a work group to study options for school age children.</td>
+        </tr>
+        
+      
+        <tr>
+          <td style="color:#5f195f; font-weight:bold; font-size:.95em;">&bull;</td>
+          <td style="font-size:.95em;">
+            <table>
+              <tr>
+                <td style="width:650px;color:#5f195f; font-weight:bold; padding-right:20px;">Modify Teach for America requirements</td>
+                <td style="width:150px;color:forestgreen;font-style:italic;text-align:right;font-size:.95em;">Decision Package</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="font-size:.9em; padding:4px;">Amends language to ensure funds provided to Teach for America are used as intended.</td>
+        </tr>
+        
+      
+    </table>
+      
+
+
+
+      
+
+<br><br>
+      
+<div style="color:slateblue; font-size:.85em; text-decoration:underline; cursor:pointer;" onclick="document.getElementById('peek-a-boo').style.display='block';">
+  pdocagy2014 - Executive Budget Document Agency Details - 08-09-2025 22:49:04
+</div>
+<!--- This is a footer that is included at the bottom of most reports that will show the user --->
+<!--- a URL that can be copied to the clipboard and will show DPB users more inside baseball information --->   
+
+<script>
+    function copyToClipboard() {
+        var url = document.getElementById('myURL').textContent;
+        var dummyInput = document.createElement("input");
+        document.body.appendChild(dummyInput);
+        dummyInput.setAttribute("value", url);
+        dummyInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummyInput);
+        alert("URL copied to clipboard: " + url);
+    }
+</script>
+
+<div id="peek-a-boo" style="font-size: .95em; font-family:Lucida Console, Cascadia Console, Courier New; color:mediumblue; margin-top:10px; margin-left:10px; padding:10px; border:1px solid slategray; background-color:lightyellow; overflow-wrap: break-word; width: 700px; display:none;">
+  <div style="margin-bottom:6px; font-family:verdana, arial; color:darkred;">
+    URL to run this report &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <button id="copyButton" onclick="copyToClipboard()" style="font-size:.9em;">Copy</button> <span style="color:black;">this URL to clipboard</span>
+  </div>
+  <div id="myURL">https://reports.dpb.virginia.gov/p2014agylist</div>
+
+  
+  
+</div>    
+
+
+</main>
+  </div>
+
+<div id="pleasewait" class="Pop1" style="display:none;text-align:center;z-index:1001">
+  <div style="float:center;background-color:white; border:1px solid lightcoral;padding:10px;">
+    <img src="/static/images/wait1.gif" style="margin-right: 4px;">
+  </div>
+</div>
+<div id="pleasewaitexport" class="Pop1" style="display:none;text-align:center; cursor:pointer;z-index:1001" onclick="document.getElementById('pleasewaitexport').style.display='none';">
+  <div style="float:center;background-color:white; border:1px solid lightcoral;padding:10px; width:200px; height:180px;">
+    Exporting your data....
+    <br><br><br>
+    <span style="color:blue;text-decoration:underline;">close window</span>
+  </div>
+</div>
+</body>
+</html>

@@ -34,3 +34,26 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Python / backend
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+ENV/
+.venv/
+pip-wheel-metadata/
+*.sqlite3
+*.db
+*.log
+instance/
+*.egg-info/
+dist/
+
+# big local artifacts / datasets (do not commit)
+backend/node_modules/
+backend/data/geo/
+backend/out/
+backend/data/raw/

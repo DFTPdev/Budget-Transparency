@@ -1,0 +1,62 @@
+{
+  "config": {
+    "year": "2025",
+    "rosterPath": "./scripts/house_delegates_roster_enriched.json"
+  },
+  "scripts": {
+    "pre:ensure": "mkdir -p out out/app out/staging/lis out/staging/dpb out/staging/990 out/staging/cds cache/990 cache/dpb ingest",
+    "sync:lis": "npm run pre:ensure && ts-node --files scripts/sync_lis.ts --year $npm_package_config_year --houseRosterPath $npm_package_config_rosterPath",
+    "fetch:api:stable": "npm run pre:ensure && ts-node --files scripts/fetch_budget_api_stable.ts --year $npm_package_config_year",
+    "fetch:puppeteer:stable": "npm run pre:ensure && ts-node --files scripts/fetch_budget_puppeteer_stable.ts --year $npm_package_config_year",
+    "ingest:csv": "npm run pre:ensure && ts-node --files scripts/ingest_csv_append.ts --year $npm_package_config_year --glob './ingest/*.csv'",
+    "ingest:member": "npm run pre:ensure && ts-node --files scripts/convert_member_csv.ts --year $npm_package_config_year --input './ingest/AmendmentsByMember.csv'",
+    "ingest:memberListExport": "npm run pre:ensure && ts-node --files scripts/convert_member_csv.ts --year $npm_package_config_year --input './ingest/memberListExport.csv'",
+    "validate:jsonl": "ts-node --files scripts/validate_jsonl.ts --year $npm_package_config_year",
+    "build:budget": "npm run pre:ensure && ts-node --files scripts/build_budget_dataset.ts --houseRosterPath $npm_package_config_rosterPath --year $npm_package_config_year",
+    "stage:lis": "mkdir -p out/staging/lis/$npm_package_config_year && cp -f out/lis_amendments_$npm_package_config_year.jsonl out/staging/lis/$npm_package_config_year/amendments.jsonl",
+    "site:build": "npm run pre:ensure && ts-node --files scripts/join/build_site_artifacts.ts --year $npm_package_config_year --lis out/lis_amendments_$npm_package_config_year.jsonl --roster ./ingest/memberListExport.json --aliases ./ingest/member_aliases.json --locmap ./ingest/locality_to_district.json --includeDPB false --includeCDS false --include990 false --outDir out/app",
+    "publish": "npm run validate:jsonl && npm run build:budget",
+    "publish:lis": "npm run validate:jsonl && npm run site:build",
+    "fetch:dpb": "npm run pre:ensure && ts-node --files scripts/dpb/fetch_dpb.ts --year $npm_package_config_year --out out/staging/dpb/$npm_package_config_year",
+    "fetch:dpb:agency": "npm run pre:ensure && ts-node --files scripts/dpb/fetch_dpb.ts --year $npm_package_config_year --out out/staging/dpb/$npm_package_config_year --agencyUrl \"$AGENCY_URL\" --agencyName \"$AGENCY_NAME\"",
+    "fetch:dpb:demo": "npm run pre:ensure && ts-node --files scripts/dpb/fetch_dpb.ts --year $npm_package_config_year --out out/staging/dpb/$npm_package_config_year --demo",
+    "fetch:cds": "npm run pre:ensure && ts-node --files scripts/cds/fetch_cds.ts --year $npm_package_config_year --out out/staging/cds/$npm_package_config_year",
+    "fetch:cds:va": "npm run pre:ensure && ts-node --files scripts/cds/fetch_cds_va.ts --year=$npm_package_config_year --out=out/staging/cds/$npm_package_config_year",
+    "fetch:990": "npm run pre:ensure && ts-node --files scripts/irs990/fetch_990_index.ts --cache cache/990 --out out/staging/990",
+    "site:build:full": "npm run pre:ensure && ts-node --files scripts/join/build_site_artifacts.ts --year $npm_package_config_year --lis out/lis_amendments_$npm_package_config_year.jsonl --roster ./ingest/memberListExport.json --aliases ./ingest/member_aliases.json --locmap ./ingest/locality_to_district.json --dpb out/staging/dpb/$npm_package_config_year --cds out/staging/cds/$npm_package_config_year --irs990 out/staging/990 --includeDPB true --includeCDS true --include990 true --outDir out/app",
+    "site:enrich": "npm run pre:ensure && ts-node --files scripts/join/enrich_cds.ts $npm_package_config_year && ts-node --files scripts/join/enrich_irs990.ts $npm_package_config_year",
+    "join:dpb": "npm run pre:ensure && ts-node --files scripts/join/join_dpb.ts --dpb out/staging/dpb/$npm_package_config_year --locmap ./ingest/locality_to_district.json --out out/app/dpb_$npm_package_config_year.json",
+    "build:all": "npm run sync:lis && npm run build:budget && npm run stage:lis && npm run site:build",
+    "build:all:full": "npm run sync:lis && npm run fetch:dpb && npm run fetch:cds && npm run fetch:cds:va && npm run fetch:990 && npm run build:budget && npm run stage:lis && npm run site:build:full && npm run site:enrich",
+    "publish:full": "npm run fetch:dpb && npm run fetch:cds && npm run fetch:cds:va && npm run fetch:990 && npm run site:build:full && npm run site:enrich",
+    "join:cds-to-districts": "npm run pre:ensure && ts-node --files scripts/join/join_cds_to_districts.ts --year $npm_package_config_year --cds out/staging/cds/$npm_package_config_year/cds.json --locmap ./ingest/locality_to_district.json --out out/app/cds_by_district_$npm_package_config_year.json",
+    "join:cds-locality": "TS_NODE_TRANSPILE_ONLY=1 ts-node --files scripts/join/join_cds_to_districts.ts --year $npm_package_config_year --cds out/staging/cds/$npm_package_config_year/cds.json --out out/app/cds_by_locality_$npm_package_config_year.json",
+    "cds:locality-totals": "jq -r 'map({locality, count: .items, total: .total_amount}) | sort_by(-.total) | ([\"locality\",\"count\",\"total\"] , (.[] | [ .locality, (.count|tostring), (.total|tostring) ]) ) | @csv' out/app/cds_by_locality_$npm_package_config_year.json",
+    "cds:full-run": "npm run join:cds-locality && npm run cds:locality-totals",
+    "join:lis-locality": "TS_NODE_TRANSPILE_ONLY=1 ts-node --files scripts/join/join_lis_to_districts.ts --year $npm_package_config_year --lis out/staging/lis/$npm_package_config_year/lis.json --out out/app/lis_by_locality_$npm_package_config_year.json",
+    "lis:locality-totals": "jq -r 'map({locality, count: .items, total: .total_amount}) | sort_by(-.total) | ([\"locality\",\"count\",\"total\"] , (.[] | [ .locality, (.count|tostring), (.total|tostring) ]) ) | @csv' out/app/lis_by_locality_$npm_package_config_year.json",
+    "fetch:lis": "TS_NODE_TRANSPILE_ONLY=1 ts-node --files scripts/fetch/fetch_lis.ts --year $npm_package_config_year",
+    "join:lis-district": "TS_NODE_TRANSPILE_ONLY=1 ts-node --files scripts/join/join_lis_by_member.ts --year $npm_package_config_year --lis out/staging/lis/$npm_package_config_year/lis.json --roster ./scripts/house_delegates_roster_enriched.json --out out/app/lis_by_district_$npm_package_config_year.json",
+    "lis:district-totals": "jq -r '[\"district\",\"items\",\"total\"], (.[] | [ .district, (.items|tostring), (.total_amount|tostring) ]) | @csv' out/app/lis_by_district_$npm_package_config_year.json",
+    "build:member-aliases": "TS_NODE_TRANSPILE_ONLY=1 ts-node --files scripts/tools/build_member_aliases.ts",
+    "lis:delegate-build": "TS_NODE_TRANSPILE_ONLY=1 ts-node --files scripts/join/build_delegate_totals_from_roster.ts --year $npm_package_config_year --in out/app/lis_by_district_$npm_package_config_year.json --roster ./scripts/house_delegates_roster_enriched.json --outJson out/app/lis_by_delegate_$npm_package_config_year.json --outCsv out/app/lis_by_delegate_$npm_package_config_year.csv",
+    "lis:full-run": "npm run join:lis-district && npm run lis:district-totals && npm run lis:delegate-build",
+    "export:districts": "cp out/app/lis_by_district_$npm_package_config_year.json out/app/lis_by_district_latest.json && cp out/app/lis_by_district_$npm_package_config_year.csv out/app/lis_by_district_latest.csv",
+    "export:delegates": "cp out/app/lis_by_delegate_$npm_package_config_year.json out/app/lis_by_delegate_latest.json && cp out/app/lis_by_delegate_$npm_package_config_year.csv out/app/lis_by_delegate_latest.csv",
+    "lis:districts-fallback": "TS_NODE_TRANSPILE_ONLY=1 ts-node --files scripts/join/build_districts_from_budget.ts --year $npm_package_config_year --in out/app/budget_by_district_$npm_package_config_year.json --outJson out/app/lis_by_district_$npm_package_config_year.json --outCsv out/app/lis_by_district_$npm_package_config_year.csv",
+    "lis:min-run": "npm run lis:districts-fallback && npm run lis:delegate-build"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0",
+    "csv-stringify": "^6.5.0",
+    "p-limit": "^5.0.0",
+    "puppeteer": "^24.16.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "csv-parse": "^6.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

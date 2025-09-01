@@ -1,0 +1,505 @@
+{
+  "count": 100,
+  "rows": [
+    {
+      "delegate_name": "Bonita G. Anthony",
+      "district": "92",
+      "localities": []
+    },
+    {
+      "delegate_name": "Jonathan E. Arnold",
+      "district": "46",
+      "localities": []
+    },
+    {
+      "delegate_name": "Alex Q. Askew",
+      "district": "95",
+      "localities": []
+    },
+    {
+      "delegate_name": "Terry L. Austin",
+      "district": "37",
+      "localities": []
+    },
+    {
+      "delegate_name": "Jason S. Ballard",
+      "district": "42",
+      "localities": []
+    },
+    {
+      "delegate_name": "Amanda E. Batten",
+      "district": "71",
+      "localities": []
+    },
+    {
+      "delegate_name": "Elizabeth B. Bennett-Parker",
+      "district": "5",
+      "localities": []
+    },
+    {
+      "delegate_name": "Robert S. Bloxom Jr.",
+      "district": "100",
+      "localities": []
+    },
+    {
+      "delegate_name": "David L. Bulova",
+      "district": "11",
+      "localities": []
+    },
+    {
+      "delegate_name": "Katrina E. Callsen",
+      "district": "54",
+      "localities": []
+    },
+    {
+      "delegate_name": "Ellen H. Campbell",
+      "district": "36",
+      "localities": []
+    },
+    {
+      "delegate_name": "Betsy B. Carr",
+      "district": "78",
+      "localities": []
+    },
+    {
+      "delegate_name": "Mike A. Cherry",
+      "district": "74",
+      "localities": []
+    },
+    {
+      "delegate_name": "Nadarius E. Clark",
+      "district": "84",
+      "localities": []
+    },
+    {
+      "delegate_name": "Laura Jane Cohen",
+      "district": "15",
+      "localities": []
+    },
+    {
+      "delegate_name": "Joshua G. Cole",
+      "district": "65",
+      "localities": []
+    },
+    {
+      "delegate_name": "Kelly K. Convirs-Fowler",
+      "district": "96",
+      "localities": []
+    },
+    {
+      "delegate_name": "A.C. Cordoza",
+      "district": "86",
+      "localities": []
+    },
+    {
+      "delegate_name": "Rae C. Cousins",
+      "district": "79",
+      "localities": []
+    },
+    {
+      "delegate_name": "Carrie E. Coyner",
+      "district": "75",
+      "localities": []
+    },
+    {
+      "delegate_name": "Will P. Davis",
+      "district": "39",
+      "localities": []
+    },
+    {
+      "delegate_name": "Karrie K. Delaney",
+      "district": "9",
+      "localities": []
+    },
+    {
+      "delegate_name": "Mark L. Earley Jr.",
+      "district": "73",
+      "localities": []
+    },
+    {
+      "delegate_name": "N. Baxter Ennis",
+      "district": "89",
+      "localities": []
+    },
+    {
+      "delegate_name": "Michael Feggans",
+      "district": "97",
+      "localities": []
+    },
+    {
+      "delegate_name": "Hyland F. (Buddy) Fowler Jr.",
+      "district": "59",
+      "localities": []
+    },
+    {
+      "delegate_name": "Nicholas J. Freitas",
+      "district": "62",
+      "localities": []
+    },
+    {
+      "delegate_name": "Debra D. Gardner",
+      "district": "76",
+      "localities": []
+    },
+    {
+      "delegate_name": "Thomas A. Garrett Jr.",
+      "district": "56",
+      "localities": []
+    },
+    {
+      "delegate_name": "Jackie Hope Glass",
+      "district": "93",
+      "localities": []
+    },
+    {
+      "delegate_name": "W. Chad Green Sr.",
+      "district": "69",
+      "localities": []
+    },
+    {
+      "delegate_name": "Timothy P. Griffin",
+      "district": "53",
+      "localities": []
+    },
+    {
+      "delegate_name": "C. E. (Cliff) Hayes Jr.",
+      "district": "91",
+      "localities": []
+    },
+    {
+      "delegate_name": "Dan Helmer",
+      "district": "10",
+      "localities": []
+    },
+    {
+      "delegate_name": "Rozia A. Henson Jr.",
+      "district": "19",
+      "localities": []
+    },
+    {
+      "delegate_name": "Phil M. Hernandez",
+      "district": "94",
+      "localities": []
+    },
+    {
+      "delegate_name": "Charniele L. Herring",
+      "district": "4",
+      "localities": []
+    },
+    {
+      "delegate_name": "Geary M. Higgins",
+      "district": "30",
+      "localities": []
+    },
+    {
+      "delegate_name": "M. Keith Hodges",
+      "district": "68",
+      "localities": []
+    },
+    {
+      "delegate_name": "Patrick A. Hope",
+      "district": "1",
+      "localities": []
+    },
+    {
+      "delegate_name": "Michael J. Jones",
+      "district": "77",
+      "localities": []
+    },
+    {
+      "delegate_name": "Hillary Pugh Kent",
+      "district": "67",
+      "localities": []
+    },
+    {
+      "delegate_name": "Karen Keys-Gamarra",
+      "district": "7",
+      "localities": []
+    },
+    {
+      "delegate_name": "Terry G. Kilgore",
+      "district": "45",
+      "localities": []
+    },
+    {
+      "delegate_name": "Barry D. Knight",
+      "district": "98",
+      "localities": []
+    },
+    {
+      "delegate_name": "Paul E. Krizek",
+      "district": "16",
+      "localities": []
+    },
+    {
+      "delegate_name": "Amy J. Laufer",
+      "district": "55",
+      "localities": []
+    },
+    {
+      "delegate_name": "James A. (Jay) Leftwich Jr.",
+      "district": "90",
+      "localities": []
+    },
+    {
+      "delegate_name": "Destiny L. LeVere Bolling",
+      "district": "80",
+      "localities": []
+    },
+    {
+      "delegate_name": "Alfonso H. Lopez",
+      "district": "3",
+      "localities": []
+    },
+    {
+      "delegate_name": "Ian T. Lovejoy",
+      "district": "22",
+      "localities": []
+    },
+    {
+      "delegate_name": "Michelle Lopes Maldonado",
+      "district": "20",
+      "localities": []
+    },
+    {
+      "delegate_name": "Daniel W. Marshall III",
+      "district": "49",
+      "localities": []
+    },
+    {
+      "delegate_name": "Fernando J. Martinez",
+      "district": "29",
+      "localities": []
+    },
+    {
+      "delegate_name": "Adele Y. McClure",
+      "district": "2",
+      "localities": []
+    },
+    {
+      "delegate_name": "Joseph P. McNamara",
+      "district": "40",
+      "localities": []
+    },
+    {
+      "delegate_name": "Delores L. McQuinn",
+      "district": "81",
+      "localities": []
+    },
+    {
+      "delegate_name": "Paul V. Milde III",
+      "district": "64",
+      "localities": []
+    },
+    {
+      "delegate_name": "James W. (Will) Morefield",
+      "district": "43",
+      "localities": []
+    },
+    {
+      "delegate_name": "Candi Mundon King",
+      "district": "23",
+      "localities": []
+    },
+    {
+      "delegate_name": "Delores Oates",
+      "district": "31",
+      "localities": []
+    },
+    {
+      "delegate_name": "Chris Obenshain",
+      "district": "41",
+      "localities": []
+    },
+    {
+      "delegate_name": "Israel D. O'Quinn",
+      "district": "44",
+      "localities": []
+    },
+    {
+      "delegate_name": "Robert D. Orrock Sr.",
+      "district": "66",
+      "localities": []
+    },
+    {
+      "delegate_name": "David L. Owen",
+      "district": "57",
+      "localities": []
+    },
+    {
+      "delegate_name": "Eric J. Phillips",
+      "district": "48",
+      "localities": []
+    },
+    {
+      "delegate_name": "Marcia S. (Cia) Price",
+      "district": "85",
+      "localities": []
+    },
+    {
+      "delegate_name": "Sam Rasoul",
+      "district": "38",
+      "localities": []
+    },
+    {
+      "delegate_name": "Atoosa R. Reaser",
+      "district": "27",
+      "localities": []
+    },
+    {
+      "delegate_name": "David A. Reid",
+      "district": "28",
+      "localities": []
+    },
+    {
+      "delegate_name": "Chris Runion",
+      "district": "35",
+      "localities": []
+    },
+    {
+      "delegate_name": "Don Scott",
+      "district": "88",
+      "localities": []
+    },
+    {
+      "delegate_name": "Phillip A. Scott",
+      "district": "63",
+      "localities": []
+    },
+    {
+      "delegate_name": "Holly M. Seibold",
+      "district": "12",
+      "localities": []
+    },
+    {
+      "delegate_name": "Briana D. Sewell",
+      "district": "25",
+      "localities": []
+    },
+    {
+      "delegate_name": "Irene Shin",
+      "district": "8",
+      "localities": []
+    },
+    {
+      "delegate_name": "Mark D. Sickles",
+      "district": "17",
+      "localities": []
+    },
+    {
+      "delegate_name": "Marcus B. Simon",
+      "district": "13",
+      "localities": []
+    },
+    {
+      "delegate_name": "Shelly A. Simonds",
+      "district": "70",
+      "localities": []
+    },
+    {
+      "delegate_name": "J J Singh",
+      "district": "26",
+      "localities": []
+    },
+    {
+      "delegate_name": "Richard C. (Rip) Sullivan Jr.",
+      "district": "6",
+      "localities": []
+    },
+    {
+      "delegate_name": "Anne Ferrell H. Tata",
+      "district": "99",
+      "localities": []
+    },
+    {
+      "delegate_name": "Kimberly A. Taylor",
+      "district": "82",
+      "localities": []
+    },
+    {
+      "delegate_name": "Josh Thomas",
+      "district": "21",
+      "localities": []
+    },
+    {
+      "delegate_name": "Luke E. Torian",
+      "district": "24",
+      "localities": []
+    },
+    {
+      "delegate_name": "Kathy KL Tran",
+      "district": "18",
+      "localities": []
+    },
+    {
+      "delegate_name": "Vacant Vacant",
+      "district": "33",
+      "localities": []
+    },
+    {
+      "delegate_name": "Howard Otto Wachsmann Jr.",
+      "district": "83",
+      "localities": []
+    },
+    {
+      "delegate_name": "Wendell S. Walker",
+      "district": "52",
+      "localities": []
+    },
+    {
+      "delegate_name": "Jeion A. Ward",
+      "district": "87",
+      "localities": []
+    },
+    {
+      "delegate_name": "R. Lee Ware",
+      "district": "72",
+      "localities": []
+    },
+    {
+      "delegate_name": "Vivian E. Watts",
+      "district": "14",
+      "localities": []
+    },
+    {
+      "delegate_name": "Michael J. Webert",
+      "district": "61",
+      "localities": []
+    },
+    {
+      "delegate_name": "William D. (Bill) Wiley",
+      "district": "32",
+      "localities": []
+    },
+    {
+      "delegate_name": "Rodney T. Willett",
+      "district": "58",
+      "localities": []
+    },
+    {
+      "delegate_name": "Wren M. Williams",
+      "district": "47",
+      "localities": []
+    },
+    {
+      "delegate_name": "Tony O. Wilt",
+      "district": "34",
+      "localities": []
+    },
+    {
+      "delegate_name": "Thomas C. Wright Jr.",
+      "district": "50",
+      "localities": []
+    },
+    {
+      "delegate_name": "Scott A. Wyatt",
+      "district": "60",
+      "localities": []
+    },
+    {
+      "delegate_name": "Eric Zehr",
+      "district": "51",
+      "localities": []
+    }
+  ]
+}

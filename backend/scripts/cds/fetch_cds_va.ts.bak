@@ -1,0 +1,123 @@
+// scripts/cds/fetch_cds_va.ts
+//
+// Minimal, robust CDS ingester for VA: reads a pre-cleaned CSV and emits cds.json
+// Expected CSV headers (case-insensitive):
+//   Recipient Name, Project Purpose, Project Location, Amount Requested ($000)
+//
+// Usage examples:
+//   npx ts-node --files scripts/cds/fetch_cds_va.ts --year 2025 \
+//     --out out/staging/cds/2025 \
+//     --csv out/staging/cds/2025/cds.csv
+//
+// If --csv is omitted, defaults to <out>/cds.csv
+
+import fs from "fs";
+import path from "path";
+import { parse } from "csv-parse/sync";
+
+type CLI = {
+  year: string;
+  out: string;
+  csv?: string;
+  sourceLabel?: string;   // optional tag to identify the file (e.g., "Kaine FY2025 Agriculture")
+  sourceUrl?: string;     // optional URL to the PDF/landing page
+};
+
+type RawRow = Record<string, string>;
+
+type CdsItem = {
+  recipient: string;
+  purpose: string;
+  location: string;
+  amount_thousands: number;
+  amount: number;                 // full dollars
+  year: number;
+  state: "VA";
+  source: "cds";
+  source_label?: string;
+  source_url?: string;
+};
+
+function getArg(flag: string, fallback?: string): string | undefined {
+  const i = process.argv.indexOf(flag);
+  if (i >= 0 && i + 1 < process.argv.length) return process.argv[i + 1];
+  return fallback;
+}
+
+function requireArg(flag: string, name: string): string {
+  const v = getArg(flag);
+  if (!v) {
+    console.error(`[fatal] missing required ${name} (${flag})`);
+    process.exit(1);
+  }
+  return v;
+}
+
+// Case-insensitive getter for CSV columns
+function getField(row: RawRow, candidates: string[]): string {
+  const keys = Object.keys(row);
+  for (const cand of candidates) {
+    const hit = keys.find(k => k.trim().toLowerCase() === cand.toLowerCase());
+    if (hit) return (row[hit] ?? "").toString().trim();
+  }
+  return "";
+}
+
+function toNumberSafe(v: string): number {
+  if (!v) return 0;
+  const num = Number(String(v).replace(/[,$\s]/g, ""));
+  return Number.isFinite(num) ? num : 0;
+}
+
+function main() {
+  const cli: CLI = {
+    year: requireArg("--year", "year"),
+    out: requireArg("--out", "output directory"),
+    csv: getArg("--csv"),
+    sourceLabel: getArg("--sourceLabel"),
+    sourceUrl: getArg("--sourceUrl"),
+  };
+
+  const outDir = path.resolve(cli.out);
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
+  const csvPath = path.resolve(cli.csv ?? path.join(outDir, "cds.csv"));
+  if (!fs.existsSync(csvPath)) {
+    console.error(`[fatal] CSV not found: ${csvPath}`);
+    console.error(`       Provide --csv or place a file at: ${path.join(cli.out, "cds.csv")}`);
+    process.exit(1);
+  }
+
+  const raw = fs.readFileSync(csvPath, "utf8");
+  const records = parse(raw, {
+    columns: true,
+    skip_empty_lines: true,
+    trim: true,
+  }) as RawRow[];
+
+  const items: CdsItem[] = records.map((r) => {
+    const recipient = getField(r, ["Recipient Name"]);
+    const purpose   = getField(r, ["Project Purpose"]);
+    const location  = getField(r, ["Project Location"]);
+    const amtK      = toNumberSafe(getField(r, ["Amount Requested ($000)", "Amount Requested ($k)", "Amount Requested"]));
+
+    return {
+      recipient,
+      purpose,
+      location,
+      amount_thousands: amtK,
+      amount: Math.round(amtK * 1000), // convert to whole dollars
+      year: Number(cli.year),
+      state: "VA" as const,
+      source: "cds",
+      source_label: cli.sourceLabel || undefined,
+      source_url: cli.sourceUrl || undefined,
+    };
+  }).filter(x => x.recipient && x.amount_thousands > 0);
+
+  const outJson = path.join(outDir, "cds.json");
+  fs.writeFileSync(outJson, JSON.stringify(items, null, 2));
+  console.log(`[ok] CDS (VA) wrote ${outJson} ( ${items.length} records )`);
+}
+
+main();
