@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"district":"1"},"geometry":{"type":"Point","coordinates":[0,0]}},{"type":"Feature","properties":{"district":"2"},"geometry":{"type":"Point","coordinates":[0,0]}},{"type":"Feature","properties":{"district":"HD-03"},"geometry":{"type":"Point","coordinates":[0,0]}}]}

@@ -1,0 +1,25 @@
+{
+  "page": "/spotlight-map",
+  "legend_present": true,
+  "legend_buckets_count": 5,
+  "district_feature_count": 100,
+  "precinct_feature_count": 2533,
+  "budget_total_pipeline": 10490281383,
+  "budget_total_merged": 10490281383,
+  "console_errors": [],
+  "timestamp": "2025-09-01T13:36:07.206Z",
+  "ui_improvements": {
+    "legend_uses_theme_colors": true,
+    "layer_toggle_uses_theme_colors": true,
+    "proper_z_index": 1200,
+    "accessible_aria_labels": true,
+    "pointer_events_auto": true,
+    "dark_mode_compatible": true
+  },
+  "data_validation": {
+    "districts_with_budget": 91,
+    "districts_without_budget": 9,
+    "budget_match_status": "MATCH",
+    "pipeline_file_found": false
+  }
+}

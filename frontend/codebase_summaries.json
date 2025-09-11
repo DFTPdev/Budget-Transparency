@@ -1,0 +1,50 @@
+[
+  {
+    "id": "va_budget_pipeline",
+    "summary": "This codebase is a comprehensive ETL pipeline responsible for ingesting Virginia Legislative Information System (LIS) budget amendment data, normalizing member names against House rosters, and producing aggregated spending datasets by district and agency. It handles data source ingestion from multiple APIs (LIS, DPB, CDS, IRS990), performs cross-referencing and enrichment transforms, and outputs structured JSON/CSV files for consumption by visualization tools. The pipeline supports both minimal LIS-only builds and full builds that incorporate federal spending data, nonprofit records, and state budget metadata.",
+    "entry_points": [
+      "npm run sync:lis (ts-node scripts/sync_lis.ts)",
+      "npm run site:build (ts-node scripts/join/build_site_artifacts.ts)",
+      "npm run site:build:full (full build with all data sources)",
+      "npm run build:all (complete pipeline: sync + build + stage)",
+      "node scripts/fetch_lis_member_amendments.js",
+      "node scripts/aggregate_by_district.js",
+      "ts-node scripts/dpb/fetch_dpb.ts",
+      "ts-node scripts/irs990/fetch_990_index.ts"
+    ],
+    "artifacts_or_endpoints": [
+      "out/app/budget_by_district_YYYY.json",
+      "out/app/budget_by_district_YYYY.csv", 
+      "out/app/budget_amendments_YYYY.json",
+      "out/app/recipients_YYYY.json",
+      "out/app/summary_YYYY.json",
+      "out/app/dpb_YYYY.json",
+      "out/app/cds_YYYY.json",
+      "out/app/cds_by_locality_YYYY.json",
+      "out/app/irs990_index.json",
+      "out/app/lis_by_district_YYYY.json",
+      "out/app/lis_by_delegate_YYYY.json",
+      "scripts/out/district_totals.json",
+      "scripts/out/district_totals.csv"
+    ]
+  },
+  {
+    "id": "dftp-site", 
+    "summary": "This codebase is a Next.js-based web application responsible for rendering interactive budget visualization pages, dashboard components, and static site generation. It serves as the frontend consumer of the pipeline's JSON/CSV outputs, providing UI pages for district-level budget analysis, interactive maps using Leaflet components, and data export functionality. The site handles static asset serving, implements dynamic routing for posts and products, and includes geospatial visualization capabilities through GeoJSON boundary files and spending data overlays.",
+    "entry_points": [
+      "src/app/dashboard/post/[title]/(details)/page.tsx (dynamic post pages)",
+      "src/app/post/[title]/page.tsx (public post pages)", 
+      "src/app/dashboard/product/[id]/(details)/page.tsx (product detail pages)",
+      "src/app/product/[id]/page.tsx (public product pages)",
+      "generateStaticParams() functions (static site generation)"
+    ],
+    "artifacts_or_endpoints": [
+      "public/data/vpap-precincts.geojson",
+      "public/data/virginia-districts.geojson", 
+      "public/data/virginia-senate.geojson",
+      "leaflet-districts-map.tsx component (consumes GeoJSON + spending data)",
+      "Static exports via Next.js build process",
+      "Dynamic API endpoints via Next.js routing"
+    ]
+  }
+]

@@ -1,0 +1,150 @@
+{
+  "artifacts": [
+    {
+      "path": "out/app/budget_by_district_YYYY.json",
+      "type": "json",
+      "schema": ["sessionYear", "district", "delegate_name", "total_amount", "add_amount", "reduce_amount", "amendments_count"],
+      "sample": [
+        {
+          "sessionYear": 2025,
+          "district": "HD-01",
+          "delegate_name": "John Doe",
+          "total_amount": 150000,
+          "add_amount": 200000,
+          "reduce_amount": -50000,
+          "amendments_count": 3
+        }
+      ],
+      "generated_by": "scripts/join/build_site_artifacts.ts (outJSON function, line ~180)"
+    },
+    {
+      "path": "out/app/budget_by_district_YYYY.csv",
+      "type": "csv",
+      "schema": ["sessionYear", "district", "delegate_name", "total_amount", "add_amount", "reduce_amount", "amendments_count"],
+      "sample": "sessionYear,district,delegate_name,total_amount,add_amount,reduce_amount,amendments_count\n2025,HD-01,\"John Doe\",150000,200000,-50000,3",
+      "generated_by": "scripts/join/build_site_artifacts.ts (outCSV function, line ~190)"
+    },
+    {
+      "path": "out/app/budget_amendments_YYYY.json",
+      "type": "json",
+      "schema": ["member", "agency", "amount", "title", "sessionYear"],
+      "sample": [
+        {
+          "member": "John Doe",
+          "agency": "Department of Education",
+          "amount": 50000,
+          "title": "School funding amendment",
+          "sessionYear": 2025
+        }
+      ],
+      "generated_by": "scripts/join/build_site_artifacts.ts (outJSON function, line ~200)"
+    },
+    {
+      "path": "out/app/recipients_YYYY.json",
+      "type": "json",
+      "schema": ["agency", "total_amount", "items", "sources", "dpb_total", "dpb_items", "dpb_breakdown"],
+      "sample": [
+        {
+          "agency": "Department of Education",
+          "total_amount": 500000,
+          "items": 10,
+          "sources": ["lis", "dpb"],
+          "dpb_total": 200000,
+          "dpb_items": 3
+        }
+      ],
+      "generated_by": "scripts/join/build_site_artifacts.ts (recipientsRows materialization, line ~150)"
+    },
+    {
+      "path": "out/app/summary_YYYY.json",
+      "type": "json",
+      "schema": ["total_amendments", "total_amount", "districts_with_data"],
+      "sample": {
+        "total_amendments": 150,
+        "total_amount": 5000000,
+        "districts_with_data": 85
+      },
+      "generated_by": "scripts/join/build_site_artifacts.ts (sums object, line ~210)"
+    },
+    {
+      "path": "out/app/dpb_YYYY.json",
+      "type": "json",
+      "schema": ["agency", "dpb_total", "dpb_items", "dpb_breakdown"],
+      "sample": [
+        {
+          "agency": "Department of Health",
+          "dpb_total": 300000,
+          "dpb_items": 5,
+          "dpb_breakdown": []
+        }
+      ],
+      "generated_by": "scripts/join/build_site_artifacts.ts (conditional includeDPB, line ~220)"
+    },
+    {
+      "path": "out/app/cds_YYYY.json",
+      "type": "json",
+      "schema": ["recipient", "purpose", "location", "amount", "member", "subcommittee"],
+      "sample": [
+        {
+          "recipient": "Community Center",
+          "purpose": "Infrastructure",
+          "location": "Richmond",
+          "amount": 75000,
+          "member": "Jane Smith"
+        }
+      ],
+      "generated_by": "scripts/join/build_site_artifacts.ts (conditional includeCDS, line ~225)"
+    },
+    {
+      "path": "out/app/irs990_index.json",
+      "type": "json",
+      "schema": ["org", "ein", "year", "url"],
+      "sample": [
+        {
+          "org": "Virginia Education Foundation",
+          "ein": "12-3456789",
+          "year": 2024,
+          "url": "https://example.com/990.pdf"
+        }
+      ],
+      "generated_by": "scripts/join/build_site_artifacts.ts (conditional include990, line ~230)"
+    },
+    {
+      "path": "scripts/out/district_totals.json",
+      "type": "json",
+      "schema": ["generated_at", "session", "notes", "count", "rows"],
+      "sample": {
+        "generated_at": "2025-08-09T04:04:01.711Z",
+        "session": "2025 Session - House",
+        "notes": "Totals derived by matching amendment sponsor names...",
+        "count": 0,
+        "rows": []
+      },
+      "generated_by": "scripts/aggregate_by_district.js or similar aggregation script"
+    },
+    {
+      "path": "out/lis_amendments_YYYY.jsonl",
+      "type": "jsonl",
+      "schema": ["member", "agency", "amount", "title", "sessionYear"],
+      "sample": "{\"member\":\"John Doe\",\"agency\":\"DOE\",\"amount\":50000,\"title\":\"Education funding\",\"sessionYear\":2025}\n{\"member\":\"Jane Smith\",\"agency\":\"DOT\",\"amount\":25000,\"title\":\"Road repair\",\"sessionYear\":2025}",
+      "generated_by": "scripts/sync_lis.ts and scripts/build_budget_dataset.ts"
+    }
+  ],
+  "http_routes": [],
+  "run_commands": [
+    "npm run sync:lis",
+    "npm run site:build", 
+    "npm run site:build:full",
+    "npm run build:all",
+    "npm run build:all:full",
+    "npm run publish:full",
+    "node scripts/fetch_lis_member_amendments.js",
+    "node scripts/aggregate_by_district.js",
+    "ts-node scripts/join/build_site_artifacts.ts"
+  ],
+  "env_vars": [
+    "npm_package_config_year",
+    "npm_package_config_rosterPath",
+    "TS_NODE_TRANSPILE_ONLY"
+  ]
+}

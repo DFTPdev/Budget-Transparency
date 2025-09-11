@@ -1,0 +1,260 @@
+{
+  "analysis_timestamp": "2025-09-02T20:25:33.149Z",
+  "data_files": [
+    {
+      "path": "public/data/budget_by_district_2025.json",
+      "size_bytes": 18506,
+      "row_count": 91,
+      "first_5_rows": [
+        {
+          "sessionYear": 2025,
+          "district": 1,
+          "delegate_name": "Patrick A. Hope",
+          "total_amount": 10982744,
+          "add_amount": 10982744,
+          "reduce_amount": 0,
+          "amendments_count": 12
+        },
+        {
+          "sessionYear": 2025,
+          "district": 2,
+          "delegate_name": "Adele Y. McClure",
+          "total_amount": 23182504,
+          "add_amount": 23182504,
+          "reduce_amount": 0,
+          "amendments_count": 11
+        },
+        {
+          "sessionYear": 2025,
+          "district": 3,
+          "delegate_name": "Alfonso H. Lopez",
+          "total_amount": 18460000,
+          "add_amount": 18460000,
+          "reduce_amount": 0,
+          "amendments_count": 11
+        },
+        {
+          "sessionYear": 2025,
+          "district": 4,
+          "delegate_name": "Charniele L. Herring",
+          "total_amount": 39644503,
+          "add_amount": 39644503,
+          "reduce_amount": 0,
+          "amendments_count": 13
+        },
+        {
+          "sessionYear": 2025,
+          "district": 5,
+          "delegate_name": "Elizabeth B. Bennett-Parker",
+          "total_amount": 230811705,
+          "add_amount": 230811705,
+          "reduce_amount": 0,
+          "amendments_count": 5
+        }
+      ],
+      "monetary_columns": [
+        "total_amount",
+        "add_amount",
+        "reduce_amount"
+      ]
+    },
+    {
+      "path": "public/data/dpb_2025.json",
+      "size_bytes": 4617,
+      "row_count": 16,
+      "first_5_rows": [
+        {
+          "year": 2025,
+          "general_fund_resources": 34900000000,
+          "uses_operating": 34800000000,
+          "capital_total_gf": 351900000,
+          "reserve_deposits": 294500000,
+          "rebates": 977800000,
+          "notes": [
+            "…"
+          ]
+        },
+        {
+          "id": "5fa9f4e47a70a52761836e1cfe9bc1ae234a3298",
+          "title": "2020-2022",
+          "amount": 1199204020,
+          "agency": "George Mason University",
+          "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+          "source": "dpb",
+          "agencyCode": "247"
+        },
+        {
+          "id": "f3f9f7233db0f0fb0ef76948ac4eca23c6fd37f8",
+          "title": "2021-2024",
+          "amount": 1275575822,
+          "agency": "George Mason University",
+          "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+          "source": "dpb",
+          "agencyCode": "247"
+        },
+        {
+          "id": "972639b415c34a3b2ad4b7238db83b6c67c6fcd8",
+          "title": "2020-2022",
+          "amount": 1210148920,
+          "agency": "George Mason University",
+          "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+          "source": "dpb",
+          "agencyCode": "247"
+        },
+        {
+          "id": "f88e83d4654c558c9b01df42d8fa6c174debe23b",
+          "title": "2021-2024",
+          "amount": 1305078472,
+          "agency": "George Mason University",
+          "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+          "source": "dpb",
+          "agencyCode": "247"
+        }
+      ],
+      "monetary_columns": [
+        "general_fund_resources",
+        "capital_total_gf"
+      ]
+    },
+    {
+      "path": "public/data/recipients_2025.json",
+      "size_bytes": 19059,
+      "row_count": 119,
+      "first_5_rows": [
+        {
+          "agency": "Department of Medical Assistance Services",
+          "total_amount": 4091050868,
+          "items": 64,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Direct Aid to Public Education",
+          "total_amount": 2026736188,
+          "items": 71,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Central Capital Outlay",
+          "total_amount": 876685921,
+          "items": 23,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Department of Transportation",
+          "total_amount": 505498000,
+          "items": 27,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Department of Environmental Quality",
+          "total_amount": 391632338,
+          "items": 22,
+          "sources": [
+            "lis"
+          ]
+        }
+      ],
+      "monetary_columns": [
+        "total_amount"
+      ]
+    },
+    {
+      "path": "__tests__/fixtures/dpb_2025.json",
+      "size_bytes": 677,
+      "row_count": 3,
+      "first_5_rows": [
+        {
+          "year": 2025,
+          "general_fund_resources": 34900000000,
+          "uses_operating": 34800000000,
+          "capital_total_gf": 351900000,
+          "reserve_deposits": 294500000,
+          "rebates": 977800000,
+          "notes": [
+            "Sample DPB data for testing"
+          ]
+        },
+        {
+          "id": "test1",
+          "title": "Education Initiative",
+          "amount": 1199204020,
+          "agency": "Department of Education",
+          "url": "https://example.com/test",
+          "source": "dpb",
+          "agencyCode": "123"
+        },
+        {
+          "id": "test2",
+          "title": "Healthcare Program",
+          "amount": 850000000,
+          "agency": "Department of Health",
+          "url": "https://example.com/test2",
+          "source": "dpb",
+          "agencyCode": "456"
+        }
+      ],
+      "monetary_columns": [
+        "general_fund_resources",
+        "capital_total_gf"
+      ]
+    },
+    {
+      "path": "__tests__/fixtures/recipients_2025.json",
+      "size_bytes": 1157,
+      "row_count": 9,
+      "first_5_rows": [
+        {
+          "agency": "Department of Medical Assistance Services",
+          "total_amount": 4091050868,
+          "items": 64,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Direct Aid to Public Education",
+          "total_amount": 2026736188,
+          "items": 71,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Central Capital Outlay",
+          "total_amount": 876685921,
+          "items": 23,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Department of Transportation",
+          "total_amount": 650000000,
+          "items": 45,
+          "sources": [
+            "lis"
+          ]
+        },
+        {
+          "agency": "Virginia State University",
+          "total_amount": 125000000,
+          "items": 12,
+          "sources": [
+            "lis"
+          ]
+        }
+      ],
+      "monetary_columns": [
+        "total_amount"
+      ]
+    }
+  ]
+}

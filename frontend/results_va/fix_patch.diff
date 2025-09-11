@@ -1,0 +1,44 @@
+diff --git a/scripts/join/build_site_artifacts.ts b/scripts/join/build_site_artifacts.ts
+index 1234567..abcdefg 100644
+--- a/scripts/join/build_site_artifacts.ts
++++ b/scripts/join/build_site_artifacts.ts
+@@ -150,6 +150,15 @@ function buildRecipients(
+   // TODO: Add base budget integration
++  // CRITICAL: Current data only includes amendments (~$10B)
++  // Missing base budget appropriations (~$170B) 
++  // Need to integrate DPB base budget data:
++  // 1. Load DPB general fund resources ($34.9B observed)
++  // 2. Add non-general fund sources 
++  // 3. Calculate biennial totals (FY2024-26)
++  // 4. Distribute base budget to districts proportionally
++  // 5. Add amendment deltas on top of base
++  
+   return recipients;
+ }
+ 
+@@ -200,6 +209,12 @@ function main() {
+   const districtTotals = aggregateByDistrict(lisData);
++  
++  // TODO: Integrate base budget before amendment aggregation
++  // Current: amendments only = ~$10B
++  // Target: base + amendments = ~$181B biennial
++  // Scale factor needed: ~17x suggests missing base data
+   
+   // Write outputs
+   writeDistrictOutputs(districtTotals, year, outDir);
+
+diff --git a/scripts/build_budget_dataset.ts b/scripts/build_budget_dataset.ts
+index 2345678..bcdefgh 100644
+--- a/scripts/build_budget_dataset.ts
++++ b/scripts/build_budget_dataset.ts
+@@ -180,6 +180,11 @@ function main() {
+     const amt = totalFromRow(row);
+     const key = district;
++    
++    // TODO: Add base budget allocation per district
++    // Current: only amendment amounts (~$10B total)
++    // Missing: base appropriations (~$170B)
++    // Biennial calculation needed for FY2024-26
+ 
+     let cur = byDistrict.get(key);
+     if (!cur) {

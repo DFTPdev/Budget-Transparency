@@ -1,0 +1,75 @@
+{
+  "task": "Run diagnostics, restore or re-run merge if needed, and patch legend",
+  "timestamp": "2025-09-01T15:20:00Z",
+  "actions_taken": [
+    {
+      "step": 1,
+      "action": "Run diagnostics",
+      "status": "COMPLETED",
+      "details": {
+        "geojson_sum": 52625248,
+        "pipeline_sum": 10490281383,
+        "difference_percentage": 99.994,
+        "threshold_exceeded": true
+      }
+    },
+    {
+      "step": 2,
+      "action": "Restore backup and re-run merge",
+      "status": "COMPLETED",
+      "details": {
+        "backup_restored": "public/data/backups/virginia-districts.geojson",
+        "budget_data_copied": "/Users/secretservice/Documents/House-Scripts/va_budget_pipeline/out/app/budget_by_district_2025.json",
+        "merge_script_executed": "node scripts/mergeBudgetIntoGeojson.js",
+        "merge_result": {
+          "geo_features": 3,
+          "budget_rows": 91,
+          "matched_features": 3,
+          "issue": "District ID mapping mismatch - only 3/91 districts matched"
+        }
+      }
+    },
+    {
+      "step": 3,
+      "action": "Patch legend to use compact formatter",
+      "status": "COMPLETED",
+      "details": {
+        "component_updated": "src/components/SpotlightMap.tsx",
+        "change": "Removed pre-formatted labels to let MapLegend fmtMoney formatter handle formatting",
+        "legend_bins_source": "district features only (confirmed)",
+        "formatter_function": "fmtMoney() with B/M/K suffixes"
+      }
+    },
+    {
+      "step": 4,
+      "action": "Restart dev server",
+      "status": "COMPLETED",
+      "details": {
+        "server_restarted": true,
+        "compilation_status": "SUCCESS",
+        "spotlight_map_compiled": "3.5s"
+      }
+    }
+  ],
+  "files_updated": [
+    "public/data/merge-quick-check.json",
+    "public/data/district-spending.geojson",
+    "public/data/budget_by_district_2025.json",
+    "src/components/SpotlightMap.tsx",
+    "public/data/map-sanity.json",
+    "/tmp/merge-run.log"
+  ],
+  "data_quality_status": {
+    "merge_ratio": 0.502,
+    "status": "POOR",
+    "issue": "District ID mapping mismatch",
+    "districts_matched": "3/91",
+    "recommendation": "Fix district ID normalization in merge script"
+  },
+  "legend_status": {
+    "formatter_active": true,
+    "bins_from_districts": true,
+    "compact_formatting": true,
+    "dev_server_running": true
+  }
+}

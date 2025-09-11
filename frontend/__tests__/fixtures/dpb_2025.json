@@ -1,0 +1,29 @@
+[
+  {
+    "year": 2025,
+    "general_fund_resources": 34900000000,
+    "uses_operating": 34800000000,
+    "capital_total_gf": 351900000,
+    "reserve_deposits": 294500000,
+    "rebates": 977800000,
+    "notes": ["Sample DPB data for testing"]
+  },
+  {
+    "id": "test1",
+    "title": "Education Initiative",
+    "amount": 1199204020,
+    "agency": "Department of Education",
+    "url": "https://example.com/test",
+    "source": "dpb",
+    "agencyCode": "123"
+  },
+  {
+    "id": "test2", 
+    "title": "Healthcare Program",
+    "amount": 850000000,
+    "agency": "Department of Health",
+    "url": "https://example.com/test2",
+    "source": "dpb",
+    "agencyCode": "456"
+  }
+]

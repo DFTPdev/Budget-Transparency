@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-09-01T12:07:47.233Z",
+  "operation": "district_merge_restore",
+  "pipeline_source": "/Users/secretservice/Documents/House-Scripts/va_budget_pipeline/out/app/virginia-districts.geojson",
+  "budget_source": "/Users/secretservice/Documents/House-Scripts/va_budget_pipeline/out/app/budget_by_district_2025.json",
+  "site_output": "public/data/district-spending.geojson",
+  "summary": {
+    "geo_features_total": 100,
+    "budget_districts_total": 91,
+    "matched_features": 91,
+    "unmatched_features": 9,
+    "match_rate": "91/91 (100% of budget districts matched)",
+    "unmatched_geo_districts": [
+      "88",
+      "90",
+      "24",
+      "50",
+      "56",
+      "57",
+      "59",
+      "62",
+      "66"
+    ]
+  },
+  "validation": {
+    "budget_total_sum": 10490281383,
+    "merged_total_sum": 10490281383,
+    "totals_match": true,
+    "double_counting_fixed": true
+  },
+  "artifacts_created": [
+    "public/data/district-spending.geojson",
+    "public/data/merge-diagnostics.json",
+    "/tmp/budget_by_district_2025_snapshot.csv"
+  ]
+}

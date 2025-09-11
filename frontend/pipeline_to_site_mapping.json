@@ -1,0 +1,69 @@
+{
+  "pipeline_outputs": {
+    "budget_by_district_YYYY.json": {
+      "structure": "Array of district aggregations with delegate info",
+      "fields": ["sessionYear", "district", "delegate_name", "total_amount", "add_amount", "reduce_amount", "amendments_count"],
+      "site_usage": "District-level budget visualization and analysis"
+    },
+    "budget_by_district_YYYY.csv": {
+      "structure": "CSV version of district data",
+      "site_usage": "Export/download functionality"
+    },
+    "budget_amendments_YYYY.json": {
+      "structure": "Raw amendment records",
+      "site_usage": "Detailed amendment browsing and search"
+    },
+    "recipients_YYYY.json": {
+      "structure": "Agency recipients with totals and optional DPB metadata",
+      "fields": ["agency", "total_amount", "items", "sources", "dpb_total", "dpb_items", "dpb_breakdown"],
+      "site_usage": "Agency/recipient analysis and cross-referencing"
+    },
+    "summary_YYYY.json": {
+      "structure": "High-level statistics",
+      "fields": ["total_amendments", "total_amount", "districts_with_data"],
+      "site_usage": "Dashboard overview metrics"
+    },
+    "dpb_YYYY.json": {
+      "structure": "Department of Planning and Budget data",
+      "site_usage": "Enhanced budget context when includeDPB=true"
+    },
+    "cds_YYYY.json": {
+      "structure": "Community Development Spending records",
+      "fields": ["recipient", "purpose", "location", "amount", "member", "subcommittee"],
+      "site_usage": "Federal spending overlay data"
+    },
+    "cds_by_locality_YYYY.json": {
+      "structure": "CDS aggregated by locality",
+      "fields": ["locality", "items", "total_amount", "records", "members"],
+      "site_usage": "Locality-based federal spending analysis"
+    },
+    "irs990_index.json": {
+      "structure": "IRS 990 nonprofit data index",
+      "fields": ["org", "ein", "year", "url"],
+      "site_usage": "Nonprofit recipient verification and links"
+    }
+  },
+  "geospatial_integration": {
+    "district_boundaries": {
+      "pipeline_input": "virginia-districts.geojson",
+      "site_component": "leaflet-districts-map.tsx",
+      "merge_process": "scripts/merge_totals_geojson.js adds spending data to district features"
+    },
+    "precinct_data": {
+      "site_file": "vpap-precincts.geojson",
+      "fields": ["sp_amt", "sr_amt"],
+      "site_usage": "Precinct-level spending visualization"
+    }
+  },
+  "build_commands": {
+    "site:build": "Basic LIS-only build (includeDPB=false, includeCDS=false)",
+    "site:build:full": "Complete build with all data sources",
+    "site:enrich": "Post-processing for CDS and IRS990 enhancement"
+  },
+  "data_flow": {
+    "primary_source": "LIS amendments drive district totals",
+    "enhancement_sources": "DPB/CDS/IRS990 add metadata without changing LIS totals",
+    "output_directory": "out/app/",
+    "qa_output": "_qa_unmatched_members.json for data quality monitoring"
+  }
+}

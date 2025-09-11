@@ -1,0 +1,76 @@
+[ ] NAME:Current Task List DESCRIPTION:Root task for conversation 5731c909-3b1b-4c35-af31-717fd7a60520
+-[x] NAME:Analyze current landing page structure and design assets DESCRIPTION:Review the existing HomeView component, understand the current layout, and identify available design assets including icons, illustrations, and theme utilities for visual enhancements.
+-[x] NAME:Redesign Platform Features section with 2x2 responsive grid DESCRIPTION:Convert the current 3-column features layout to a 2x2 responsive grid that displays FOIA Toolkit, Budget Decoder, Spotlight Map, and Whistleblower Portal with equal prominence and proper alignment.
+-[x] NAME:Enhance visual hierarchy and balance DESCRIPTION:Improve the overall visual balance by maintaining the hero section with gradient headline and primary CTAs, ensuring feature cards have equal prominence, and keeping the Get Involved CTA section at the bottom.
+-[x] NAME:Add visual enhancements with existing design assets DESCRIPTION:Integrate relevant icons, background patterns, and visual elements from the Minimal Kit assets. Add subtle hover animations and motion effects for feature cards using available components.
+-[x] NAME:Improve content scannability and accessibility DESCRIPTION:Enhance the current copy for better scannability with improved headings, shorter lines, and clear accessible CTAs while maintaining the professional civic platform tone.
+-[x] NAME:Test responsive design and dark theme compatibility DESCRIPTION:Ensure the redesigned landing page works well across different screen sizes and maintains compatibility with the dark theme without breaking existing functionality.
+-[x] NAME:Create new DFTP navigation configuration DESCRIPTION:Replace the current nav-config-main.tsx with a clean DFTP-specific navigation containing only Home, Budget Decoder, Spotlight Map, FOIA Toolkit, and Whistleblower Portal links.
+-[x] NAME:Refactor main layout header DESCRIPTION:Remove Logo, Sign In button, Purchase button, Components and Docs buttons from the header. Update the header to use the new DFTP navigation and center or left-align the nav links for best visual balance.
+-[x] NAME:Refactor footer components DESCRIPTION:Remove Minimal logo and branding from both Footer and HomeFooter components. Keep only the Get Involved section and update copyright to '© 2025 DFTP. All rights reserved.'
+-[x] NAME:Clean up mobile navigation DESCRIPTION:Remove Sign In and Purchase buttons from mobile navigation drawer and ensure it uses the new DFTP navigation structure.
+-[x] NAME:Test header and footer changes DESCRIPTION:Verify that all template branding is removed, navigation works correctly, and the site maintains proper visual balance across desktop and mobile.
+-[x] NAME:Remove Settings button from header DESCRIPTION:Remove the SettingsButton component from the main layout header and clean up any related imports.
+-[x] NAME:Delete Settings components and files DESCRIPTION:Delete all Settings-related components, context providers, drawers, and configuration files from the src/components/settings directory.
+-[x] NAME:Remove Settings from theme system DESCRIPTION:Remove Settings integration from theme provider, create-theme, and with-settings functionality. Simplify theme to use default dark mode only.
+-[x] NAME:Clean up Settings imports and references DESCRIPTION:Remove all imports and references to Settings functionality throughout the codebase, including layout components and theme files.
+-[x] NAME:Test header and site functionality DESCRIPTION:Verify that the header remains clean with only navigation links, the site stays in dark mode, and no Settings-related errors occur.
+-[x] NAME:Remove Request a Demo button from footer DESCRIPTION:Remove the 'Request a Demo' button from both the main Footer component and the Get Involved CTA section in the home view, keeping only 'Contact Us' and 'Subscribe to Updates' buttons.
+-[x] NAME:Center and adjust button spacing DESCRIPTION:Center the remaining two buttons horizontally with even spacing and ensure the layout looks balanced after the removal.
+-[x] NAME:Test responsive footer layout DESCRIPTION:Verify that the footer works cleanly on both desktop and mobile with proper button alignment and spacing.
+-[x] NAME:Analyze current layout structure DESCRIPTION:Examine the current layout system to understand how headers are applied across different pages and identify which layout is used for each page type.
+-[x] NAME:Ensure main layout is applied site-wide DESCRIPTION:Update the layout configuration to ensure the main layout with DFTP navigation is applied to all pages including Budget Decoder, Spotlight Map, FOIA Toolkit, and Whistleblower Portal.
+-[x] NAME:Verify header consistency across all pages DESCRIPTION:Check that all subpages now have the consistent DFTP navigation header and that no kit-specific elements remain on any page.
+-[x] NAME:Test responsive navigation on all pages DESCRIPTION:Verify that the navigation collapses properly on smaller screens across all pages and that mobile navigation works consistently.
+-[x] NAME:Analyze current content-footer spacing DESCRIPTION:Examine the current MainLayout structure and identify where content spacing should be applied to ensure consistent spacing between page content and footer.
+-[x] NAME:Implement site-wide content spacing DESCRIPTION:Add proper padding-bottom or margin-bottom (4rem desktop, 2rem mobile) to the main content area in the MainLayout to ensure consistent spacing before the footer.
+-[x] NAME:Test spacing across all DFTP pages DESCRIPTION:Verify that all pages (Home, Budget Decoder, Spotlight Map, FOIA Toolkit, Whistleblower Portal) have proper spacing between content and footer on both desktop and mobile.
+-[x] NAME:Fix React error and revert MainSection changes DESCRIPTION:Revert the MainSection changes that are causing the React error and investigate the proper way to implement spacing without breaking the layout system.
+-[x] NAME:Implement spacing using layout wrapper approach DESCRIPTION:Add spacing using a wrapper component in the MainLayout that properly applies padding-bottom to ensure content-footer separation without interfering with the existing layout system.
+-[x] NAME:Test and verify spacing fix DESCRIPTION:Verify that the spacing now works correctly on all pages and that the React error is resolved.
+-[x] NAME:Analyze current Budget Decoder structure DESCRIPTION:Examine the current BudgetDecoderView component to understand the data structure, table implementation, and existing insights sections that need to be made dynamic.
+-[x] NAME:Create budgetData array and insights generation logic DESCRIPTION:Implement the budgetData JSON array from table data and create the generateInsights function that analyzes spending patterns, YoY changes, and generates key findings and notable changes.
+-[x] NAME:Integrate dynamic insights into the component DESCRIPTION:Replace static insights with dynamic content generation, ensure proper rendering, and make it reactive to data changes while maintaining existing design and styling.
+-[x] NAME:Test dynamic insights functionality DESCRIPTION:Verify that insights generate correctly on page load, update when data changes, and maintain proper styling and layout in the Budget Analysis & Insights section.
+-[x] NAME:Investigate hydration mismatch error DESCRIPTION:Examine the FOIA page component to identify what's causing the server/client rendering mismatch, likely related to dynamic content or state initialization.
+-[x] NAME:Fix hydration mismatch DESCRIPTION:Resolve the hydration issue by ensuring consistent server and client rendering, possibly by using useEffect for client-only content or proper state initialization.
+-[x] NAME:Test fix across all pages DESCRIPTION:Verify that the hydration fix works and doesn't introduce issues on other pages, ensuring all DFTP pages render correctly.
+-[x] NAME:Analyze current Spotlight Map structure DESCRIPTION:Examine the current SpotlightMapView component to understand the existing layout, data structure, and placeholder elements that need to be replaced with the interactive map.
+-[x] NAME:Install and configure Leaflet.js DESCRIPTION:Add Leaflet.js dependencies and set up the basic map configuration with dark theme styling to match the existing DFTP design.
+-[x] NAME:Create Virginia districts GeoJSON data DESCRIPTION:Create or import Virginia legislative district boundaries as GeoJSON data and implement district centroid calculations for circle marker positioning.
+-[x] NAME:Implement interactive district circles DESCRIPTION:Add color-coded circle markers for each district based on party affiliation (blue for Democrat, red for Republican) with hover tooltips showing district data.
+-[x] NAME:Add map-to-card interactions DESCRIPTION:Implement click handlers that highlight district polygons and scroll to corresponding District Comparison cards with visual feedback.
+-[x] NAME:Fix UI layout and responsive design DESCRIPTION:Ensure filter dropdown visibility, responsive map sizing, and proper footer spacing while maintaining the existing design consistency.
+-[x] NAME:Test interactive map functionality DESCRIPTION:Verify all map interactions work correctly, tooltips display proper data, and the responsive layout functions across different screen sizes.
+-[x] NAME:Download and analyze Virginia districts SVG DESCRIPTION:Fetch the Virginia House of Delegates districts SVG from Wikimedia Commons and analyze its structure to understand the path elements and district identifiers for targeting.
+-[x] NAME:Create SVG component with inline embedding DESCRIPTION:Create a new React component that embeds the Virginia districts SVG inline with proper path element targeting and responsive scaling within its container.
+-[x] NAME:Implement interactive hover and selection states DESCRIPTION:Add hover highlighting with brighter fill and subtle shadow, plus persistent selection with green outline/glow effect using CSS transitions and React state management.
+-[x] NAME:Sync SVG interactions with District Comparison cards DESCRIPTION:Implement bidirectional synchronization between SVG district selection and District Comparison cards, ensuring cross-highlighting and single active district state.
+-[x] NAME:Ensure Proper Virginia Bounds Fitting DESCRIPTION:Configure the map to zoom to fit Virginia's bounds properly on initial load with appropriate zoom levels and responsive behavior
+-[x] NAME:Add Hover Effects and Color Palette DESCRIPTION:Implement desktop hover effects with lighter fill/outline and use distinct colors for districts or party affiliation with proper visual feedback
+-[x] NAME:Implement District Highlighting and Selection DESCRIPTION:Add click handlers that highlight selected districts with glowing borders and update the district card information with proper zoom-to-bounds functionality
+-[x] NAME:Create Production Virginia Districts Map Component DESCRIPTION:Create a new React component that imports and renders the production Virginia Senate districts SVG with full interactivity
+-[x] NAME:Implement District Path Detection DESCRIPTION:Parse the SVG to identify district boundaries and create clickable regions for each of the 40 Senate districts
+-[x] NAME:Add Interactive Features DESCRIPTION:Implement hover effects, click functionality, tooltips, and bidirectional synchronization with district cards
+-[x] NAME:Integrate with Spotlight Map Page DESCRIPTION:Replace the existing mock SVG component with the new production-ready Virginia districts map
+-[x] NAME:Test and Optimize DESCRIPTION:Test all interactive features, ensure responsive design, and optimize performance
+-[x] NAME:Install Leaflet and React-Leaflet DESCRIPTION:Install react-leaflet and leaflet dependencies for interactive map functionality
+-[x] NAME:Fetch and Process Virginia House District GeoJSON DESCRIPTION:Fetch the Virginia House District GeoJSON data from the provided URL and process it for map rendering
+-[ ] NAME:Create Interactive Leaflet Map Component DESCRIPTION:Build a new React component using react-leaflet that renders Virginia districts with proper styling and interactivity
+-[ ] NAME:Implement District Hover and Click Interactions DESCRIPTION:Add hover highlighting and click functionality with popups showing district information
+-[ ] NAME:Replace SVG Map with Leaflet Implementation DESCRIPTION:Remove the current SVG map and integrate the new Leaflet map into the Spotlight Map page
+-[ ] NAME:Add Responsive Design and UI Integration DESCRIPTION:Ensure the map is properly wrapped in MUI components with responsive sizing and DFTP theming
+-[ ] NAME:Test Interactive Map Functionality DESCRIPTION:Verify all map interactions work correctly and the responsive layout functions across different screen sizes
+-[x] NAME:Download and Setup Virginia Districts GeoJSON DESCRIPTION:Download the Virginia House Districts GeoJSON data and place it in /public/data/virginia-districts.geojson for local access
+-[ ] NAME:Refactor Leaflet Map Component DESCRIPTION:Update the VirginiaLeafletMap component to load from local GeoJSON file with proper district boundary rendering
+-[ ] NAME:Implement District Boundary Styling DESCRIPTION:Add proper styling for district boundaries with light stroke, fill, and hover effects including green glow highlighting
+-[ ] NAME:Add Interactive District Features DESCRIPTION:Implement onEachFeature with hover and click events that integrate with existing district card selection logic
+-[ ] NAME:Ensure District Labels Visibility DESCRIPTION:Make sure district labels remain visible and not obstructed by the boundary overlays
+-[ ] NAME:Test GeoJSON Loading and Interactivity DESCRIPTION:Verify that the GeoJSON loads correctly and all interactive features work as expected
+-[x] NAME:Add Error Handling and Fallbacks DESCRIPTION:Implement comprehensive error handling with fallback messages if GeoJSON fails to load, including retry mechanisms and user-friendly error states
+-[x] NAME:Test Responsive Design and Accessibility DESCRIPTION:Verify the map works correctly across all devices and maintains accessibility standards with proper keyboard navigation and screen reader support
+-[ ] NAME:Implement District Highlighting and Selection DESCRIPTION:Add click handlers that highlight selected districts with glowing borders and update the district card information
+-[ ] NAME:Add Hover Effects and Color Palette DESCRIPTION:Implement desktop hover effects with lighter fill/outline and use distinct colors for districts or party affiliation
+-[ ] NAME:Ensure Proper Virginia Bounds Fitting DESCRIPTION:Configure the map to zoom to fit Virginia's bounds properly on initial load with appropriate zoom levels
+-[ ] NAME:Add Error Handling and Fallbacks DESCRIPTION:Implement comprehensive error handling with fallback messages if GeoJSON fails to load
+-[ ] NAME:Test Responsive Design and Accessibility DESCRIPTION:Verify the map works correctly across all devices and maintains accessibility standards

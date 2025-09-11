@@ -1,0 +1,87 @@
+{
+  "mappings": [
+    {
+      "pipeline_artifact": "out/app/summary_YYYY.json",
+      "site_targets": ["src/app/dashboard/page.tsx", "src/components/dashboard/overview-stats.tsx"],
+      "mapping_reason": "Summary statistics are perfect for dashboard overview cards showing total amendments, spending amounts, and district coverage.",
+      "data_transformation": "Format numbers with commas/currency, calculate percentages, add trend indicators",
+      "fetch_mode": "build-time",
+      "complexity": "low",
+      "complexity_reason": "Simple numeric display with basic formatting"
+    },
+    {
+      "pipeline_artifact": "out/app/budget_by_district_YYYY.json",
+      "site_targets": ["public/data/district-spending.json", "src/components/maps/leaflet-districts-map.tsx"],
+      "mapping_reason": "District-level spending data directly feeds the existing Leaflet map component for geographic visualization.",
+      "data_transformation": "Merge with virginia-districts.geojson properties, normalize district IDs, format currency amounts",
+      "fetch_mode": "build-time",
+      "complexity": "medium",
+      "complexity_reason": "Requires GeoJSON merging and coordinate system alignment"
+    },
+    {
+      "pipeline_artifact": "out/app/budget_by_district_YYYY.csv",
+      "site_targets": ["public/downloads/budget-by-district.csv", "src/app/downloads/page.tsx"],
+      "mapping_reason": "CSV format enables direct download functionality for users wanting raw data exports.",
+      "data_transformation": "Copy as-is or add metadata headers, ensure proper CSV escaping",
+      "fetch_mode": "build-time",
+      "complexity": "low",
+      "complexity_reason": "Static file serving with minimal processing"
+    },
+    {
+      "pipeline_artifact": "out/app/recipients_YYYY.json",
+      "site_targets": ["src/app/agencies/page.tsx", "src/components/tables/recipients-table.tsx"],
+      "mapping_reason": "Agency recipient data powers searchable tables and agency-focused analysis pages.",
+      "data_transformation": "Sort by total_amount, format currency, create search indexes, handle DPB metadata display",
+      "fetch_mode": "build-time",
+      "complexity": "medium",
+      "complexity_reason": "Requires search/filter UI and complex nested data handling"
+    },
+    {
+      "pipeline_artifact": "out/app/budget_amendments_YYYY.json",
+      "site_targets": ["src/app/amendments/page.tsx", "src/components/search/amendments-search.tsx"],
+      "mapping_reason": "Raw amendment data enables detailed search and browsing of individual budget items.",
+      "data_transformation": "Create search indexes, paginate results, format amounts, normalize member names",
+      "fetch_mode": "server-side at request time",
+      "complexity": "high",
+      "complexity_reason": "Large dataset requiring pagination, search, and performance optimization"
+    },
+    {
+      "pipeline_artifact": "out/app/dpb_YYYY.json",
+      "site_targets": ["src/components/overlays/dpb-context.tsx", "src/app/context/dpb/page.tsx"],
+      "mapping_reason": "DPB data provides additional budget context that can overlay on existing visualizations.",
+      "data_transformation": "Cross-reference with LIS data, format breakdowns, handle optional availability",
+      "fetch_mode": "build-time",
+      "complexity": "medium",
+      "complexity_reason": "Optional data source requiring conditional rendering logic"
+    },
+    {
+      "pipeline_artifact": "out/app/cds_YYYY.json",
+      "site_targets": ["src/components/maps/federal-spending-layer.tsx", "src/app/federal/page.tsx"],
+      "mapping_reason": "Federal CDS spending can be displayed as a separate layer on district maps for comparison.",
+      "data_transformation": "Geocode locations, aggregate by district, convert to map markers or choropleth data",
+      "fetch_mode": "build-time",
+      "complexity": "high",
+      "complexity_reason": "Requires geocoding and complex map layer integration"
+    },
+    {
+      "pipeline_artifact": "out/app/irs990_index.json",
+      "site_targets": ["src/components/links/nonprofit-links.tsx", "src/app/nonprofits/page.tsx"],
+      "mapping_reason": "IRS 990 data provides verification links and context for nonprofit recipients in the budget data.",
+      "data_transformation": "Create lookup tables by EIN, format organization names, validate URLs",
+      "fetch_mode": "build-time",
+      "complexity": "low",
+      "complexity_reason": "Simple reference data for linking purposes"
+    }
+  ],
+  "priority_order": [
+    1,
+    2,
+    3,
+    8,
+    6,
+    4,
+    5,
+    7
+  ],
+  "human_note": "Priority focuses on immediate dashboard value (summary stats), core map functionality (district spending), and user-friendly exports (CSV downloads) before tackling complex search interfaces and federal data overlays. The existing Leaflet map component provides a clear integration path for district-level spending visualization. Most artifacts should be processed at build-time for performance, except the large amendments dataset which needs server-side pagination."
+}

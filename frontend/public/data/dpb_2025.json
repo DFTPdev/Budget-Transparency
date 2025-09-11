@@ -1,0 +1,147 @@
+[
+  {
+    "year": 2025,
+    "general_fund_resources": 34900000000,
+    "uses_operating": 34800000000,
+    "capital_total_gf": 351900000,
+    "reserve_deposits": 294500000,
+    "rebates": 977800000,
+    "notes": [
+      "…"
+    ]
+  },
+  {
+    "id": "5fa9f4e47a70a52761836e1cfe9bc1ae234a3298",
+    "title": "2020-2022",
+    "amount": 1199204020,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "f3f9f7233db0f0fb0ef76948ac4eca23c6fd37f8",
+    "title": "2021-2024",
+    "amount": 1275575822,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "972639b415c34a3b2ad4b7238db83b6c67c6fcd8",
+    "title": "2020-2022",
+    "amount": 1210148920,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "f88e83d4654c558c9b01df42d8fa6c174debe23b",
+    "title": "2021-2024",
+    "amount": 1305078472,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "30cdd9094ba0424a5ed3416b45439673db609030",
+    "title": "2024-2026",
+    "amount": 1517629481,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "eae77e049f6dbeddbb864580448cd3cda3dd0b2d",
+    "title": "2024-2026",
+    "amount": 1594743861,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "d7adb5bbe720ab954737bbd991147b38de0a276c",
+    "title": "2020-2022",
+    "amount": 5267.63,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "4e11e2e36d9004145058801645e28c48d23f10c4",
+    "title": "2021-2024",
+    "amount": 5267.63,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "db26647d5cdae2ed6601928bf7c5ba655c84538a",
+    "title": "2020-2022",
+    "amount": 5267.63,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "694a82622983062d6459dd0e95825b633e8f5c1d",
+    "title": "2021-2024",
+    "amount": 5267.63,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "f6a5fd84cbf528f58b7e04ee142be4b5573ff6db",
+    "title": "2024-2026",
+    "amount": 5267.63,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "a6dd88eb794f72b6277ad117f51c13bc4058c5ae",
+    "title": "2024-2026",
+    "amount": 5267.63,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "d936ee38d5ca0d9e560e3b81b0d2704f06e3957d",
+    "title": "General Fund",
+    "amount": 8000000,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "id": "99a27b2cd4578df49894fb1831740ac83ae5b4f2",
+    "title": "General Fund",
+    "amount": 8000000,
+    "agency": "George Mason University",
+    "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247",
+    "source": "dpb",
+    "agencyCode": "247"
+  },
+  {
+    "year": 2025,
+    "agencyUrl": "https://reports.dpb.virginia.gov/pdoc_op?Year=2025&Biennium=2024-2026&ComboFilter=gh&Fields=SecretarialAreaName%2CAgencyName%2CAgencyCode&AdHocField1=SecretarialAreaName&AdHocOperator1=%3D&AdHocValue1=Education&sort=SecretarialAreaTitle%20ASC",
+    "cacheDir": "cache/dpb/2025",
+    "cacheKey": "1b4b192c1622131e8a0525e1b866bd61208e0e41",
+    "note": "HTML cached under cache/dpb/<year>/<sha1>.html",
+    "bytes": 52121
+  }
+]

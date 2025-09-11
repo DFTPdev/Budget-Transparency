@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-09-01T15:19:54.416Z",
+  "sumGeo": 52625248,
+  "sumBudget": 10490281383,
+  "ratio": 0.00501657163222349,
+  "percentage": "0.502",
+  "status": "POOR",
+  "notes": "Only 3 districts matched in merge - district ID mapping issue"
+}

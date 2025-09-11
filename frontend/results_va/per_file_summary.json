@@ -1,0 +1,46 @@
+{
+  "analysis_timestamp": "2025-09-02T20:26:01.924Z",
+  "current_totals": {
+    "district_budget_total_b": "10.49",
+    "recipients_total_b": "10.49",
+    "dpb_general_fund_b": "34.90"
+  },
+  "lis_targets": {
+    "gf_biennial_b": "65.00",
+    "total_biennial_b": "181.20"
+  },
+  "scale_analysis": [
+    {
+      "scale": 1,
+      "district_total_scaled": 10490281383,
+      "recipients_total_scaled": 10490281383,
+      "dpb_gf_scaled": 34900000000,
+      "gf_match_score": 0.46307692307692305,
+      "total_match_score": 0.942106614884106
+    },
+    {
+      "scale": 1000,
+      "district_total_scaled": 10490281383000,
+      "recipients_total_scaled": 10490281383000,
+      "dpb_gf_scaled": 34900000000000,
+      "gf_match_score": 535.9230769230769,
+      "total_match_score": 56.89338511589404
+    },
+    {
+      "scale": 1000000,
+      "district_total_scaled": 10490281383000000,
+      "recipients_total_scaled": 10490281383000000,
+      "dpb_gf_scaled": 34900000000000000,
+      "gf_match_score": 536922.0769230769,
+      "total_match_score": 57892.38511589404
+    }
+  ],
+  "best_scale_candidate": {
+    "scale": 1,
+    "district_total_scaled": 10490281383,
+    "recipients_total_scaled": 10490281383,
+    "dpb_gf_scaled": 34900000000,
+    "gf_match_score": 0.46307692307692305,
+    "total_match_score": 0.942106614884106
+  }
+}

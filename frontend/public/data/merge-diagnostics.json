@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-09-01T15:18:01.295Z",
+  "input_files": {
+    "geo": "public/data/virginia-districts.geojson",
+    "budget": "public/data/budget_by_district_2025.json"
+  },
+  "counts": {
+    "geo_features": 3,
+    "budget_rows": 91,
+    "budget_rows_processed": 91,
+    "unique_budget_keys": 91,
+    "matched_features": 3,
+    "unmatched_features": 0
+  },
+  "unmatched_samples": []
+}

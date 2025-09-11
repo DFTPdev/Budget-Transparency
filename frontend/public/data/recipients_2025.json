@@ -1,0 +1,1029 @@
+[
+  {
+    "agency": "Department of Medical Assistance Services",
+    "total_amount": 4091050868,
+    "items": 64,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Direct Aid to Public Education",
+    "total_amount": 2026736188,
+    "items": 71,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Central Capital Outlay",
+    "total_amount": 876685921,
+    "items": 23,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Transportation",
+    "total_amount": 505498000,
+    "items": 27,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Environmental Quality",
+    "total_amount": 391632338,
+    "items": 22,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Housing and Community Development",
+    "total_amount": 348607500,
+    "items": 35,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Community College System",
+    "total_amount": 287239776,
+    "items": 8,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Central Appropriations",
+    "total_amount": 283311430,
+    "items": 9,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Compensation Board",
+    "total_amount": 167965599,
+    "items": 24,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Conservation and Recreation",
+    "total_amount": 140429566,
+    "items": 40,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Indigent Defense Commission",
+    "total_amount": 132199029,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Energy",
+    "total_amount": 101870000,
+    "items": 10,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Behavioral Health and Developmental Services",
+    "total_amount": 97831182,
+    "items": 22,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Social Services",
+    "total_amount": 88725682,
+    "items": 31,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "State Council of Higher Education for Virginia",
+    "total_amount": 80280860,
+    "items": 20,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Criminal Justice Services",
+    "total_amount": 74670510,
+    "items": 22,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Health",
+    "total_amount": 73836669,
+    "items": 51,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Grants to Localities",
+    "total_amount": 68846000,
+    "items": 13,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Rail and Public Transportation",
+    "total_amount": 64730000,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Circuit Courts",
+    "total_amount": 61300000,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "George Mason University",
+    "total_amount": 55700000,
+    "items": 5,
+    "sources": [
+      "lis",
+      "dpb"
+    ],
+    "dpb_total": 8118412181.780001,
+    "dpb_items": 14,
+    "dpb_breakdown": [
+      {
+        "title": "2020-2022",
+        "amount": 1199204020,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2021-2024",
+        "amount": 1275575822,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2020-2022",
+        "amount": 1210148920,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2021-2024",
+        "amount": 1305078472,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2024-2026",
+        "amount": 1517629481,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2024-2026",
+        "amount": 1594743861,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2020-2022",
+        "amount": 5267.63,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2021-2024",
+        "amount": 5267.63,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2020-2022",
+        "amount": 5267.63,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2021-2024",
+        "amount": 5267.63,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2024-2026",
+        "amount": 5267.63,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "2024-2026",
+        "amount": 5267.63,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "General Fund",
+        "amount": 8000000,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      },
+      {
+        "title": "General Fund",
+        "amount": 8000000,
+        "url": "https://reports.dpb.virginia.gov/pdocagy?Year=2025&agencycode=247"
+      }
+    ]
+  },
+  {
+    "agency": "Maintain Affordable Access",
+    "total_amount": 55000000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Marine Resources Commission",
+    "total_amount": 33400000,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Historic Resources",
+    "total_amount": 31860000,
+    "items": 22,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Economic Development Incentive Payments",
+    "total_amount": 28560000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Polytechnic Institute and State University",
+    "total_amount": 23645162,
+    "items": 8,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Education, Central Office Operations",
+    "total_amount": 22152500,
+    "items": 19,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Accounts Transfer Payments",
+    "total_amount": 20000000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department for Aging and Rehabilitative Services",
+    "total_amount": 19920000,
+    "items": 13,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of the Treasury",
+    "total_amount": 18550000,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Old Dominion University",
+    "total_amount": 16650000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Port Authority",
+    "total_amount": 16615000,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Norfolk State University",
+    "total_amount": 14700000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Cannabis Control Authority",
+    "total_amount": 12291500,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Corrections",
+    "total_amount": 11497649,
+    "items": 30,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia State University",
+    "total_amount": 10000000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Emergency Management",
+    "total_amount": 9108000,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "The College of William and Mary in Virginia",
+    "total_amount": 6313800,
+    "items": 6,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "The Library Of Virginia",
+    "total_amount": 6280986,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Information Technologies Agency",
+    "total_amount": 6200000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Institute of Marine Science",
+    "total_amount": 5949490,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Gaming Commission",
+    "total_amount": 5650000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Forestry",
+    "total_amount": 5250000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Secretary of Veterans and Defense Affairs",
+    "total_amount": 5120000,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "State Corporation Commission",
+    "total_amount": 4664500,
+    "items": 8,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Agriculture and Consumer Services",
+    "total_amount": 4275000,
+    "items": 11,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Christopher Newport University",
+    "total_amount": 4160000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Workforce Development and Advancement",
+    "total_amount": 3850000,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Fire Programs",
+    "total_amount": 3500000,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Juvenile Justice",
+    "total_amount": 3400000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "University of Virginia",
+    "total_amount": 3100000,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Tourism Authority",
+    "total_amount": 3023000,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "University of Virginia's College at Wise",
+    "total_amount": 2996906,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Labor and Industry",
+    "total_amount": 2920308,
+    "items": 6,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Military Affairs",
+    "total_amount": 2813225,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Attorney General and Department of Law",
+    "total_amount": 2610459,
+    "items": 13,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Veterans Services",
+    "total_amount": 2574596,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of General Services",
+    "total_amount": 2542098,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Commonwealth University",
+    "total_amount": 2500000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "University of Virginia Medical Center",
+    "total_amount": 2452000,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Retirement System",
+    "total_amount": 2220000,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Radford University",
+    "total_amount": 2083000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Workers' Compensation Commission",
+    "total_amount": 2050000,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Cooperative Extension and Agricultural Experiment Station",
+    "total_amount": 1929936,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Wildlife Resources",
+    "total_amount": 1800000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Gunston Hall",
+    "total_amount": 1800000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Military Institute",
+    "total_amount": 1791000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Elections",
+    "total_amount": 1557200,
+    "items": 8,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Taxation",
+    "total_amount": 1530760,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Economic Development Partnership",
+    "total_amount": 1500000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Commission for the Arts",
+    "total_amount": 1500000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "University of Mary Washington",
+    "total_amount": 1480000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of State Police",
+    "total_amount": 1300000,
+    "items": 6,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Employment Commission",
+    "total_amount": 1100000,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Supreme Court",
+    "total_amount": 1000561,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "The Science Museum of Virginia",
+    "total_amount": 1000000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Health Professions",
+    "total_amount": 1000000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "James Madison University",
+    "total_amount": 997816,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "General District Courts",
+    "total_amount": 936606,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Small Business and Supplier Diversity",
+    "total_amount": 799202,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Motor Vehicles",
+    "total_amount": 760000,
+    "items": 5,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "General Assembly of Virginia",
+    "total_amount": 700000,
+    "items": 9,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Professional and Occupational Regulation",
+    "total_amount": 400000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Juvenile and Domestic Relations District Courts",
+    "total_amount": 362202,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Joint Commission on Health Care",
+    "total_amount": 350000,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Joint Commission on Technology and Science",
+    "total_amount": 324000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Center for Behavioral Rehabilitation",
+    "total_amount": 285000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia State Crime Commission",
+    "total_amount": 275000,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Joint Legislative Audit and Review Commission",
+    "total_amount": 275000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Freedom of Information Advisory Council",
+    "total_amount": 266000,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Secretary of Natural and Historic Resources",
+    "total_amount": 250000,
+    "items": 3,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Commission on Youth",
+    "total_amount": 250000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Roanoke Higher Education Authority",
+    "total_amount": 203278,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Human Resource Management",
+    "total_amount": 150000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Museum of Natural History",
+    "total_amount": 143525,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Forensic Science",
+    "total_amount": 125000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia School for the Deaf and the Blind",
+    "total_amount": 108000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Secretary of Public Safety and Homeland Security",
+    "total_amount": 100000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department of Planning and Budget",
+    "total_amount": 100000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Innovation Partnership Authority",
+    "total_amount": 75000,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Division of Debt Collection",
+    "total_amount": 50000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Parole Board",
+    "total_amount": 50000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Commissioners for the Promotion of Uniformity of Legislation in the United States",
+    "total_amount": 40000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Department for the Blind and Vision Impaired",
+    "total_amount": 20000,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Disposition of Excess Fees Collected by Clerks of the Circuit Courts",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Interfund Transfers",
+    "total_amount": 0,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Children's Services Act",
+    "total_amount": 0,
+    "items": 4,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Provider Payment Rate Assessment",
+    "total_amount": 0,
+    "items": 2,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Level II Authority",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia College Savings Plan",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Treasury Board",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Regional Greenhouse Gas Initiative Participation",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Extend Sunset Date for Data Center Sales and Use Tax Exemption",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Virginia Alcoholic Beverage Control Authority",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Modification to Local Property Tax Exemption",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Modifications to Individual Income Tax Subtractions",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Modifications to Individual Income Tax Credits",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Discounts and Allowances",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  },
+  {
+    "agency": "Modification to Federal Retiree Tax Relief",
+    "total_amount": 0,
+    "items": 1,
+    "sources": [
+      "lis"
+    ]
+  }
+]

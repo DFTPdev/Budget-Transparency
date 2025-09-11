@@ -1,0 +1,32 @@
+{
+  "diagnostic_timestamp": "2025-09-01T15:30:00Z",
+  "district_spending_geojson": {
+    "description": "Budget totals from district-spending.geojson features",
+    "count": 3,
+    "min": 100000,
+    "max": 300000,
+    "sum": 600000,
+    "notes": "Only 3 districts with budget data - incomplete merge confirmed"
+  },
+  "budget_by_district_pipeline": {
+    "description": "Total amounts from budget_by_district_2025.json pipeline artifact",
+    "count": 91,
+    "min": 150000,
+    "max": 2206869704,
+    "sum": 10490281383,
+    "notes": "Complete dataset with 91 districts, $10.49B total budget"
+  },
+  "difference_analysis": {
+    "sum_difference": 10489681383,
+    "percentage_difference": 99.994,
+    "threshold_exceeded": true,
+    "threshold": 5,
+    "action_required": "RESTORE_AND_REMERGE"
+  },
+  "data_quality_issues": [
+    "GeoJSON has only 3 districts vs 91 in pipeline - merge incomplete",
+    "GeoJSON sum ($600K) << pipeline sum ($10.49B) - 99.994% data loss",
+    "Difference exceeds 5% threshold - requires restore and re-merge",
+    "Need to restore backup and re-run merge process"
+  ]
+}

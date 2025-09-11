@@ -1,0 +1,7 @@
+{
+  "timestamp": "2025-09-01T11:59:31Z",
+  "chosen": "/Users/secretservice/Documents/House-Scripts/va_budget_pipeline/out/app/virginia-districts.geojson",
+  "site_geo": "/Users/secretservice/Downloads/DFTP-dashboard/dftp-site/public/data/district-spending.geojson",
+  "budget": "/Users/secretservice/Documents/House-Scripts/va_budget_pipeline/out/app/budget_by_district_2025.json",
+  "timestamp_tag": "20250901_075928"
+}

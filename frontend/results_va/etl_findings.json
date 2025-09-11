@@ -1,0 +1,61 @@
+{
+  "analysis_timestamp": "2025-09-02T20:29:12.644Z",
+  "key_findings": {
+    "data_source": "LIS amendments only - not full budget",
+    "processing_type": "Amendment aggregation by district",
+    "fiscal_year_filter": "Single year (2025) - not biennial",
+    "fund_type_handling": "No fund type classification (GF vs NGF)",
+    "amount_calculation": "Sum of amendment amounts only",
+    "scale_issues": "Data appears to be in actual dollars, not thousands"
+  },
+  "etl_scripts_analyzed": [
+    {
+      "script": "scripts/build_budget_dataset.ts",
+      "purpose": "Aggregates LIS amendments by district",
+      "key_transforms": [
+        "Reads lis_amendments_YYYY.jsonl",
+        "Normalizes member names to districts",
+        "Sums amendment amounts (add_amount, reduce_amount)",
+        "Creates budget_by_district_YYYY.json"
+      ],
+      "potential_issues": [
+        "Only processes amendments, not base budget",
+        "No fund type classification",
+        "Single year processing (not biennial)",
+        "Missing base appropriations"
+      ]
+    },
+    {
+      "script": "scripts/join/build_site_artifacts.ts",
+      "purpose": "Builds final site artifacts",
+      "key_transforms": [
+        "Combines LIS, DPB, CDS data",
+        "Creates recipients_YYYY.json",
+        "Produces final JSON/CSV outputs"
+      ],
+      "potential_issues": [
+        "DPB data not integrated into totals",
+        "Missing biennial calculation",
+        "No fund source breakdown"
+      ]
+    }
+  ],
+  "missing_data_sources": [
+    "Base budget appropriations (non-amendment)",
+    "Biennial budget data (FY2024-26)",
+    "Non-general fund sources",
+    "Capital budget items",
+    "Federal funds",
+    "Special revenue funds"
+  ],
+  "root_cause_analysis": {
+    "primary_issue": "Data contains only legislative amendments, not full budget",
+    "secondary_issues": [
+      "Missing base appropriations (~70B)",
+      "Single year vs biennial calculation",
+      "No fund source classification",
+      "DPB data not integrated into district totals"
+    ],
+    "scale_factor_needed": "17.28x suggests missing base budget data"
+  }
+}

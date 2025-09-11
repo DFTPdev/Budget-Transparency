@@ -1,0 +1,25 @@
+VA Budget Reconciliation Summary
+Generated: 2025-09-02T20:28:19.227Z
+
+CURRENT DATA TOTALS:
+- District Budget Total: 0.49B
+- Recipients Total: 0.49B
+- DPB General Fund: 4.90B
+- DPB Line Items: .12B
+
+LIS SESSION REPORT TARGETS:
+- General Fund Biennial: 5.00B
+- Total Biennial: 81.20B
+
+GAPS:
+- Total Budget Gap: 70.71B (0.9421 match score)
+- General Fund Gap: 0.10B (0.4631 match score)
+
+SCALE FACTOR NEEDED: 17.28x
+
+LIKELY ISSUES:
+- Data appears to be amendments/changes only, not full budget
+- Missing base budget appropriations
+- Possible unit scale issue (data in thousands vs actual dollars)
+- May need biennial (2-year) vs annual data
+- Missing non-general fund sources

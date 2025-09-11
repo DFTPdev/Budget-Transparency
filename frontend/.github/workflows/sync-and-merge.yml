@@ -1,0 +1,55 @@
+name: Sync Pipeline Data and Merge
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  sync-and-merge:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Download pipeline artifacts
+      env:
+        PIPELINE_ARTIFACT_URL: ${{ secrets.PIPELINE_ARTIFACT_URL }}
+        PIPELINE_ACCESS_TOKEN: ${{ secrets.PIPELINE_ACCESS_TOKEN }}
+      run: |
+        # Placeholder: Download artifacts from pipeline output
+        # Example: curl -H "Authorization: Bearer $PIPELINE_ACCESS_TOKEN" $PIPELINE_ARTIFACT_URL/budget_by_district_2025.json -o public/data/budget_by_district_2025.json
+        # Example: curl -H "Authorization: Bearer $PIPELINE_ACCESS_TOKEN" $PIPELINE_ARTIFACT_URL/virginia-districts.geojson -o public/data/virginia-districts.geojson
+        echo "Pipeline artifact download not implemented - add your sync logic here"
+        
+    - name: Run sync script (alternative)
+      run: |
+        # Alternative: Use rsync or custom sync script
+        # ./scripts/sync-pipeline.sh
+        echo "Sync script placeholder"
+        
+    - name: Merge budget data into GeoJSON
+      run: node scripts/mergeBudgetIntoGeojson.js
+      
+    - name: Verify merge results
+      run: |
+        ls -la public/data/district-spending.geojson
+        ls -la public/data/merge-diagnostics.json
+        
+    - name: Commit merged data (optional)
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add public/data/district-spending.geojson public/data/merge-diagnostics.json
+        git diff --staged --quiet || git commit -m "Auto-update merged district spending data"
+        # git push  # Uncomment to auto-push changes

@@ -1,0 +1,56 @@
+[
+  {
+    "agency": "Department of Medical Assistance Services",
+    "total_amount": 4091050868,
+    "items": 64,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Direct Aid to Public Education",
+    "total_amount": 2026736188,
+    "items": 71,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Central Capital Outlay",
+    "total_amount": 876685921,
+    "items": 23,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Department of Transportation",
+    "total_amount": 650000000,
+    "items": 45,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Virginia State University",
+    "total_amount": 125000000,
+    "items": 12,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Department of Environmental Quality",
+    "total_amount": 85000000,
+    "items": 18,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Department of Social Services",
+    "total_amount": 450000000,
+    "items": 32,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Department of Public Safety",
+    "total_amount": 320000000,
+    "items": 28,
+    "sources": ["lis"]
+  },
+  {
+    "agency": "Department of Economic Development",
+    "total_amount": 150000000,
+    "items": 15,
+    "sources": ["lis"]
+  }
+]

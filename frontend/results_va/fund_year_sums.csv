@@ -1,0 +1,8 @@
+source,fiscal_year,fund_type,amount_billions
+district_budget,2025,total,10.49
+district_budget,2025,add,10.49
+district_budget,2025,reduce,0.00
+recipients,2025,total,10.49
+recipients,2025,dpb_total,8.12
+dpb,2025,general_fund,34.90
+dpb,2025,line_items,8.12
