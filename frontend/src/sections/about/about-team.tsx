@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
-import { _socials, _carouselsMembers } from 'src/_mock';
+import { mockUsers } from 'src/utils/mock-data';
 
 import { Image } from 'src/components/image';
 import { Iconify } from 'src/components/iconify';
@@ -60,7 +60,7 @@ export function AboutTeam({ sx, ...other }: BoxProps) {
           <CarouselArrowFloatButtons {...carousel.arrows} options={carousel.options} />
 
           <Carousel carousel={carousel} sx={{ px: 0.5 }}>
-            {_carouselsMembers.map((member) => (
+            {mockUsers.slice(0, 5).map((member) => (
               <Box
                 key={member.id}
                 component={m.div}
@@ -90,7 +90,7 @@ export function AboutTeam({ sx, ...other }: BoxProps) {
 // ----------------------------------------------------------------------
 
 type MemberCardProps = {
-  member: (typeof _carouselsMembers)[number];
+  member: (typeof mockUsers)[number];
 };
 
 function MemberCard({ member }: MemberCardProps) {
@@ -116,7 +116,12 @@ function MemberCard({ member }: MemberCardProps) {
           justifyContent: 'center',
         }}
       >
-        {_socials.map((social) => (
+        {[
+          { label: 'Twitter', value: 'twitter' },
+          { label: 'Facebook', value: 'facebook' },
+          { label: 'Instagram', value: 'instagram' },
+          { label: 'LinkedIn', value: 'linkedin' },
+        ].map((social) => (
           <IconButton key={social.label}>
             {social.value === 'twitter' && <Iconify icon="socials:twitter" />}
             {social.value === 'facebook' && <Iconify icon="socials:facebook" />}

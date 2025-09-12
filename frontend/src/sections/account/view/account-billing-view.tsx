@@ -1,6 +1,6 @@
 'use client';
 
-import { _userPlans, _userPayment, _userInvoices, _userAddressBook } from 'src/_mock';
+// Removed _mock imports - using empty arrays for now
 
 import { AccountBilling } from '../account-billing';
 
@@ -9,10 +9,10 @@ import { AccountBilling } from '../account-billing';
 export function AccountBillingView() {
   return (
     <AccountBilling
-      plans={_userPlans}
-      cards={_userPayment}
-      invoices={_userInvoices}
-      addressBook={_userAddressBook}
+      plans={[]}
+      cards={[]}
+      invoices={[]}
+      addressBook={[]}
     />
   );
 }
