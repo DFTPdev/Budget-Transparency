@@ -39,10 +39,29 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  title: 'DFTP - Don\'t Fuck The People',
+  description: 'Civic platform for accessing, understanding, and acting on Virginia\'s public budget.',
   icons: [
     {
       rel: 'icon',
-      url: `${CONFIG.assetsDir}/favicon.ico`,
+      url: '/favicon.ico',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      url: '/favicon-32x32.png',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      url: '/favicon-16x16.png',
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      url: '/apple-touch-icon.png',
     },
   ],
 };
