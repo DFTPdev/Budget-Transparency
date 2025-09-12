@@ -28,7 +28,6 @@ import { Searchbar } from '../components/searchbar';
 import { _workspaces } from '../nav-config-workspace';
 import { MenuButton } from '../components/menu-button';
 import { AccountDrawer } from '../components/account-drawer';
-import { SettingsButton } from '../components/settings-button';
 import { LanguagePopover } from '../components/language-popover';
 import { ContactsPopover } from '../components/contacts-popover';
 import { WorkspacesPopover } from '../components/workspaces-popover';
@@ -160,8 +159,7 @@ export function DashboardLayout({
           {/** @slot Contacts popover */}
           <ContactsPopover data={_contacts} />
 
-          {/** @slot Settings button */}
-          <SettingsButton />
+
 
           {/** @slot Account drawer */}
           <AccountDrawer data={_account} />

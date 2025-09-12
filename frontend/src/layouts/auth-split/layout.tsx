@@ -20,7 +20,6 @@ import { Logo } from 'src/components/logo';
 
 import { AuthSplitSection } from './section';
 import { AuthSplitContent } from './content';
-import { SettingsButton } from '../components/settings-button';
 import { MainSection, LayoutSection, HeaderSection } from '../core';
 
 // ----------------------------------------------------------------------
@@ -73,8 +72,7 @@ export function AuthSplitLayout({
             Need help?
           </Link>
 
-          {/** @slot Settings button */}
-          <SettingsButton />
+
         </Box>
       ),
     };

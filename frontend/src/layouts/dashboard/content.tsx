@@ -8,8 +8,6 @@ import { mergeClasses } from 'minimal-shared/utils';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 
-import { useSettingsContext } from 'src/components/settings';
-
 import { layoutClasses } from '../core';
 
 // ----------------------------------------------------------------------
@@ -28,14 +26,14 @@ export function DashboardContent({
   layoutQuery = 'lg',
   ...other
 }: DashboardContentProps) {
-  const settings = useSettingsContext();
-
-  const isNavHorizontal = settings.state.navLayout === 'horizontal';
+  // Use default layout settings since settings context was removed
+  const isNavHorizontal = false; // Default to vertical nav
+  const compactLayout = false; // Default to full width
 
   return (
     <Container
       className={mergeClasses([layoutClasses.content, className])}
-      maxWidth={settings.state.compactLayout ? maxWidth : false}
+      maxWidth={compactLayout ? maxWidth : false}
       sx={[
         (theme) => ({
           display: 'flex',
