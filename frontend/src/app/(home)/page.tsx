@@ -5,9 +5,9 @@ import { HomeView } from 'src/sections/home/view';
 // ----------------------------------------------------------------------
 
 export const metadata: Metadata = {
-  title: 'Minimals UI: The starting point for your next project',
+  title: 'DFTP - Don\'t Fuck The People',
   description:
-    'The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI ©, ready to be customized to your style',
+    'Civic platform for accessing, understanding, and acting on Virginia\'s public budget.',
 };
 
 export default function Page() {
