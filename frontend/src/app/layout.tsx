@@ -15,7 +15,7 @@ import { Snackbar } from 'src/components/snackbar';
 import { ProgressBar } from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
 
-import { CheckoutProvider } from 'src/sections/checkout/context';
+// Removed CheckoutProvider - not needed for civic budget platform
 
 import { AuthProvider as JwtAuthProvider } from 'src/auth/context/jwt';
 import { AuthProvider as Auth0AuthProvider } from 'src/auth/context/auth0';
@@ -92,11 +92,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                   defaultMode={themeConfig.defaultMode}
                 >
                   <MotionLazy>
-                    <CheckoutProvider>
-                      <Snackbar />
-                      <ProgressBar />
-                      {children}
-                    </CheckoutProvider>
+                    <Snackbar />
+                    <ProgressBar />
+                    {children}
                   </MotionLazy>
                 </ThemeProvider>
               </AppRouterCacheProvider>

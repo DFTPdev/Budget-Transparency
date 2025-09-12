@@ -16,7 +16,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { fDate } from 'src/utils/format-time';
 
-import { _testimonials } from 'src/_mock';
+// Removed _testimonials import - using static data
 import { CONFIG } from 'src/global-config';
 
 import { Iconify } from 'src/components/iconify';
@@ -76,7 +76,10 @@ export function AboutTestimonials({ sx, ...other }: BoxProps) {
       ]}
     >
       <Masonry spacing={3} columns={{ xs: 1, md: 2 }} sx={{ ml: 0 }}>
-        {_testimonials.map((testimonial) => (
+        {[
+          { name: 'John Smith', message: 'Great platform for budget transparency!', avatar: '/assets/images/avatar/avatar-1.webp', createdAt: new Date() },
+          { name: 'Jane Doe', message: 'Very helpful for understanding government spending.', avatar: '/assets/images/avatar/avatar-2.webp', createdAt: new Date() },
+        ].map((testimonial) => (
           <m.div key={testimonial.name} variants={varFade('inUp')}>
             <TestimonialItem testimonial={testimonial} />
           </m.div>

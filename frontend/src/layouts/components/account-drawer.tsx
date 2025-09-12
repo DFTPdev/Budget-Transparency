@@ -19,7 +19,7 @@ import { paths } from 'src/routes/paths';
 import { usePathname } from 'src/routes/hooks';
 import { RouterLink } from 'src/routes/components';
 
-import { _mock } from 'src/_mock';
+// Removed _mock import - using static data instead
 
 import { Label } from 'src/components/label';
 import { Iconify } from 'src/components/iconify';
@@ -177,14 +177,18 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
               justifyContent: 'center',
             }}
           >
-            {Array.from({ length: 3 }, (_, index) => (
+            {[
+              { name: 'John Doe', avatar: '/assets/images/avatar/avatar-1.webp' },
+              { name: 'Jane Smith', avatar: '/assets/images/avatar/avatar-2.webp' },
+              { name: 'Bob Johnson', avatar: '/assets/images/avatar/avatar-3.webp' },
+            ].map((user, index) => (
               <Tooltip
-                key={_mock.fullName(index + 1)}
-                title={`Switch to: ${_mock.fullName(index + 1)}`}
+                key={user.name}
+                title={`Switch to: ${user.name}`}
               >
                 <Avatar
-                  alt={_mock.fullName(index + 1)}
-                  src={_mock.image.avatar(index + 1)}
+                  alt={user.name}
+                  src={user.avatar}
                   onClick={() => {}}
                 />
               </Tooltip>

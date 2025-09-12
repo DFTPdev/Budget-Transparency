@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://machinemonk: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@github.com/machinemonk/StateBudgetX.git
+	fetch = +refs/*:refs/*
+	mirror = true
