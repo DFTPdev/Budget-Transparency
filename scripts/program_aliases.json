@@ -1,0 +1,211 @@
+{
+  "description": "Program name aliases for improved fuzzy matching. Maps canonical program names to known variations.",
+  "version": "2.0",
+  "aliases": {
+    "Health Research, Planning, and Coordination": [
+      "Health Research Planning and Coordination",
+      "Health Research Planning and Coord",
+      "Health Research and Planning"
+    ],
+    "Agricultural and Seafood Product Promotion and Development": [
+      "Ag and Seafood Prod Promo and Devlp",
+      "Ag and Seafood Prod Promo and Development",
+      "Agricultural Product Promotion",
+      "Seafood Product Development"
+    ],
+    "Financial Assistance For Educational and General Services": [
+      "HE Educational and General Pgms",
+      "Higher Education Educational and General Programs",
+      "Educational and General Services",
+      "E&G Services"
+    ],
+    "Early Childhood Care and Education Programs": [
+      "Early Childhood Care and Educationatn",
+      "Early Childhood Care and Education",
+      "Early Childhood Education Programs"
+    ],
+    "Law Enforcement and Highway Safety Services": [
+      "Law Enforcemnt and Hwy Safety Services",
+      "Law Enforcement and Highway Safety",
+      "Law Enforcement and Hwy Safety"
+    ],
+    "Children's Health Insurance Program Delivery": [
+      "Childrn's Hlth Ins Pgm Delivry",
+      "Children's Health Insurance Program",
+      "CHIP Delivery"
+    ],
+    "Financial Assistance for Sheriffs' Offices and Regional Jails": [
+      "Fin Assistance Sheriffs Off and Reg Jail",
+      "Financial Assistance Sheriffs Offices",
+      "Sheriffs Offices and Regional Jails"
+    ],
+    "Port Facilities Planning, Maintenance, Acquisition, and Construction": [
+      "Port Fac Pln Maint Acq Cnstrct",
+      "Port Facilities Planning and Maintenance",
+      "Port Facilities Construction"
+    ],
+    "Bond and Loan Retirement and Redemption": [
+      "Bond Loan Retiremnt and Redemption",
+      "Bond and Loan Retirement",
+      "Debt Service"
+    ],
+    "Disbursement of Lottery Prize Payments": [
+      "Lottery Prize Payments",
+      "State Lottery Operations"
+    ],
+    "Operation of Secure Correctional Facilities": [
+      "Secure Correctional Facilities",
+      "Correctional Facilities Operations"
+    ],
+    "Prison Medical and Clinical Services": [
+      "Prison Medical Services",
+      "Correctional Medical Services"
+    ],
+    "Higher Education Instruction": [
+      "HE Instruction",
+      "Instruction"
+    ],
+    "Higher Education Research": [
+      "HE Research",
+      "Research"
+    ],
+    "Higher Education Academic Support": [
+      "Higher Ed Academic Support",
+      "HE Academic Support",
+      "Academic Support"
+    ],
+    "Higher Education Institutional Support": [
+      "Higher Ed Institutionl Support",
+      "HE Institutional Support",
+      "Institutional Support"
+    ],
+    "Higher Education Student Services": [
+      "Higher Education Student Svcs",
+      "HE Student Services",
+      "Student Services"
+    ],
+    "Higher Education Auxiliary Enterprises": [
+      "HE Auxiliary Enterprises",
+      "Auxiliary Enterprises"
+    ],
+    "Personnel Management Services": [
+      "Personnel Management",
+      "Personnel Services",
+      "Human Resources Management"
+    ],
+    "Agricultural and Seafood Product Promotion and Development Services": [
+      "Ag and Seafood Prod Promo and Devlp",
+      "Agricultural Product Promotion",
+      "Seafood Product Development"
+    ],
+    "Historic and Commemorative Attraction Management": [
+      "Historic Attraction Management",
+      "Commemorative Attraction Management"
+    ],
+    "Health Research, Planning, and Coordination": [
+      "Health Research Planning and Coord",
+      "Health Research and Planning"
+    ],
+    "Human Relations Management": [
+      "Human Relations",
+      "Employee Relations Management"
+    ],
+    "Architectural and Antiquity Research Planning and Coordination": [
+      "Architectural Research Planning",
+      "Antiquity Research Coordination"
+    ],
+    "Adjustments to Designated State Agency Activities": [
+      "Agency Activity Adjustments",
+      "Designated Agency Adjustments"
+    ],
+    "Compensation and Benefit Adjustments": [
+      "Compensation Adjustments",
+      "Benefit Adjustments",
+      "Comp and Benefit Adjustments"
+    ],
+    "Distribution of Tobacco Settlement": [
+      "Tobacco Settlement Distribution",
+      "Tobacco Settlement"
+    ],
+    "Educational and General Programs": [
+      "Educational Programs",
+      "General Educational Programs",
+      "Education and General Programs"
+    ],
+    "Higher Education Academic, Fiscal, and Facility Planning and Coordination": [
+      "Higher Ed Academic Planning",
+      "Higher Education Planning and Coordination",
+      "Academic Fiscal and Facility Planning"
+    ],
+    "Payments for Special or Unanticipated Expenditures": [
+      "Special Expenditures",
+      "Unanticipated Expenditures",
+      "Special or Unanticipated Payments"
+    ],
+    "Resource Management Research, Planning, and Coordination": [
+      "Resource Mgmt Rsrch Plan Coord",
+      "Resource Management Research",
+      "Resource Planning and Coordination"
+    ],
+    "Administrative and Support Services": [
+      "Administrative Services",
+      "Support Services",
+      "Admin and Support Services"
+    ],
+    "Protective Services": [
+      "Protection Services",
+      "Child Protective Services"
+    ],
+    "Financial Assistance For Educational and General Services": [
+      "Fin Assistance Education and Genrl Services",
+      "Financial Assistance Educational Services",
+      "Educational Financial Assistance"
+    ],
+    "Higher Education Student Financial Assistance": [
+      "Higher Education Student Services",
+      "Student Financial Assistance",
+      "Higher Ed Student Aid"
+    ],
+    "Higher Education Academic Support": [
+      "Academic Support",
+      "Higher Ed Academic Support"
+    ],
+    "Higher Education Auxiliary Enterprises": [
+      "Auxiliary Enterprises",
+      "Higher Ed Auxiliary Services"
+    ],
+    "Higher Education Institutional Support": [
+      "Institutional Support",
+      "Higher Ed Institutional Support"
+    ],
+    "Higher Education Instruction": [
+      "Instruction",
+      "Higher Ed Instruction",
+      "Instructional Services"
+    ],
+    "Higher Education Public Services": [
+      "Public Services",
+      "Higher Ed Public Services"
+    ],
+    "Higher Education Research": [
+      "Research",
+      "Higher Ed Research",
+      "Research Services"
+    ],
+    "Higher Education Student Services": [
+      "Student Services",
+      "Higher Ed Student Services"
+    ],
+    "Higher Education Operation and Maintenance of Plant": [
+      "Operation and Maintenance",
+      "Plant Operations",
+      "O&M Plant"
+    ]
+  },
+  "notes": [
+    "This starter file contains the top 25 unmatched DPB programs",
+    "Add more aliases as patterns are identified",
+    "Aliases are case-insensitive and will be normalized before matching"
+  ]
+}
+

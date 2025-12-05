@@ -1,0 +1,19 @@
+{
+  "name": "hac-dashboard-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for extracting HAC budget dashboard metrics",
+  "private": true,
+  "scripts": {
+    "extract": "ts-node extract_hac_metrics.ts"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/pdf-parse": "^1.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}
+

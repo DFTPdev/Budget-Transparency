@@ -98,12 +98,12 @@ export const grey = createPaletteChannel(themeConfig.palette.grey);
  */
 export const text = {
   light: createPaletteChannel({ primary: grey[800], secondary: grey[600], disabled: grey[500] }),
-  dark: createPaletteChannel({ primary: '#FFFFFF', secondary: grey[500], disabled: grey[600] }),
+  dark: createPaletteChannel({ primary: grey[800], secondary: grey[600], disabled: grey[500] }),
 };
 
 export const background = {
-  light: createPaletteChannel({ paper: '#FFFFFF', default: '#FFFFFF', neutral: grey[200] }),
-  dark: createPaletteChannel({ paper: grey[800], default: grey[900], neutral: '#28323D' }),
+  light: createPaletteChannel({ paper: '#FFFDFA', default: '#FFFDFA', neutral: grey[200] }),
+  dark: createPaletteChannel({ paper: '#FFFDFA', default: '#FFFDFA', neutral: '#28323D' }),
 };
 
 export const action = (mode: 'light' | 'dark'): Partial<TypeAction> => ({

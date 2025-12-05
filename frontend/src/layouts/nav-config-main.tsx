@@ -16,6 +16,11 @@ export const navData: NavMainProps['data'] = [
     icon: <Iconify width={22} icon="solar:chart-bold-duotone" />
   },
   {
+    title: 'Budget Overview',
+    path: '/budget-overview',
+    icon: <Iconify width={22} icon="solar:calendar-mark-bold-duotone" />
+  },
+  {
     title: 'Spotlight Map',
     path: '/spotlight-map',
     icon: <Iconify width={22} icon="solar:map-point-bold-duotone" />

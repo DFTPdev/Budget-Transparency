@@ -1,0 +1,108 @@
+{
+  "description": "High-confidence expected unmatched categories for adjusted match rate calculation",
+  "version": "2.0",
+  "categories": [
+    {
+      "name": "Accounting Placeholders & Data Quality Issues",
+      "vendor_patterns": [
+        "MISCELLANEOUS ADJUSTMENT",
+        "** DETAILED DATA NOT YET AVAILABLE **",
+        "DETAILED DATA NOT YET AVAILABLE"
+      ],
+      "agency_patterns": [
+        "Treasury Board WBU",
+        "DMAS Wire Business Unit",
+        "Lottery Wire Business Unit"
+      ],
+      "reason": "Not real vendors but accounting entries and wire business units for bulk transfers"
+    },
+    {
+      "name": "Internal Treasury Transfers",
+      "vendor_patterns": [
+        "Commonwealth of Va Dept of the Treasury",
+        "WARRANT REGISTER - BOA",
+        "DIRECT PAYMENT VENDOR"
+      ],
+      "agency_patterns": [
+        "DSS Treasury Disb Wells",
+        "DOA Transfers PayOps",
+        "VDOT Transfer Payments"
+      ],
+      "reason": "Inter-agency transfers and payment operations not tied to specific DPB programs"
+    },
+    {
+      "name": "Health Insurance Premium Payments",
+      "category_expense_patterns": [
+        "CONTRACTUAL SERVICES / Ins Prem-Health Servce-Individ",
+        "PERSONAL SERVICES / Employer Health Ins Premium",
+        "CONTINUOUS CHARGES / Health Care Claims"
+      ],
+      "agency_patterns": [
+        "Admin of Health Insurance"
+      ],
+      "reason": "Individual health insurance premiums and claims may not map cleanly to DPB program structure"
+    },
+    {
+      "name": "Local Government Pass-Through Payments",
+      "category_expense_patterns": [
+        "TRANSFER PAYMENTS / Cat Aid-Local Govts&Const Off",
+        "TRANSFER PAYMENTS / Payments To Substate Entities",
+        "TRANSFER PAYMENTS / General Revenue Sharing"
+      ],
+      "agency_patterns": [
+        "DBHDS Grants to Localities",
+        "Compensation Board"
+      ],
+      "reason": "Categorical aid to localities distributed across multiple DPB programs"
+    },
+    {
+      "name": "Payments to Individuals",
+      "category_expense_patterns": [
+        "TRANSFER PAYMENTS / Payments To Individuals",
+        "TRANSFER PAYMENTS / Undergraduate Scholarships"
+      ],
+      "reason": "Direct payments to individuals often distributed across multiple programs or not tied to specific appropriations"
+    },
+    {
+      "name": "Highway Construction (VDOT)",
+      "category_expense_patterns": [
+        "PLANT AND IMPROVEMENTS / Construction, Highways"
+      ],
+      "agency_patterns": [
+        "VA Dept of Transportation",
+        "VDOT",
+        "Dept of Rail & Public Trans"
+      ],
+      "reason": "VDOT has unique program structure requiring agency-specific matching rules"
+    },
+    {
+      "name": "Alcoholic Beverage Inventory",
+      "category_expense_patterns": [
+        "SUPPLIES AND MATERIALS / Alcoholic Beverages"
+      ],
+      "agency_patterns": [
+        "Alcoholic Beverage Control",
+        "ABC"
+      ],
+      "reason": "ABC operates as enterprise fund; inventory purchases may not map to appropriations"
+    },
+    {
+      "name": "University Medical Centers",
+      "agency_patterns": [
+        "University of VA Medical Ctr",
+        "UVA Medical Center",
+        "VCU Health System",
+        "VCU Medical Center"
+      ],
+      "reason": "Academic medical centers have complex funding mix of state appropriations, patient revenue, and grants"
+    },
+    {
+      "name": "Bond and Debt Service",
+      "category_expense_patterns": [
+        "OBLIGATIONS / Revenue Bond Prin Retirement"
+      ],
+      "reason": "Debt service payments are financial obligations not tied to operational DPB programs"
+    }
+  ]
+}
+

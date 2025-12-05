@@ -1,0 +1,68 @@
+# Netlify configuration for Next.js deployment
+# https://docs.netlify.com/integrations/frameworks/next-js/
+
+[build]
+  # Build command
+  command = "npm run build"
+  
+  # Directory with the build output
+  publish = ".next"
+  
+  # Base directory for the build (where package.json is located)
+  base = "frontend"
+
+[build.environment]
+  # Node.js version (must match package.json engines requirement)
+  NODE_VERSION = "20"
+  
+  # Use npm for package management
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Next.js Runtime for Netlify
+# This plugin enables Next.js SSR, API routes, and ISR on Netlify
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Redirect rules for Next.js routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Environment variables (set these in Netlify UI for sensitive values)
+# [context.production.environment]
+#   NEXT_PUBLIC_SERVER_URL = "https://your-api.com"
+#   NEXT_PUBLIC_ASSETS_DIR = "https://your-cdn.com"
+
+# Deploy Preview settings
+[context.deploy-preview]
+  command = "npm run build"
+
+# Branch deploy settings
+[context.branch-deploy]
+  command = "npm run build"
+
+# Development context
+[context.development.environment]
+  NODE_ENV = "development"
+

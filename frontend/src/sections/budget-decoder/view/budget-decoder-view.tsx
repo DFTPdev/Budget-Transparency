@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { m } from 'framer-motion';
 
@@ -10,6 +10,8 @@ import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import Button from '@mui/material/Button';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
 import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -24,8 +26,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { alpha, useTheme } from '@mui/material/styles';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
-import type { BudgetRow, RecipientRow, DPBRow } from 'src/lib/vaPipelineClient';
-import { fetchPipelineArtifact, fetchRecipientsData, fetchDPBData } from 'src/lib/vaPipelineClient';
+import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, type ProgramRollup, type VendorRecord } from 'src/lib/decoderDataLoader';
 
 import { varFade, MotionViewport } from 'src/components/animate';
 import { Scrollbar } from 'src/components/scrollbar';
@@ -41,6 +42,8 @@ type BudgetItem = {
   description: string;
   change: number;
   priority: 'high' | 'medium' | 'low';
+  // New fields from rollup data
+  rollup?: ProgramRollup;
 };
 
 type Order = 'asc' | 'desc';
@@ -145,6 +148,38 @@ function transformDistrictData(districtData: any[]): BudgetItem[] {
       description: `${row.amendments_count || 0} amendments, Add: ${fCurrency(row.add_amount || 0)}, Reduce: ${fCurrency(row.reduce_amount || 0)}`,
       change,
       priority: (row.total_amount || 0) > 500000000 ? 'high' : (row.total_amount || 0) > 100000000 ? 'medium' : 'low'
+    };
+  });
+}
+
+// Transform program rollup data to budget items (NEW - MVP data source)
+function transformRollupData(rollups: ProgramRollup[]): BudgetItem[] {
+  if (!rollups || rollups.length === 0) return [];
+
+  const totalBudget = rollups.reduce((sum, row) => sum + row.total_spent_ytd, 0);
+
+  return rollups.map((row, index) => {
+    // Categorize by secretariat
+    const category = row.secretariat || 'Other';
+
+    // Calculate change (execution rate as proxy for now - no historical data)
+    const change = NaN; // No YoY data in rollup
+
+    // Determine priority based on spending
+    let priority: 'high' | 'medium' | 'low' = 'low';
+    if (row.total_spent_ytd > 100000000) priority = 'high';
+    else if (row.total_spent_ytd > 10000000) priority = 'medium';
+
+    return {
+      id: `rollup-${row.fiscal_year}-${index}`,
+      category,
+      subcategory: row.program,
+      amount: row.total_spent_ytd,
+      percentage: totalBudget > 0 ? (row.total_spent_ytd / totalBudget) * 100 : 0,
+      description: `${row.agency} | ${row.number_of_unique_recipients} recipients | ${fPercent(row.execution_rate * 100)} executed`,
+      change,
+      priority,
+      rollup: row, // Store full rollup data for expand/collapse
     };
   });
 }
@@ -404,77 +439,75 @@ export function BudgetDecoderView() {
   const [orderBy, setOrderBy] = useState<keyof BudgetItem>('amount');
   const [filterName, setFilterName] = useState('');
   const [filterCategory, setFilterCategory] = useState('');
-  const [recipientsData, setRecipientsData] = useState<RecipientRow[] | null>(null);
-  const [dpbData, setDPBData] = useState<DPBRow[] | null>(null);
-  const [districtData, setDistrictData] = useState<any[] | null>(null);
+  const [filterFiscalYear, setFilterFiscalYear] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
-  // Load pipeline data on component mount
+  // NEW: Decoder data state
+  const [rollupData, setRollupData] = useState<ProgramRollup[]>([]);
+  const [vendorData, setVendorData] = useState<VendorRecord[]>([]);
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+
+  // Legacy: Keep district data for existing features
+  const [districtData, setDistrictData] = useState<any[] | null>(null);
+
+  // Load decoder CSV data on component mount
   useEffect(() => {
-    const loadPipelineData = async () => {
+    const loadDecoderData = async () => {
       try {
-        const [recipients, dpb, districts] = await Promise.all([
-          fetchRecipientsData(),
-          fetchDPBData(),
+        const [rollups, vendors, districts] = await Promise.all([
+          loadProgramRollups(),
+          loadVendorRecords(),
           fetch('/data/budget_by_district_2025.json').then(r => r.json()).catch(() => null)
         ]);
 
-        // Validate data before setting state
-        if (Array.isArray(recipients) && recipients.length > 0) {
-          setRecipientsData(recipients);
-        } else {
-          console.warn('Recipients data is empty or invalid');
-          setRecipientsData(null);
-        }
+        console.log('✅ Loaded rollup data:', rollups.length, 'programs');
+        console.log('✅ Loaded vendor data:', vendors.length, 'recipients');
 
-        if (Array.isArray(dpb)) {
-          setDPBData(dpb);
-        } else {
-          console.warn('DPB data is invalid');
-          setDPBData(null);
-        }
+        setRollupData(rollups);
+        setVendorData(vendors);
 
+        // Keep district data for existing features
         if (Array.isArray(districts) && districts.length > 0) {
           console.log('✅ District data loaded:', districts.length, 'records');
           setDistrictData(districts);
         } else {
-          console.warn('❌ District data is empty or invalid:', districts);
+          console.warn('❌ District data is empty or invalid');
           setDistrictData(null);
         }
       } catch (error) {
-        console.warn('Pipeline artifacts not found, using fallback data:', error);
-        setRecipientsData(null);
-        setDPBData(null);
+        console.error('Failed to load decoder data:', error);
+        setRollupData([]);
+        setVendorData([]);
         setDistrictData(null);
       } finally {
         setIsLoading(false);
       }
     };
 
-    loadPipelineData();
+    loadDecoderData();
   }, []);
 
-  // Combine pipeline data (programmatic) and district data
+  // Combine rollup data (primary) and district data (legacy)
   const budgetData = useMemo(() => {
     try {
       let combinedData: BudgetItem[] = [];
 
-      // Add programmatic data from recipients
-      if (recipientsData && recipientsData.length > 0) {
-        combinedData = [...combinedData, ...transformRecipientsData(recipientsData, dpbData || [])];
+      // PRIMARY: Add program rollup data (Chapter 725)
+      if (rollupData && rollupData.length > 0) {
+        combinedData = [...combinedData, ...transformRollupData(rollupData)];
+        console.log('✅ Added rollup data:', combinedData.length, 'programs');
       }
 
-      // Add district-level data
+      // LEGACY: Add district-level data if available
       if (districtData && districtData.length > 0) {
         const districtItems = transformDistrictData(districtData);
         console.log('✅ Adding district data:', districtItems.length, 'items');
         combinedData = [...combinedData, ...districtItems];
-      } else {
-        console.log('❌ No district data to add');
       }
 
-      // If no pipeline data, use mock data
+      // Fallback to mock data only if no data loaded
       if (combinedData.length === 0) {
+        console.warn('No decoder data loaded, using mock data');
         return MOCK_BUDGET_DATA;
       }
 
@@ -483,7 +516,7 @@ export function BudgetDecoderView() {
       console.error('Error transforming budget data:', error);
       return MOCK_BUDGET_DATA;
     }
-  }, [recipientsData, dpbData, districtData]);
+  }, [rollupData, districtData]);
 
   // Generate dynamic insights based on current data and filters
   const filteredData = useMemo(() => {
@@ -500,8 +533,17 @@ export function BudgetDecoderView() {
       data = data.filter(item => item.category === filterCategory);
     }
 
+    if (filterFiscalYear) {
+      data = data.filter(item => {
+        if (item.rollup) {
+          return item.rollup.fiscal_year.toString() === filterFiscalYear;
+        }
+        return true; // Keep non-rollup items (districts)
+      });
+    }
+
     return data;
-  }, [filterName, filterCategory]);
+  }, [budgetData, filterName, filterCategory, filterFiscalYear]);
 
   // Generate dynamic insights based on current filtered data
   const insights = useMemo(() => generateInsights(filteredData), [filteredData]);
@@ -527,6 +569,41 @@ export function BudgetDecoderView() {
       console.error('Error navigating to spotlight map:', error);
     }
   };
+
+  // NEW: Handle expand/collapse for vendor details
+  const handleToggleExpand = (itemId: string) => {
+    setExpandedRows(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(itemId)) {
+        newSet.delete(itemId);
+      } else {
+        newSet.add(itemId);
+      }
+      return newSet;
+    });
+  };
+
+  // Get vendors for expanded row
+  const getVendorsForItem = (item: BudgetItem): VendorRecord[] => {
+    if (!item.rollup) return [];
+
+    const vendors = filterVendorsByProgram(
+      vendorData,
+      item.rollup.fiscal_year,
+      item.rollup.agency,
+      item.rollup.program,
+      item.rollup.service_area
+    );
+
+    // Sort by spent amount descending
+    return vendors.sort((a, b) => b.spent_amount_ytd - a.spent_amount_ytd);
+  };
+
+  // Get available fiscal years from rollup data
+  const availableFiscalYears = useMemo(() => {
+    const years = new Set(rollupData.map(r => r.fiscal_year));
+    return Array.from(years).sort((a, b) => b - a); // Descending
+  }, [rollupData]);
 
 
 
@@ -629,7 +706,7 @@ export function BudgetDecoderView() {
               Total Budget: {fCurrency(totalBudget)}
             </Typography>
             <Typography variant="caption" sx={{ color: 'text.secondary', mt: 1, display: 'block' }}>
-              Data Source: {recipientsData && recipientsData.length > 0 ? 'VA Budget Pipeline (Live)' : 'Sample Data'}
+              Data Source: {rollupData && rollupData.length > 0 ? 'VA Budget Decoder (Chapter 725 + CARDINAL)' : 'Sample Data'}
             </Typography>
           </m.div>
         </Box>
@@ -638,7 +715,7 @@ export function BudgetDecoderView() {
         <m.div variants={varFade('inUp')}>
           <Card sx={{ mb: 3, p: 3 }}>
             <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={4}>
                 <TextField
                   fullWidth
                   value={filterName}
@@ -653,7 +730,7 @@ export function BudgetDecoderView() {
                   }}
                 />
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={4}>
                 <TextField
                   select
                   fullWidth
@@ -665,6 +742,22 @@ export function BudgetDecoderView() {
                   {categories.map((category) => (
                     <option key={category} value={category}>
                       {category}
+                    </option>
+                  ))}
+                </TextField>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <TextField
+                  select
+                  fullWidth
+                  value={filterFiscalYear}
+                  onChange={(e) => setFilterFiscalYear(e.target.value)}
+                  SelectProps={{ native: true }}
+                >
+                  <option value="">All Fiscal Years</option>
+                  {availableFiscalYears.map((year) => (
+                    <option key={year} value={year.toString()}>
+                      FY{year}
                     </option>
                   ))}
                 </TextField>
@@ -681,6 +774,7 @@ export function BudgetDecoderView() {
                 <Table>
                   <TableHead>
                     <TableRow>
+                      <TableCell width={50} />
                       <TableCell>
                         <TableSortLabel
                           active={orderBy === 'category'}
@@ -732,82 +826,137 @@ export function BudgetDecoderView() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {sortedData.map((item) => (
-                      <TableRow
-                        key={item.id}
-                        data-district={item.subcategory.match(/\d+/) ? item.subcategory.match(/\d+/)?.[0] : ''}
-                        sx={{
-                          '&:hover': {
-                            backgroundColor: alpha(theme.palette.primary.main, 0.04)
-                          },
-                          cursor: 'default'
-                        }}
-                      >
-                        <TableCell>
-                          <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
-                            {item.category}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant="body2" fontWeight="medium">
-                            {item.subcategory}
-                          </Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                          <Typography variant="body2" fontWeight="medium">
-                            {fCurrency(item.amount)}
-                          </Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                          <Typography variant="body2">
-                            {fPercent(item.percentage)}
-                          </Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                          <Typography
-                            variant="body2"
+                    {sortedData.map((item) => {
+                      const isExpanded = expandedRows.has(item.id);
+                      const hasVendors = item.rollup !== undefined;
+                      const vendors = hasVendors ? getVendorsForItem(item) : [];
+
+                      return (
+                        <React.Fragment key={item.id}>
+                          <TableRow
+                            data-district={item.subcategory.match(/\d+/) ? item.subcategory.match(/\d+/)?.[0] : ''}
                             sx={{
-                              color: getChangeColor(item.change),
-                              fontWeight: 'medium'
-                            }}
-                          >
-                            {isNaN(item.change) ? '—' : `${item.change > 0 ? '+' : ''}${item.change.toFixed(1)}%`}
-                          </Typography>
-                        </TableCell>
-                        <TableCell align="center">
-                          <Chip
-                            label={item.priority.toUpperCase()}
-                            color={getPriorityColor(item.priority) as any}
-                            size="small"
-                            variant="soft"
-                          />
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant="body2" sx={{ color: 'text.secondary', maxWidth: 300 }}>
-                            {item.description}
-                          </Typography>
-                        </TableCell>
-                        <TableCell align="center">
-                          <Button
-                            size="small"
-                            variant="outlined"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              handleViewOnMap(item);
-                            }}
-                            sx={{
-                              minWidth: 'auto',
                               '&:hover': {
-                                backgroundColor: alpha(theme.palette.primary.main, 0.08)
-                              }
+                                backgroundColor: alpha(theme.palette.primary.main, 0.04)
+                              },
+                              cursor: 'default'
                             }}
                           >
-                            📍 View on Map
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
+                            <TableCell>
+                              {hasVendors && vendors.length > 0 && (
+                                <IconButton
+                                  size="small"
+                                  onClick={() => handleToggleExpand(item.id)}
+                                  sx={{
+                                    transition: 'transform 0.2s',
+                                    transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)'
+                                  }}
+                                >
+                                  ▶
+                                </IconButton>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
+                                {item.category}
+                              </Typography>
+                            </TableCell>
+                            <TableCell>
+                              <Typography variant="body2" fontWeight="medium">
+                                {item.subcategory}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="right">
+                              <Typography variant="body2" fontWeight="medium">
+                                {fCurrency(item.amount)}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="right">
+                              <Typography variant="body2">
+                                {fPercent(item.percentage)}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="right">
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  color: getChangeColor(item.change),
+                                  fontWeight: 'medium'
+                                }}
+                              >
+                                {isNaN(item.change) ? '—' : `${item.change > 0 ? '+' : ''}${item.change.toFixed(1)}%`}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="center">
+                              <Chip
+                                label={item.priority.toUpperCase()}
+                                color={getPriorityColor(item.priority) as any}
+                                size="small"
+                                variant="soft"
+                              />
+                            </TableCell>
+                            <TableCell>
+                              <Typography variant="body2" sx={{ color: 'text.secondary', maxWidth: 300 }}>
+                                {item.description}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="center">
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  handleViewOnMap(item);
+                                }}
+                                sx={{
+                                  minWidth: 'auto',
+                                  '&:hover': {
+                                    backgroundColor: alpha(theme.palette.primary.main, 0.08)
+                                  }
+                                }}
+                              >
+                                📍 View on Map
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+
+                          {/* Expandable vendor details */}
+                          {hasVendors && vendors.length > 0 && (
+                            <TableRow key={`${item.id}-details`}>
+                              <TableCell colSpan={9} sx={{ py: 0, borderBottom: isExpanded ? undefined : 'none' }}>
+                                <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                                  <Box sx={{ py: 2, px: 3, bgcolor: alpha(theme.palette.primary.main, 0.02) }}>
+                                    <Typography variant="subtitle2" sx={{ mb: 2, color: 'primary.main' }}>
+                                      Recipients ({vendors.length})
+                                    </Typography>
+                                    <Grid container spacing={2}>
+                                      {vendors.slice(0, 10).map((vendor, idx) => (
+                                        <Grid item xs={12} sm={6} md={4} key={idx}>
+                                          <Card variant="outlined" sx={{ p: 2 }}>
+                                            <Typography variant="body2" fontWeight="medium" noWrap>
+                                              {vendor.vendor_name}
+                                            </Typography>
+                                            <Typography variant="caption" color="text.secondary">
+                                              {fCurrency(vendor.spent_amount_ytd)}
+                                            </Typography>
+                                          </Card>
+                                        </Grid>
+                                      ))}
+                                    </Grid>
+                                    {vendors.length > 10 && (
+                                      <Typography variant="caption" sx={{ mt: 2, display: 'block', color: 'text.secondary' }}>
+                                        Showing top 10 of {vendors.length} recipients
+                                      </Typography>
+                                    )}
+                                  </Box>
+                                </Collapse>
+                              </TableCell>
+                            </TableRow>
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </TableContainer>

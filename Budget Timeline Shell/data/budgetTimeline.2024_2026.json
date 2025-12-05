@@ -1,0 +1,171 @@
+{
+  "biennium": {
+    "start": "2024-07-01",
+    "end": "2026-06-30",
+    "label": "FY2024–FY2026"
+  },
+  "stages": [
+    {
+      "id": "agency-requests",
+      "label": "Agency Requests",
+      "window": {
+        "start": "2024-07-01",
+        "end": "2024-09-15"
+      },
+      "keyDate": "2024-09-15",
+      "explainer": "Agencies submit initial budget requests to the Department of Planning and Budget."
+    },
+    {
+      "id": "governors-proposal",
+      "label": "Governor's Proposal",
+      "window": {
+        "start": "2024-10-01",
+        "end": "2024-12-15"
+      },
+      "keyDate": "2024-12-15",
+      "explainer": "Governor's office develops and releases the executive budget proposal."
+    },
+    {
+      "id": "ga-amendments",
+      "label": "GA Amendments",
+      "window": {
+        "start": "2025-01-08",
+        "end": "2025-03-31"
+      },
+      "keyDate": "2025-03-31",
+      "explainer": "General Assembly reviews, debates, and amends the budget proposal."
+    },
+    {
+      "id": "conference",
+      "label": "Conference Committee",
+      "window": {
+        "start": "2025-04-01",
+        "end": "2025-04-30"
+      },
+      "keyDate": "2025-04-30",
+      "explainer": "House and Senate conference committees reconcile budget differences."
+    },
+    {
+      "id": "governors-actions",
+      "label": "Governor's Actions",
+      "window": {
+        "start": "2025-05-01",
+        "end": "2025-06-30"
+      },
+      "keyDate": "2025-06-30",
+      "explainer": "Governor signs or vetoes the final budget bill."
+    },
+    {
+      "id": "implementation",
+      "label": "Implementation",
+      "window": {
+        "start": "2025-07-01",
+        "end": "2026-06-30"
+      },
+      "keyDate": "2025-07-01",
+      "explainer": "Agencies execute the enacted budget throughout the biennium."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2024-09-15",
+      "stageId": "agency-requests",
+      "title": "Agency Requests Deadline",
+      "why": "All state agencies must submit their budget requests by this date."
+    },
+    {
+      "date": "2024-10-01",
+      "stageId": "governors-proposal",
+      "title": "Governor's Budget Released",
+      "why": "Executive budget proposal is publicly released for legislative review."
+    },
+    {
+      "date": "2024-12-15",
+      "stageId": "governors-proposal",
+      "title": "Governor's Proposal Finalized",
+      "why": "Final executive budget proposal submitted to the General Assembly."
+    },
+    {
+      "date": "2025-01-08",
+      "stageId": "ga-amendments",
+      "title": "General Assembly Session Begins",
+      "why": "Legislative session opens; budget committees begin hearings."
+    },
+    {
+      "date": "2025-02-15",
+      "stageId": "ga-amendments",
+      "title": "House Budget Passed",
+      "why": "House of Delegates approves its version of the budget."
+    },
+    {
+      "date": "2025-03-15",
+      "stageId": "ga-amendments",
+      "title": "Senate Budget Passed",
+      "why": "Senate approves its version of the budget."
+    },
+    {
+      "date": "2025-04-15",
+      "stageId": "conference",
+      "title": "Conference Committee Convenes",
+      "why": "House and Senate conferees meet to reconcile budget differences."
+    },
+    {
+      "date": "2025-04-30",
+      "stageId": "conference",
+      "title": "Final Budget Agreed",
+      "why": "Conference committee reaches agreement on final budget bill."
+    },
+    {
+      "date": "2025-05-15",
+      "stageId": "governors-actions",
+      "title": "Budget Sent to Governor",
+      "why": "Final budget bill transmitted to Governor for signature."
+    },
+    {
+      "date": "2025-06-30",
+      "stageId": "governors-actions",
+      "title": "Budget Signed",
+      "why": "Governor signs the budget bill into law."
+    },
+    {
+      "date": "2025-07-01",
+      "stageId": "implementation",
+      "title": "Fiscal Year 2025 Begins",
+      "why": "New budget takes effect; agencies begin executing appropriations."
+    }
+  ],
+  "watchNext": [
+    {
+      "title": "Agency Requests Submission",
+      "why": "Track when agencies submit their initial budget requests."
+    },
+    {
+      "title": "Governor's Proposal Release",
+      "why": "Monitor the executive budget proposal for key policy changes."
+    },
+    {
+      "title": "General Assembly Amendments",
+      "why": "Follow legislative debates and amendments to the budget."
+    },
+    {
+      "title": "Governor's Signature",
+      "why": "Confirm final budget enactment and any vetoes."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Department of Planning and Budget",
+      "url": "https://dpb.virginia.gov"
+    },
+    {
+      "label": "General Assembly Budget Documents",
+      "url": "https://budget.lis.virginia.gov"
+    },
+    {
+      "label": "Governor's Office",
+      "url": "https://www.governor.virginia.gov"
+    }
+  ],
+  "lastRefreshed": "2024-10-24T12:00:00Z"
+}
+

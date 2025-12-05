@@ -1,0 +1,160 @@
+================================================================================
+BUDGET TIMELINE SHELL - PACKAGE CONTENTS
+================================================================================
+
+Extracted from: DFTP Hub Project
+Date: November 22, 2024
+Version: 1.0.0
+
+================================================================================
+DIRECTORY STRUCTURE
+================================================================================
+
+Budget Timeline Shell/
+├── BudgetTimelinePage.tsx          # Main page component (202 lines)
+├── components/                      # UI components (5 files)
+│   ├── MilestoneList.tsx           # Milestone list component
+│   ├── SourcesFooter.tsx           # Sources and last updated footer
+│   ├── StageChips.tsx              # Interactive stage selector
+│   ├── TimelineAxis.tsx            # Visual timeline axis
+│   └── WatchNextCard.tsx           # "Watch Next" card
+├── hooks/                           # React hooks (1 file)
+│   └── useTimeline.ts              # Timeline data hook with utilities
+├── data/                            # Data files (1 file)
+│   └── budgetTimeline.2024_2026.json  # Timeline data for FY 2024-2026
+├── types/                           # TypeScript types (empty - in hooks)
+├── index.ts                         # Main export file
+├── package.json                     # Package metadata and dependencies
+├── README.md                        # Complete integration guide
+├── QUICKSTART.md                    # 5-minute quick start
+├── CHANGELOG.md                     # Version history
+├── EXAMPLE.tsx                      # Usage examples
+└── PACKAGE_CONTENTS.txt            # This file
+
+================================================================================
+COMPONENTS OVERVIEW
+================================================================================
+
+1. BudgetTimelinePage.tsx
+   - Main page with tabs (Timeline + Key Visuals)
+   - Handles state management
+   - Orchestrates all child components
+   - Note: Key Visuals tab requires additional hooks not included
+
+2. TimelineAxis.tsx
+   - Visual representation of budget stages over time
+   - Shows current stage highlight
+   - Interactive tooltips
+   - Responsive design
+
+3. StageChips.tsx
+   - Clickable chips for each budget stage
+   - Shows selected state
+   - Triggers milestone filtering
+
+4. MilestoneList.tsx
+   - Displays milestones for selected stage
+   - Shows dates and explanations
+   - Sorted by date
+
+5. WatchNextCard.tsx
+   - Shows upcoming events to monitor
+   - Highlights important dates
+
+6. SourcesFooter.tsx
+   - Lists data sources with links
+   - Shows last updated timestamp
+
+================================================================================
+HOOKS & UTILITIES
+================================================================================
+
+useTimeline.ts exports:
+- useTimeline(): Main hook for loading timeline data
+- getCurrentStage(): Get current/next stage based on today's date
+- getMilestonesByStage(): Filter milestones by stage ID
+
+Features:
+- In-memory caching (1 hour TTL)
+- Error handling
+- Loading states
+- TypeScript types
+
+================================================================================
+DATA STRUCTURE
+================================================================================
+
+budgetTimeline.2024_2026.json contains:
+- biennium: FY period (start, end, label)
+- stages: 7 budget process stages with date windows
+- milestones: Key events for each stage
+- watchNext: Upcoming items to monitor
+- sources: Data source references
+- lastRefreshed: Last update timestamp
+
+================================================================================
+TYPESCRIPT TYPES
+================================================================================
+
+Exported from hooks/useTimeline.ts:
+- Biennium: Budget period definition
+- Stage: Budget process stage
+- Milestone: Key milestone/event
+- WatchNext: Upcoming item
+- Source: Data source reference
+- TimelineData: Complete data structure
+
+================================================================================
+DEPENDENCIES
+================================================================================
+
+Required:
+- @mui/material: ^5.x || ^6.x || ^7.x
+- @mui/lab: ^5.x || ^6.x || ^7.x
+- @emotion/react: ^11.x
+- @emotion/styled: ^11.x
+- react: ^18.x
+- react-dom: ^18.x
+
+================================================================================
+INTEGRATION STEPS
+================================================================================
+
+1. Install dependencies (npm/yarn/pnpm)
+2. Copy folder to your project
+3. Place data file in public/data/official/
+4. Update import paths in BudgetTimelinePage.tsx
+5. Optionally remove "Key Visuals" tab
+6. Wrap with MUI ThemeProvider
+7. Use the component!
+
+See README.md for detailed instructions.
+See QUICKSTART.md for 5-minute setup.
+See EXAMPLE.tsx for usage examples.
+
+================================================================================
+CUSTOMIZATION
+================================================================================
+
+- Update data in budgetTimeline.2024_2026.json
+- Modify styles via sx props in components
+- Change data fetch path in hooks/useTimeline.ts
+- Remove Key Visuals tab (see QUICKSTART.md)
+- Customize MUI theme
+
+================================================================================
+SUPPORT
+================================================================================
+
+For questions or issues:
+- Check README.md troubleshooting section
+- Review EXAMPLE.tsx for usage patterns
+- Refer to main DFTP Hub project documentation
+
+================================================================================
+LICENSE
+================================================================================
+
+MIT License - Extracted from DFTP Hub project
+
+================================================================================

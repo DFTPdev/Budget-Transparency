@@ -1,0 +1,74 @@
+{
+  "description": "Flags for DPB programs that should not be treated as 'true unmatched' in UI or metrics",
+  "version": "1.0",
+  "program_flags": {
+    "pass_through_programs": {
+      "description": "Central appropriations distributed to other agencies during fiscal year",
+      "patterns": [
+        {
+          "agency_pattern": "Central Appropriations",
+          "program_patterns": [
+            "Compensation and Benefit Adjustments",
+            "Distribution of Tobacco Settlement",
+            "Educational and General Programs",
+            "Adjustments to Designated State Agency Activities",
+            "Higher Education Equipment Trust Fund",
+            "Revenue Reserve Fund",
+            "Water Quality Improvement Fund"
+          ]
+        },
+        {
+          "agency_pattern": "Department of Accounts Transfer Payments",
+          "program_patterns": [
+            "Personal Property Tax Relief Program",
+            "Car Tax Reimbursement"
+          ]
+        },
+        {
+          "agency_pattern": "Department of Transportation Transfer Payments",
+          "program_patterns": [
+            "Financial Assistance to Localities for Ground Transportation"
+          ]
+        }
+      ]
+    },
+    "adjustment_programs": {
+      "description": "Accounting adjustments and reconciliation entries",
+      "patterns": [
+        {
+          "agency_pattern": "Central Appropriations",
+          "program_patterns": [
+            "Adjustments to Designated State Agency Activities"
+          ]
+        }
+      ],
+      "appropriation_conditions": {
+        "negative_appropriation": true,
+        "zero_appropriation": true
+      }
+    },
+    "internal_finance_programs": {
+      "description": "Internal financial operations not tied to external service delivery",
+      "patterns": [
+        {
+          "agency_pattern": "Administration of Health Insurance",
+          "program_patterns": [
+            "Personnel Management Services"
+          ]
+        },
+        {
+          "agency_pattern": "Treasury Board",
+          "program_patterns": [
+            "Bond and Loan Retirement and Redemption",
+            "Debt Service"
+          ]
+        }
+      ]
+    },
+    "zero_spend_programs": {
+      "description": "Programs with zero or minimal appropriation",
+      "appropriation_threshold": 1000
+    }
+  }
+}
+

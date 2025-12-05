@@ -18,6 +18,7 @@ import { varFade, MotionViewport } from 'src/components/animate';
 import { Iconify } from 'src/components/iconify';
 import { BackgroundShape } from 'src/assets/illustrations';
 import { FloatPlusIcon, FloatDotIcon, CircleSvg } from '../components/svg-elements';
+import { HacBudgetDashboard } from 'src/sections/hac';
 
 // ----------------------------------------------------------------------
 
@@ -576,6 +577,7 @@ export function HomeView() {
   return (
     <MotionViewport>
       {renderHero()}
+      <HacBudgetDashboard />
       {renderMission()}
       {renderFeatures()}
       {renderCallToAction()}

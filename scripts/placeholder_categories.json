@@ -1,0 +1,36 @@
+{
+  "description": "Accounting placeholder categories to exclude from public outputs and adjusted match calculations",
+  "version": "1.0",
+  "placeholder_vendors": [
+    "MISCELLANEOUS ADJUSTMENT",
+    "** DETAILED DATA NOT YET AVAILABLE **",
+    "DETAILED DATA NOT YET AVAILABLE",
+    "WARRANT REGISTER - BOA",
+    "DIRECT PAYMENT VENDOR",
+    "MISCELLANEOUS",
+    "MISC ADJUSTMENT",
+    "ADJUSTMENT",
+    "NOT AVAILABLE",
+    "N/A",
+    "TBD",
+    "TO BE DETERMINED",
+    "PENDING"
+  ],
+  "placeholder_agencies": [
+    "DSS Treasury Disb Wells",
+    "DOA Transfers PayOps",
+    "Treasury Disbursement",
+    "Transfer Account"
+  ],
+  "placeholder_category_expense_patterns": [
+    "MISCELLANEOUS / Miscellaneous",
+    "ADJUSTMENT / Adjustment",
+    "PENDING / Pending"
+  ],
+  "notes": [
+    "These represent ~$35.6B in unmatched spending",
+    "Should be excluded from public external vendor outputs",
+    "Should be excluded from adjusted match rate denominator"
+  ]
+}
+
