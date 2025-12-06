@@ -27,11 +27,6 @@ export interface LegislatorFocusPieProps {
 
 // ----------------------------------------------------------------------
 
-const OTHER_COLOR = "#B0BEC5"; // neutral gray-ish for "Other"
-const MIN_PERCENT = 5; // slices smaller than this percent get grouped into "Other"
-
-// ----------------------------------------------------------------------
-
 const formatDollars = (value: number): string =>
   new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -48,7 +43,6 @@ interface ChartSlice {
   value: number;
   percent: number;
   color: string;
-  isOther: boolean;
 }
 
 // ----------------------------------------------------------------------
@@ -68,32 +62,14 @@ export function LegislatorFocusPie({ slices }: LegislatorFocusPieProps) {
       percent: (s.totalAmount / total) * 100,
     }));
 
-    // Partition into major and minor
-    const major = slicesWithPercent.filter((s) => s.percent >= MIN_PERCENT);
-    const minor = slicesWithPercent.filter((s) => s.percent < MIN_PERCENT);
-
-    // Sum minor values
-    const otherAmount = minor.reduce((sum, s) => sum + s.totalAmount, 0);
-    const hasOther = otherAmount > 0;
-
-    // Build chart slices
-    const chartSlices: ChartSlice[] = major.map((s) => ({
+    // Build chart slices - show ALL categories individually (no "Other" grouping)
+    // This ensures 1:1 match with the Funding Recipients list
+    const chartSlices: ChartSlice[] = slicesWithPercent.map((s) => ({
       label: STORY_BUCKET_LABELS[s.bucketId],
       value: s.totalAmount,
       percent: s.percent,
       color: STORY_BUCKET_COLORS[s.bucketId],
-      isOther: false,
     }));
-
-    if (hasOther) {
-      chartSlices.push({
-        label: "Other",
-        value: otherAmount,
-        percent: (otherAmount / total) * 100,
-        color: OTHER_COLOR,
-        isOther: true,
-      });
-    }
 
     return {
       total,
