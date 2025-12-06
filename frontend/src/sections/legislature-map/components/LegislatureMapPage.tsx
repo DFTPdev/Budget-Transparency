@@ -186,50 +186,6 @@ export function LegislatureMapPage({ mapboxToken }: LegislatureMapPageProps) {
           </Typography>
         </Box>
 
-        {/* Introduction - How It Works */}
-        <Card sx={{ bgcolor: 'background.neutral', p: 3 }}>
-          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-            How It Works
-          </Typography>
-          <Stack spacing={2}>
-            <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
-              <Iconify icon="mdi:map-marker" width={24} sx={{ color: 'primary.main', flexShrink: 0, mt: 0.5 }} />
-              <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 0.5 }}>
-                  Enter Your Address
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Type your Virginia address to find your legislative districts, or click any district on the map to explore.
-                </Typography>
-              </Box>
-            </Box>
-
-            <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
-              <Iconify icon="mdi:toggle-switch" width={24} sx={{ color: 'primary.main', flexShrink: 0, mt: 0.5 }} />
-              <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 0.5 }}>
-                  Toggle Between Chambers
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Switch between House of Delegates (100 districts) and Senate (40 districts) to see both of your representatives.
-                </Typography>
-              </Box>
-            </Box>
-
-            <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
-              <Iconify icon="mdi:chart-donut" width={24} sx={{ color: 'primary.main', flexShrink: 0, mt: 0.5 }} />
-              <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 0.5 }}>
-                  Explore Spending Priorities
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  View your legislator's budget amendment requests by category (Schools & Kids, Health & Care, etc.) and see detailed funding recipients for 2024 and 2025.
-                </Typography>
-              </Box>
-            </Box>
-          </Stack>
-        </Card>
-
         {/* Top Section - Address Form and Chamber Toggle */}
         <Stack spacing={3}>
           <AddressForm
@@ -238,6 +194,38 @@ export function LegislatureMapPage({ mapboxToken }: LegislatureMapPageProps) {
             error={state.error}
             onClear={handleClear}
           />
+
+          {/* Introduction - How It Works */}
+          <Box sx={{ px: 1 }}>
+            <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'text.primary' }}>
+              How It Works
+            </Typography>
+            <Stack spacing={2}>
+              <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+                <Iconify icon="mdi:toggle-switch" width={24} sx={{ color: 'primary.main', flexShrink: 0, mt: 0.5 }} />
+                <Box>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 0.5, color: 'text.primary' }}>
+                    Toggle Between Chambers
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.primary' }}>
+                    Switch between House of Delegates (100 districts) and Senate (40 districts) to see both of your representatives.
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+                <Iconify icon="mdi:chart-donut" width={24} sx={{ color: 'primary.main', flexShrink: 0, mt: 0.5 }} />
+                <Box>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 0.5, color: 'text.primary' }}>
+                    Explore Spending Priorities
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.primary' }}>
+                    View your legislator's budget amendment requests by category (Schools & Kids, Health & Care, etc.) and see detailed funding recipients for 2024 and 2025.
+                  </Typography>
+                </Box>
+              </Box>
+            </Stack>
+          </Box>
 
           {/* Chamber Toggle */}
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
