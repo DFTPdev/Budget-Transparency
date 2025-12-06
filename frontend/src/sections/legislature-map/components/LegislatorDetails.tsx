@@ -191,7 +191,7 @@ function LisMemberRequestsInline({ lisId, year }: LisMemberRequestsInlineProps) 
       </Box>
 
       {/* Amendment List - Compact */}
-      <Stack spacing={1} sx={{ maxHeight: 300, overflowY: 'auto', pr: 0.5 }}>
+      <Stack spacing={1} sx={{ flex: 1, overflowY: 'auto', pr: 0.5 }}>
         {items.map((item, idx) => {
           // Get story bucket for this amendment's category
           const bucketId = item.spendingCategoryId
