@@ -14,7 +14,7 @@
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import Map, { Layer, Source } from 'react-map-gl/mapbox';
 
 import { Box, Typography, CircularProgress } from '@mui/material';
@@ -46,6 +46,29 @@ export function LegislatorMap({
   mapboxToken,
 }: LegislatorMapProps) {
   const mapRef = useRef<any>(null);
+
+  // Handle window resize to trigger map resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (mapRef.current) {
+        mapRef.current.resize();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Trigger initial resize after mount
+    const timer = setTimeout(() => {
+      if (mapRef.current) {
+        mapRef.current.resize();
+      }
+    }, 100);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timer);
+    };
+  }, []);
 
   // Check if Mapbox token is available
   if (!mapboxToken || mapboxToken.length === 0) {
