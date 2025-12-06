@@ -31,7 +31,7 @@ import {
 } from '@mui/material';
 
 import { getLisMemberRequestsForYear } from 'src/lib/legislators';
-import { computeLisSpendingFocusSlices, computeLisTotalRequested } from 'src/lib/legislators/aggregation';
+import { computeLisStoryBucketSlices, computeLisTotalRequested } from 'src/lib/legislators/aggregation';
 
 import { Iconify } from 'src/components/iconify';
 
@@ -436,8 +436,8 @@ export function LegislatorDetails({
           // Get LIS data for this legislator
           const lisData = getLisMemberRequestsForYear(legislator.lisId, selectedYear);
 
-          // Compute spending focus slices from LIS data (more accurate than Amendment Vault)
-          const slices = computeLisSpendingFocusSlices(lisData, selectedYear);
+          // Compute spending focus slices from LIS data using story buckets
+          const slices = computeLisStoryBucketSlices(lisData, selectedYear);
 
           // Compute total requested from LIS data
           const totalRequested = computeLisTotalRequested(lisData, selectedYear);
@@ -584,7 +584,7 @@ export function LegislatorDetails({
                       </ToggleButtonGroup>
 
                       <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5, lineHeight: 1.4, textAlign: 'center', maxWidth: 400 }}>
-                        {selectedYear} Member Request amendments by funding area.
+                        {selectedYear} Member Request amendments grouped into story buckets (Schools & Kids, Health & Care, etc.).
                       </Typography>
                       {slices.length > 0 ? (
                         <LegislatorFocusPie slices={slices} />

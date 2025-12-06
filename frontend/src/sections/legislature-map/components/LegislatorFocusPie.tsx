@@ -2,23 +2,23 @@
 
 /**
  * Legislator Amendment Focus Pie Chart
- * Shows spending category breakdown based on amendment dollar values
+ * Shows spending focus grouped by human-friendly story buckets
  */
 
 import { useMemo } from 'react';
 
 import { Box, Stack, Typography } from '@mui/material';
 
-import type { SpendingCategoryId } from 'src/data/spendingCategories';
-import { getSpendingCategoryById } from 'src/data/spendingCategories';
+import type { StoryBucketId } from 'src/data/spendingStoryBuckets';
+import { STORY_BUCKET_LABELS, STORY_BUCKET_COLORS } from 'src/data/spendingStoryBuckets';
 
 import { Chart, useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
 
 export interface LegislatorAmendmentFocusSlice {
-  categoryId: SpendingCategoryId;
-  totalAmount: number; // total dollar impact for this category
+  bucketId: StoryBucketId;
+  totalAmount: number; // total dollar impact for this story bucket
 }
 
 export interface LegislatorFocusPieProps {
@@ -26,26 +26,6 @@ export interface LegislatorFocusPieProps {
 }
 
 // ----------------------------------------------------------------------
-
-const CATEGORY_COLORS: Record<SpendingCategoryId, string> = {
-  k12_education: "#4CAF50",
-  higher_education: "#66BB6A",
-  health_and_human_resources: "#EF5350",
-  public_safety_and_homeland_security: "#AB47BC",
-  transportation: "#42A5F5",
-  natural_resources: "#26C6DA",
-  commerce_and_trade: "#FFB300",
-  agriculture_and_forestry: "#8D6E63",
-  veterans_and_defense_affairs: "#EC407A",
-  administration: "#78909C",
-  finance: "#7E57C2",
-  judicial: "#5C6BC0",
-  legislative: "#26A69A",
-  central_appropriations: "#FF7043",
-  independent_agencies: "#9CCC65",
-  capital_outlay: "#8E24AA",
-  unclassified: "#BDBDBD",  // Gray for unclassified
-};
 
 const OTHER_COLOR = "#B0BEC5"; // neutral gray-ish for "Other"
 const MIN_PERCENT = 5; // slices smaller than this percent get grouped into "Other"
@@ -98,10 +78,10 @@ export function LegislatorFocusPie({ slices }: LegislatorFocusPieProps) {
 
     // Build chart slices
     const chartSlices: ChartSlice[] = major.map((s) => ({
-      label: getSpendingCategoryById(s.categoryId).shortLabel,
+      label: STORY_BUCKET_LABELS[s.bucketId],
       value: s.totalAmount,
       percent: s.percent,
-      color: CATEGORY_COLORS[s.categoryId],
+      color: STORY_BUCKET_COLORS[s.bucketId],
       isOther: false,
     }));
 
