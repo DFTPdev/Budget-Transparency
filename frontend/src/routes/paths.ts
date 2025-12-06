@@ -33,7 +33,13 @@ export const paths = {
   figmaUrl: 'https://www.figma.com/design/WadcoP3CSejUDj7YZc87xj/%5BPreview%5D-Minimal-Web.v7.3.0',
   // Budget platform pages
   budgetOverview: '/budget-overview',
-  // Removed product paths - not needed for civic budget platform
+  // Product paths - kept for compatibility with existing components
+  product: {
+    root: `/product`,
+    checkout: `/product/checkout`,
+    details: (id: string) => `/product/${id}`,
+    demo: { details: `/product/${MOCK_ID}` },
+  },
   post: {
     root: `/post`,
     details: (title: string) => `/post/${kebabCase(title)}`,
@@ -86,7 +92,13 @@ export const paths = {
   // DASHBOARD
   dashboard: {
     root: ROOTS.DASHBOARD,
-    // Removed deleted dashboard paths: mail, chat, blank, kanban, calendar, fileManager
+    // Utility paths - kept for compatibility with existing components
+    mail: `${ROOTS.DASHBOARD}/mail`,
+    chat: `${ROOTS.DASHBOARD}/chat`,
+    blank: `${ROOTS.DASHBOARD}/blank`,
+    kanban: `${ROOTS.DASHBOARD}/kanban`,
+    calendar: `${ROOTS.DASHBOARD}/calendar`,
+    fileManager: `${ROOTS.DASHBOARD}/file-manager`,
     permission: `${ROOTS.DASHBOARD}/permission`,
     general: {
       app: `${ROOTS.DASHBOARD}/app`,
@@ -107,7 +119,28 @@ export const paths = {
       edit: (id: string) => `${ROOTS.DASHBOARD}/user/${id}/edit`,
       demo: { edit: `${ROOTS.DASHBOARD}/user/${MOCK_ID}/edit` },
     },
-    // Removed product and invoice paths - not needed for civic budget platform
+    // Product paths - kept for compatibility with existing components
+    product: {
+      root: `${ROOTS.DASHBOARD}/product`,
+      new: `${ROOTS.DASHBOARD}/product/new`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/product/${id}`,
+      edit: (id: string) => `${ROOTS.DASHBOARD}/product/${id}/edit`,
+      demo: {
+        details: `${ROOTS.DASHBOARD}/product/${MOCK_ID}`,
+        edit: `${ROOTS.DASHBOARD}/product/${MOCK_ID}/edit`,
+      },
+    },
+    // Invoice paths - kept for compatibility with existing components
+    invoice: {
+      root: `${ROOTS.DASHBOARD}/invoice`,
+      new: `${ROOTS.DASHBOARD}/invoice/new`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/invoice/${id}`,
+      edit: (id: string) => `${ROOTS.DASHBOARD}/invoice/${id}/edit`,
+      demo: {
+        details: `${ROOTS.DASHBOARD}/invoice/${MOCK_ID}`,
+        edit: `${ROOTS.DASHBOARD}/invoice/${MOCK_ID}/edit`,
+      },
+    },
     post: {
       root: `${ROOTS.DASHBOARD}/post`,
       new: `${ROOTS.DASHBOARD}/post/new`,
@@ -123,6 +156,27 @@ export const paths = {
       details: (id: string) => `${ROOTS.DASHBOARD}/order/${id}`,
       demo: { details: `${ROOTS.DASHBOARD}/order/${MOCK_ID}` },
     },
-    // Removed job and tour paths - not needed for civic budget platform
+    // Job paths - kept for compatibility with existing components
+    job: {
+      root: `${ROOTS.DASHBOARD}/job`,
+      new: `${ROOTS.DASHBOARD}/job/new`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/job/${id}`,
+      edit: (id: string) => `${ROOTS.DASHBOARD}/job/${id}/edit`,
+      demo: {
+        details: `${ROOTS.DASHBOARD}/job/${MOCK_ID}`,
+        edit: `${ROOTS.DASHBOARD}/job/${MOCK_ID}/edit`,
+      },
+    },
+    // Tour paths - kept for compatibility with existing components
+    tour: {
+      root: `${ROOTS.DASHBOARD}/tour`,
+      new: `${ROOTS.DASHBOARD}/tour/new`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/tour/${id}`,
+      edit: (id: string) => `${ROOTS.DASHBOARD}/tour/${id}/edit`,
+      demo: {
+        details: `${ROOTS.DASHBOARD}/tour/${MOCK_ID}`,
+        edit: `${ROOTS.DASHBOARD}/tour/${MOCK_ID}/edit`,
+      },
+    },
   },
 };
