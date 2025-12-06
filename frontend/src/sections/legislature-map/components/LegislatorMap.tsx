@@ -46,18 +46,26 @@ export function LegislatorMap({
   mapboxToken,
 }: LegislatorMapProps) {
   const mapRef = useRef<any>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Handle window resize to trigger map resize
+  // Watch container size changes (including CSS breakpoint changes)
   useEffect(() => {
-    const handleResize = () => {
+    if (!containerRef.current) return;
+
+    const resizeObserver = new ResizeObserver(() => {
       if (mapRef.current) {
-        mapRef.current.resize();
+        // Small delay to ensure container has finished resizing
+        setTimeout(() => {
+          if (mapRef.current) {
+            mapRef.current.resize();
+          }
+        }, 50);
       }
-    };
+    });
 
-    window.addEventListener('resize', handleResize);
+    resizeObserver.observe(containerRef.current);
 
-    // Trigger initial resize after mount
+    // Also trigger initial resize after mount
     const timer = setTimeout(() => {
       if (mapRef.current) {
         mapRef.current.resize();
@@ -65,7 +73,7 @@ export function LegislatorMap({
     }, 100);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
       clearTimeout(timer);
     };
   }, []);
@@ -117,6 +125,7 @@ export function LegislatorMap({
 
   return (
     <Box
+      ref={containerRef}
       sx={{
         width: '100%',
         height: { xs: '400px', sm: '500px', md: '600px' },
