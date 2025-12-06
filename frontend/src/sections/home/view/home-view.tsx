@@ -18,7 +18,6 @@ import { varFade, MotionViewport } from 'src/components/animate';
 import { Iconify } from 'src/components/iconify';
 import { BackgroundShape } from 'src/assets/illustrations';
 import { FloatPlusIcon, FloatDotIcon, CircleSvg } from '../components/svg-elements';
-import { HacBudgetDashboard } from 'src/sections/hac';
 
 // ----------------------------------------------------------------------
 
@@ -574,10 +573,134 @@ export function HomeView() {
     </Box>
   );
 
+  const renderBudgetOverview = () => (
+    <Box
+      sx={{
+        py: { xs: 8, md: 12 },
+        bgcolor: alpha(theme.palette.grey[500], 0.04),
+        position: 'relative',
+      }}
+    >
+      <Container maxWidth="lg">
+        <m.div variants={varFade('inUp')}>
+          <Stack spacing={4} sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
+            <Typography variant="h3" sx={{ fontWeight: 700 }}>
+              Virginia's Budget at a Glance
+            </Typography>
+
+            <Typography
+              variant="h6"
+              sx={{
+                color: 'text.secondary',
+                fontWeight: 400,
+                lineHeight: 1.8,
+                maxWidth: 600,
+                mx: 'auto',
+              }}
+            >
+              Explore Virginia's FY 2024–26 biennial budget with interactive visualizations,
+              spending breakdowns, and revenue analysis.
+            </Typography>
+
+            <Box sx={{ pt: 2 }}>
+              <Button
+                variant="contained"
+                size="large"
+                href={paths.budgetOverview}
+                endIcon={<Iconify icon="solar:arrow-right-bold" />}
+                sx={{
+                  px: 5,
+                  py: 2,
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                  borderRadius: 2,
+                  boxShadow: theme.shadows[8],
+                  '&:hover': {
+                    boxShadow: theme.shadows[12],
+                    transform: 'translateY(-2px)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                View Budget Overview
+              </Button>
+            </Box>
+
+            {/* Quick Stats Preview */}
+            <Grid container spacing={3} sx={{ mt: 4 }}>
+              <Grid size={{ xs: 12, sm: 4 }}>
+                <Card
+                  sx={{
+                    p: 3,
+                    textAlign: 'center',
+                    transition: 'all 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: theme.shadows[8],
+                    },
+                  }}
+                >
+                  <Typography variant="h4" sx={{ fontWeight: 700, color: 'primary.main', mb: 1 }}>
+                    $188.2B
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    Total Biennial Budget
+                  </Typography>
+                </Card>
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 4 }}>
+                <Card
+                  sx={{
+                    p: 3,
+                    textAlign: 'center',
+                    transition: 'all 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: theme.shadows[8],
+                    },
+                  }}
+                >
+                  <Typography variant="h4" sx={{ fontWeight: 700, color: 'secondary.main', mb: 1 }}>
+                    $66.8B
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    General Fund
+                  </Typography>
+                </Card>
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 4 }}>
+                <Card
+                  sx={{
+                    p: 3,
+                    textAlign: 'center',
+                    transition: 'all 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: theme.shadows[8],
+                    },
+                  }}
+                >
+                  <Typography variant="h4" sx={{ fontWeight: 700, color: 'info.main', mb: 1 }}>
+                    $121.4B
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    Non-General Fund
+                  </Typography>
+                </Card>
+              </Grid>
+            </Grid>
+          </Stack>
+        </m.div>
+      </Container>
+    </Box>
+  );
+
   return (
     <MotionViewport>
       {renderHero()}
-      <HacBudgetDashboard />
+      {renderBudgetOverview()}
       {renderMission()}
       {renderFeatures()}
       {renderCallToAction()}
