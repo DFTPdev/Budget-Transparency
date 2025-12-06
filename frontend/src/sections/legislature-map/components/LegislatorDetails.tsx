@@ -191,7 +191,7 @@ function LisMemberRequestsInline({ lisId, year }: LisMemberRequestsInlineProps) 
       </Box>
 
       {/* Amendment List - Compact */}
-      <Stack spacing={1} sx={{ flex: 1, overflowY: 'auto', pr: 0.5 }}>
+      <Stack spacing={1} sx={{ maxHeight: 500, overflowY: 'auto', pr: 0.5 }}>
         {items.map((item, idx) => {
           // Get story bucket for this amendment's category
           const bucketId = item.spendingCategoryId
@@ -564,7 +564,7 @@ export function LegislatorDetails({
 
                   {/* MIDDLE: Spending Focus / Category Breakdown (33% - centered) */}
                   <Grid item xs={12} sm={12} md={4} lg={4} sx={{ flexBasis: { lg: '33.33%' }, maxWidth: { lg: '33.33%' } }}>
-                    <Stack spacing={0.5} sx={{ height: '100%', alignItems: 'center' }}>
+                    <Stack spacing={0.5} sx={{ alignItems: 'center' }}>
                       {/* Header - centered */}
                       <Typography variant="h6" sx={{ lineHeight: 1.3, fontWeight: 600, mb: 0.5 }}>
                         {showCategoryBreakdown ? 'Category Breakdown' : 'Spending Focus'}
@@ -670,7 +670,7 @@ export function LegislatorDetails({
 
                   {/* RIGHT: Funding Recipients (33%) */}
                   <Grid item xs={12} sm={12} md={4} lg={4} sx={{ flexBasis: { lg: '33.33%' }, maxWidth: { lg: '33.33%' } }}>
-                    <Stack spacing={2} sx={{ height: '100%' }}>
+                    <Stack spacing={2}>
                       {/* Header */}
                       <Box>
                         <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
