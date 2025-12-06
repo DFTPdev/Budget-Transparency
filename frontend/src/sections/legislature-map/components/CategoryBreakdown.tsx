@@ -22,7 +22,7 @@ const STORY_BUCKET_DESCRIPTIONS: Record<StoryBucketId, string> = {
   parks_environment_energy: 'State parks, environmental protection, conservation, and clean energy',
   veterans_military: 'Veterans benefits, military family support, and services for those who served',
   government_overhead: 'Administration, legislature, finance, employee benefits, and government operations',
-  unclassified: 'Amendments that could not be automatically categorized based on their title. These are included to ensure all spending data is represented in the chart.',
+  unclassified: 'Amendments with vague or generic titles that don\'t contain clear category keywords. Includes local projects, specialized programs, technical language changes, and funding for specific organizations or initiatives. Represents about 45% of all amendments.',
 };
 
 // Order for display (most common first, unclassified last)
