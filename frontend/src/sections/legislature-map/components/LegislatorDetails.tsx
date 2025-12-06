@@ -38,6 +38,10 @@ import { Iconify } from 'src/components/iconify';
 import { LegislatorFocusPie } from './LegislatorFocusPie';
 import { CategoryBreakdown } from './CategoryBreakdown';
 
+import type { SpendingCategoryId } from 'src/data/spendingCategories';
+import { getStoryBucketForCategory } from 'src/data/spendingStoryBuckets';
+import { STORY_BUCKET_LABELS, STORY_BUCKET_COLORS } from 'src/data/spendingStoryBuckets';
+
 /**
  * Format currency value
  */
@@ -188,54 +192,84 @@ function LisMemberRequestsInline({ lisId, year }: LisMemberRequestsInlineProps) 
 
       {/* Amendment List - Compact */}
       <Stack spacing={1} sx={{ maxHeight: 300, overflowY: 'auto', pr: 0.5 }}>
-        {items.map((item, idx) => (
-          <Box
-            key={`${item.item}-${idx}`}
-            sx={{
-              p: 1.5,
-              bgcolor: 'background.paper',
-              border: '1px solid',
-              borderColor: 'divider',
-              borderRadius: 1,
-              '&:hover': {
-                boxShadow: 1,
-              },
-            }}
-          >
-            <Typography variant="body2" sx={{ mb: 0.5, fontWeight: 500, fontSize: '0.85rem' }}>
-              {item.title}
-            </Typography>
-            <Stack direction="row" spacing={1.5} flexWrap="wrap" useFlexGap>
-              {item.fyFirst !== null && (
-                <Typography variant="caption" color="text.secondary">
-                  <strong>FY1:</strong> {formatCurrency(item.fyFirst)}
-                </Typography>
+        {items.map((item, idx) => {
+          // Get story bucket for this amendment's category
+          const bucketId = item.spendingCategoryId
+            ? getStoryBucketForCategory(item.spendingCategoryId as SpendingCategoryId)
+            : null;
+          const bucketLabel = bucketId ? STORY_BUCKET_LABELS[bucketId] : null;
+          const bucketColor = bucketId ? STORY_BUCKET_COLORS[bucketId] : '#999';
+
+          return (
+            <Box
+              key={`${item.item}-${idx}`}
+              sx={{
+                p: 1.5,
+                bgcolor: 'background.paper',
+                border: '1px solid',
+                borderColor: 'divider',
+                borderRadius: 1,
+                borderLeft: '4px solid',
+                borderLeftColor: bucketColor,
+                '&:hover': {
+                  boxShadow: 1,
+                },
+              }}
+            >
+              {/* Category Badge */}
+              {bucketLabel && (
+                <Chip
+                  label={bucketLabel}
+                  size="small"
+                  sx={{
+                    height: 20,
+                    fontSize: '0.65rem',
+                    fontWeight: 600,
+                    mb: 0.5,
+                    backgroundColor: bucketColor,
+                    color: '#fff',
+                    '& .MuiChip-label': {
+                      px: 1,
+                    },
+                  }}
+                />
               )}
-              {item.fySecond !== null && (
-                <Typography variant="caption" color="text.secondary">
-                  <strong>FY2:</strong> {formatCurrency(item.fySecond)}
-                </Typography>
-              )}
-              {item.amountType === 'language-only' && (
-                <Typography variant="caption" color="text.secondary">
-                  <strong>Language-only</strong>
-                </Typography>
-              )}
-              {item.lisUrl && (
-                <Link
-                  href={item.lisUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="caption"
-                  sx={{ display: 'flex', alignItems: 'center', gap: 0.3 }}
-                >
-                  LIS
-                  <Iconify icon="eva:external-link-outline" width={12} />
-                </Link>
-              )}
-            </Stack>
-          </Box>
-        ))}
+
+              <Typography variant="body2" sx={{ mb: 0.5, fontWeight: 500, fontSize: '0.85rem' }}>
+                {item.title}
+              </Typography>
+              <Stack direction="row" spacing={1.5} flexWrap="wrap" useFlexGap>
+                {item.fyFirst !== null && (
+                  <Typography variant="caption" color="text.secondary">
+                    <strong>FY1:</strong> {formatCurrency(item.fyFirst)}
+                  </Typography>
+                )}
+                {item.fySecond !== null && (
+                  <Typography variant="caption" color="text.secondary">
+                    <strong>FY2:</strong> {formatCurrency(item.fySecond)}
+                  </Typography>
+                )}
+                {item.amountType === 'language-only' && (
+                  <Typography variant="caption" color="text.secondary">
+                    <strong>Language-only</strong>
+                  </Typography>
+                )}
+                {item.lisUrl && (
+                  <Link
+                    href={item.lisUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="caption"
+                    sx={{ display: 'flex', alignItems: 'center', gap: 0.3 }}
+                  >
+                    LIS
+                    <Iconify icon="eva:external-link-outline" width={12} />
+                  </Link>
+                )}
+              </Stack>
+            </Box>
+          );
+        })}
       </Stack>
     </Box>
   );
