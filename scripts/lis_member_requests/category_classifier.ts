@@ -33,205 +33,325 @@ export type SpendingCategoryId =
 export function classifyAmendmentCategory(title: string): SpendingCategoryId {
   const text = title.toLowerCase().trim();
 
-  // K-12 Education
-  if (
-    text.includes('department of education') ||
-    text.includes('public education') ||
-    text.includes('k-12') ||
-    text.includes('k12') ||
-    text.includes('elementary') ||
-    text.includes('secondary school') ||
-    text.includes('public school') ||
-    text.includes('school division') ||
-    text.includes('standards of quality') ||
-    text.includes('soq')
-  ) {
-    return 'k12_education';
-  }
+  // Remove "HB/SB ####:" prefix for better keyword matching
+  // Many amendments are titled like "HB 1234: Description" where Description has the keywords
+  const textWithoutBillPrefix = text.replace(/^(hb|sb)\s*\d+\s*[:\-]\s*/i, '');
 
-  // Higher Education
+  // Higher Education (check BEFORE K-12 to avoid false matches)
+  // Virginia public universities and colleges
   if (
-    text.includes('higher education') ||
-    text.includes('college') ||
-    text.includes('university') ||
-    text.includes('community college') ||
-    text.includes('schev') ||
-    text.includes('state council of higher') ||
-    text.includes('vcu') ||
-    text.includes('uva') ||
-    text.includes('virginia tech') ||
-    text.includes('vt ')
+    textWithoutBillPrefix.includes('higher education') ||
+    textWithoutBillPrefix.includes('community college') ||
+    textWithoutBillPrefix.includes('schev') ||
+    textWithoutBillPrefix.includes('state council of higher') ||
+    // Virginia public universities (use word boundaries to avoid false matches)
+    textWithoutBillPrefix.match(/\b(vcu|virginia commonwealth)\b/) ||
+    textWithoutBillPrefix.match(/\b(uva|u\.?va\.?|university of virginia|uva-wise)\b/) ||
+    textWithoutBillPrefix.match(/\b(virginia tech|vt:|vt-|vpi)\b/) ||
+    textWithoutBillPrefix.match(/\b(w&m|cwm|william and mary|william & mary)\b/) ||
+    textWithoutBillPrefix.match(/\b(gmu|george mason)\b/) ||
+    textWithoutBillPrefix.match(/\b(jmu|james madison)\b/) ||
+    textWithoutBillPrefix.match(/\b(odu|old dominion)\b/) ||
+    textWithoutBillPrefix.match(/\b(vmi|virginia military institute)\b/) ||
+    textWithoutBillPrefix.match(/\b(radford|longwood|christopher newport|cnu)\b/) ||
+    textWithoutBillPrefix.match(/\b(norfolk state|nsu|virginia state|vsu)\b/) ||
+    textWithoutBillPrefix.match(/\b(vccs|virginia community college)\b/) ||
+    textWithoutBillPrefix.match(/\b(college|university)\b/) && !textWithoutBillPrefix.includes('school')
   ) {
     return 'higher_education';
   }
 
+  // K-12 Education
+  if (
+    textWithoutBillPrefix.includes('department of education') ||
+    textWithoutBillPrefix.includes('public education') ||
+    textWithoutBillPrefix.includes('early childhood education') ||
+    textWithoutBillPrefix.includes('k-12') ||
+    textWithoutBillPrefix.includes('k12') ||
+    textWithoutBillPrefix.includes('elementary') ||
+    textWithoutBillPrefix.includes('secondary school') ||
+    textWithoutBillPrefix.includes('public school') ||
+    textWithoutBillPrefix.includes('school division') ||
+    textWithoutBillPrefix.includes('standards of quality') ||
+    textWithoutBillPrefix.includes('soq') ||
+    textWithoutBillPrefix.match(/\bdoe\b/) && (textWithoutBillPrefix.includes('school') || textWithoutBillPrefix.includes('education')) ||
+    textWithoutBillPrefix.includes('school resource officer') ||
+    textWithoutBillPrefix.includes('school safety') ||
+    textWithoutBillPrefix.includes('restorative school') ||
+    textWithoutBillPrefix.includes('teacher') ||
+    textWithoutBillPrefix.includes('student') && textWithoutBillPrefix.includes('school') ||
+    textWithoutBillPrefix.includes('education of incarcerated')
+  ) {
+    return 'k12_education';
+  }
+
   // Health & Human Resources
   if (
-    text.includes('health') ||
-    text.includes('hospital') ||
-    text.includes('medical') ||
-    text.includes('medicaid') ||
-    text.includes('dmas') ||
-    text.includes('behavioral health') ||
-    text.includes('mental health') ||
-    text.includes('social services') ||
-    text.includes('aging') ||
-    text.includes('disability') ||
-    text.includes('human services') ||
-    text.includes('human resources') ||
-    text.includes('child care') ||
-    text.includes('childcare') ||
-    text.includes('nursing')
+    textWithoutBillPrefix.includes('health') ||
+    textWithoutBillPrefix.includes('hospital') ||
+    textWithoutBillPrefix.includes('medical') ||
+    textWithoutBillPrefix.includes('medicaid') ||
+    textWithoutBillPrefix.includes('medicare') ||
+    textWithoutBillPrefix.includes('dmas') ||
+    textWithoutBillPrefix.includes('behavioral health') ||
+    textWithoutBillPrefix.includes('mental health') ||
+    textWithoutBillPrefix.includes('mental') && textWithoutBillPrefix.includes('treatment') ||
+    textWithoutBillPrefix.includes('substance abuse') ||
+    textWithoutBillPrefix.includes('addiction') ||
+    textWithoutBillPrefix.includes('social services') ||
+    textWithoutBillPrefix.includes('aging') ||
+    textWithoutBillPrefix.includes('disability') ||
+    textWithoutBillPrefix.includes('human services') ||
+    textWithoutBillPrefix.includes('human resources') ||
+    textWithoutBillPrefix.includes('child care') ||
+    textWithoutBillPrefix.includes('childcare') ||
+    textWithoutBillPrefix.includes('child advocacy') ||
+    textWithoutBillPrefix.includes('nursing') ||
+    textWithoutBillPrefix.includes('clinic') ||
+    textWithoutBillPrefix.includes('homeless') ||
+    textWithoutBillPrefix.includes('housing') && (textWithoutBillPrefix.includes('affordable') || textWithoutBillPrefix.includes('supportive') || textWithoutBillPrefix.includes('trust fund')) ||
+    textWithoutBillPrefix.includes('shelter') ||
+    textWithoutBillPrefix.includes('food bank') ||
+    textWithoutBillPrefix.includes('community action') ||
+    textWithoutBillPrefix.includes('continuum of care') ||
+    textWithoutBillPrefix.includes('treatment program') ||
+    textWithoutBillPrefix.includes('gambling treatment') ||
+    textWithoutBillPrefix.includes('pregnant') && textWithoutBillPrefix.includes('eligibility') ||
+    textWithoutBillPrefix.includes('perinatal') ||
+    textWithoutBillPrefix.includes('postpartum') ||
+    textWithoutBillPrefix.includes('autism') ||
+    textWithoutBillPrefix.includes('pediatric') ||
+    textWithoutBillPrefix.includes('physician loan repayment') ||
+    textWithoutBillPrefix.includes('supported living') ||
+    textWithoutBillPrefix.includes('waiver') && textWithoutBillPrefix.includes('services') ||
+    textWithoutBillPrefix.includes('csb') || // Community Services Boards
+    textWithoutBillPrefix.includes('family services') ||
+    textWithoutBillPrefix.includes('competency restoration') ||
+    textWithoutBillPrefix.includes('marcus alert')
   ) {
     return 'health_and_human_resources';
   }
 
   // Public Safety & Homeland Security
   if (
-    text.includes('police') ||
-    text.includes('corrections') ||
-    text.includes('criminal justice') ||
-    text.includes('emergency management') ||
-    text.includes('homeland security') ||
-    text.includes('fire') ||
-    text.includes('public safety') ||
-    text.includes('law enforcement') ||
-    text.includes('sheriff') ||
-    text.includes('jail') ||
-    text.includes('prison')
+    textWithoutBillPrefix.includes('police') ||
+    textWithoutBillPrefix.includes('corrections') ||
+    textWithoutBillPrefix.includes('cor -') || // Department of Corrections abbreviation
+    textWithoutBillPrefix.includes('criminal justice') ||
+    textWithoutBillPrefix.includes('emergency management') ||
+    textWithoutBillPrefix.includes('homeland security') ||
+    textWithoutBillPrefix.includes('fire') ||
+    textWithoutBillPrefix.includes('ems') && !textWithoutBillPrefix.includes('systems') ||
+    textWithoutBillPrefix.includes('emergency medical') ||
+    textWithoutBillPrefix.includes('emergency training') ||
+    textWithoutBillPrefix.includes('first aid equipment') ||
+    textWithoutBillPrefix.includes('public safety') ||
+    textWithoutBillPrefix.includes('law enforcement') ||
+    textWithoutBillPrefix.includes('sheriff') ||
+    textWithoutBillPrefix.includes('jail') ||
+    textWithoutBillPrefix.includes('prison') ||
+    textWithoutBillPrefix.includes('911') ||
+    textWithoutBillPrefix.includes('crime') ||
+    textWithoutBillPrefix.includes('victim') ||
+    textWithoutBillPrefix.includes('assault') ||
+    textWithoutBillPrefix.includes('battery') ||
+    textWithoutBillPrefix.includes('theft') ||
+    textWithoutBillPrefix.includes('mass violence')
   ) {
     return 'public_safety_and_homeland_security';
   }
 
   // Transportation
   if (
-    text.includes('transportation') ||
-    text.includes('vdot') ||
-    text.includes('highway') ||
-    text.includes('transit') ||
-    text.includes('rail') ||
-    text.includes('aviation') ||
-    text.includes('motor vehicle') ||
-    text.includes('dmv') ||
-    text.includes('road') ||
-    text.includes('bridge')
+    textWithoutBillPrefix.includes('transportation') ||
+    textWithoutBillPrefix.includes('vdot') ||
+    textWithoutBillPrefix.includes('highway') ||
+    textWithoutBillPrefix.includes('transit') ||
+    textWithoutBillPrefix.includes('rail') ||
+    textWithoutBillPrefix.includes('aviation') ||
+    textWithoutBillPrefix.includes('motor vehicle') ||
+    textWithoutBillPrefix.includes('dmv') ||
+    textWithoutBillPrefix.includes('road') ||
+    textWithoutBillPrefix.includes('bridge') ||
+    textWithoutBillPrefix.includes('sidewalk') ||
+    textWithoutBillPrefix.includes('street') && (textWithoutBillPrefix.includes('maintenance') || textWithoutBillPrefix.includes('repair')) ||
+    textWithoutBillPrefix.includes('port') && textWithoutBillPrefix.includes('host') ||
+    textWithoutBillPrefix.includes('ev charging') ||
+    textWithoutBillPrefix.includes('electric vehicle') ||
+    textWithoutBillPrefix.includes('flashing beacon') ||
+    textWithoutBillPrefix.includes('traffic')
   ) {
     return 'transportation';
   }
 
   // Natural Resources
   if (
-    text.includes('environmental') ||
-    text.includes('conservation') ||
-    text.includes('wildlife') ||
-    text.includes('marine resources') ||
-    text.includes('forestry') ||
-    text.includes('parks') ||
-    text.includes('historic resources') ||
-    text.includes('deq') ||
-    text.includes('dcr') ||
-    text.includes('water quality') ||
-    text.includes('chesapeake bay')
+    textWithoutBillPrefix.includes('environmental') ||
+    textWithoutBillPrefix.includes('conservation') ||
+    textWithoutBillPrefix.includes('wildlife') ||
+    textWithoutBillPrefix.includes('marine resources') ||
+    textWithoutBillPrefix.includes('vmrc') ||
+    textWithoutBillPrefix.includes('vims') ||
+    textWithoutBillPrefix.includes('aquatic fauna') ||
+    textWithoutBillPrefix.includes('forestry') ||
+    textWithoutBillPrefix.includes('parks') ||
+    textWithoutBillPrefix.includes('historic resources') ||
+    textWithoutBillPrefix.includes('deq') ||
+    textWithoutBillPrefix.includes('dcr') ||
+    textWithoutBillPrefix.includes('water quality') ||
+    textWithoutBillPrefix.includes('chesapeake bay') ||
+    textWithoutBillPrefix.includes('water system') ||
+    textWithoutBillPrefix.includes('wastewater') ||
+    textWithoutBillPrefix.includes('sewer') ||
+    textWithoutBillPrefix.includes('stormwater') ||
+    textWithoutBillPrefix.includes('cyanobacteria') ||
+    textWithoutBillPrefix.includes('algae bloom') ||
+    textWithoutBillPrefix.includes('lake anna') && (textWithoutBillPrefix.includes('mitigation') || textWithoutBillPrefix.includes('remediation')) ||
+    textWithoutBillPrefix.includes('cemetery') || // Historic African American cemeteries
+    textWithoutBillPrefix.includes('graves fund') ||
+    textWithoutBillPrefix.includes('solar') ||
+    textWithoutBillPrefix.includes('energy') && !textWithoutBillPrefix.includes('science and engineering') ||
+    textWithoutBillPrefix.includes('dredging') ||
+    textWithoutBillPrefix.includes('living shoreline') ||
+    textWithoutBillPrefix.includes('oyster') ||
+    textWithoutBillPrefix.includes('pfas testing')
   ) {
     return 'natural_resources';
   }
 
   // Commerce & Trade
   if (
-    text.includes('commerce') ||
-    text.includes('trade') ||
-    text.includes('economic development') ||
-    text.includes('business') ||
-    text.includes('tourism') ||
-    text.includes('labor') ||
-    text.includes('workforce')
+    textWithoutBillPrefix.includes('commerce') ||
+    textWithoutBillPrefix.includes('trade') ||
+    textWithoutBillPrefix.includes('economic development') ||
+    textWithoutBillPrefix.includes('business') ||
+    textWithoutBillPrefix.includes('tourism') ||
+    textWithoutBillPrefix.includes('labor') ||
+    textWithoutBillPrefix.includes('workforce') ||
+    textWithoutBillPrefix.includes('employment') ||
+    textWithoutBillPrefix.includes('minimum wage') ||
+    textWithoutBillPrefix.includes('paid sick day') ||
+    textWithoutBillPrefix.includes('training') && textWithoutBillPrefix.includes('competency') ||
+    textWithoutBillPrefix.includes('excel center') ||
+    textWithoutBillPrefix.includes('goodwill') ||
+    textWithoutBillPrefix.includes('cyber range') ||
+    textWithoutBillPrefix.includes('innovation') ||
+    textWithoutBillPrefix.includes('technology') && !textWithoutBillPrefix.includes('virginia tech') ||
+    textWithoutBillPrefix.includes('broadband') ||
+    textWithoutBillPrefix.includes('festival') || // Economic/tourism events
+    textWithoutBillPrefix.includes('foundation') && !textWithoutBillPrefix.includes('cemetery') ||
+    textWithoutBillPrefix.includes('swam procurement') ||
+    textWithoutBillPrefix.includes('cultural organization') ||
+    textWithoutBillPrefix.includes('vca -') || // Virginia Commission for the Arts
+    textWithoutBillPrefix.includes('boost!') ||
+    textWithoutBillPrefix.includes('redevelopment fund')
   ) {
     return 'commerce_and_trade';
   }
 
   // Agriculture & Forestry
   if (
-    text.includes('agriculture') ||
-    text.includes('farming') ||
-    text.includes('vdacs') ||
-    text.includes('farm') ||
-    text.includes('crop')
+    textWithoutBillPrefix.includes('agriculture') ||
+    textWithoutBillPrefix.includes('farming') ||
+    textWithoutBillPrefix.includes('vdacs') ||
+    textWithoutBillPrefix.includes('farm') ||
+    textWithoutBillPrefix.includes('crop') ||
+    textWithoutBillPrefix.match(/\bvt-ext\b/) || // VT Extension
+    textWithoutBillPrefix.includes('arec') || // Agricultural Research and Extension Center
+    textWithoutBillPrefix.includes('veterinarian') && textWithoutBillPrefix.includes('grant')
   ) {
     return 'agriculture_and_forestry';
   }
 
   // Veterans & Defense Affairs
   if (
-    text.includes('veteran') ||
-    text.includes('military') ||
-    text.includes('defense') ||
-    text.includes('national guard')
+    textWithoutBillPrefix.includes('veteran') ||
+    textWithoutBillPrefix.includes('military') ||
+    textWithoutBillPrefix.includes('defense') ||
+    textWithoutBillPrefix.includes('national guard')
   ) {
     return 'veterans_and_defense_affairs';
   }
 
   // Judicial
   if (
-    text.includes('court') ||
-    text.includes('judicial') ||
-    text.includes('supreme court') ||
-    text.includes('magistrate') ||
-    text.includes('judge') ||
-    text.includes('judiciary')
+    textWithoutBillPrefix.includes('court') ||
+    textWithoutBillPrefix.includes('judicial') ||
+    textWithoutBillPrefix.includes('supreme court') ||
+    textWithoutBillPrefix.includes('magistrate') ||
+    textWithoutBillPrefix.includes('judge') ||
+    textWithoutBillPrefix.includes('judiciary') ||
+    textWithoutBillPrefix.includes('law clinic') || // University law clinics
+    textWithoutBillPrefix.includes('jury management') ||
+    textWithoutBillPrefix.includes('commonwealth') && textWithoutBillPrefix.includes('attorney')
   ) {
     return 'judicial';
   }
 
   // Legislative
   if (
-    text.includes('general assembly') ||
-    text.includes('house of delegates') ||
-    text.includes('senate of virginia') ||
-    text.includes('legislative') ||
-    text.includes('campaign finance')
+    textWithoutBillPrefix.includes('general assembly') ||
+    textWithoutBillPrefix.includes('house of delegates') ||
+    textWithoutBillPrefix.includes('senate of virginia') ||
+    textWithoutBillPrefix.includes('legislative') ||
+    textWithoutBillPrefix.includes('campaign finance') ||
+    textWithoutBillPrefix.match(/\bjchc\b/) || // Joint Commission on Health Care
+    textWithoutBillPrefix.includes('voting equipment') ||
+    textWithoutBillPrefix.includes('virginia housing commission')
   ) {
     return 'legislative';
   }
 
   // Administration
   if (
-    text.includes('administration') ||
-    text.includes('secretary of') ||
-    text.includes('governor') ||
-    text.includes('lieutenant governor') ||
-    text.includes('attorney general')
+    textWithoutBillPrefix.includes('administration') ||
+    textWithoutBillPrefix.includes('secretary of') ||
+    textWithoutBillPrefix.includes('governor') ||
+    textWithoutBillPrefix.includes('lieutenant governor') ||
+    textWithoutBillPrefix.includes('attorney general') ||
+    textWithoutBillPrefix.includes('virginia academy of science') ||
+    textWithoutBillPrefix.includes('dgs:') || // Department of General Services
+    textWithoutBillPrefix.includes('treasurers')
   ) {
     return 'administration';
   }
 
   // Finance
   if (
-    text.includes('finance') ||
-    text.includes('treasury') ||
-    text.includes('taxation') ||
-    text.includes('revenue') ||
-    text.includes('comptroller')
+    textWithoutBillPrefix.includes('finance') ||
+    textWithoutBillPrefix.includes('treasury') ||
+    textWithoutBillPrefix.includes('taxation') ||
+    textWithoutBillPrefix.includes('revenue') ||
+    textWithoutBillPrefix.includes('comptroller')
   ) {
     return 'finance';
   }
 
   // Central Appropriations
   if (
-    text.includes('central appropriations') ||
-    text.includes('employee benefits') ||
-    text.includes('retirement') ||
-    text.includes('vrs')
+    textWithoutBillPrefix.includes('central appropriations') ||
+    textWithoutBillPrefix.includes('employee benefits') ||
+    textWithoutBillPrefix.includes('retirement') ||
+    textWithoutBillPrefix.match(/\bvrs\b/) && !textWithoutBillPrefix.includes('hours') ||
+    textWithoutBillPrefix.includes('salaries') && textWithoutBillPrefix.includes('entry level')
   ) {
     return 'central_appropriations';
   }
 
   // Capital Outlay
   if (
-    text.includes('capital outlay') ||
-    text.includes('capital project') ||
-    text.includes('construction') ||
-    text.includes('renovation') ||
-    text.includes('facility')
+    textWithoutBillPrefix.includes('capital outlay') ||
+    textWithoutBillPrefix.includes('capital project') ||
+    textWithoutBillPrefix.includes('construction') ||
+    textWithoutBillPrefix.includes('renovation') ||
+    textWithoutBillPrefix.includes('renovate') ||
+    textWithoutBillPrefix.includes('facility') && !textWithoutBillPrefix.includes('eligibility') ||
+    textWithoutBillPrefix.includes('building') && (textWithoutBillPrefix.includes('planning') || textWithoutBillPrefix.includes('replace')) ||
+    textWithoutBillPrefix.includes('deferred maintenance') ||
+    textWithoutBillPrefix.includes('pre-planning') ||
+    textWithoutBillPrefix.includes('replace') && (textWithoutBillPrefix.includes('library') || textWithoutBillPrefix.includes('hall')) ||
+    textWithoutBillPrefix.includes('visitor center') && textWithoutBillPrefix.includes('museum') ||
+    textWithoutBillPrefix.includes('gunston hall')
   ) {
     return 'capital_outlay';
   }
@@ -239,19 +359,19 @@ export function classifyAmendmentCategory(title: string): SpendingCategoryId {
   // Independent Agencies (Virginia's Independent Branch - INB)
   // Only classify as independent_agencies if explicitly matches known Independent Branch entities
   if (
-    text.includes('virginia lottery') ||
-    text.includes('lottery') ||
-    text.includes('alcoholic beverage control') ||
-    text.includes('abc board') ||
-    text.includes('state corporation commission') ||
-    text.includes('scc') ||
-    text.includes('virginia retirement system') ||
-    text.includes('vrs') ||
-    text.includes('workers\' compensation commission') ||
-    text.includes('workers compensation commission') ||
-    text.includes('cannabis control authority') ||
-    text.includes('opioid abatement authority') ||
-    text.includes('commonwealth savers')
+    textWithoutBillPrefix.includes('virginia lottery') ||
+    textWithoutBillPrefix.match(/\blottery\b/) && !textWithoutBillPrefix.includes('test') ||
+    textWithoutBillPrefix.includes('alcoholic beverage control') ||
+    textWithoutBillPrefix.includes('abc board') ||
+    textWithoutBillPrefix.includes('state corporation commission') ||
+    textWithoutBillPrefix.match(/\bscc\b/) && !textWithoutBillPrefix.includes('community college') ||
+    textWithoutBillPrefix.includes('virginia retirement system') ||
+    textWithoutBillPrefix.includes('workers\' compensation commission') ||
+    textWithoutBillPrefix.includes('workers compensation commission') ||
+    textWithoutBillPrefix.includes('cannabis') ||
+    textWithoutBillPrefix.includes('opioid abatement authority') ||
+    textWithoutBillPrefix.includes('commonwealth savers') ||
+    textWithoutBillPrefix.includes('dealer discount') // ABC/Lottery related
   ) {
     return 'independent_agencies';
   }

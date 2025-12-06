@@ -221,7 +221,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:41:52.501Z"
+    "updatedAt": "2025-12-06T19:47:23.000Z"
   },
   "H108": {
     "id": "H108",
@@ -322,7 +322,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -333,7 +333,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -355,7 +355,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -399,7 +399,7 @@
               "fyFirst": 1000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -445,7 +445,7 @@
               "fyFirst": 1000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             }
           ]
         }
@@ -456,7 +456,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:41:53.910Z"
+    "updatedAt": "2025-12-06T19:47:24.461Z"
   },
   "H124": {
     "id": "H124",
@@ -491,7 +491,7 @@
               "fyFirst": 842000,
               "fySecond": 929000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -515,7 +515,7 @@
               "fyFirst": 842000,
               "fySecond": 929000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -537,7 +537,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:41:55.287Z"
+    "updatedAt": "2025-12-06T19:47:25.845Z"
   },
   "H172": {
     "id": "H172",
@@ -649,7 +649,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -660,7 +660,7 @@
               "fyFirst": 1100000,
               "fySecond": 1100000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -671,7 +671,7 @@
               "fyFirst": 4000000,
               "fySecond": 4000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -704,7 +704,7 @@
               "fyFirst": 100000,
               "fySecond": 100000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -946,7 +946,7 @@
               "fyFirst": 500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -1023,7 +1023,7 @@
               "fyFirst": 21283440,
               "fySecond": 21283440,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -1133,7 +1133,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -1201,7 +1201,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:41:57.031Z"
+    "updatedAt": "2025-12-06T19:47:27.817Z"
   },
   "H173": {
     "id": "H173",
@@ -1258,7 +1258,7 @@
               "fyFirst": 10042516,
               "fySecond": 11046259,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -1291,7 +1291,7 @@
               "fyFirst": 975000,
               "fySecond": 975000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -1302,7 +1302,7 @@
               "fyFirst": 735000,
               "fySecond": 735000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -1324,7 +1324,7 @@
               "fyFirst": 925000,
               "fySecond": 1800000,
               "amountType": "increase",
-              "spendingCategoryId": "capital_outlay"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -1379,7 +1379,7 @@
               "fyFirst": 25000000,
               "fySecond": 25000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -1401,7 +1401,7 @@
               "fyFirst": 2816000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -1414,7 +1414,7 @@
               "fyFirst": 25000000,
               "fySecond": 25000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -1425,7 +1425,7 @@
               "fyFirst": 10042516,
               "fySecond": 11046259,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -1436,7 +1436,7 @@
               "fyFirst": 2816000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ]
         }
@@ -1447,7 +1447,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:41:58.580Z"
+    "updatedAt": "2025-12-06T19:47:29.284Z"
   },
   "H177": {
     "id": "H177",
@@ -1482,7 +1482,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -1515,7 +1515,7 @@
               "fyFirst": 2394721,
               "fySecond": 2612423,
               "amountType": "increase",
-              "spendingCategoryId": "finance"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -1526,7 +1526,7 @@
               "fyFirst": 1637689,
               "fySecond": 1786570,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -1537,7 +1537,7 @@
               "fyFirst": 1584185,
               "fySecond": 1728202,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "administration"
             },
             {
               "bill": "HB30",
@@ -1647,7 +1647,7 @@
               "fyFirst": 75000000,
               "fySecond": 75000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -1680,7 +1680,7 @@
               "fyFirst": 3500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -1691,7 +1691,7 @@
               "fyFirst": 500000,
               "fySecond": 500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -1746,7 +1746,7 @@
               "fyFirst": 1125000,
               "fySecond": 1125000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -1757,7 +1757,7 @@
               "fyFirst": 18000000,
               "fySecond": 18000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -1768,7 +1768,7 @@
               "fyFirst": 1459540,
               "fySecond": 2169080,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "agriculture_and_forestry"
             },
             {
               "bill": "HB30",
@@ -1779,7 +1779,7 @@
               "fyFirst": 2947088,
               "fySecond": 2947088,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -1878,7 +1878,7 @@
               "fyFirst": 35000000,
               "fySecond": 35000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -1922,7 +1922,7 @@
               "fyFirst": 2700000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -1933,7 +1933,7 @@
               "fyFirst": 200000000,
               "fySecond": 200000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -1944,7 +1944,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             }
           ],
           "featured": [
@@ -1957,7 +1957,7 @@
               "fyFirst": 200000000,
               "fySecond": 200000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -1968,7 +1968,7 @@
               "fyFirst": 75000000,
               "fySecond": 75000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -1990,7 +1990,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:00.229Z"
+    "updatedAt": "2025-12-06T19:47:30.897Z"
   },
   "H206": {
     "id": "H206",
@@ -2019,7 +2019,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:01.687Z"
+    "updatedAt": "2025-12-06T19:47:32.222Z"
   },
   "H207": {
     "id": "H207",
@@ -2065,7 +2065,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -2142,7 +2142,7 @@
               "fyFirst": 250000,
               "fySecond": 250000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -2307,7 +2307,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -2351,7 +2351,7 @@
               "fyFirst": 4173750,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -2395,7 +2395,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -2428,7 +2428,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -2483,7 +2483,7 @@
               "fyFirst": 4712381,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             }
           ],
           "featured": [
@@ -2529,7 +2529,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:03.436Z"
+    "updatedAt": "2025-12-06T19:47:33.876Z"
   },
   "H208": {
     "id": "H208",
@@ -2564,7 +2564,7 @@
               "fyFirst": 5000,
               "fySecond": 5000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -2575,7 +2575,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -2586,7 +2586,7 @@
               "fyFirst": 409000,
               "fySecond": 381000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -2597,7 +2597,7 @@
               "fyFirst": 2700000,
               "fySecond": 2700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -2654,7 +2654,7 @@
               "fyFirst": 2700000,
               "fySecond": 2700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -2676,7 +2676,7 @@
               "fyFirst": 409000,
               "fySecond": 381000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             }
           ]
         }
@@ -2687,7 +2687,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:04.846Z"
+    "updatedAt": "2025-12-06T19:47:35.408Z"
   },
   "H212": {
     "id": "H212",
@@ -2997,7 +2997,7 @@
               "fyFirst": 2500000,
               "fySecond": 2500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -3030,7 +3030,7 @@
               "fyFirst": 124184587,
               "fySecond": 74134639,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -3041,7 +3041,7 @@
               "fyFirst": 4000000,
               "fySecond": 4000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -3052,7 +3052,7 @@
               "fyFirst": 500000,
               "fySecond": 500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -3096,7 +3096,7 @@
               "fyFirst": 4020000,
               "fySecond": 4020000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -3316,7 +3316,7 @@
               "fyFirst": 3000000,
               "fySecond": 6000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -3371,7 +3371,7 @@
               "fyFirst": 5000000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -3481,7 +3481,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -3615,7 +3615,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:06.841Z"
+    "updatedAt": "2025-12-06T19:47:37.361Z"
   },
   "H219": {
     "id": "H219",
@@ -3859,7 +3859,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -3881,7 +3881,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -3892,7 +3892,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -3903,7 +3903,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -3925,7 +3925,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -4070,7 +4070,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:08.392Z"
+    "updatedAt": "2025-12-06T19:47:38.953Z"
   },
   "H224": {
     "id": "H224",
@@ -4116,7 +4116,7 @@
               "fyFirst": 2500000,
               "fySecond": 2500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -4171,7 +4171,7 @@
               "fyFirst": 124184587,
               "fySecond": 74134639,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -4226,7 +4226,7 @@
               "fyFirst": 44475000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -4239,7 +4239,7 @@
               "fyFirst": 124184587,
               "fySecond": 74134639,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -4250,7 +4250,7 @@
               "fyFirst": 44475000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -4272,7 +4272,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:09.856Z"
+    "updatedAt": "2025-12-06T19:47:40.612Z"
   },
   "H227": {
     "id": "H227",
@@ -4301,7 +4301,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:11.158Z"
+    "updatedAt": "2025-12-06T19:47:41.930Z"
   },
   "H231": {
     "id": "H231",
@@ -4415,7 +4415,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:12.498Z"
+    "updatedAt": "2025-12-06T19:47:43.698Z"
   },
   "H238": {
     "id": "H238",
@@ -4527,7 +4527,7 @@
               "fyFirst": 405994,
               "fySecond": 400000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -4659,7 +4659,7 @@
               "fyFirst": 4000000,
               "fySecond": 4000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -4681,7 +4681,7 @@
               "fyFirst": 4712381,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             }
           ],
           "featured": [
@@ -4727,7 +4727,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:14.012Z"
+    "updatedAt": "2025-12-06T19:47:45.340Z"
   },
   "H239": {
     "id": "H239",
@@ -4828,7 +4828,7 @@
               "fyFirst": 125000000,
               "fySecond": 125000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -4938,7 +4938,7 @@
               "fyFirst": 500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -4971,7 +4971,7 @@
               "fyFirst": 500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -5116,7 +5116,7 @@
               "fyFirst": 125000000,
               "fySecond": 125000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -5149,7 +5149,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:15.727Z"
+    "updatedAt": "2025-12-06T19:47:47.017Z"
   },
   "H242": {
     "id": "H242",
@@ -5239,7 +5239,7 @@
               "fyFirst": 200000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "k12_education"
             }
           ],
           "featured": [
@@ -5274,7 +5274,7 @@
               "fyFirst": 200000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "k12_education"
             }
           ]
         }
@@ -5285,7 +5285,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:17.221Z"
+    "updatedAt": "2025-12-06T19:47:48.645Z"
   },
   "H247": {
     "id": "H247",
@@ -5410,7 +5410,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:18.631Z"
+    "updatedAt": "2025-12-06T19:47:50.160Z"
   },
   "H253": {
     "id": "H253",
@@ -5467,7 +5467,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -5478,7 +5478,7 @@
               "fyFirst": 170000,
               "fySecond": 178500,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -5489,7 +5489,7 @@
               "fyFirst": 7015139,
               "fySecond": 14030278,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "unclassified"
             },
             {
               "bill": "HB30",
@@ -5577,7 +5577,7 @@
               "fyFirst": 68600000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -5601,7 +5601,7 @@
               "fyFirst": 68600000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -5612,7 +5612,7 @@
               "fyFirst": 7015139,
               "fySecond": 14030278,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "unclassified"
             },
             {
               "bill": "HB30",
@@ -5634,7 +5634,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:20.196Z"
+    "updatedAt": "2025-12-06T19:47:51.658Z"
   },
   "H259": {
     "id": "H259",
@@ -5669,7 +5669,7 @@
               "fyFirst": 1000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -5680,7 +5680,7 @@
               "fyFirst": 100000,
               "fySecond": 100000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             }
           ],
           "featured": [
@@ -5693,7 +5693,7 @@
               "fyFirst": 1000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -5704,7 +5704,7 @@
               "fyFirst": 100000,
               "fySecond": 100000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             }
           ]
         }
@@ -5715,7 +5715,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:21.520Z"
+    "updatedAt": "2025-12-06T19:47:53.103Z"
   },
   "H262": {
     "id": "H262",
@@ -5796,7 +5796,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:22.861Z"
+    "updatedAt": "2025-12-06T19:47:54.471Z"
   },
   "H264": {
     "id": "H264",
@@ -5965,7 +5965,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:24.239Z"
+    "updatedAt": "2025-12-06T19:47:55.910Z"
   },
   "H266": {
     "id": "H266",
@@ -6000,7 +6000,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -6055,7 +6055,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -6077,7 +6077,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -6143,7 +6143,7 @@
               "fyFirst": 0,
               "fySecond": 200000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -6209,7 +6209,7 @@
               "fyFirst": 8484022,
               "fySecond": 8484022,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -6220,7 +6220,7 @@
               "fyFirst": 868732,
               "fySecond": 868732,
               "amountType": "increase",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -6484,7 +6484,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -6552,7 +6552,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:25.977Z"
+    "updatedAt": "2025-12-06T19:47:57.706Z"
   },
   "H267": {
     "id": "H267",
@@ -6587,7 +6587,7 @@
               "fyFirst": 7400000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -6642,7 +6642,7 @@
               "fyFirst": 425000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -6686,7 +6686,7 @@
               "fyFirst": 1500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "agriculture_and_forestry"
             }
           ],
           "featured": [
@@ -6699,7 +6699,7 @@
               "fyFirst": 7400000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -6721,7 +6721,7 @@
               "fyFirst": 1500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "agriculture_and_forestry"
             }
           ]
         }
@@ -6732,7 +6732,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:27.378Z"
+    "updatedAt": "2025-12-06T19:47:59.123Z"
   },
   "H269": {
     "id": "H269",
@@ -6767,7 +6767,7 @@
               "fyFirst": 25000000,
               "fySecond": 25000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -6824,7 +6824,7 @@
               "fyFirst": 25000000,
               "fySecond": 25000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -6857,7 +6857,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:28.804Z"
+    "updatedAt": "2025-12-06T19:48:00.656Z"
   },
   "H281": {
     "id": "H281",
@@ -6958,7 +6958,7 @@
               "fyFirst": 3336364,
               "fySecond": 3673603,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -7002,7 +7002,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -7035,7 +7035,7 @@
               "fyFirst": 18000000,
               "fySecond": 18000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -7068,7 +7068,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "administration"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -7101,7 +7101,7 @@
               "fyFirst": 250000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -7178,7 +7178,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -7200,7 +7200,7 @@
               "fyFirst": 9023075,
               "fySecond": 10067773,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "independent_agencies"
             },
             {
               "bill": "HB30",
@@ -7255,7 +7255,7 @@
               "fyFirst": 2037000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -7301,7 +7301,7 @@
               "fyFirst": 18000000,
               "fySecond": 18000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ]
         }
@@ -7312,7 +7312,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:30.385Z"
+    "updatedAt": "2025-12-06T19:48:02.379Z"
   },
   "H284": {
     "id": "H284",
@@ -7523,7 +7523,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -7679,7 +7679,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:31.937Z"
+    "updatedAt": "2025-12-06T19:48:04.033Z"
   },
   "H285": {
     "id": "H285",
@@ -7758,7 +7758,7 @@
               "fyFirst": 3500000,
               "fySecond": 3500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -7802,7 +7802,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -7890,7 +7890,7 @@
               "fyFirst": 4000000,
               "fySecond": 4000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -7901,7 +7901,7 @@
               "fyFirst": 11400000,
               "fySecond": 11400000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -7978,7 +7978,7 @@
               "fyFirst": 1500000,
               "fySecond": 1500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -7989,7 +7989,7 @@
               "fyFirst": 1200000,
               "fySecond": 1200000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8000,7 +8000,7 @@
               "fyFirst": 1200000,
               "fySecond": 1200000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8011,7 +8011,7 @@
               "fyFirst": 12000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8022,7 +8022,7 @@
               "fyFirst": 3000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8033,7 +8033,7 @@
               "fyFirst": 2000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8044,7 +8044,7 @@
               "fyFirst": 26820000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -8057,7 +8057,7 @@
               "fyFirst": 26820000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8090,7 +8090,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:33.738Z"
+    "updatedAt": "2025-12-06T19:48:05.642Z"
   },
   "H294": {
     "id": "H294",
@@ -8125,7 +8125,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -8213,7 +8213,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8246,7 +8246,7 @@
               "fyFirst": 350000,
               "fySecond": 350000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -8257,7 +8257,7 @@
               "fyFirst": 779100,
               "fySecond": 779100,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -8268,7 +8268,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -8279,7 +8279,7 @@
               "fyFirst": 400000,
               "fySecond": 400000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -8290,7 +8290,7 @@
               "fyFirst": 30000000,
               "fySecond": 30000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -8301,7 +8301,7 @@
               "fyFirst": 1000000,
               "fySecond": 1000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             }
           ],
           "featured": [
@@ -8325,7 +8325,7 @@
               "fyFirst": 30000000,
               "fySecond": 30000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -8347,7 +8347,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:35.386Z"
+    "updatedAt": "2025-12-06T19:48:07.140Z"
   },
   "H295": {
     "id": "H295",
@@ -8461,7 +8461,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:36.775Z"
+    "updatedAt": "2025-12-06T19:48:08.592Z"
   },
   "H301": {
     "id": "H301",
@@ -8518,7 +8518,7 @@
               "fyFirst": 250000,
               "fySecond": 250000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -8540,7 +8540,7 @@
               "fyFirst": 50000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -8606,7 +8606,7 @@
               "fyFirst": 1400000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -8782,7 +8782,7 @@
               "fyFirst": 120000,
               "fySecond": 120000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -8916,7 +8916,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:38.531Z"
+    "updatedAt": "2025-12-06T19:48:10.330Z"
   },
   "H305": {
     "id": "H305",
@@ -8984,7 +8984,7 @@
               "fyFirst": 50000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -9050,7 +9050,7 @@
               "fyFirst": 12900000,
               "fySecond": 13900000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -9072,7 +9072,7 @@
               "fyFirst": 532000,
               "fySecond": 532000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -9228,7 +9228,7 @@
               "fyFirst": 12900000,
               "fySecond": 13900000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -9261,7 +9261,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:40.022Z"
+    "updatedAt": "2025-12-06T19:48:11.960Z"
   },
   "H308": {
     "id": "H308",
@@ -9364,7 +9364,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:41.327Z"
+    "updatedAt": "2025-12-06T19:48:13.375Z"
   },
   "H311": {
     "id": "H311",
@@ -9410,7 +9410,7 @@
               "fyFirst": 150000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -9465,7 +9465,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -9542,7 +9542,7 @@
               "fyFirst": 148545000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -9553,7 +9553,7 @@
               "fyFirst": 2000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -9566,7 +9566,7 @@
               "fyFirst": 148545000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -9599,7 +9599,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:42.746Z"
+    "updatedAt": "2025-12-06T19:48:14.833Z"
   },
   "H314": {
     "id": "H314",
@@ -9755,7 +9755,7 @@
               "fyFirst": 25000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -9766,7 +9766,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             }
           ],
           "featured": [
@@ -9790,7 +9790,7 @@
               "fyFirst": 25000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -9812,7 +9812,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:44.155Z"
+    "updatedAt": "2025-12-06T19:48:16.274Z"
   },
   "H317": {
     "id": "H317",
@@ -9891,7 +9891,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "independent_agencies"
             },
             {
               "bill": "HB30",
@@ -9924,7 +9924,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -9979,7 +9979,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -10157,7 +10157,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:45.651Z"
+    "updatedAt": "2025-12-06T19:48:17.898Z"
   },
   "H321": {
     "id": "H321",
@@ -10269,7 +10269,7 @@
               "fyFirst": 0,
               "fySecond": 577000,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -10280,7 +10280,7 @@
               "fyFirst": 138500,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             }
           ],
           "featured": [
@@ -10326,7 +10326,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:47.008Z"
+    "updatedAt": "2025-12-06T19:48:19.560Z"
   },
   "H322": {
     "id": "H322",
@@ -10355,7 +10355,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:48.309Z"
+    "updatedAt": "2025-12-06T19:48:21.073Z"
   },
   "H323": {
     "id": "H323",
@@ -10544,7 +10544,7 @@
               "fyFirst": 0,
               "fySecond": 45700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -10568,7 +10568,7 @@
               "fyFirst": 0,
               "fySecond": 45700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -10590,7 +10590,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:49.723Z"
+    "updatedAt": "2025-12-06T19:48:22.643Z"
   },
   "H325": {
     "id": "H325",
@@ -10792,7 +10792,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:51.218Z"
+    "updatedAt": "2025-12-06T19:48:24.230Z"
   },
   "H327": {
     "id": "H327",
@@ -10860,7 +10860,7 @@
               "fyFirst": 12000000,
               "fySecond": 12000000,
               "amountType": "increase",
-              "spendingCategoryId": "public_safety_and_homeland_security"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -11069,7 +11069,7 @@
               "fyFirst": 100000,
               "fySecond": 100000,
               "amountType": "increase",
-              "spendingCategoryId": "public_safety_and_homeland_security"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -11104,7 +11104,7 @@
               "fyFirst": 12000000,
               "fySecond": 12000000,
               "amountType": "increase",
-              "spendingCategoryId": "public_safety_and_homeland_security"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -11126,7 +11126,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:52.825Z"
+    "updatedAt": "2025-12-06T19:48:25.932Z"
   },
   "H328": {
     "id": "H328",
@@ -11240,7 +11240,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:54.167Z"
+    "updatedAt": "2025-12-06T19:48:27.278Z"
   },
   "H329": {
     "id": "H329",
@@ -11343,7 +11343,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:55.724Z"
+    "updatedAt": "2025-12-06T19:48:28.846Z"
   },
   "H330": {
     "id": "H330",
@@ -11389,7 +11389,7 @@
               "fyFirst": 5000000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -11422,7 +11422,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -11455,7 +11455,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -11499,7 +11499,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -11622,7 +11622,7 @@
               "fyFirst": 5000000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -11644,7 +11644,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:57.394Z"
+    "updatedAt": "2025-12-06T19:48:30.388Z"
   },
   "H333": {
     "id": "H333",
@@ -11723,7 +11723,7 @@
               "fyFirst": 702000,
               "fySecond": 600000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -11734,7 +11734,7 @@
               "fyFirst": 702152,
               "fySecond": 1404304,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "veterans_and_defense_affairs"
             },
             {
               "bill": "HB30",
@@ -11846,7 +11846,7 @@
               "fyFirst": 702152,
               "fySecond": 1404304,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "veterans_and_defense_affairs"
             },
             {
               "bill": "HB30",
@@ -11868,7 +11868,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:42:58.806Z"
+    "updatedAt": "2025-12-06T19:48:31.923Z"
   },
   "H334": {
     "id": "H334",
@@ -11903,7 +11903,7 @@
               "fyFirst": 5000,
               "fySecond": 5000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -11947,7 +11947,7 @@
               "fyFirst": 1500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -11958,7 +11958,7 @@
               "fyFirst": 1500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -11969,7 +11969,7 @@
               "fyFirst": 75000000,
               "fySecond": 75000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -12079,7 +12079,7 @@
               "fyFirst": 30000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -12101,7 +12101,7 @@
               "fyFirst": 500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -12180,7 +12180,7 @@
               "fyFirst": 75000000,
               "fySecond": 75000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             }
           ]
         }
@@ -12191,7 +12191,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:00.300Z"
+    "updatedAt": "2025-12-06T19:48:33.414Z"
   },
   "H335": {
     "id": "H335",
@@ -12237,7 +12237,7 @@
               "fyFirst": 25000,
               "fySecond": 25000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -12281,7 +12281,7 @@
               "fyFirst": 0,
               "fySecond": 577000,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -12292,7 +12292,7 @@
               "fyFirst": 137000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -12303,7 +12303,7 @@
               "fyFirst": 138500,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             }
           ],
           "featured": [
@@ -12316,7 +12316,7 @@
               "fyFirst": 0,
               "fySecond": 577000,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -12338,7 +12338,7 @@
               "fyFirst": 138500,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             }
           ]
         }
@@ -12349,7 +12349,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:01.686Z"
+    "updatedAt": "2025-12-06T19:48:34.982Z"
   },
   "H336": {
     "id": "H336",
@@ -12450,7 +12450,7 @@
               "fyFirst": 184300000,
               "fySecond": 693600000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -12560,7 +12560,7 @@
               "fyFirst": 137000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             }
           ],
           "featured": [
@@ -12573,7 +12573,7 @@
               "fyFirst": 184300000,
               "fySecond": 693600000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -12606,7 +12606,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:03.149Z"
+    "updatedAt": "2025-12-06T19:48:36.532Z"
   },
   "H340": {
     "id": "H340",
@@ -12696,7 +12696,7 @@
               "fyFirst": 8250000,
               "fySecond": 8250000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -12795,7 +12795,7 @@
               "fyFirst": 7400000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -12819,7 +12819,7 @@
               "fyFirst": 8250000,
               "fySecond": 8250000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -12830,7 +12830,7 @@
               "fyFirst": 7400000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ]
         }
@@ -12841,7 +12841,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:04.619Z"
+    "updatedAt": "2025-12-06T19:48:38.079Z"
   },
   "H342": {
     "id": "H342",
@@ -12887,7 +12887,7 @@
               "fyFirst": 1000000,
               "fySecond": 1000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -12955,7 +12955,7 @@
               "fyFirst": 1000000,
               "fySecond": 1000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -12988,7 +12988,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:06.015Z"
+    "updatedAt": "2025-12-06T19:48:39.839Z"
   },
   "H343": {
     "id": "H343",
@@ -13023,7 +13023,7 @@
               "fyFirst": 250000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -13100,7 +13100,7 @@
               "fyFirst": 2500000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -13168,7 +13168,7 @@
               "fyFirst": 2500000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             }
           ]
         }
@@ -13179,7 +13179,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:07.448Z"
+    "updatedAt": "2025-12-06T19:48:41.343Z"
   },
   "H344": {
     "id": "H344",
@@ -13236,7 +13236,7 @@
               "fyFirst": 1050000,
               "fySecond": 1050000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -13302,7 +13302,7 @@
               "fyFirst": -50000,
               "fySecond": -50000,
               "amountType": "decrease",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             }
           ],
           "featured": [
@@ -13337,7 +13337,7 @@
               "fyFirst": 1050000,
               "fySecond": 1050000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             }
           ]
         }
@@ -13348,7 +13348,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:08.817Z"
+    "updatedAt": "2025-12-06T19:48:42.708Z"
   },
   "H345": {
     "id": "H345",
@@ -13484,7 +13484,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:10.233Z"
+    "updatedAt": "2025-12-06T19:48:44.070Z"
   },
   "H347": {
     "id": "H347",
@@ -13642,7 +13642,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:11.666Z"
+    "updatedAt": "2025-12-06T19:48:45.457Z"
   },
   "H348": {
     "id": "H348",
@@ -13800,7 +13800,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:13.113Z"
+    "updatedAt": "2025-12-06T19:48:47.230Z"
   },
   "H349": {
     "id": "H349",
@@ -13947,7 +13947,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:14.685Z"
+    "updatedAt": "2025-12-06T19:48:48.801Z"
   },
   "H350": {
     "id": "H350",
@@ -13976,7 +13976,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:15.984Z"
+    "updatedAt": "2025-12-06T19:48:50.248Z"
   },
   "H351": {
     "id": "H351",
@@ -14189,7 +14189,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:17.397Z"
+    "updatedAt": "2025-12-06T19:48:51.639Z"
   },
   "H353": {
     "id": "H353",
@@ -14279,7 +14279,7 @@
               "fyFirst": 1350000,
               "fySecond": 1350000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -14325,7 +14325,7 @@
               "fyFirst": 1350000,
               "fySecond": 1350000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -14347,7 +14347,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:18.796Z"
+    "updatedAt": "2025-12-06T19:48:52.986Z"
   },
   "H354": {
     "id": "H354",
@@ -14582,7 +14582,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:21.652Z"
+    "updatedAt": "2025-12-06T19:48:55.953Z"
   },
   "H355": {
     "id": "H355",
@@ -14661,7 +14661,7 @@
               "fyFirst": 500000,
               "fySecond": 500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -14705,7 +14705,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "unclassified"
             },
             {
               "bill": "HB30",
@@ -14716,7 +14716,7 @@
               "fyFirst": 2037000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -14729,7 +14729,7 @@
               "fyFirst": 2037000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -14762,7 +14762,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:23.050Z"
+    "updatedAt": "2025-12-06T19:48:57.393Z"
   },
   "H356": {
     "id": "H356",
@@ -14874,7 +14874,7 @@
               "fyFirst": 600000,
               "fySecond": 600000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -15085,7 +15085,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:24.519Z"
+    "updatedAt": "2025-12-06T19:48:58.936Z"
   },
   "H357": {
     "id": "H357",
@@ -15114,7 +15114,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:25.847Z"
+    "updatedAt": "2025-12-06T19:49:00.367Z"
   },
   "H360": {
     "id": "H360",
@@ -15193,7 +15193,7 @@
               "fyFirst": 62700000,
               "fySecond": 63200000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -15204,7 +15204,7 @@
               "fyFirst": 0,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -15215,7 +15215,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -15261,7 +15261,7 @@
               "fyFirst": 62700000,
               "fySecond": 63200000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -15294,7 +15294,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:27.241Z"
+    "updatedAt": "2025-12-06T19:49:01.747Z"
   },
   "H361": {
     "id": "H361",
@@ -15419,7 +15419,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:28.793Z"
+    "updatedAt": "2025-12-06T19:49:03.139Z"
   },
   "H362": {
     "id": "H362",
@@ -15448,7 +15448,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:30.150Z"
+    "updatedAt": "2025-12-06T19:49:04.624Z"
   },
   "H364": {
     "id": "H364",
@@ -15628,7 +15628,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:31.675Z"
+    "updatedAt": "2025-12-06T19:49:06.019Z"
   },
   "H365": {
     "id": "H365",
@@ -15685,7 +15685,7 @@
               "fyFirst": 50000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -15696,7 +15696,7 @@
               "fyFirst": 5000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -15707,7 +15707,7 @@
               "fyFirst": 2500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             }
           ],
           "featured": [
@@ -15720,7 +15720,7 @@
               "fyFirst": 50000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -15731,7 +15731,7 @@
               "fyFirst": 5000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -15742,7 +15742,7 @@
               "fyFirst": 2500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             }
           ]
         }
@@ -15753,7 +15753,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:33.339Z"
+    "updatedAt": "2025-12-06T19:49:07.370Z"
   },
   "H366": {
     "id": "H366",
@@ -15911,7 +15911,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:34.744Z"
+    "updatedAt": "2025-12-06T19:49:09.035Z"
   },
   "H368": {
     "id": "H368",
@@ -15940,7 +15940,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:36.078Z"
+    "updatedAt": "2025-12-06T19:49:10.656Z"
   },
   "H369": {
     "id": "H369",
@@ -16063,7 +16063,7 @@
               "fyFirst": 1000000,
               "fySecond": 1000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -16074,7 +16074,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -16153,7 +16153,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:37.555Z"
+    "updatedAt": "2025-12-06T19:49:13.327Z"
   },
   "H370": {
     "id": "H370",
@@ -16232,7 +16232,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -16289,7 +16289,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:38.928Z"
+    "updatedAt": "2025-12-06T19:49:14.738Z"
   },
   "H371": {
     "id": "H371",
@@ -16324,7 +16324,7 @@
               "fyFirst": 50000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -16368,7 +16368,7 @@
               "fyFirst": 58000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -16478,7 +16478,7 @@
               "fyFirst": 1000000,
               "fySecond": 1000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -16557,7 +16557,7 @@
               "fyFirst": 58000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -16590,7 +16590,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:40.625Z"
+    "updatedAt": "2025-12-06T19:49:16.575Z"
   },
   "H374": {
     "id": "H374",
@@ -16737,7 +16737,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:42.099Z"
+    "updatedAt": "2025-12-06T19:49:18.019Z"
   },
   "H375": {
     "id": "H375",
@@ -16794,7 +16794,7 @@
               "fyFirst": 2700000,
               "fySecond": 2700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -16950,7 +16950,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:43.701Z"
+    "updatedAt": "2025-12-06T19:49:19.613Z"
   },
   "H377": {
     "id": "H377",
@@ -17053,7 +17053,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:45.048Z"
+    "updatedAt": "2025-12-06T19:49:21.061Z"
   },
   "H380": {
     "id": "H380",
@@ -17167,7 +17167,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:46.597Z"
+    "updatedAt": "2025-12-06T19:49:22.401Z"
   },
   "H382": {
     "id": "H382",
@@ -17196,7 +17196,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:47.930Z"
+    "updatedAt": "2025-12-06T19:49:23.703Z"
   },
   "H383": {
     "id": "H383",
@@ -17225,7 +17225,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:49.489Z"
+    "updatedAt": "2025-12-06T19:49:25.021Z"
   },
   "H384": {
     "id": "H384",
@@ -17306,7 +17306,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:51.495Z"
+    "updatedAt": "2025-12-06T19:49:26.399Z"
   },
   "H385": {
     "id": "H385",
@@ -17335,7 +17335,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:52.825Z"
+    "updatedAt": "2025-12-06T19:49:27.845Z"
   },
   "S19": {
     "id": "S19",
@@ -17370,7 +17370,7 @@
               "fyFirst": 185665,
               "fySecond": 185665,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -17414,7 +17414,7 @@
               "fyFirst": 314400000,
               "fySecond": 759700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -17471,7 +17471,7 @@
               "fyFirst": 314400000,
               "fySecond": 759700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -17504,7 +17504,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:54.285Z"
+    "updatedAt": "2025-12-06T19:49:29.304Z"
   },
   "S62": {
     "id": "S62",
@@ -17792,7 +17792,7 @@
               "fyFirst": 1125000,
               "fySecond": 1125000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -17836,7 +17836,7 @@
               "fyFirst": 4000000,
               "fySecond": 4000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -17847,7 +17847,7 @@
               "fyFirst": 500000,
               "fySecond": 500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -17880,7 +17880,7 @@
               "fyFirst": 100000,
               "fySecond": 100000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -18023,7 +18023,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -18375,7 +18375,7 @@
               "fyFirst": 450000,
               "fySecond": 400000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -18430,7 +18430,7 @@
               "fyFirst": 100000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -18441,7 +18441,7 @@
               "fyFirst": 50000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -18452,7 +18452,7 @@
               "fyFirst": 2700000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -18474,7 +18474,7 @@
               "fyFirst": 3000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -18485,7 +18485,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "k12_education"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -18531,7 +18531,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:56.269Z"
+    "updatedAt": "2025-12-06T19:49:31.341Z"
   },
   "S67": {
     "id": "S67",
@@ -18621,7 +18621,7 @@
               "fyFirst": 1584185,
               "fySecond": 1728202,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "administration"
             },
             {
               "bill": "HB30",
@@ -18632,7 +18632,7 @@
               "fyFirst": 1840017,
               "fySecond": 2007291,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "administration"
             },
             {
               "bill": "HB30",
@@ -18654,7 +18654,7 @@
               "fyFirst": 2700000,
               "fySecond": 2700000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -18731,7 +18731,7 @@
               "fyFirst": 20244896,
               "fySecond": 39684416,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -18764,7 +18764,7 @@
               "fyFirst": 1500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "capital_outlay"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -18863,7 +18863,7 @@
               "fyFirst": 735000,
               "fySecond": 735000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -18874,7 +18874,7 @@
               "fyFirst": 925000,
               "fySecond": 1800000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -18885,7 +18885,7 @@
               "fyFirst": 500000,
               "fySecond": 630000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -18896,7 +18896,7 @@
               "fyFirst": 975000,
               "fySecond": 975000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -18907,7 +18907,7 @@
               "fyFirst": 532000,
               "fySecond": 532000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -18918,7 +18918,7 @@
               "fyFirst": 67844,
               "fySecond": 67844,
               "amountType": "increase",
-              "spendingCategoryId": "transportation"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -18929,7 +18929,7 @@
               "fyFirst": 11400000,
               "fySecond": 11400000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -19105,7 +19105,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -19160,7 +19160,7 @@
               "fyFirst": 129332812,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -19171,7 +19171,7 @@
               "fyFirst": 10342500,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -19182,7 +19182,7 @@
               "fyFirst": 12714000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "agriculture_and_forestry"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -19193,7 +19193,7 @@
               "fyFirst": 4712381,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -19204,7 +19204,7 @@
               "fyFirst": 2816000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -19215,7 +19215,7 @@
               "fyFirst": 12000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -19226,7 +19226,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "k12_education"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -19272,7 +19272,7 @@
               "fyFirst": 129332812,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ]
         }
@@ -19283,7 +19283,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:58.358Z"
+    "updatedAt": "2025-12-06T19:49:33.166Z"
   },
   "S68": {
     "id": "S68",
@@ -19373,7 +19373,7 @@
               "fyFirst": 3209791,
               "fySecond": 3431267,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "unclassified"
             },
             {
               "bill": "HB30",
@@ -19472,7 +19472,7 @@
               "fyFirst": 140000,
               "fySecond": 140000,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -19505,7 +19505,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "k12_education"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -19551,7 +19551,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:43:59.760Z"
+    "updatedAt": "2025-12-06T19:49:34.582Z"
   },
   "S69": {
     "id": "S69",
@@ -19586,7 +19586,7 @@
               "fyFirst": 2500000,
               "fySecond": 2500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -19608,7 +19608,7 @@
               "fyFirst": 1500000,
               "fySecond": 1500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             }
           ],
           "featured": [
@@ -19621,7 +19621,7 @@
               "fyFirst": 2500000,
               "fySecond": 2500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -19632,7 +19632,7 @@
               "fyFirst": 1500000,
               "fySecond": 1500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -19654,7 +19654,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:01.048Z"
+    "updatedAt": "2025-12-06T19:49:35.869Z"
   },
   "S78": {
     "id": "S78",
@@ -19733,7 +19733,7 @@
               "fyFirst": 10042516,
               "fySecond": 11046259,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -19744,7 +19744,7 @@
               "fyFirst": 50000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "legislative"
             },
             {
               "bill": "HB30",
@@ -19810,7 +19810,7 @@
               "fyFirst": 500000,
               "fySecond": 500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -19953,7 +19953,7 @@
               "fyFirst": 150000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -19964,7 +19964,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -19999,7 +19999,7 @@
               "fyFirst": 10042516,
               "fySecond": 11046259,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -20032,7 +20032,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:02.609Z"
+    "updatedAt": "2025-12-06T19:49:37.458Z"
   },
   "S80": {
     "id": "S80",
@@ -20177,7 +20177,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -20243,7 +20243,7 @@
               "fyFirst": 18000000,
               "fySecond": 18000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -20254,7 +20254,7 @@
               "fyFirst": 124184587,
               "fySecond": 74134639,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -20430,7 +20430,7 @@
               "fyFirst": 200000000,
               "fySecond": 200000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -20441,7 +20441,7 @@
               "fyFirst": 35000000,
               "fySecond": 35000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -20452,7 +20452,7 @@
               "fyFirst": 50000000,
               "fySecond": 50000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -20718,7 +20718,7 @@
               "fyFirst": 200000000,
               "fySecond": 200000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -20740,7 +20740,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:04.454Z"
+    "updatedAt": "2025-12-06T19:49:39.211Z"
   },
   "S82": {
     "id": "S82",
@@ -20898,7 +20898,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:05.923Z"
+    "updatedAt": "2025-12-06T19:49:40.588Z"
   },
   "S85": {
     "id": "S85",
@@ -20977,7 +20977,7 @@
               "fyFirst": 75000000,
               "fySecond": 75000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -21087,7 +21087,7 @@
               "fyFirst": 2724738,
               "fySecond": 2724738,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -21109,7 +21109,7 @@
               "fyFirst": 17561737,
               "fySecond": 17097061,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -21131,7 +21131,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -21153,7 +21153,7 @@
               "fyFirst": 500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -21186,7 +21186,7 @@
               "fyFirst": 9023075,
               "fySecond": 10067773,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "independent_agencies"
             },
             {
               "bill": "HB30",
@@ -21320,7 +21320,7 @@
               "fyFirst": 75000000,
               "fySecond": 75000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -21342,7 +21342,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:07.765Z"
+    "updatedAt": "2025-12-06T19:49:42.184Z"
   },
   "S86": {
     "id": "S86",
@@ -21476,7 +21476,7 @@
               "fyFirst": 3500000,
               "fySecond": 3500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -21586,7 +21586,7 @@
               "fyFirst": 75000,
               "fySecond": 75000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -21619,7 +21619,7 @@
               "fyFirst": 5000000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -21740,7 +21740,7 @@
               "fyFirst": 650000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -21762,7 +21762,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -21883,7 +21883,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -22048,7 +22048,7 @@
               "fyFirst": 350000,
               "fySecond": 350000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -22059,7 +22059,7 @@
               "fyFirst": 30000000,
               "fySecond": 30000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -22138,7 +22138,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:09.670Z"
+    "updatedAt": "2025-12-06T19:49:43.984Z"
   },
   "S88": {
     "id": "S88",
@@ -22217,7 +22217,7 @@
               "fyFirst": 702152,
               "fySecond": 1404304,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "veterans_and_defense_affairs"
             },
             {
               "bill": "HB30",
@@ -22395,7 +22395,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:11.226Z"
+    "updatedAt": "2025-12-06T19:49:45.394Z"
   },
   "S96": {
     "id": "S96",
@@ -22463,7 +22463,7 @@
               "fyFirst": 100000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -22551,7 +22551,7 @@
               "fyFirst": 1500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "unclassified"
             }
           ],
           "featured": [
@@ -22597,7 +22597,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:12.913Z"
+    "updatedAt": "2025-12-06T19:49:46.795Z"
   },
   "S98": {
     "id": "S98",
@@ -22753,7 +22753,7 @@
               "fyFirst": 4900000,
               "fySecond": 4900000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -22808,7 +22808,7 @@
               "fyFirst": 7400000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -22819,7 +22819,7 @@
               "fyFirst": 36000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -22830,7 +22830,7 @@
               "fyFirst": 7875964,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -22865,7 +22865,7 @@
               "fyFirst": 36000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -22887,7 +22887,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:14.472Z"
+    "updatedAt": "2025-12-06T19:49:48.211Z"
   },
   "S99": {
     "id": "S99",
@@ -22922,7 +22922,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "independent_agencies"
             },
             {
               "bill": "HB30",
@@ -22944,7 +22944,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -22977,7 +22977,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -23032,7 +23032,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -23120,7 +23120,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "independent_agencies"
             }
           ],
           "featured": [
@@ -23133,7 +23133,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -23166,7 +23166,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:15.904Z"
+    "updatedAt": "2025-12-06T19:49:49.761Z"
   },
   "S100": {
     "id": "S100",
@@ -23212,7 +23212,7 @@
               "fyFirst": 244000,
               "fySecond": 230000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -23289,7 +23289,7 @@
               "fyFirst": 20000000,
               "fySecond": 20000000,
               "amountType": "increase",
-              "spendingCategoryId": "finance"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -23454,7 +23454,7 @@
               "fyFirst": 5000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -23465,7 +23465,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -23476,7 +23476,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -23522,7 +23522,7 @@
               "fyFirst": 20000000,
               "fySecond": 20000000,
               "amountType": "increase",
-              "spendingCategoryId": "finance"
+              "spendingCategoryId": "commerce_and_trade"
             }
           ]
         }
@@ -23533,7 +23533,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:17.406Z"
+    "updatedAt": "2025-12-06T19:49:51.275Z"
   },
   "S101": {
     "id": "S101",
@@ -23601,7 +23601,7 @@
               "fyFirst": 2779778,
               "fySecond": 2779778,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -23658,7 +23658,7 @@
               "fyFirst": 2779778,
               "fySecond": 2779778,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -23680,7 +23680,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:18.824Z"
+    "updatedAt": "2025-12-06T19:49:52.595Z"
   },
   "S105": {
     "id": "S105",
@@ -23816,7 +23816,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:20.160Z"
+    "updatedAt": "2025-12-06T19:49:53.919Z"
   },
   "S106": {
     "id": "S106",
@@ -23895,7 +23895,7 @@
               "fyFirst": 1648768,
               "fySecond": 1813570,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -23906,7 +23906,7 @@
               "fyFirst": 3435433,
               "fySecond": 3778820,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -24005,7 +24005,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -24016,7 +24016,7 @@
               "fyFirst": 500000,
               "fySecond": 500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -24027,7 +24027,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -24038,7 +24038,7 @@
               "fyFirst": 4000000,
               "fySecond": 4000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -24148,7 +24148,7 @@
               "fyFirst": 500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -24170,7 +24170,7 @@
               "fyFirst": 2500000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -24236,7 +24236,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -24280,7 +24280,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -24381,7 +24381,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:22.455Z"
+    "updatedAt": "2025-12-06T19:49:55.601Z"
   },
   "S108": {
     "id": "S108",
@@ -24515,7 +24515,7 @@
               "fyFirst": 50000,
               "fySecond": 50000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -24570,7 +24570,7 @@
               "fyFirst": 2000000,
               "fySecond": 2000000,
               "amountType": "increase",
-              "spendingCategoryId": "agriculture_and_forestry"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -24779,7 +24779,7 @@
               "fyFirst": 124184587,
               "fySecond": 74134639,
               "amountType": "increase",
-              "spendingCategoryId": "commerce_and_trade"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -25164,7 +25164,7 @@
               "fyFirst": 250000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -25221,7 +25221,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:24.467Z"
+    "updatedAt": "2025-12-06T19:49:57.454Z"
   },
   "S111": {
     "id": "S111",
@@ -25333,7 +25333,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -25366,7 +25366,7 @@
               "fyFirst": 20244896,
               "fySecond": 39684416,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -25399,7 +25399,7 @@
               "fyFirst": 1400000,
               "fySecond": 1400000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -25487,7 +25487,7 @@
               "fyFirst": 1459540,
               "fySecond": 2169080,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "agriculture_and_forestry"
             },
             {
               "bill": "HB30",
@@ -25676,7 +25676,7 @@
               "fyFirst": 20244896,
               "fySecond": 39684416,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -25709,7 +25709,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:26.247Z"
+    "updatedAt": "2025-12-06T19:49:59.105Z"
   },
   "S112": {
     "id": "S112",
@@ -25799,7 +25799,7 @@
               "fyFirst": 7015139,
               "fySecond": 14030278,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "unclassified"
             },
             {
               "bill": "HB30",
@@ -25909,7 +25909,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "k12_education"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -25922,7 +25922,7 @@
               "fyFirst": 7015139,
               "fySecond": 14030278,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "unclassified"
             },
             {
               "bill": "HB30",
@@ -25955,7 +25955,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:28.172Z"
+    "updatedAt": "2025-12-06T19:50:00.541Z"
   },
   "S113": {
     "id": "S113",
@@ -26012,7 +26012,7 @@
               "fyFirst": 307219343,
               "fySecond": 307219343,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -26047,7 +26047,7 @@
               "fyFirst": 307219343,
               "fySecond": 307219343,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -26080,7 +26080,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:29.508Z"
+    "updatedAt": "2025-12-06T19:50:01.873Z"
   },
   "S114": {
     "id": "S114",
@@ -26192,7 +26192,7 @@
               "fyFirst": 400000,
               "fySecond": 400000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26203,7 +26203,7 @@
               "fyFirst": 600000,
               "fySecond": 600000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -26258,7 +26258,7 @@
               "fyFirst": 1350000,
               "fySecond": 1350000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26269,7 +26269,7 @@
               "fyFirst": 50000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26280,7 +26280,7 @@
               "fyFirst": 295000,
               "fySecond": 295000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -26291,7 +26291,7 @@
               "fyFirst": 145000,
               "fySecond": 145000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -26324,7 +26324,7 @@
               "fyFirst": 100000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -26335,7 +26335,7 @@
               "fyFirst": 2000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26346,7 +26346,7 @@
               "fyFirst": 1200000,
               "fySecond": 1200000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26357,7 +26357,7 @@
               "fyFirst": 5300000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26368,7 +26368,7 @@
               "fyFirst": 1200000,
               "fySecond": 1200000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26379,7 +26379,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "k12_education"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -26392,7 +26392,7 @@
               "fyFirst": 50000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26403,7 +26403,7 @@
               "fyFirst": 5300000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -26425,7 +26425,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:30.969Z"
+    "updatedAt": "2025-12-06T19:50:03.381Z"
   },
   "S115": {
     "id": "S115",
@@ -26526,7 +26526,7 @@
               "fyFirst": 13000000,
               "fySecond": 105778800,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -26735,7 +26735,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -26781,7 +26781,7 @@
               "fyFirst": 13000000,
               "fySecond": 105778800,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -26803,7 +26803,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:32.430Z"
+    "updatedAt": "2025-12-06T19:50:04.928Z"
   },
   "S116": {
     "id": "S116",
@@ -26981,7 +26981,7 @@
               "fyFirst": 140000,
               "fySecond": 140000,
               "amountType": "increase",
-              "spendingCategoryId": "central_appropriations"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -27049,7 +27049,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:33.836Z"
+    "updatedAt": "2025-12-06T19:50:06.340Z"
   },
   "S117": {
     "id": "S117",
@@ -27161,7 +27161,7 @@
               "fyFirst": 169000,
               "fySecond": 169000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -27172,7 +27172,7 @@
               "fyFirst": 63000,
               "fySecond": 63000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -27183,7 +27183,7 @@
               "fyFirst": 63000,
               "fySecond": 63000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -27194,7 +27194,7 @@
               "fyFirst": 1100000,
               "fySecond": 1100000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -27282,7 +27282,7 @@
               "fyFirst": 2500000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "capital_outlay"
             },
             {
               "bill": "HB30",
@@ -27304,7 +27304,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "k12_education"
+              "spendingCategoryId": "higher_education"
             }
           ],
           "featured": [
@@ -27350,7 +27350,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:36.031Z"
+    "updatedAt": "2025-12-06T19:50:07.874Z"
   },
   "S118": {
     "id": "S118",
@@ -27396,7 +27396,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -27429,7 +27429,7 @@
               "fyFirst": -15000000,
               "fySecond": -15000000,
               "amountType": "decrease",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -27462,7 +27462,7 @@
               "fyFirst": 425000,
               "fySecond": 425000,
               "amountType": "increase",
-              "spendingCategoryId": "public_safety_and_homeland_security"
+              "spendingCategoryId": "k12_education"
             }
           ],
           "featured": [
@@ -27486,7 +27486,7 @@
               "fyFirst": -15000000,
               "fySecond": -15000000,
               "amountType": "decrease",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -27508,7 +27508,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:37.722Z"
+    "updatedAt": "2025-12-06T19:50:09.306Z"
   },
   "S119": {
     "id": "S119",
@@ -27598,7 +27598,7 @@
               "fyFirst": 425000,
               "fySecond": 425000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -27776,7 +27776,7 @@
               "fyFirst": 425000,
               "fySecond": 425000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             }
           ]
         }
@@ -27787,7 +27787,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:39.193Z"
+    "updatedAt": "2025-12-06T19:50:10.780Z"
   },
   "S120": {
     "id": "S120",
@@ -27822,7 +27822,7 @@
               "fyFirst": 2500000,
               "fySecond": 2500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -27866,7 +27866,7 @@
               "fyFirst": 25000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -27901,7 +27901,7 @@
               "fyFirst": 25000000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -27923,7 +27923,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:40.635Z"
+    "updatedAt": "2025-12-06T19:50:12.119Z"
   },
   "S121": {
     "id": "S121",
@@ -27982,7 +27982,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:41.929Z"
+    "updatedAt": "2025-12-06T19:50:13.419Z"
   },
   "S122": {
     "id": "S122",
@@ -28050,7 +28050,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -28061,7 +28061,7 @@
               "fyFirst": 5400000,
               "fySecond": 0,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -28116,7 +28116,7 @@
               "fyFirst": 702152,
               "fySecond": 1404304,
               "amountType": "increase",
-              "spendingCategoryId": "higher_education"
+              "spendingCategoryId": "veterans_and_defense_affairs"
             },
             {
               "bill": "HB30",
@@ -28215,7 +28215,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "commerce_and_trade"
             },
             {
               "bill": "HB30",
@@ -28327,7 +28327,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:44.057Z"
+    "updatedAt": "2025-12-06T19:50:14.941Z"
   },
   "S124": {
     "id": "S124",
@@ -28373,7 +28373,7 @@
               "fyFirst": 15000,
               "fySecond": 15000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -28485,7 +28485,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:46.019Z"
+    "updatedAt": "2025-12-06T19:50:16.322Z"
   },
   "S125": {
     "id": "S125",
@@ -28553,7 +28553,7 @@
               "fyFirst": 10042516,
               "fySecond": 11046259,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -28654,7 +28654,7 @@
               "fyFirst": 10042516,
               "fySecond": 11046259,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "judicial"
             },
             {
               "bill": "HB30",
@@ -28676,7 +28676,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:47.419Z"
+    "updatedAt": "2025-12-06T19:50:17.807Z"
   },
   "S126": {
     "id": "S126",
@@ -28744,7 +28744,7 @@
               "fyFirst": 60000,
               "fySecond": 60000,
               "amountType": "increase",
-              "spendingCategoryId": "agriculture_and_forestry"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -28889,7 +28889,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:48.844Z"
+    "updatedAt": "2025-12-06T19:50:19.341Z"
   },
   "S127": {
     "id": "S127",
@@ -29023,7 +29023,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "health_and_human_resources"
             },
             {
               "bill": "HB30",
@@ -29034,7 +29034,7 @@
               "fyFirst": 40000000,
               "fySecond": 40000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             },
             {
               "bill": "HB30",
@@ -29056,7 +29056,7 @@
               "fyFirst": 150000,
               "fySecond": 150000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -29089,7 +29089,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -29311,7 +29311,7 @@
               "fyFirst": 40000000,
               "fySecond": 40000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "transportation"
             }
           ]
         }
@@ -29322,7 +29322,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:50.681Z"
+    "updatedAt": "2025-12-06T19:50:21.099Z"
   },
   "S129": {
     "id": "S129",
@@ -29456,7 +29456,7 @@
               "fyFirst": 12000000,
               "fySecond": 12000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "k12_education"
             },
             {
               "bill": "HB30",
@@ -29544,7 +29544,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -29555,7 +29555,7 @@
               "fyFirst": 3500000,
               "fySecond": 1500000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -29610,7 +29610,7 @@
               "fyFirst": 430000,
               "fySecond": 430000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "public_safety_and_homeland_security"
             },
             {
               "bill": "HB30",
@@ -29667,7 +29667,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:52.189Z"
+    "updatedAt": "2025-12-06T19:50:22.631Z"
   },
   "S130": {
     "id": "S130",
@@ -29856,7 +29856,7 @@
               "fyFirst": 0,
               "fySecond": 3750000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "natural_resources"
             },
             {
               "bill": "HB30",
@@ -29867,7 +29867,7 @@
               "fyFirst": 5000000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -29878,7 +29878,7 @@
               "fyFirst": null,
               "fySecond": null,
               "amountType": "language-only",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -29889,7 +29889,7 @@
               "fyFirst": 4000000,
               "fySecond": 4000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -29900,7 +29900,7 @@
               "fyFirst": 800000,
               "fySecond": 800000,
               "amountType": "increase",
-              "spendingCategoryId": "health_and_human_resources"
+              "spendingCategoryId": "higher_education"
             },
             {
               "bill": "HB30",
@@ -30078,7 +30078,7 @@
               "fyFirst": 5000000,
               "fySecond": 5000000,
               "amountType": "increase",
-              "spendingCategoryId": "unclassified"
+              "spendingCategoryId": "higher_education"
             }
           ]
         }
@@ -30089,7 +30089,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:53.784Z"
+    "updatedAt": "2025-12-06T19:50:24.346Z"
   },
   "S131": {
     "id": "S131",
@@ -30148,7 +30148,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:55.124Z"
+    "updatedAt": "2025-12-06T19:50:25.677Z"
   },
   "S132": {
     "id": "S132",
@@ -30177,7 +30177,7 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:56.415Z"
+    "updatedAt": "2025-12-06T19:50:26.970Z"
   },
   "S133": {
     "id": "S133",
@@ -30206,6 +30206,6 @@
       "subhead": "",
       "badges": []
     },
-    "updatedAt": "2025-11-27T18:44:57.740Z"
+    "updatedAt": "2025-12-06T19:50:28.292Z"
   }
 }
