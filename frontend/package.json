@@ -97,7 +97,7 @@
     "mapbox-gl": "^3.16.0",
     "minimal-shared": "^1.0.15",
     "mui-one-time-password-input": "^5.0.0",
-    "next": "^15.5.7",
+    "next": "^15.5.0",
     "nprogress": "^0.2.0",
     "react": "^19.1.0",
     "react-apexcharts": "^1.7.0",

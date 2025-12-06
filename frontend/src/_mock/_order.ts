@@ -1,5 +1,12 @@
 // Minimal order mock data
 
+export const ORDER_STATUS_OPTIONS = [
+  { value: 'pending', label: 'Pending' },
+  { value: 'completed', label: 'Completed' },
+  { value: 'cancelled', label: 'Cancelled' },
+  { value: 'refunded', label: 'Refunded' },
+];
+
 export const _orders = [
   {
     id: 'order-1',
