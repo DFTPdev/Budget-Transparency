@@ -47,7 +47,7 @@ export function getPartyColor(party?: string): string {
 }
 
 /**
- * Create fill layer for districts
+ * Create fill layer for districts with hover and selection states
  */
 export function createDistrictFillLayer(chamber: 'house' | 'senate', sourceId: string) {
   return {
@@ -67,13 +67,20 @@ export function createDistrictFillLayer(chamber: 'house' | 'senate', sourceId: s
         '#B22222', // Republican red
         '#9CA3AF', // Other/Unknown gray
       ],
-      'fill-opacity': 0.85,
+      'fill-opacity': [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false],
+        0.95, // Higher opacity when selected
+        ['boolean', ['feature-state', 'hover'], false],
+        0.9, // Slightly higher opacity when hovered
+        0.75, // Default opacity
+      ],
     },
   };
 }
 
 /**
- * Create line layer for district borders
+ * Create line layer for district borders with hover and selection states
  */
 export function createDistrictLineLayer(chamber: 'house' | 'senate', sourceId: string) {
   return {
@@ -86,9 +93,23 @@ export function createDistrictLineLayer(chamber: 'house' | 'senate', sourceId: s
       'line-cap': 'round' as const,
     },
     paint: {
-      'line-color': '#FFFFFF', // White border
-      'line-width': 1,
-      'line-opacity': 0.8,
+      'line-color': [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false],
+        '#FF9800', // Orange border when selected
+        ['boolean', ['feature-state', 'hover'], false],
+        '#2196F3', // Blue border when hovered
+        '#FFFFFF', // White border default
+      ],
+      'line-width': [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false],
+        4, // Thicker border when selected
+        ['boolean', ['feature-state', 'hover'], false],
+        3, // Slightly thicker when hovered
+        1, // Default width
+      ],
+      'line-opacity': 1,
     },
   };
 }
