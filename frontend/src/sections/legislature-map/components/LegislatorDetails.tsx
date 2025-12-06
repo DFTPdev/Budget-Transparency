@@ -36,6 +36,7 @@ import { computeLisStoryBucketSlices, computeLisTotalRequested } from 'src/lib/l
 import { Iconify } from 'src/components/iconify';
 
 import { LegislatorFocusPie } from './LegislatorFocusPie';
+import { CategoryBreakdown } from './CategoryBreakdown';
 
 /**
  * Format currency value
@@ -405,6 +406,9 @@ export function LegislatorDetails({
   // State for year toggle (default to 2025 only)
   const [selectedYear, setSelectedYear] = useState<2024 | 2025>(2025);
 
+  // State for view toggle (spending focus vs category breakdown)
+  const [showCategoryBreakdown, setShowCategoryBreakdown] = useState(false);
+
   if (!district) {
     return (
       <Box sx={{ textAlign: 'center', py: 4 }}>
@@ -524,84 +528,108 @@ export function LegislatorDetails({
                     </Stack>
                   </Grid>
 
-                  {/* MIDDLE: Spending Focus (33% - centered) */}
+                  {/* MIDDLE: Spending Focus / Category Breakdown (33% - centered) */}
                   <Grid item xs={12} sm={12} md={4} lg={4} sx={{ flexBasis: { lg: '33.33%' }, maxWidth: { lg: '33.33%' } }}>
                     <Stack spacing={0.5} sx={{ height: '100%', alignItems: 'center' }}>
                       {/* Header - centered */}
                       <Typography variant="h6" sx={{ lineHeight: 1.3, fontWeight: 600, mb: 0.5 }}>
-                        Spending Focus
+                        {showCategoryBreakdown ? 'Category Breakdown' : 'Spending Focus'}
                       </Typography>
 
-                      {/* Year Toggle below header */}
-                      <ToggleButtonGroup
-                        value={selectedYear}
-                        exclusive
-                        onChange={handleYearChange}
-                        size="medium"
+                      {/* View Toggle Button */}
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        onClick={() => setShowCategoryBreakdown(!showCategoryBreakdown)}
+                        startIcon={<Iconify icon={showCategoryBreakdown ? 'mdi:chart-donut' : 'mdi:format-list-bulleted'} />}
                         sx={{
-                          height: 40,
-                          mb: 0.5,
-                          border: 'none',
-                          '& .MuiToggleButtonGroup-grouped': {
-                            border: 'none !important',
-                            '&.Mui-selected': {
-                              borderRadius: 1,
-                            },
-                            '&:not(:first-of-type)': {
-                              borderRadius: 1,
-                              marginLeft: 1,
-                            },
-                            '&:first-of-type': {
-                              borderRadius: 1,
-                            },
-                          },
+                          mb: 1,
+                          fontSize: '0.75rem',
+                          textTransform: 'none',
+                          borderRadius: 1,
                         }}
                       >
-                        <ToggleButton
-                          value={2024}
-                          sx={{
-                            px: 2,
-                            py: 0.5,
-                            fontSize: '0.875rem',
-                            minWidth: 60,
-                            border: 'none !important',
-                          }}
-                        >
-                          2024
-                        </ToggleButton>
-                        <ToggleButton
-                          value={2025}
-                          sx={{
-                            px: 2,
-                            py: 0.5,
-                            fontSize: '0.875rem',
-                            minWidth: 60,
-                            border: 'none !important',
-                          }}
-                        >
-                          2025
-                        </ToggleButton>
-                      </ToggleButtonGroup>
+                        {showCategoryBreakdown ? 'Show Chart' : 'Show Categories'}
+                      </Button>
 
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5, lineHeight: 1.4, textAlign: 'center', maxWidth: 400 }}>
-                        {selectedYear} Member Request amendments grouped into story buckets (Schools & Kids, Health & Care, etc.).
-                      </Typography>
-                      {slices.length > 0 ? (
-                        <LegislatorFocusPie slices={slices} />
+                      {showCategoryBreakdown ? (
+                        // Category Breakdown View
+                        <CategoryBreakdown />
                       ) : (
-                        <Box
-                          sx={{
-                            flex: 1,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            minHeight: 200,
-                          }}
-                        >
-                          <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
-                            No amendments found
+                        // Spending Focus Chart View
+                        <>
+                          {/* Year Toggle below header */}
+                          <ToggleButtonGroup
+                            value={selectedYear}
+                            exclusive
+                            onChange={handleYearChange}
+                            size="medium"
+                            sx={{
+                              height: 40,
+                              mb: 0.5,
+                              border: 'none',
+                              '& .MuiToggleButtonGroup-grouped': {
+                                border: 'none !important',
+                                '&.Mui-selected': {
+                                  borderRadius: 1,
+                                },
+                                '&:not(:first-of-type)': {
+                                  borderRadius: 1,
+                                  marginLeft: 1,
+                                },
+                                '&:first-of-type': {
+                                  borderRadius: 1,
+                                },
+                              },
+                            }}
+                          >
+                            <ToggleButton
+                              value={2024}
+                              sx={{
+                                px: 2,
+                                py: 0.5,
+                                fontSize: '0.875rem',
+                                minWidth: 60,
+                                border: 'none !important',
+                              }}
+                            >
+                              2024
+                            </ToggleButton>
+                            <ToggleButton
+                              value={2025}
+                              sx={{
+                                px: 2,
+                                py: 0.5,
+                                fontSize: '0.875rem',
+                                minWidth: 60,
+                                border: 'none !important',
+                              }}
+                            >
+                              2025
+                            </ToggleButton>
+                          </ToggleButtonGroup>
+
+                          <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5, lineHeight: 1.4, textAlign: 'center', maxWidth: 400 }}>
+                            {selectedYear} Member Request amendments grouped into story buckets (Schools & Kids, Health & Care, etc.).
                           </Typography>
-                        </Box>
+                          {slices.length > 0 ? (
+                            <LegislatorFocusPie slices={slices} />
+                          ) : (
+                            <Box
+                              sx={{
+                                flex: 1,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                minHeight: 200,
+                              }}
+                            >
+                              <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
+                                No amendments found
+                              </Typography>
+                            </Box>
+                          )}
+                        </>
                       )}
                     </Stack>
                   </Grid>
