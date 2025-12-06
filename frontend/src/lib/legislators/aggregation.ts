@@ -131,13 +131,10 @@ export function computeLisStoryBucketSlices(
       continue;
     }
 
-    // Skip if no category (shouldn't happen, but be safe)
-    if (!item.spendingCategoryId) {
-      continue;
-    }
-
     // Map category to story bucket
-    const bucketId = getStoryBucketForCategory(item.spendingCategoryId as SpendingCategoryId);
+    // If no category, default to 'unclassified'
+    const categoryId = (item.spendingCategoryId as SpendingCategoryId) || 'unclassified';
+    const bucketId = getStoryBucketForCategory(categoryId);
     const currentTotal = bucketTotals.get(bucketId) || 0;
     bucketTotals.set(bucketId, currentTotal + item.fySecond);
   }

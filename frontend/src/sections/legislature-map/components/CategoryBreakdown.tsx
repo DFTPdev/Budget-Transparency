@@ -22,10 +22,10 @@ const STORY_BUCKET_DESCRIPTIONS: Record<StoryBucketId, string> = {
   parks_environment_energy: 'State parks, environmental protection, conservation, and clean energy',
   veterans_military: 'Veterans benefits, military family support, and services for those who served',
   government_overhead: 'Administration, legislature, finance, employee benefits, and government operations',
-  debt_reserves: 'Debt service, bond payments, and financial reserves for emergencies',
+  unclassified: 'Amendments that could not be automatically categorized based on their title. These are included to ensure all spending data is represented in the chart.',
 };
 
-// Order for display (most common first)
+// Order for display (most common first, unclassified last)
 const DISPLAY_ORDER: StoryBucketId[] = [
   'schools_kids',
   'health_care',
@@ -35,7 +35,7 @@ const DISPLAY_ORDER: StoryBucketId[] = [
   'parks_environment_energy',
   'veterans_military',
   'government_overhead',
-  'debt_reserves',
+  'unclassified',
 ];
 
 // ----------------------------------------------------------------------

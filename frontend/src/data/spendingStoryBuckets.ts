@@ -27,7 +27,7 @@ export type StoryBucketId =
   | 'parks_environment_energy'
   | 'veterans_military'
   | 'government_overhead'
-  | 'debt_reserves';
+  | 'unclassified';
 
 // ----------------------------------------------------------------------
 // Story Bucket Labels
@@ -45,7 +45,7 @@ export const STORY_BUCKET_LABELS: Record<StoryBucketId, string> = {
   parks_environment_energy: 'Parks, Environment & Energy',
   veterans_military: 'Veterans & Military Families',
   government_overhead: 'Government & Overhead',
-  debt_reserves: 'Debt & Reserves',
+  unclassified: 'Unclassified',
 };
 
 /**
@@ -60,7 +60,7 @@ export const STORY_BUCKET_SHORT_LABELS: Record<StoryBucketId, string> = {
   parks_environment_energy: 'Parks & Environment',
   veterans_military: 'Veterans',
   government_overhead: 'Government',
-  debt_reserves: 'Debt & Reserves',
+  unclassified: 'Unclassified',
 };
 
 // ----------------------------------------------------------------------
@@ -80,7 +80,7 @@ export const STORY_BUCKET_COLORS: Record<StoryBucketId, string> = {
   parks_environment_energy: '#26C6DA',  // Cyan (natural resources)
   veterans_military: '#EC407A',         // Pink (veterans)
   government_overhead: '#78909C',       // Blue-gray (administration)
-  debt_reserves: '#FF7043',             // Deep orange (finance)
+  unclassified: '#9E9E9E',              // Gray (unclassified)
 };
 
 // ----------------------------------------------------------------------
@@ -123,13 +123,13 @@ export const SPENDING_CATEGORY_TO_BUCKET: Record<SpendingCategoryId, StoryBucket
   legislative: 'government_overhead',
   independent_agencies: 'government_overhead',
   capital_outlay: 'government_overhead',
-  unclassified: 'government_overhead',  // Default fallback
 
-  // Finance + Central Appropriations → Government & Overhead (for now)
-  // TODO: In the future, we could split out actual debt service and reserves
-  // into the 'debt_reserves' bucket with more granular parsing
+  // Finance + Central Appropriations → Government & Overhead
   finance: 'government_overhead',
   central_appropriations: 'government_overhead',
+
+  // Unclassified → Unclassified (amendments that couldn't be auto-categorized)
+  unclassified: 'unclassified',
 };
 
 // ----------------------------------------------------------------------
