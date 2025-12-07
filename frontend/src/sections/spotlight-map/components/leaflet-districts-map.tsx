@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { Box, useTheme, Typography, Card, CardContent } from '@mui/material';
+import { Box, useTheme, Typography, Card, CardContent, Chip, Paper } from '@mui/material';
 
 // 🛠️ UTILITY: Normalize district IDs for consistent mapping
 function normalizeDistrictId(name: string): string {
@@ -389,14 +389,14 @@ export function LeafletDistrictsMap({
 
   // Reusable function for district state styling
   const getStyleForState = useCallback((isHovered: boolean, isSelected: boolean) => ({
-    fillColor: isSelected ? theme.palette.success.light :
+    fillColor: isSelected ? theme.palette.warning.light :
                isHovered ? theme.palette.primary.light : 'transparent',
-    color: isSelected ? theme.palette.success.main :
+    color: isSelected ? theme.palette.warning.dark :
            isHovered ? theme.palette.primary.main : theme.palette.grey[400],
-    weight: isSelected ? 3 : isHovered ? 2 : 1,
-    fillOpacity: isSelected ? 0.4 : isHovered ? 0.2 : 0.1,
+    weight: isSelected ? 4 : isHovered ? 3 : 1,
+    fillOpacity: isSelected ? 0.5 : isHovered ? 0.25 : 0.1,
     opacity: 1,
-    dashArray: '5, 5',
+    dashArray: isSelected ? '10, 5' : '5, 5',
   }), [theme.palette]);
 
   // Memoized style function for district features
@@ -408,6 +408,16 @@ export function LeafletDistrictsMap({
     // Single, consistent styling logic
     return getStyleForState(isHovered, isSelected);
   }, [hoveredDistrictId, selectedDistrictId, getStyleForState]);
+
+  // Helper function to get party color
+  const getPartyColor = useCallback((party: 'D' | 'R' | 'I') => {
+    switch (party) {
+      case 'D': return theme.palette.info.main;
+      case 'R': return theme.palette.error.main;
+      case 'I': return theme.palette.warning.main;
+      default: return theme.palette.grey[500];
+    }
+  }, [theme.palette]);
 
   // Memoized style function for precinct features
   const getFeatureStyle = useCallback((feature: any) => {
@@ -558,26 +568,50 @@ export function LeafletDistrictsMap({
     if (!feature || !feature.properties) return;
 
     const { NAME = 'Unknown District', NAMELSAD = '' } = feature.properties;
+    const districtId = normalizeDistrictId(NAME);
+
+    // Find matching district data for party info
+    const matchingDistrict = districts.find(d => normalizeDistrictId(d.name) === districtId);
 
     // Add hover effects
     layer.on({
       mouseover: (e: any) => {
+        const districtIdNormalized = normalizeDistrictId(NAME);
+
+        // Trigger hover callback to show info overlay
+        if (matchingDistrict) {
+          onDistrictHover(matchingDistrict);
+        }
+
         e.target.setStyle({
           weight: 3,
           color: theme.palette.primary.main,
+          fillColor: theme.palette.primary.light,
+          fillOpacity: 0.25,
           opacity: 1,
         });
+
+        // Bring to front for better visibility
+        e.target.bringToFront();
       },
       mouseout: (e: any) => {
+        // Clear hover state
+        onDistrictHover(null);
+
         const style = getDistrictStyle(feature);
         e.target.setStyle(style);
       },
       click: (e: any) => {
         console.log(`Clicked district: ${NAME}`);
+
+        // Trigger click callback if we have matching district data
+        if (matchingDistrict) {
+          onDistrictClick(matchingDistrict);
+        }
       },
     });
 
-    // Create popup content for districts
+    // Create popup content for districts with party info if available
     const popupContent = `
       <div style="font-family: ${theme.typography.fontFamily}; min-width: 150px;">
         <h3 style="margin: 0 0 8px 0; color: ${theme.palette.text.primary}; font-size: 14px;">
@@ -586,11 +620,25 @@ export function LeafletDistrictsMap({
         <p style="margin: 4px 0; color: ${theme.palette.text.secondary}; font-size: 12px;">
           District Number: ${NAME}
         </p>
+        ${matchingDistrict ? `
+          <p style="margin: 4px 0; color: ${theme.palette.text.secondary}; font-size: 12px;">
+            <strong>Representative:</strong> ${matchingDistrict.representative}
+          </p>
+          <p style="margin: 4px 0; font-size: 12px;">
+            <strong>Party:</strong> <span style="color: ${
+              matchingDistrict.party === 'D' ? theme.palette.info.main :
+              matchingDistrict.party === 'R' ? theme.palette.error.main :
+              theme.palette.warning.main
+            }; font-weight: bold;">
+              ${matchingDistrict.party === 'D' ? 'Democrat' : matchingDistrict.party === 'R' ? 'Republican' : 'Independent'}
+            </span>
+          </p>
+        ` : ''}
       </div>
     `;
 
     layer.bindPopup(popupContent);
-  }, [theme.typography.fontFamily, theme.palette.text.primary, theme.palette.text.secondary, theme.palette.primary.main]);
+  }, [theme.typography.fontFamily, theme.palette.text.primary, theme.palette.text.secondary, theme.palette.primary.main, theme.palette.primary.light, theme.palette.info.main, theme.palette.error.main, theme.palette.warning.main, districts, onDistrictHover, onDistrictClick, getDistrictStyle]);
 
   // Component to fit map bounds to districts data
   const FitBounds = ({ districtsData }: { districtsData: any }) => {
@@ -713,7 +761,7 @@ export function LeafletDistrictsMap({
       </Card>
 
       {/* Map Container */}
-      <Card sx={{ height: { xs: 350, sm: 450, md: 500 }, overflow: 'hidden' }}>
+      <Card sx={{ height: { xs: 350, sm: 450, md: 500 }, overflow: 'hidden', position: 'relative' }}>
         <MapContainer
           center={[37.5, -78.6]}
           zoom={7}
@@ -745,6 +793,65 @@ export function LeafletDistrictsMap({
 
           <FitBounds districtsData={districtsGeoJson} />
         </MapContainer>
+
+        {/* District Info Overlay - Shows selected or hovered district */}
+        {(selectedDistrict || hoveredDistrict) && (
+          <Paper
+            elevation={3}
+            sx={{
+              position: 'absolute',
+              top: 16,
+              right: 16,
+              p: 2,
+              minWidth: 220,
+              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              backdropFilter: 'blur(8px)',
+              zIndex: 1000,
+              borderRadius: 2,
+              transition: 'all 0.3s ease',
+            }}
+          >
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>
+                {selectedDistrict?.name || hoveredDistrict?.name}
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1 }}>
+                {selectedDistrict?.representative || hoveredDistrict?.representative}
+              </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Chip
+                  label={
+                    (selectedDistrict?.party || hoveredDistrict?.party) === 'D'
+                      ? 'Democrat'
+                      : (selectedDistrict?.party || hoveredDistrict?.party) === 'R'
+                      ? 'Republican'
+                      : 'Independent'
+                  }
+                  color={
+                    (selectedDistrict?.party || hoveredDistrict?.party) === 'D'
+                      ? 'info'
+                      : (selectedDistrict?.party || hoveredDistrict?.party) === 'R'
+                      ? 'error'
+                      : 'warning'
+                  }
+                  size="small"
+                  sx={{ fontWeight: 'bold' }}
+                />
+                {selectedDistrict && (
+                  <Chip
+                    label="Selected"
+                    color="warning"
+                    size="small"
+                    variant="outlined"
+                  />
+                )}
+              </Box>
+              <Typography variant="caption" sx={{ display: 'block', mt: 1.5, color: 'text.secondary', fontStyle: 'italic' }}>
+                District colors indicate party affiliation
+              </Typography>
+            </Box>
+          </Paper>
+        )}
       </Card>
     </Box>
   );

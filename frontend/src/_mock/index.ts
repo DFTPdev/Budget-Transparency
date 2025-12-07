@@ -52,6 +52,15 @@ export const _folders: any[] = [];
 export const _allFiles: any[] = [];
 export const FILE_TYPE_OPTIONS: any[] = [];
 
+// Map contact data for contact page
+export const _mapContact = [
+  {
+    latlng: [37.5407, -77.4360],
+    address: '1111 East Broad Street, Richmond, VA 23219',
+    phoneNumber: '+1 (804) 786-0000',
+  },
+];
+
 // Export everything that might be imported
 export * from './assets';
 export * from './_order';

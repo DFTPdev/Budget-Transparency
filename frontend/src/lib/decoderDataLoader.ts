@@ -45,6 +45,44 @@ export type VendorRecord = {
   is_expected_unmatched: boolean;
 };
 
+export type AgencyBudget = {
+  fiscal_year: number;
+  secretariat: string;
+  story_bucket_id: string;
+  story_bucket_label: string;
+  agency: string;
+  amount: number;
+  percentage: number;
+};
+
+export type ProgramBudget = {
+  fiscal_year: number;
+  secretariat: string;
+  story_bucket_id: string;
+  story_bucket_label: string;
+  agency: string;
+  program: string;
+  amount: number;
+  percentage: number;
+};
+
+export type TransferPaymentRecord = {
+  branch: string;
+  secretariat: string;
+  agency: string;
+  function: string;
+  program: string;
+  service_area: string;
+  fund: string;
+  fund_detail: string;
+  category: string;
+  expense_type: string;
+  trans_date: string;
+  fiscal_year: number;
+  amount: number;
+  vendor_name: string;
+};
+
 // ----------------------------------------------------------------------
 // CSV Parsers
 // ----------------------------------------------------------------------
@@ -89,12 +127,33 @@ function parseVendorRow(row: CSVRow): VendorRecord {
   };
 }
 
+function parseTransferPaymentRow(row: CSVRow): TransferPaymentRecord {
+  return {
+    branch: row.branch || '',
+    secretariat: row.secretariat || '',
+    agency: row.agency || '',
+    function: row.function || '',
+    program: row.program || '',
+    service_area: row.service_area || '',
+    fund: row.fund || '',
+    fund_detail: row.fund_detail || '',
+    category: row.category || '',
+    expense_type: row.expense_type || '',
+    trans_date: row.trans_date || '',
+    fiscal_year: toInt(row.fiscal_year),
+    amount: toNumber(row.amount),
+    vendor_name: row.vendor_name || '',
+  };
+}
+
 // ----------------------------------------------------------------------
 // Data Loaders
 // ----------------------------------------------------------------------
 
 let rollupCache: ProgramRollup[] | null = null;
 let vendorCache: VendorRecord[] | null = null;
+let agencyCache: Record<number, AgencyBudget[]> = {};
+let programCache: Record<number, ProgramBudget[]> = {};
 
 export async function loadProgramRollups(): Promise<ProgramRollup[]> {
   if (rollupCache) return rollupCache;
@@ -126,6 +185,42 @@ export async function loadVendorRecords(): Promise<VendorRecord[]> {
   }
 }
 
+export async function loadAgencyBudgets(fiscalYear: number): Promise<AgencyBudget[]> {
+  if (agencyCache[fiscalYear]) return agencyCache[fiscalYear];
+
+  try {
+    const response = await fetch(`/data/budget_by_agency_${fiscalYear}.json`);
+    if (!response.ok) {
+      throw new Error(`Failed to load agency budgets for FY${fiscalYear}`);
+    }
+    const data = await response.json();
+    agencyCache[fiscalYear] = data;
+    console.log(`✅ Loaded ${data.length} agencies for FY${fiscalYear}`);
+    return data;
+  } catch (error) {
+    console.error(`Failed to load agency budgets for FY${fiscalYear}:`, error);
+    return [];
+  }
+}
+
+export async function loadProgramBudgets(fiscalYear: number): Promise<ProgramBudget[]> {
+  if (programCache[fiscalYear]) return programCache[fiscalYear];
+
+  try {
+    const response = await fetch(`/data/budget_by_program_${fiscalYear}.json`);
+    if (!response.ok) {
+      throw new Error(`Failed to load program budgets for FY${fiscalYear}`);
+    }
+    const data = await response.json();
+    programCache[fiscalYear] = data;
+    console.log(`✅ Loaded ${data.length} programs for FY${fiscalYear}`);
+    return data;
+  } catch (error) {
+    console.error(`Failed to load program budgets for FY${fiscalYear}:`, error);
+    return [];
+  }
+}
+
 // ----------------------------------------------------------------------
 // Filtering Helpers
 // ----------------------------------------------------------------------
@@ -146,3 +241,54 @@ export function filterVendorsByProgram(
   );
 }
 
+// Load comprehensive transfer payments (all CARDINAL fields)
+let transferPaymentsCache: TransferPaymentRecord[] | null = null;
+
+export async function loadTransferPayments(): Promise<TransferPaymentRecord[]> {
+  if (transferPaymentsCache) return transferPaymentsCache;
+
+  try {
+    // Fetch the gzipped CSV file (8.8MB instead of 96MB)
+    console.log('Fetching compressed transfer payments data...');
+    const response = await fetch('/decoder/transfer_payments_full.csv.gz');
+    if (!response.ok) {
+      throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+    }
+
+    // Decompress the gzip data
+    const compressedData = await response.arrayBuffer();
+    const decompressedStream = new Response(
+      new Response(compressedData).body?.pipeThrough(new DecompressionStream('gzip'))
+    );
+    const csvText = await decompressedStream.text();
+    console.log('✅ Decompressed CSV text length:', csvText.length);
+
+    // Parse CSV manually (same logic as fetchCSV)
+    const lines = csvText.split('\n').filter(line => line.trim());
+    if (lines.length === 0) {
+      throw new Error('Empty CSV file');
+    }
+
+    const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    const rows: any[] = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+      if (values.length === headers.length) {
+        const row: any = {};
+        headers.forEach((header, index) => {
+          row[header] = values[index];
+        });
+        rows.push(row);
+      }
+    }
+
+    console.log('✅ Loaded transfer payments CSV:', rows.length, 'rows');
+    transferPaymentsCache = rows.map(parseTransferPaymentRow);
+    console.log('✅ Parsed transfer payment data:', transferPaymentsCache.length, 'records');
+    return transferPaymentsCache;
+  } catch (error) {
+    console.error('Failed to load comprehensive transfer payments:', error);
+    return [];
+  }
+}

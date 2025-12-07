@@ -1,23 +1,21 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { z as zod } from 'zod';
+import { useMemo, useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { m } from 'framer-motion';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import Step from '@mui/material/Step';
+import Alert from '@mui/material/Alert';
+import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import Stepper from '@mui/material/Stepper';
-import StepLabel from '@mui/material/StepLabel';
-import TextField from '@mui/material/TextField';
+import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -25,8 +23,68 @@ import { alpha, useTheme } from '@mui/material/styles';
 
 import { varFade, MotionViewport } from 'src/components/animate';
 import { Iconify } from 'src/components/iconify';
+import { Form, Field } from 'src/components/hook-form';
 
 // ----------------------------------------------------------------------
+
+const AGENCIES = [
+  {
+    value: 'state-budget',
+    label: 'Virginia Department of Budget & Planning',
+    description: 'Budget, financial planning, and appropriations',
+    icon: 'solar:calculator-bold',
+    foiaOfficer: 'budget.foia@virginia.gov',
+  },
+  {
+    value: 'education',
+    label: 'Virginia Department of Education',
+    description: 'K-12 education, schools, and curriculum',
+    icon: 'solar:book-bold',
+    foiaOfficer: 'foia@doe.virginia.gov',
+  },
+  {
+    value: 'health',
+    label: 'Virginia Department of Health',
+    description: 'Public health, healthcare facilities, and regulations',
+    icon: 'solar:health-bold',
+    foiaOfficer: 'foia@vdh.virginia.gov',
+  },
+  {
+    value: 'transportation',
+    label: 'Virginia Department of Transportation',
+    description: 'Roads, highways, and transportation projects',
+    icon: 'solar:highway-bold',
+    foiaOfficer: 'foia@vdot.virginia.gov',
+  },
+  {
+    value: 'general-services',
+    label: 'Virginia Department of General Services',
+    description: 'State buildings, procurement, and facilities',
+    icon: 'solar:buildings-bold',
+    foiaOfficer: 'foia@dgs.virginia.gov',
+  },
+  {
+    value: 'local-city',
+    label: 'Local City Government',
+    description: 'City-level records and services',
+    icon: 'solar:city-bold',
+    foiaOfficer: '',
+  },
+  {
+    value: 'local-county',
+    label: 'Local County Government',
+    description: 'County-level records and services',
+    icon: 'solar:map-bold',
+    foiaOfficer: '',
+  },
+  {
+    value: 'other-agency',
+    label: 'Other Agency',
+    description: 'Other state or local government agency',
+    icon: 'solar:document-bold',
+    foiaOfficer: '',
+  },
+];
 
 const FOIA_TEMPLATES = [
   {
@@ -79,14 +137,6 @@ const FOIA_TEMPLATES = [
   },
 ];
 
-const FOIA_STEPS = [
-  'Identify the records you need',
-  'Choose the appropriate agency',
-  'Submit your request',
-  'Wait for response (5 business days)',
-  'Review provided records',
-];
-
 const FAQ_DATA = [
   {
     question: 'What is the Virginia Freedom of Information Act?',
@@ -110,256 +160,409 @@ const FAQ_DATA = [
   },
 ];
 
+// ----------------------------------------------------------------------
+// Form Schema
+
+const FoiaRequestSchema = zod.object({
+  agency: zod.string().min(1, 'Please select an agency'),
+  recordsDescription: zod
+    .string()
+    .min(50, 'Please provide more detail (at least 50 characters)')
+    .max(500, 'Description is too long (maximum 500 characters)'),
+  startDate: zod.date().nullable(),
+  endDate: zod.date().nullable(),
+  contactName: zod.string().min(1, 'Name is required'),
+  contactEmail: zod.string().email('Please enter a valid email address'),
+  contactPhone: zod.string().optional(),
+  preferredFormat: zod.enum(['electronic', 'paper', 'inspection']),
+});
+
+type FoiaRequestSchemaType = zod.infer<typeof FoiaRequestSchema>;
+
+const defaultValues: FoiaRequestSchemaType = {
+  agency: '',
+  recordsDescription: '',
+  startDate: null,
+  endDate: null,
+  contactName: '',
+  contactEmail: '',
+  contactPhone: '',
+  preferredFormat: 'electronic',
+};
+
 export function FoiaView() {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = useState(0);
   const [isClient, setIsClient] = useState(false);
-  const [formData, setFormData] = useState({
-    requestType: '',
-    agency: '',
-    recordsDescription: '',
-    timeframe: '',
-    contactName: '',
-    contactEmail: '',
-    contactPhone: '',
-    preferredFormat: 'electronic',
+
+  const methods = useForm<FoiaRequestSchemaType>({
+    resolver: zodResolver(FoiaRequestSchema),
+    defaultValues,
+    mode: 'onChange',
   });
+
+  const {
+    handleSubmit,
+    watch,
+    reset,
+    formState: { isSubmitting, errors },
+  } = methods;
 
   // Handle client-side hydration
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const handleInputChange = (field: string) => (event: any) => {
-    setFormData({ ...formData, [field]: event.target.value });
-  };
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      // In a real app, this would submit to a backend
+      console.log('FOIA Request Submitted:', data);
+      alert('Your FOIA request has been prepared! Download the generated letter to submit to the appropriate agency.');
+    } catch (error) {
+      console.error('Error submitting FOIA request:', error);
+    }
+  });
 
-  const handleNext = () => {
-    setActiveStep((prevStep) => prevStep + 1);
-  };
+  // Watch form values for character counter and preview
+  const recordsDescription = watch('recordsDescription');
+  const descriptionLength = recordsDescription?.length || 0;
 
-  const handleBack = () => {
-    setActiveStep((prevStep) => prevStep - 1);
-  };
+  const renderTemplates = () => {
+    const templates = FOIA_TEMPLATES.filter((t) => t.category === 'Templates');
+    const guides = FOIA_TEMPLATES.filter((t) => t.category === 'Guides');
 
-  const handleSubmit = () => {
-    // In a real app, this would submit to a backend
-    console.log('FOIA Request Submitted:', formData);
-    alert('Your FOIA request has been prepared! Download the generated letter to submit to the appropriate agency.');
-  };
+    return (
+      <Card sx={{ p: 3 }}>
+        {/* Header */}
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+          <Box
+            sx={{
+              width: 48,
+              height: 48,
+              borderRadius: 2,
+              bgcolor: alpha(theme.palette.info.main, 0.1),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              mr: 2,
+            }}
+          >
+            <Iconify icon="solar:folder-with-files-bold" width={28} sx={{ color: 'info.main' }} />
+          </Box>
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography variant="h6">FOIA Templates & Resources</Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              Download pre-made templates or use the form generator below
+            </Typography>
+          </Box>
+        </Box>
 
-  const renderTemplates = () => (
-    <Grid container spacing={3}>
-      {FOIA_TEMPLATES.map((template, index) => (
-        <Grid item xs={12} sm={6} md={4} key={template.title}>
-          <m.div variants={varFade('inUp', 0.1 * index)}>
-            <Card 
-              sx={{ 
-                height: '100%', 
-                transition: 'all 0.3s',
-                '&:hover': { 
-                  transform: 'translateY(-4px)',
-                  boxShadow: theme.shadows[8]
-                }
-              }}
-            >
-              <CardContent sx={{ p: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+        <Alert severity="info" sx={{ mb: 3 }}>
+          <strong>Quick Start:</strong> Download a template for immediate use, or scroll down to use
+          our interactive form generator that creates a customized request letter for you.
+        </Alert>
+
+        <Divider sx={{ mb: 3 }} />
+
+        {/* Templates Section */}
+        <Box sx={{ mb: 3 }}>
+          <Typography variant="subtitle2" sx={{ mb: 2, display: 'flex', alignItems: 'center' }}>
+            <Iconify icon="solar:document-text-bold" width={20} sx={{ mr: 1 }} />
+            Request Templates
+          </Typography>
+          <Grid container spacing={1.5}>
+            {templates.map((template) => (
+              <Grid size={{ xs: 12, sm: 6 }} key={template.title}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    transition: 'all 0.2s',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      bgcolor: alpha(theme.palette.primary.main, 0.04),
+                      boxShadow: theme.shadows[2],
+                    },
+                  }}
+                  component="a"
+                  href={template.link}
+                >
                   <Box
                     sx={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: '50%',
+                      width: 40,
+                      height: 40,
+                      borderRadius: 1,
                       bgcolor: alpha(theme.palette.primary.main, 0.1),
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      mr: 2,
+                      flexShrink: 0,
                     }}
                   >
-                    <Iconify icon={template.icon} width={24} sx={{ color: 'primary.main' }} />
+                    <Iconify icon={template.icon} width={20} sx={{ color: 'primary.main' }} />
                   </Box>
-                  <Box>
-                    <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
+                  <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+                    <Typography variant="subtitle2" noWrap>
                       {template.title}
                     </Typography>
                     <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                      {template.format} • {template.category}
+                      {template.format}
                     </Typography>
                   </Box>
-                </Box>
+                  <Iconify
+                    icon="solar:download-bold"
+                    width={20}
+                    sx={{ color: 'text.secondary', flexShrink: 0 }}
+                  />
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
 
-                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
-                  {template.description}
-                </Typography>
-
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  startIcon={<Iconify icon="solar:download-bold" />}
-                  href={template.link}
+        {/* Guides Section */}
+        <Box>
+          <Typography variant="subtitle2" sx={{ mb: 2, display: 'flex', alignItems: 'center' }}>
+            <Iconify icon="solar:book-bold" width={20} sx={{ mr: 1 }} />
+            Helpful Guides
+          </Typography>
+          <Grid container spacing={1.5}>
+            {guides.map((guide) => (
+              <Grid size={{ xs: 12, sm: 6 }} key={guide.title}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    transition: 'all 0.2s',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      bgcolor: alpha(theme.palette.info.main, 0.04),
+                      boxShadow: theme.shadows[2],
+                    },
+                  }}
+                  component="a"
+                  href={guide.link}
                 >
-                  Download
-                </Button>
-              </CardContent>
-            </Card>
-          </m.div>
-        </Grid>
-      ))}
-    </Grid>
-  );
+                  <Box
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 1,
+                      bgcolor: alpha(theme.palette.info.main, 0.1),
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Iconify icon={guide.icon} width={20} sx={{ color: 'info.main' }} />
+                  </Box>
+                  <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+                    <Typography variant="subtitle2" noWrap>
+                      {guide.title}
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                      {guide.format}
+                    </Typography>
+                  </Box>
+                  <Iconify
+                    icon="solar:download-bold"
+                    width={20}
+                    sx={{ color: 'text.secondary', flexShrink: 0 }}
+                  />
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Card>
+    );
+  };
 
   const renderRequestForm = () => (
-    <Card sx={{ p: 4 }}>
-      <Typography variant="h5" sx={{ mb: 3 }}>
-        FOIA Request Generator
-      </Typography>
-      
-      <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
-        {FOIA_STEPS.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+    <Form methods={methods} onSubmit={onSubmit}>
+      <Card sx={{ p: 4 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+          <Box
+            sx={{
+              width: 56,
+              height: 56,
+              borderRadius: 2,
+              bgcolor: alpha(theme.palette.primary.main, 0.1),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              mr: 2,
+            }}
+          >
+            <Iconify icon="solar:document-text-bold" width={32} sx={{ color: 'primary.main' }} />
+          </Box>
+          <Box>
+            <Typography variant="h5">FOIA Request Generator</Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              Complete the form below to generate your request letter
+            </Typography>
+          </Box>
+        </Box>
 
-      {activeStep === 0 && (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <FormControl fullWidth>
-              <InputLabel>Type of Request</InputLabel>
-              <Select
-                value={formData.requestType}
-                onChange={handleInputChange('requestType')}
-                label="Type of Request"
-              >
-                <MenuItem value="budget">Budget & Financial Records</MenuItem>
-                <MenuItem value="contracts">Contracts & Procurement</MenuItem>
-                <MenuItem value="meetings">Meeting Minutes & Agendas</MenuItem>
-                <MenuItem value="correspondence">Email & Correspondence</MenuItem>
-                <MenuItem value="reports">Reports & Studies</MenuItem>
-                <MenuItem value="other">Other</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              multiline
-              rows={4}
-              label="Describe the records you're seeking"
-              value={formData.recordsDescription}
-              onChange={handleInputChange('recordsDescription')}
-              placeholder="Be as specific as possible about the records you need..."
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              label="Time Frame"
-              value={formData.timeframe}
-              onChange={handleInputChange('timeframe')}
-              placeholder="e.g., January 2023 - December 2023"
-            />
-          </Grid>
-        </Grid>
-      )}
+        <Divider sx={{ mb: 4 }} />
 
-      {activeStep === 1 && (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <FormControl fullWidth>
-              <InputLabel>Government Agency</InputLabel>
-              <Select
-                value={formData.agency}
-                onChange={handleInputChange('agency')}
+        {/* Section 1: What Records */}
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h6" sx={{ mb: 2, display: 'flex', alignItems: 'center' }}>
+            <Iconify icon="solar:document-bold" width={24} sx={{ mr: 1 }} />
+            What Records Do You Need?
+          </Typography>
+
+          <Grid container spacing={3}>
+            <Grid size={{ xs: 12 }}>
+              <Field.Autocomplete
+                name="agency"
                 label="Government Agency"
-              >
-                <MenuItem value="state-budget">Virginia Department of Budget & Planning</MenuItem>
-                <MenuItem value="education">Virginia Department of Education</MenuItem>
-                <MenuItem value="health">Virginia Department of Health</MenuItem>
-                <MenuItem value="transportation">Virginia Department of Transportation</MenuItem>
-                <MenuItem value="general-services">Virginia Department of General Services</MenuItem>
-                <MenuItem value="local-city">Local City Government</MenuItem>
-                <MenuItem value="local-county">Local County Government</MenuItem>
-                <MenuItem value="other-agency">Other Agency</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-        </Grid>
-      )}
+                placeholder="Search agencies..."
+                options={AGENCIES}
+                getOptionLabel={(option) => (typeof option === 'string' ? option : option.label)}
+                renderOption={(props, option) => {
+                  const { key, ...otherProps } = props;
+                  return (
+                    <Box component="li" key={option.value} {...otherProps}>
+                      <Box
+                        sx={{
+                          width: 40,
+                          height: 40,
+                          borderRadius: 1,
+                          bgcolor: alpha(theme.palette.primary.main, 0.1),
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mr: 2,
+                        }}
+                      >
+                        <Iconify icon={option.icon} width={20} sx={{ color: 'primary.main' }} />
+                      </Box>
+                      <Box sx={{ flexGrow: 1 }}>
+                        <Typography variant="subtitle2">{option.label}</Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                          {option.description}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  );
+                }}
+              />
+            </Grid>
 
-      {activeStep === 2 && (
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              label="Your Name"
-              value={formData.contactName}
-              onChange={handleInputChange('contactName')}
-            />
+            <Grid size={{ xs: 12 }}>
+              <Field.Text
+                name="recordsDescription"
+                label="Describe the records you're seeking"
+                placeholder="Be as specific as possible about the records you need, including dates, department names, and document types..."
+                multiline
+                rows={4}
+              />
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color:
+                      descriptionLength < 50
+                        ? 'error.main'
+                        : descriptionLength < 100
+                          ? 'warning.main'
+                          : 'success.main',
+                  }}
+                >
+                  {descriptionLength}/500 characters
+                  {descriptionLength < 50 && ' (minimum 50)'}
+                </Typography>
+              </Box>
+            </Grid>
+
+            <Grid size={{ xs: 12 }}>
+              <Alert severity="info" icon={<Iconify icon="solar:lightbulb-bold" />}>
+                <strong>Tip:</strong> Include specific dates, department names, and document types
+                to help agencies locate records faster.
+              </Alert>
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Field.DatePicker name="startDate" label="From Date (Optional)" />
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Field.DatePicker name="endDate" label="To Date (Optional)" />
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              label="Email Address"
-              type="email"
-              value={formData.contactEmail}
-              onChange={handleInputChange('contactEmail')}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              label="Phone Number (Optional)"
-              value={formData.contactPhone}
-              onChange={handleInputChange('contactPhone')}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormControl fullWidth>
-              <InputLabel>Preferred Format</InputLabel>
-              <Select
-                value={formData.preferredFormat}
-                onChange={handleInputChange('preferredFormat')}
+        </Box>
+
+        <Divider sx={{ mb: 4 }} />
+
+        {/* Section 2: Contact Information */}
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h6" sx={{ mb: 2, display: 'flex', alignItems: 'center' }}>
+            <Iconify icon="solar:user-bold" width={24} sx={{ mr: 1 }} />
+            Your Contact Information
+          </Typography>
+
+          <Grid container spacing={3}>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Field.Text name="contactName" label="Your Name" />
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Field.Text name="contactEmail" label="Email Address" type="email" />
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Field.Phone name="contactPhone" label="Phone Number (Optional)" />
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Field.RadioGroup
+                name="preferredFormat"
                 label="Preferred Format"
-              >
-                <MenuItem value="electronic">Electronic (Email/Download)</MenuItem>
-                <MenuItem value="paper">Paper Copies</MenuItem>
-                <MenuItem value="inspection">Inspection Only</MenuItem>
-              </Select>
-            </FormControl>
+                options={[
+                  {
+                    value: 'electronic',
+                    label: 'Electronic (Recommended)',
+                  },
+                  {
+                    value: 'paper',
+                    label: 'Paper Copies',
+                  },
+                  {
+                    value: 'inspection',
+                    label: 'Inspection Only',
+                  },
+                ]}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      )}
+        </Box>
 
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
-        <Button
-          disabled={activeStep === 0}
-          onClick={handleBack}
-          startIcon={<Iconify icon="solar:arrow-left-bold" />}
-        >
-          Back
-        </Button>
-        {activeStep === FOIA_STEPS.length - 1 ? (
+        {/* Action Buttons */}
+        <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
           <Button
+            variant="outlined"
+            onClick={() => reset()}
+            startIcon={<Iconify icon="solar:refresh-bold" />}
+          >
+            Clear Form
+          </Button>
+          <Button
+            type="submit"
             variant="contained"
-            onClick={handleSubmit}
+            disabled={isSubmitting}
             endIcon={<Iconify icon="solar:document-add-bold" />}
           >
             Generate Request Letter
           </Button>
-        ) : (
-          <Button
-            variant="contained"
-            onClick={handleNext}
-            endIcon={<Iconify icon="solar:arrow-right-bold" />}
-          >
-            Next
-          </Button>
-        )}
-      </Box>
-    </Card>
+        </Box>
+      </Card>
+    </Form>
   );
 
   const renderFAQ = () => (
@@ -440,15 +643,22 @@ export function FoiaView() {
 
         {/* Templates Section */}
         <m.div variants={varFade('inUp')}>
-          <Typography variant="h4" sx={{ mb: 4, textAlign: 'center' }}>
-            FOIA Templates & Resources
-          </Typography>
-          {renderTemplates()}
+          <Box sx={{ mb: 6 }}>
+            {renderTemplates()}
+          </Box>
         </m.div>
 
         {/* Request Form Section */}
         <m.div variants={varFade('inUp')}>
-          <Box sx={{ mt: 8, mb: 8 }}>
+          <Box sx={{ mb: 8 }}>
+            <Box sx={{ mb: 3, textAlign: 'center' }}>
+              <Typography variant="h4" sx={{ mb: 1 }}>
+                Or Generate a Custom Request
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                Fill out the form below to create a personalized FOIA request letter
+              </Typography>
+            </Box>
             {renderRequestForm()}
           </Box>
         </m.div>

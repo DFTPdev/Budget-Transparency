@@ -6,12 +6,9 @@ import { m } from 'framer-motion';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import Button from '@mui/material/Button';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
 import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -23,13 +20,34 @@ import CardContent from '@mui/material/CardContent';
 import TableContainer from '@mui/material/TableContainer';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CircularProgress from '@mui/material/CircularProgress';
+import Chip from '@mui/material/Chip';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { alpha, useTheme } from '@mui/material/styles';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import FlagIcon from '@mui/icons-material/Flag';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
-import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, type ProgramRollup, type VendorRecord } from 'src/lib/decoderDataLoader';
+import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, loadAgencyBudgets, loadProgramBudgets, loadTransferPayments, type ProgramRollup, type VendorRecord, type AgencyBudget, type ProgramBudget, type TransferPaymentRecord } from 'src/lib/decoderDataLoader';
 
 import { varFade, MotionViewport } from 'src/components/animate';
 import { Scrollbar } from 'src/components/scrollbar';
+
+// Story bucket imports
+import { mapSecretariatToStoryBucket } from 'src/data/secretariatToStoryBucket';
+import { STORY_BUCKET_LABELS, STORY_BUCKET_COLORS, type StoryBucketId } from 'src/data/spendingStoryBuckets';
+
+// Budget data types
+import type { BudgetRow } from 'src/lib/budgetDrillDown';
+
+// Budget Overview component
+import { BudgetOverview } from '../budget-overview';
 
 // ----------------------------------------------------------------------
 
@@ -78,6 +96,104 @@ function categorizeAgency(agency: string): string {
   }
 
   return 'Other';
+}
+
+// Classify entity type based on vendor name patterns
+type EntityType = 'NGO' | 'Local Government' | 'Authority' | 'Private Company' | 'Other';
+
+function classifyEntityType(vendorName: string): EntityType {
+  const name = vendorName.toUpperCase();
+
+  // NGO patterns
+  if (name.includes(' INC') || name.includes(' INCORPORATED') ||
+      name.includes('FOUNDATION') || name.includes('COALITION') ||
+      name.includes('SOCIETY') || name.includes('ASSOCIATION') ||
+      name.includes('INSTITUTE') || name.includes('CENTER FOR') ||
+      name.includes('COUNCIL') || name.includes('ALLIANCE')) {
+    return 'NGO';
+  }
+
+  // Local Government patterns
+  if (name.includes('COUNTY') || name.includes('CITY OF') ||
+      name.includes('TOWN OF') || name.includes('TREASURER') ||
+      name.includes('DIRECTOR OF FINANCE') || name.includes('COMMONWEALTH')) {
+    return 'Local Government';
+  }
+
+  // Authority patterns
+  if (name.includes('AUTHORITY') || name.includes('COMMISSION') ||
+      name.includes('BOARD')) {
+    return 'Authority';
+  }
+
+  // Private Company patterns
+  if (name.includes(' LLC') || name.includes(' CORP') ||
+      name.includes(' CO') || name.includes(' LTD') ||
+      name.includes('COMPANY')) {
+    return 'Private Company';
+  }
+
+  return 'Other';
+}
+
+// NGO Tracker aggregated record type
+type NGOTrackerRecord = {
+  vendorName: string;
+  entityType: EntityType;
+  totalAmount: number;
+  paymentCount: number;
+  avgPayment: number;
+  secretariats: string[];
+  redFlagScore: number;
+  redFlags: string[];
+  fiscalYears: string[];
+};
+
+// Calculate red flag score for pass-through entities
+function calculateRedFlagScore(
+  totalAmount: number,
+  paymentCount: number,
+  avgPayment: number,
+  secretariatCount: number,
+  amounts: number[]
+): { score: number; flags: string[] } {
+  let score = 0;
+  const flags: string[] = [];
+
+  // +5 points: Single payment >$500K
+  if (paymentCount === 1 && totalAmount > 500000) {
+    score += 5;
+    flags.push('Single lump-sum >$500K');
+  }
+
+  // +3 points: <5 total payments (non-competitive indicator)
+  if (paymentCount < 5 && paymentCount > 0) {
+    score += 3;
+    flags.push(`Only ${paymentCount} payment${paymentCount > 1 ? 's' : ''}`);
+  }
+
+  // +3 points: Identical payment amounts (formula allocation)
+  if (amounts.length > 1) {
+    const uniqueAmounts = new Set(amounts.map(a => Math.round(a * 100) / 100));
+    if (uniqueAmounts.size === 1) {
+      score += 3;
+      flags.push('Identical payment amounts');
+    }
+  }
+
+  // +2 points: Average payment >$100K
+  if (avgPayment > 100000) {
+    score += 2;
+    flags.push('Avg payment >$100K');
+  }
+
+  // +1 point: Only one secretariat (limited scope)
+  if (secretariatCount === 1) {
+    score += 1;
+    flags.push('Single secretariat');
+  }
+
+  return { score, flags };
 }
 
 // Calculate YoY change with proper fallback logic
@@ -159,8 +275,9 @@ function transformRollupData(rollups: ProgramRollup[]): BudgetItem[] {
   const totalBudget = rollups.reduce((sum, row) => sum + row.total_spent_ytd, 0);
 
   return rollups.map((row, index) => {
-    // Categorize by secretariat
-    const category = row.secretariat || 'Other';
+    // Map secretariat to story bucket for citizen-friendly categorization
+    const storyBucketId = mapSecretariatToStoryBucket(row.secretariat);
+    const category = STORY_BUCKET_LABELS[storyBucketId];
 
     // Calculate change (execution rate as proxy for now - no historical data)
     const change = NaN; // No YoY data in rollup
@@ -442,10 +559,39 @@ export function BudgetDecoderView() {
   const [filterFiscalYear, setFilterFiscalYear] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
+  // Flat table sorting state
+  const [flatTableOrder, setFlatTableOrder] = useState<Order>('desc');
+  const [flatTableOrderBy, setFlatTableOrderBy] = useState<'category' | 'agency' | 'program' | 'amount' | 'percentage'>('amount');
+
+  // Expenditure table sorting state
+  const [expenditureOrder, setExpenditureOrder] = useState<Order>('desc');
+  const [expenditureOrderBy, setExpenditureOrderBy] = useState<'category' | 'vendor' | 'amount' | 'fiscal_year'>('amount');
+
+  // NGO Tracker filter state
+  const [ngoEntityTypeFilter, setNgoEntityTypeFilter] = useState<EntityType | 'All'>('All');
+  const [ngoRedFlagFilter, setNgoRedFlagFilter] = useState<'All' | 'High' | 'Medium' | 'Low'>('All');
+
+  // Drill-down state for vendor expansion
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+  const [vendorDataCache, setVendorDataCache] = useState<Record<string, VendorRecord[]>>({});
+  const [loadingVendors, setLoadingVendors] = useState<Set<string>>(new Set());
+
+  // Pagination state
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(30);
+
+  // View toggle state: 'appropriations', 'expenditures', or 'ngo-tracker'
+  const [viewMode, setViewMode] = useState<'appropriations' | 'expenditures' | 'ngo-tracker'>('appropriations');
+
   // NEW: Decoder data state
   const [rollupData, setRollupData] = useState<ProgramRollup[]>([]);
   const [vendorData, setVendorData] = useState<VendorRecord[]>([]);
-  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+  const [transferPayments, setTransferPayments] = useState<TransferPaymentRecord[]>([]);
+
+  // Flat table data (no drill-down)
+  const [agencyData, setAgencyData] = useState<AgencyBudget[]>([]);
+  const [programData, setProgramData] = useState<ProgramBudget[]>([]);
+  const [flatTableRows, setFlatTableRows] = useState<BudgetRow[]>([]);
 
   // Legacy: Keep district data for existing features
   const [districtData, setDistrictData] = useState<any[] | null>(null);
@@ -454,17 +600,145 @@ export function BudgetDecoderView() {
   useEffect(() => {
     const loadDecoderData = async () => {
       try {
-        const [rollups, vendors, districts] = await Promise.all([
+        console.log('🔄 Starting to load decoder data...');
+        console.log('🔄 Filter fiscal year:', filterFiscalYear);
+        const fiscalYear = filterFiscalYear ? parseInt(filterFiscalYear) : 2025;
+        console.log('🔄 Using fiscal year:', fiscalYear);
+
+        const [rollups, vendors, districts, agencies, programs, transfers] = await Promise.all([
           loadProgramRollups(),
           loadVendorRecords(),
-          fetch('/data/budget_by_district_2025.json').then(r => r.json()).catch(() => null)
+          fetch('/data/budget_by_district_2025.json').then(r => r.json()).catch(() => null),
+          loadAgencyBudgets(fiscalYear),
+          loadProgramBudgets(fiscalYear),
+          loadTransferPayments()
         ]);
 
         console.log('✅ Loaded rollup data:', rollups.length, 'programs');
         console.log('✅ Loaded vendor data:', vendors.length, 'recipients');
+        console.log('✅ Loaded agency data:', agencies.length, 'agencies');
+        console.log('✅ Loaded program data:', programs.length, 'programs');
+        console.log('✅ Loaded transfer payments:', transfers.length, 'records');
 
         setRollupData(rollups);
         setVendorData(vendors);
+        setAgencyData(agencies);
+        setProgramData(programs);
+        setTransferPayments(transfers);
+
+        // Create flat table with all agencies and programs
+        console.log('🔄 Creating flat table...');
+        const flatRows: BudgetRow[] = [];
+
+        // Add all agencies
+        agencies.forEach((agency, index) => {
+          flatRows.push({
+            id: `agency-${agency.fiscal_year}-${agency.story_bucket_id}-${agency.agency}-${index}`,
+            level: 'detail' as DrillDownLevel,
+            type: 'agency',
+            name: agency.agency,
+            amount: agency.amount,
+            percentage: agency.percentage,
+            storyBucketId: agency.story_bucket_id,
+            storyBucketLabel: agency.story_bucket_label,
+            hasChildren: false,
+          });
+        });
+
+        // Helper function to normalize program names for fuzzy matching
+        const normalizeProgram = (name: string): string => {
+          return name
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '') // Remove special chars
+            .replace(/\s+/g, ' ')         // Normalize whitespace
+            .trim();
+        };
+
+        // Helper function to calculate similarity score (0-1)
+        const calculateSimilarity = (str1: string, str2: string): number => {
+          const norm1 = normalizeProgram(str1);
+          const norm2 = normalizeProgram(str2);
+
+          // Exact match after normalization
+          if (norm1 === norm2) return 1.0;
+
+          // Check if one contains the other
+          if (norm1.includes(norm2) || norm2.includes(norm1)) return 0.8;
+
+          // Calculate word overlap
+          const words1 = new Set(norm1.split(' '));
+          const words2 = new Set(norm2.split(' '));
+          const intersection = new Set([...words1].filter(w => words2.has(w)));
+          const union = new Set([...words1, ...words2]);
+
+          return intersection.size / union.size; // Jaccard similarity
+        };
+
+        // Add all programs with rollup data for drill-down
+        programs.forEach((program, index) => {
+          // Find matching rollup data for this program
+          // Try exact match first
+          let matchingRollup = rollups.find(r =>
+            r.fiscal_year === program.fiscal_year &&
+            r.agency === program.agency &&
+            r.program === program.program
+          );
+
+          // If no exact match, try fuzzy matching
+          if (!matchingRollup) {
+            const candidates = rollups.filter(r =>
+              r.fiscal_year === program.fiscal_year &&
+              r.agency === program.agency
+            );
+
+            if (candidates.length > 0) {
+              // Find best match by similarity score
+              const scored = candidates.map(r => ({
+                rollup: r,
+                score: calculateSimilarity(program.program, r.program)
+              }));
+
+              // Use match if similarity > 0.6 (60% similar)
+              const bestMatch = scored.reduce((best, curr) =>
+                curr.score > best.score ? curr : best
+              );
+
+              if (bestMatch.score > 0.6) {
+                matchingRollup = bestMatch.rollup;
+              }
+            }
+          }
+
+          flatRows.push({
+            id: `program-${program.fiscal_year}-${program.story_bucket_id}-${program.agency}-${program.program}-${index}`,
+            level: 'detail' as DrillDownLevel,
+            type: 'program',
+            name: program.program,
+            amount: program.amount,
+            percentage: program.percentage,
+            storyBucketId: program.story_bucket_id,
+            storyBucketLabel: program.story_bucket_label,
+            agency: program.agency,
+            hasChildren: false,
+            rollup: matchingRollup, // Attach rollup data for vendor drill-down
+          });
+        });
+
+        console.log('✅ Flat table created:', flatRows.length, 'rows');
+
+        // Debug: Check how many program rows have rollup data
+        const programsWithRollup = flatRows.filter(r => r.type === 'program' && r.rollup).length;
+        const totalPrograms = flatRows.filter(r => r.type === 'program').length;
+        console.log(`✅ Programs with rollup data: ${programsWithRollup} / ${totalPrograms}`);
+        console.log(`📊 Match rate: ${((programsWithRollup / totalPrograms) * 100).toFixed(1)}%`);
+
+        // Debug: Show sample program names from both sources
+        if (programs.length > 0 && rollups.length > 0) {
+          console.log('📋 Sample program budget names:', programs.slice(0, 3).map(p => `"${p.program}"`));
+          console.log('📋 Sample rollup program names:', rollups.slice(0, 3).map(r => `"${r.program}"`));
+        }
+
+        setFlatTableRows(flatRows);
 
         // Keep district data for existing features
         if (Array.isArray(districts) && districts.length > 0) {
@@ -475,17 +749,20 @@ export function BudgetDecoderView() {
           setDistrictData(null);
         }
       } catch (error) {
-        console.error('Failed to load decoder data:', error);
+        console.error('❌ Failed to load decoder data:', error);
         setRollupData([]);
         setVendorData([]);
+        setAgencyData([]);
+        setProgramData([]);
         setDistrictData(null);
       } finally {
+        console.log('✅ Setting isLoading to false');
         setIsLoading(false);
       }
     };
 
     loadDecoderData();
-  }, []);
+  }, [filterFiscalYear]);
 
   // Combine rollup data (primary) and district data (legacy)
   const budgetData = useMemo(() => {
@@ -552,6 +829,20 @@ export function BudgetDecoderView() {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
+  };
+
+  // Flat table sorting handler
+  const handleFlatTableSort = (property: 'category' | 'agency' | 'program' | 'amount' | 'percentage') => {
+    const isAsc = flatTableOrderBy === property && flatTableOrder === 'asc';
+    setFlatTableOrder(isAsc ? 'desc' : 'asc');
+    setFlatTableOrderBy(property);
+  };
+
+  // Expenditure table sorting handler
+  const handleExpenditureSort = (property: 'category' | 'vendor' | 'amount' | 'fiscal_year') => {
+    const isAsc = expenditureOrderBy === property && expenditureOrder === 'asc';
+    setExpenditureOrder(isAsc ? 'desc' : 'asc');
+    setExpenditureOrderBy(property);
   };
 
   const handleViewOnMap = (item: BudgetItem) => {
@@ -629,21 +920,228 @@ export function BudgetDecoderView() {
     return [...filteredData].sort(comparator);
   }, [filteredData, order, orderBy]);
 
+  // Paginated data
+  const paginatedData = useMemo(() => {
+    const startIndex = page * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    return sortedData.slice(startIndex, endIndex);
+  }, [sortedData, page, rowsPerPage]);
+
+  // Pagination handlers
+  const handleChangePage = (newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (newRowsPerPage: number) => {
+    setRowsPerPage(newRowsPerPage);
+    setPage(0); // Reset to first page when changing rows per page
+  };
+
+  // Flat table filtering and sorting
+  const sortedAndFilteredRows = useMemo(() => {
+    let rows = [...flatTableRows];
+
+    // Filter by category if selected (filterCategory contains the label like "Schools & Kids")
+    if (filterCategory && filterCategory !== 'all' && filterCategory !== '') {
+      rows = rows.filter(row => row.storyBucketLabel === filterCategory);
+    }
+
+    // Sort by selected column
+    rows.sort((a, b) => {
+      if (flatTableOrderBy === 'amount' || flatTableOrderBy === 'percentage') {
+        return flatTableOrder === 'asc'
+          ? a[flatTableOrderBy] - b[flatTableOrderBy]
+          : b[flatTableOrderBy] - a[flatTableOrderBy];
+      }
+
+      if (flatTableOrderBy === 'category') {
+        const aVal = a.storyBucketLabel || '';
+        const bVal = b.storyBucketLabel || '';
+        return flatTableOrder === 'asc'
+          ? aVal.localeCompare(bVal)
+          : bVal.localeCompare(aVal);
+      }
+
+      if (flatTableOrderBy === 'agency') {
+        const aVal = a.agency || '';
+        const bVal = b.agency || '';
+        return flatTableOrder === 'asc'
+          ? aVal.localeCompare(bVal)
+          : bVal.localeCompare(aVal);
+      }
+
+      if (flatTableOrderBy === 'program') {
+        const aVal = a.type === 'program' ? a.name : '';
+        const bVal = b.type === 'program' ? b.name : '';
+        return flatTableOrder === 'asc'
+          ? aVal.localeCompare(bVal)
+          : bVal.localeCompare(aVal);
+      }
+
+      return 0;
+    });
+
+    return rows;
+  }, [flatTableRows, filterCategory, flatTableOrder, flatTableOrderBy]);
+
+  // Expenditure table filtering and sorting
+  const sortedAndFilteredExpenditures = useMemo(() => {
+    let vendors = vendorData
+      .filter(v => !v.is_placeholder && !v.is_expected_unmatched)
+      .filter(v => filterFiscalYear ? v.fiscal_year.toString() === filterFiscalYear : true)
+      .filter(v => filterName ?
+        v.vendor_name.toLowerCase().includes(filterName.toLowerCase()) ||
+        v.secretariat.toLowerCase().includes(filterName.toLowerCase())
+        : true
+      );
+
+    // Apply category filter (using secretariat mapping)
+    if (filterCategory && filterCategory !== 'all' && filterCategory !== '') {
+      vendors = vendors.filter(v => {
+        const storyBucketId = mapSecretariatToStoryBucket(v.secretariat);
+        const storyBucketLabel = STORY_BUCKET_LABELS[storyBucketId];
+        return storyBucketLabel === filterCategory;
+      });
+    }
+
+    // Sort by selected column
+    vendors.sort((a, b) => {
+      if (expenditureOrderBy === 'amount') {
+        return expenditureOrder === 'asc'
+          ? a.spent_amount_ytd - b.spent_amount_ytd
+          : b.spent_amount_ytd - a.spent_amount_ytd;
+      }
+
+      if (expenditureOrderBy === 'fiscal_year') {
+        return expenditureOrder === 'asc'
+          ? a.fiscal_year - b.fiscal_year
+          : b.fiscal_year - a.fiscal_year;
+      }
+
+      if (expenditureOrderBy === 'category') {
+        // Map secretariat to story bucket for sorting
+        const aStoryBucketId = mapSecretariatToStoryBucket(a.secretariat);
+        const bStoryBucketId = mapSecretariatToStoryBucket(b.secretariat);
+        const aVal = STORY_BUCKET_LABELS[aStoryBucketId] || '';
+        const bVal = STORY_BUCKET_LABELS[bStoryBucketId] || '';
+        return expenditureOrder === 'asc'
+          ? aVal.localeCompare(bVal)
+          : bVal.localeCompare(aVal);
+      }
+
+      if (expenditureOrderBy === 'vendor') {
+        return expenditureOrder === 'asc'
+          ? a.vendor_name.localeCompare(b.vendor_name)
+          : b.vendor_name.localeCompare(a.vendor_name);
+      }
+
+      return 0;
+    });
+
+    return vendors;
+  }, [vendorData, rollupData, filterFiscalYear, filterName, filterCategory, expenditureOrder, expenditureOrderBy]);
+
+  // NGO Tracker data processing - aggregate comprehensive transfer payments by vendor
+  const ngoTrackerData = useMemo(() => {
+    // Use comprehensive transfer payments data (all CARDINAL records, not just budget-matched)
+    // Group by vendor name
+    const vendorMap = new Map<string, TransferPaymentRecord[]>();
+    transferPayments.forEach(record => {
+      const existing = vendorMap.get(record.vendor_name) || [];
+      existing.push(record);
+      vendorMap.set(record.vendor_name, existing);
+    });
+
+    // Aggregate and calculate red flags
+    const aggregated: NGOTrackerRecord[] = [];
+    vendorMap.forEach((records, vendorName) => {
+      const totalAmount = records.reduce((sum, r) => sum + r.amount, 0);
+      const paymentCount = records.length;
+      const avgPayment = totalAmount / paymentCount;
+      const secretariats = Array.from(new Set(records.map(r => r.secretariat)));
+      const fiscalYears = Array.from(new Set(records.map(r => r.fiscal_year.toString())));
+      const amounts = records.map(r => r.amount);
+
+      const { score, flags } = calculateRedFlagScore(
+        totalAmount,
+        paymentCount,
+        avgPayment,
+        secretariats.length,
+        amounts
+      );
+
+      aggregated.push({
+        vendorName,
+        entityType: classifyEntityType(vendorName),
+        totalAmount,
+        paymentCount,
+        avgPayment,
+        secretariats,
+        redFlagScore: score,
+        redFlags: flags,
+        fiscalYears
+      });
+    });
+
+    // Sort by red flag score (highest first), then by total amount
+    return aggregated.sort((a, b) => {
+      if (b.redFlagScore !== a.redFlagScore) {
+        return b.redFlagScore - a.redFlagScore;
+      }
+      return b.totalAmount - a.totalAmount;
+    });
+  }, [transferPayments]);
+
+  // Filtered NGO tracker data
+  const filteredNGOData = useMemo(() => {
+    let filtered = ngoTrackerData;
+
+    // Filter by entity type
+    if (ngoEntityTypeFilter !== 'All') {
+      filtered = filtered.filter(ngo => ngo.entityType === ngoEntityTypeFilter);
+    }
+
+    // Filter by red flag score
+    if (ngoRedFlagFilter !== 'All') {
+      filtered = filtered.filter(ngo => {
+        if (ngoRedFlagFilter === 'High') return ngo.redFlagScore >= 7;
+        if (ngoRedFlagFilter === 'Medium') return ngo.redFlagScore >= 4 && ngo.redFlagScore < 7;
+        if (ngoRedFlagFilter === 'Low') return ngo.redFlagScore < 4;
+        return true;
+      });
+    }
+
+    // Apply search filter
+    if (filterName) {
+      filtered = filtered.filter(ngo =>
+        ngo.vendorName.toLowerCase().includes(filterName.toLowerCase()) ||
+        ngo.secretariats.some(s => s.toLowerCase().includes(filterName.toLowerCase()))
+      );
+    }
+
+    return filtered;
+  }, [ngoTrackerData, ngoEntityTypeFilter, ngoRedFlagFilter, filterName]);
+
   const totalBudget = budgetData.reduce((sum, item) => sum + item.amount, 0);
 
-  // Load categories from budget data (program/agency categories AND districts)
+  // Debug: Log current view mode
+  console.log('🎯 Current viewMode:', viewMode);
+  console.log('🎯 VendorData length:', vendorData.length);
+  console.log('🎯 SortedAndFilteredExpenditures length:', sortedAndFilteredExpenditures.length);
+
+  // Load categories from flat table data (only story bucket categories)
   const categories = useMemo(() => {
-    // Always include all categories from the combined budget data
-    const allCategories = Array.from(new Set(budgetData.map(item => item.category)))
-      .sort();
+    // Get unique story bucket labels from the flat table
+    const uniqueLabels = Array.from(new Set(
+      flatTableRows
+        .map(row => row.storyBucketLabel)
+        .filter(label => label) // Remove undefined/null
+    )).sort();
 
-    // Temporary debugging
-    console.log('Budget data length:', budgetData.length);
-    console.log('Categories found:', allCategories);
-    console.log('Has Legislative Districts:', allCategories.includes('Legislative Districts'));
+    console.log('Flat table categories:', uniqueLabels);
 
-    return allCategories;
-  }, [budgetData]);
+    return uniqueLabels;
+  }, [flatTableRows]);
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
@@ -659,6 +1157,87 @@ export function BudgetDecoderView() {
     if (change > 0) return theme.palette.success.main;
     if (change < 0) return theme.palette.error.main;
     return theme.palette.text.secondary;
+  };
+
+  // Get story bucket color for a category label
+  const getCategoryColor = (categoryLabel: string): string => {
+    // Find the story bucket ID that matches this label
+    const bucketEntry = Object.entries(STORY_BUCKET_LABELS).find(
+      ([_, label]) => label === categoryLabel
+    );
+
+    if (bucketEntry) {
+      const bucketId = bucketEntry[0] as StoryBucketId;
+      return STORY_BUCKET_COLORS[bucketId];
+    }
+
+    // Fallback to primary color
+    return theme.palette.primary.main;
+  };
+
+  // Handle row expansion for vendor drill-down
+  const handleRowExpand = async (row: any) => {
+    const rowId = row.id;
+    const isExpanded = expandedRows.has(rowId);
+
+    // Toggle expansion
+    const newExpandedRows = new Set(expandedRows);
+    if (isExpanded) {
+      newExpandedRows.delete(rowId);
+      setExpandedRows(newExpandedRows);
+      return;
+    }
+
+    // Expand row
+    newExpandedRows.add(rowId);
+    setExpandedRows(newExpandedRows);
+
+    // Check if we already have vendor data cached
+    if (vendorDataCache[rowId]) {
+      return;
+    }
+
+    // Load vendor data for this program
+    if (row.type === 'program' && row.rollup) {
+      const newLoadingVendors = new Set(loadingVendors);
+      newLoadingVendors.add(rowId);
+      setLoadingVendors(newLoadingVendors);
+
+      try {
+        const vendors = filterVendorsByProgram(
+          vendorData,
+          row.rollup.fiscal_year,
+          row.rollup.agency,
+          row.rollup.program,
+          row.rollup.service_area
+        );
+
+        console.log(`🔍 Vendors for "${row.name}":`, {
+          total: vendors.length,
+          placeholders: vendors.filter(v => v.is_placeholder).length,
+          unmatched: vendors.filter(v => v.is_expected_unmatched).length,
+          valid: vendors.filter(v => !v.is_placeholder && !v.is_expected_unmatched).length
+        });
+
+        // Sort by spent amount descending
+        const sortedVendors = vendors
+          .filter(v => !v.is_placeholder && !v.is_expected_unmatched)
+          .sort((a, b) => b.spent_amount_ytd - a.spent_amount_ytd);
+
+        console.log(`✅ Final vendors for "${row.name}":`, sortedVendors.length);
+
+        setVendorDataCache(prev => ({
+          ...prev,
+          [rowId]: sortedVendors
+        }));
+      } catch (error) {
+        console.error('Failed to load vendors:', error);
+      } finally {
+        const newLoadingVendors = new Set(loadingVendors);
+        newLoadingVendors.delete(rowId);
+        setLoadingVendors(newLoadingVendors);
+      }
+    }
   };
 
   // Show loading state while fetching data
@@ -701,15 +1280,27 @@ export function BudgetDecoderView() {
             </Typography>
           </m.div>
 
-          <m.div variants={varFade('inUp')}>
-            <Typography variant="h6" sx={{ color: 'primary.main' }}>
-              Total Budget: {fCurrency(totalBudget)}
-            </Typography>
-            <Typography variant="caption" sx={{ color: 'text.secondary', mt: 1, display: 'block' }}>
-              Data Source: {rollupData && rollupData.length > 0 ? 'VA Budget Decoder (Chapter 725 + CARDINAL)' : 'Sample Data'}
-            </Typography>
-          </m.div>
         </Box>
+
+        {/* Budget Overview with Pie Chart */}
+        <m.div variants={varFade('inUp')}>
+          <BudgetOverview
+            fiscalYear={filterFiscalYear ? parseInt(filterFiscalYear) : 2025}
+            onCategoryClick={(storyBucketId) => {
+              // Find the category label for this story bucket
+              const categoryLabel = STORY_BUCKET_LABELS[storyBucketId];
+              if (categoryLabel) {
+                setFilterCategory(categoryLabel);
+                setPage(0); // Reset to first page
+              }
+            }}
+            onFiscalYearChange={(year) => {
+              // Sync fiscal year selection from BudgetOverview tabs to main filter
+              setFilterFiscalYear(year.toString());
+              setPage(0); // Reset to first page
+            }}
+          />
+        </m.div>
 
         {/* Filters */}
         <m.div variants={varFade('inUp')}>
@@ -746,7 +1337,7 @@ export function BudgetDecoderView() {
                   ))}
                 </TextField>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} md={3}>
                 <TextField
                   select
                   fullWidth
@@ -766,194 +1357,197 @@ export function BudgetDecoderView() {
           </Card>
         </m.div>
 
-        {/* Budget Table */}
+        {/* View Toggle */}
         <m.div variants={varFade('inUp')}>
-          <Card sx={{ mb: 5 }}>
-            <Scrollbar>
-              <TableContainer sx={{ minWidth: 1000 }}>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell width={50} />
-                      <TableCell>
+          <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center' }}>
+            <ToggleButtonGroup
+              value={viewMode}
+              exclusive
+              onChange={(e, newValue) => {
+                if (newValue !== null) {
+                  setViewMode(newValue);
+                  setPage(0); // Reset pagination when switching views
+                }
+              }}
+              sx={{
+                bgcolor: 'background.paper',
+                boxShadow: 1,
+                '& .MuiToggleButton-root': {
+                  px: 3,
+                  py: 1.5,
+                  border: 1,
+                  borderColor: 'divider',
+                  '&.Mui-selected': {
+                    bgcolor: 'primary.main',
+                    color: 'primary.contrastText',
+                    '&:hover': {
+                      bgcolor: 'primary.dark',
+                    },
+                  },
+                },
+              }}
+            >
+              <ToggleButton value="appropriations">
+                <AccountBalanceIcon sx={{ mr: 1 }} />
+                Budget Appropriations
+              </ToggleButton>
+              <ToggleButton value="expenditures">
+                <ReceiptLongIcon sx={{ mr: 1 }} />
+                Actual Expenditures
+              </ToggleButton>
+              <ToggleButton value="ngo-tracker">
+                <FlagIcon sx={{ mr: 1 }} />
+                Pass-Through NGO Tracker
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Box>
+        </m.div>
+
+        {/* Budget Appropriations Table */}
+        {viewMode === 'appropriations' && (
+          <m.div variants={varFade('inUp')}>
+            <Card sx={{ mb: 5 }}>
+              <Scrollbar>
+                <TableContainer sx={{ minWidth: 1000 }}>
+                  <Table>
+                    <TableHead sx={{ bgcolor: '#f5f5f5' }}>
+                      <TableRow>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
                         <TableSortLabel
-                          active={orderBy === 'category'}
-                          direction={orderBy === 'category' ? order : 'asc'}
-                          onClick={() => handleSort('category')}
+                          active={flatTableOrderBy === 'category'}
+                          direction={flatTableOrderBy === 'category' ? flatTableOrder : 'asc'}
+                          onClick={() => handleFlatTableSort('category')}
+                          sx={{
+                            color: '#000 !important',
+                            '&.Mui-active': { color: '#000 !important' },
+                            '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                          }}
                         >
                           Category
                         </TableSortLabel>
                       </TableCell>
-                      <TableCell>
+                      <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
                         <TableSortLabel
-                          active={orderBy === 'subcategory'}
-                          direction={orderBy === 'subcategory' ? order : 'asc'}
-                          onClick={() => handleSort('subcategory')}
+                          active={flatTableOrderBy === 'agency'}
+                          direction={flatTableOrderBy === 'agency' ? flatTableOrder : 'asc'}
+                          onClick={() => handleFlatTableSort('agency')}
+                          sx={{
+                            color: '#000 !important',
+                            '&.Mui-active': { color: '#000 !important' },
+                            '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                          }}
+                        >
+                          Agency
+                        </TableSortLabel>
+                      </TableCell>
+                      <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                        <TableSortLabel
+                          active={flatTableOrderBy === 'program'}
+                          direction={flatTableOrderBy === 'program' ? flatTableOrder : 'asc'}
+                          onClick={() => handleFlatTableSort('program')}
+                          sx={{
+                            color: '#000 !important',
+                            '&.Mui-active': { color: '#000 !important' },
+                            '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                          }}
                         >
                           Program
                         </TableSortLabel>
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
                         <TableSortLabel
-                          active={orderBy === 'amount'}
-                          direction={orderBy === 'amount' ? order : 'asc'}
-                          onClick={() => handleSort('amount')}
+                          active={flatTableOrderBy === 'amount'}
+                          direction={flatTableOrderBy === 'amount' ? flatTableOrder : 'asc'}
+                          onClick={() => handleFlatTableSort('amount')}
+                          sx={{
+                            color: '#000 !important',
+                            '&.Mui-active': { color: '#000 !important' },
+                            '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                          }}
                         >
                           Amount
                         </TableSortLabel>
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
                         <TableSortLabel
-                          active={orderBy === 'percentage'}
-                          direction={orderBy === 'percentage' ? order : 'asc'}
-                          onClick={() => handleSort('percentage')}
+                          active={flatTableOrderBy === 'percentage'}
+                          direction={flatTableOrderBy === 'percentage' ? flatTableOrder : 'asc'}
+                          onClick={() => handleFlatTableSort('percentage')}
+                          sx={{
+                            color: '#000 !important',
+                            '&.Mui-active': { color: '#000 !important' },
+                            '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                          }}
                         >
-                          % of Budget
+                          % of Total
                         </TableSortLabel>
                       </TableCell>
-                      <TableCell align="right">
-                        <TableSortLabel
-                          active={orderBy === 'change'}
-                          direction={orderBy === 'change' ? order : 'asc'}
-                          onClick={() => handleSort('change')}
-                        >
-                          YoY Change
-                        </TableSortLabel>
-                      </TableCell>
-                      <TableCell align="center">Priority</TableCell>
-                      <TableCell>Description</TableCell>
-                      <TableCell align="center">Actions</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {sortedData.map((item) => {
-                      const isExpanded = expandedRows.has(item.id);
-                      const hasVendors = item.rollup !== undefined;
-                      const vendors = hasVendors ? getVendorsForItem(item) : [];
+                    {sortedAndFilteredRows.slice(page * rowsPerPage, (page + 1) * rowsPerPage).map((row) => {
+                      const categoryColor = row.storyBucketId ? STORY_BUCKET_COLORS[row.storyBucketId] : theme.palette.primary.main;
+                      const isExpanded = expandedRows.has(row.id);
+                      const isLoading = loadingVendors.has(row.id);
+                      const vendors = vendorDataCache[row.id] || [];
+                      const canExpand = row.type === 'program' && row.rollup;
 
                       return (
-                        <React.Fragment key={item.id}>
+                        <React.Fragment key={row.id}>
+                          {/* Main Row */}
                           <TableRow
-                            data-district={item.subcategory.match(/\d+/) ? item.subcategory.match(/\d+/)?.[0] : ''}
                             sx={{
                               '&:hover': {
-                                backgroundColor: alpha(theme.palette.primary.main, 0.04)
-                              },
-                              cursor: 'default'
+                                backgroundColor: alpha(theme.palette.primary.main, 0.04),
+                              }
                             }}
                           >
+                            {/* Category Column */}
                             <TableCell>
-                              {hasVendors && vendors.length > 0 && (
-                                <IconButton
-                                  size="small"
-                                  onClick={() => handleToggleExpand(item.id)}
+                              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Box
                                   sx={{
-                                    transition: 'transform 0.2s',
-                                    transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)'
+                                    width: 12,
+                                    height: 12,
+                                    borderRadius: '50%',
+                                    backgroundColor: categoryColor,
+                                    flexShrink: 0
                                   }}
-                                >
-                                  ▶
-                                </IconButton>
-                              )}
+                                />
+                                <Typography variant="body2">
+                                  {row.storyBucketLabel || '-'}
+                                </Typography>
+                              </Box>
                             </TableCell>
+
+                            {/* Agency Column */}
                             <TableCell>
-                              <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
-                                {item.category}
+                              <Typography variant="body2">
+                                {row.type === 'agency' ? row.name : (row.agency || '-')}
                               </Typography>
                             </TableCell>
+
+                            {/* Program Column */}
                             <TableCell>
-                              <Typography variant="body2" fontWeight="medium">
-                                {item.subcategory}
+                              <Typography variant="body2">
+                                {row.type === 'program' ? row.name : '-'}
                               </Typography>
                             </TableCell>
+
+                            {/* Amount Column */}
                             <TableCell align="right">
                               <Typography variant="body2" fontWeight="medium">
-                                {fCurrency(item.amount)}
+                                {fCurrency(row.amount)}
                               </Typography>
                             </TableCell>
+
+                            {/* Percentage Column */}
                             <TableCell align="right">
                               <Typography variant="body2">
-                                {fPercent(item.percentage)}
+                                {fPercent(row.percentage)}
                               </Typography>
-                            </TableCell>
-                            <TableCell align="right">
-                              <Typography
-                                variant="body2"
-                                sx={{
-                                  color: getChangeColor(item.change),
-                                  fontWeight: 'medium'
-                                }}
-                              >
-                                {isNaN(item.change) ? '—' : `${item.change > 0 ? '+' : ''}${item.change.toFixed(1)}%`}
-                              </Typography>
-                            </TableCell>
-                            <TableCell align="center">
-                              <Chip
-                                label={item.priority.toUpperCase()}
-                                color={getPriorityColor(item.priority) as any}
-                                size="small"
-                                variant="soft"
-                              />
-                            </TableCell>
-                            <TableCell>
-                              <Typography variant="body2" sx={{ color: 'text.secondary', maxWidth: 300 }}>
-                                {item.description}
-                              </Typography>
-                            </TableCell>
-                            <TableCell align="center">
-                              <Button
-                                size="small"
-                                variant="outlined"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  handleViewOnMap(item);
-                                }}
-                                sx={{
-                                  minWidth: 'auto',
-                                  '&:hover': {
-                                    backgroundColor: alpha(theme.palette.primary.main, 0.08)
-                                  }
-                                }}
-                              >
-                                📍 View on Map
-                              </Button>
                             </TableCell>
                           </TableRow>
-
-                          {/* Expandable vendor details */}
-                          {hasVendors && vendors.length > 0 && (
-                            <TableRow key={`${item.id}-details`}>
-                              <TableCell colSpan={9} sx={{ py: 0, borderBottom: isExpanded ? undefined : 'none' }}>
-                                <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-                                  <Box sx={{ py: 2, px: 3, bgcolor: alpha(theme.palette.primary.main, 0.02) }}>
-                                    <Typography variant="subtitle2" sx={{ mb: 2, color: 'primary.main' }}>
-                                      Recipients ({vendors.length})
-                                    </Typography>
-                                    <Grid container spacing={2}>
-                                      {vendors.slice(0, 10).map((vendor, idx) => (
-                                        <Grid item xs={12} sm={6} md={4} key={idx}>
-                                          <Card variant="outlined" sx={{ p: 2 }}>
-                                            <Typography variant="body2" fontWeight="medium" noWrap>
-                                              {vendor.vendor_name}
-                                            </Typography>
-                                            <Typography variant="caption" color="text.secondary">
-                                              {fCurrency(vendor.spent_amount_ytd)}
-                                            </Typography>
-                                          </Card>
-                                        </Grid>
-                                      ))}
-                                    </Grid>
-                                    {vendors.length > 10 && (
-                                      <Typography variant="caption" sx={{ mt: 2, display: 'block', color: 'text.secondary' }}>
-                                        Showing top 10 of {vendors.length} recipients
-                                      </Typography>
-                                    )}
-                                  </Box>
-                                </Collapse>
-                              </TableCell>
-                            </TableRow>
-                          )}
                         </React.Fragment>
                       );
                     })}
@@ -961,8 +1555,443 @@ export function BudgetDecoderView() {
                 </Table>
               </TableContainer>
             </Scrollbar>
-          </Card>
-        </m.div>
+
+            {/* Pagination Controls */}
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              p: 2,
+              borderTop: 1,
+              borderColor: 'divider'
+            }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Typography variant="body2" color="text.secondary">
+                  Rows per page:
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1 }}>
+                  {[10, 30, 50].map((option) => (
+                    <Button
+                      key={option}
+                      size="small"
+                      variant={rowsPerPage === option ? 'contained' : 'outlined'}
+                      onClick={() => handleChangeRowsPerPage(option)}
+                      sx={{ minWidth: 50 }}
+                    >
+                      {option}
+                    </Button>
+                  ))}
+                </Box>
+              </Box>
+
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Typography variant="body2" color="text.secondary">
+                  {`${page * rowsPerPage + 1}-${Math.min((page + 1) * rowsPerPage, sortedAndFilteredRows.length)} of ${sortedAndFilteredRows.length}`}
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1 }}>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    onClick={() => handleChangePage(page - 1)}
+                    disabled={page === 0}
+                  >
+                    Previous
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    onClick={() => handleChangePage(page + 1)}
+                    disabled={(page + 1) * rowsPerPage >= sortedAndFilteredRows.length}
+                  >
+                    Next
+                  </Button>
+                </Box>
+              </Box>
+            </Box>
+            </Card>
+          </m.div>
+        )}
+
+        {/* Actual Expenditures Table */}
+        {viewMode === 'expenditures' && (
+          <Box>
+            <Card sx={{ mb: 5 }}>
+              <Scrollbar>
+                <TableContainer sx={{ minWidth: 1000 }}>
+                  <Table>
+                    <TableHead sx={{ bgcolor: '#f5f5f5' }}>
+                      <TableRow>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={expenditureOrderBy === 'category'}
+                            direction={expenditureOrderBy === 'category' ? expenditureOrder : 'asc'}
+                            onClick={() => handleExpenditureSort('category')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Category
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={expenditureOrderBy === 'vendor'}
+                            direction={expenditureOrderBy === 'vendor' ? expenditureOrder : 'asc'}
+                            onClick={() => handleExpenditureSort('vendor')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Vendor/Recipient
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={expenditureOrderBy === 'amount'}
+                            direction={expenditureOrderBy === 'amount' ? expenditureOrder : 'asc'}
+                            onClick={() => handleExpenditureSort('amount')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Amount
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={expenditureOrderBy === 'fiscal_year'}
+                            direction={expenditureOrderBy === 'fiscal_year' ? expenditureOrder : 'asc'}
+                            onClick={() => handleExpenditureSort('fiscal_year')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Fiscal Year
+                          </TableSortLabel>
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {sortedAndFilteredExpenditures
+                        .slice(page * rowsPerPage, (page + 1) * rowsPerPage)
+                        .map((vendor, idx) => {
+                          // Map secretariat to story bucket
+                          const storyBucketId = mapSecretariatToStoryBucket(vendor.secretariat);
+                          const storyBucketLabel = STORY_BUCKET_LABELS[storyBucketId];
+                          const categoryColor = STORY_BUCKET_COLORS[storyBucketId] || theme.palette.primary.main;
+
+                          return (
+                            <TableRow
+                              key={`${vendor.fiscal_year}-${vendor.agency}-${vendor.program}-${vendor.vendor_name}-${idx}`}
+                              sx={{
+                                '&:hover': {
+                                  backgroundColor: alpha(theme.palette.primary.main, 0.04),
+                                }
+                              }}
+                            >
+                              <TableCell>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                  <Box
+                                    sx={{
+                                      width: 12,
+                                      height: 12,
+                                      borderRadius: '50%',
+                                      backgroundColor: categoryColor,
+                                      flexShrink: 0
+                                    }}
+                                  />
+                                  <Typography variant="body2">
+                                    {storyBucketLabel || 'Unclassified'}
+                                  </Typography>
+                                </Box>
+                              </TableCell>
+                              <TableCell>
+                                <Typography variant="body2">
+                                  {vendor.vendor_name}
+                                </Typography>
+                              </TableCell>
+                              <TableCell align="right">
+                                <Typography variant="body2" fontWeight="medium">
+                                  {fCurrency(vendor.spent_amount_ytd)}
+                                </Typography>
+                              </TableCell>
+                              <TableCell>
+                                <Typography variant="body2">
+                                  FY{vendor.fiscal_year}
+                                </Typography>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Scrollbar>
+
+              {/* Pagination Controls */}
+              <Box sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                p: 2,
+                borderTop: 1,
+                borderColor: 'divider'
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Typography variant="body2" color="text.secondary">
+                    Rows per page:
+                  </Typography>
+                  <Box sx={{ display: 'flex', gap: 1 }}>
+                    {[10, 30, 50].map((option) => (
+                      <Button
+                        key={option}
+                        size="small"
+                        variant={rowsPerPage === option ? 'contained' : 'outlined'}
+                        onClick={() => handleChangeRowsPerPage(option)}
+                        sx={{ minWidth: 50 }}
+                      >
+                        {option}
+                      </Button>
+                    ))}
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Typography variant="body2" color="text.secondary">
+                    {`${page * rowsPerPage + 1}-${Math.min((page + 1) * rowsPerPage, sortedAndFilteredExpenditures.length)} of ${sortedAndFilteredExpenditures.length}`}
+                  </Typography>
+                  <Box sx={{ display: 'flex', gap: 1 }}>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => handleChangePage(page - 1)}
+                      disabled={page === 0}
+                    >
+                      Previous
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => handleChangePage(page + 1)}
+                      disabled={(page + 1) * rowsPerPage >= sortedAndFilteredExpenditures.length}
+                    >
+                      Next
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
+            </Card>
+          </Box>
+        )}
+
+        {/* Pass-Through NGO Tracker Table */}
+        {viewMode === 'ngo-tracker' && (
+          <Box>
+            {/* Filter Controls */}
+            <Card sx={{ mb: 3, p: 3 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={4}>
+                  <TextField
+                    select
+                    fullWidth
+                    label="Entity Type"
+                    value={ngoEntityTypeFilter}
+                    onChange={(e) => setNgoEntityTypeFilter(e.target.value as EntityType | 'All')}
+                    SelectProps={{ native: true }}
+                  >
+                    <option value="All">All Types</option>
+                    <option value="NGO">NGO</option>
+                    <option value="Local Government">Local Government</option>
+                    <option value="Authority">Authority</option>
+                    <option value="Private Company">Private Company</option>
+                    <option value="Other">Other</option>
+                  </TextField>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <TextField
+                    select
+                    fullWidth
+                    label="Red Flag Level"
+                    value={ngoRedFlagFilter}
+                    onChange={(e) => setNgoRedFlagFilter(e.target.value as 'All' | 'High' | 'Medium' | 'Low')}
+                    SelectProps={{ native: true }}
+                  >
+                    <option value="All">All Levels</option>
+                    <option value="High">High (Score ≥7)</option>
+                    <option value="Medium">Medium (Score 4-6)</option>
+                    <option value="Low">Low (Score &lt;4)</option>
+                  </TextField>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                    Total Recipients: {filteredNGOData.length}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Total Amount: {fCurrency(filteredNGOData.reduce((sum, ngo) => sum + ngo.totalAmount, 0))}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Card>
+
+            {/* NGO Tracker Table */}
+            <Card sx={{ mb: 5 }}>
+              <Scrollbar>
+                <TableContainer sx={{ minWidth: 1200 }}>
+                  <Table>
+                    <TableHead sx={{ bgcolor: '#f5f5f5' }}>
+                      <TableRow>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Recipient</TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Entity Type</TableCell>
+                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Total Amount</TableCell>
+                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Payments</TableCell>
+                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Avg Payment</TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Secretariats</TableCell>
+                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Red Flag Score</TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Red Flags</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {filteredNGOData
+                        .slice(page * rowsPerPage, (page + 1) * rowsPerPage)
+                        .map((ngo, idx) => {
+                          // Determine red flag color
+                          const scoreColor = ngo.redFlagScore >= 7 ? 'error.main' :
+                                           ngo.redFlagScore >= 4 ? 'warning.main' :
+                                           'success.main';
+
+                          return (
+                            <TableRow key={`${ngo.vendorName}-${idx}`} hover>
+                              <TableCell>
+                                <Typography variant="body2" fontWeight="medium">
+                                  {ngo.vendorName}
+                                </Typography>
+                                <Typography variant="caption" color="text.secondary">
+                                  FY {ngo.fiscalYears.join(', ')}
+                                </Typography>
+                              </TableCell>
+                              <TableCell>
+                                <Chip
+                                  label={ngo.entityType}
+                                  size="small"
+                                  color={ngo.entityType === 'NGO' ? 'primary' : 'default'}
+                                />
+                              </TableCell>
+                              <TableCell align="right">
+                                <Typography variant="body2" fontWeight="medium">
+                                  {fCurrency(ngo.totalAmount)}
+                                </Typography>
+                              </TableCell>
+                              <TableCell align="center">
+                                <Typography variant="body2">
+                                  {ngo.paymentCount}
+                                </Typography>
+                              </TableCell>
+                              <TableCell align="right">
+                                <Typography variant="body2">
+                                  {fCurrency(ngo.avgPayment)}
+                                </Typography>
+                              </TableCell>
+                              <TableCell>
+                                <Typography variant="caption" color="text.secondary">
+                                  {ngo.secretariats.slice(0, 2).join(', ')}
+                                  {ngo.secretariats.length > 2 && ` +${ngo.secretariats.length - 2} more`}
+                                </Typography>
+                              </TableCell>
+                              <TableCell align="center">
+                                <Chip
+                                  label={ngo.redFlagScore}
+                                  size="small"
+                                  sx={{
+                                    bgcolor: scoreColor,
+                                    color: 'white',
+                                    fontWeight: 'bold'
+                                  }}
+                                />
+                              </TableCell>
+                              <TableCell>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                                  {ngo.redFlags.map((flag, i) => (
+                                    <Chip
+                                      key={i}
+                                      label={flag}
+                                      size="small"
+                                      variant="outlined"
+                                      sx={{ fontSize: '0.7rem' }}
+                                    />
+                                  ))}
+                                </Box>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Scrollbar>
+
+              {/* Pagination Controls */}
+              <Box sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                p: 2,
+                borderTop: 1,
+                borderColor: 'divider'
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Typography variant="body2" color="text.secondary">
+                    Rows per page:
+                  </Typography>
+                  <Box sx={{ display: 'flex', gap: 1 }}>
+                    {[10, 30, 50].map((option) => (
+                      <Button
+                        key={option}
+                        size="small"
+                        variant={rowsPerPage === option ? 'contained' : 'outlined'}
+                        onClick={() => handleChangeRowsPerPage(option)}
+                        sx={{ minWidth: 50 }}
+                      >
+                        {option}
+                      </Button>
+                    ))}
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Typography variant="body2" color="text.secondary">
+                    {`${page * rowsPerPage + 1}-${Math.min((page + 1) * rowsPerPage, filteredNGOData.length)} of ${filteredNGOData.length}`}
+                  </Typography>
+                  <Box sx={{ display: 'flex', gap: 1 }}>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => handleChangePage(page - 1)}
+                      disabled={page === 0}
+                    >
+                      Previous
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => handleChangePage(page + 1)}
+                      disabled={(page + 1) * rowsPerPage >= filteredNGOData.length}
+                    >
+                      Next
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
+            </Card>
+          </Box>
+        )}
 
         {/* Analysis Section */}
         <m.div variants={varFade('inUp')}>

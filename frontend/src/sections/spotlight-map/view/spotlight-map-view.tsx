@@ -670,18 +670,34 @@ export function SpotlightMapView() {
                       onMouseEnter={() => handleDistrictCardHover(district)}
                       onMouseLeave={() => handleDistrictCardHover(null)}
                     >
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                      <Box
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <Box
+                          sx={{
+                            width: 12,
+                            height: 12,
+                            borderRadius: '50%',
+                            bgcolor: getPartyColor(district.party),
+                            mr: 1,
+                          }}
+                        />
+                        <Typography variant="subtitle2">{district.name}</Typography>
+                      </Box>
+                      <Chip
+                        label={district.party}
+                        size="small"
                         sx={{
-                          width: 12,
-                          height: 12,
-                          borderRadius: '50%',
                           bgcolor: getPartyColor(district.party),
-                          mr: 1,
+                          color: 'white',
+                          fontWeight: 'bold',
+                          fontSize: '0.7rem',
+                          height: 20,
                         }}
                       />
-                      <Typography variant="subtitle2">{district.name}</Typography>
                     </Box>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1, fontSize: '0.85rem' }}>
+                      {district.representative}
+                    </Typography>
                     <Typography variant="h6" sx={{ color: 'primary.main', mb: 1 }}>
                       {fCurrency(district.totalBudget)}
                     </Typography>
