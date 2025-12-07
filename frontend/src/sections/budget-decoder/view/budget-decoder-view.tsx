@@ -1065,15 +1065,31 @@ export function BudgetDecoderView() {
 
   // NGO Tracker data processing - aggregate comprehensive transfer payments by vendor
   const ngoTrackerData = useMemo(() => {
-    // Use comprehensive transfer payments data (all CARDINAL records, not just budget-matched)
-    // PRIORITY: Focus on "Grnt-Nongovernmental Org" expense type (direct NGO grants)
-    // Also include other transfer payment types that may go to nonprofits
+    // FOCUS: Community nonprofit pass-through recipients
+    // Criteria:
+    // 1. Receives "Grnt-Nongovernmental Org" expense type (direct nonprofit grants)
+    // 2. Total < $30M (excludes big quasi-governmental entities)
+    // 3. NOT authorities, insurance companies, universities, airports, railroads
 
-    const priorityExpenseTypes = [
-      'Grnt-Nongovernmental Org',           // Direct grants to NGOs (HIGHEST PRIORITY)
-      'Grnt-Intergovernmental Org',         // Intergovernmental grants (may include nonprofits)
-      'Disaster Aid-Nongovernmnt Org',      // Disaster aid to NGOs
+    const ngoGrantExpenseType = 'Grnt-Nongovernmental Org';
+    const maxNonprofitTotal = 30000000; // $30M threshold
+
+    // Exclude quasi-governmental entities that aren't true community nonprofits
+    const excludeFromNGOKeywords = [
+      'AUTHORITY', 'COMMISSION', 'AIRPORT', 'RAILROAD',
+      'INSURANCE', 'HEALTH PLAN', 'HMO', 'CIGNA', 'SENTARA', 'KAISER', 'HEALTHKEEPERS', 'OPTIMA', 'OPTIMUM',
+      'UNIVERSITY', 'COLLEGE', 'INSTITUTE OF TECHNOLOGY',
+      'ECONOMIC DEVELOPMENT PARTNERSHIP', 'TOURISM',
+      'RAIL AUTHORITY', 'COMMERCIAL SPACE',
+      'DETAILED DATA NOT YET AVAILABLE',
+      'HUNTINGTON INGALLS'  // Defense contractor
     ];
+
+    // Helper function to check if vendor should be excluded from NGO classification
+    const shouldExcludeFromNGO = (vendorName: string): boolean => {
+      const nameUpper = vendorName.toUpperCase();
+      return excludeFromNGOKeywords.some(keyword => nameUpper.includes(keyword));
+    };
 
     // Group by vendor name
     const vendorMap = new Map<string, TransferPaymentRecord[]>();
@@ -1084,20 +1100,27 @@ export function BudgetDecoderView() {
     });
 
     // Aggregate and calculate red flags
+    // ONLY include actual community nonprofits (not all transfer payment recipients)
     const aggregated: NGOTrackerRecord[] = [];
     vendorMap.forEach((records, vendorName) => {
+      // Filter 1: Must receive "Grnt-Nongovernmental Org" expense type
+      const hasNGOGrant = records.some(r => r.expense_type === ngoGrantExpenseType);
+      if (!hasNGOGrant) return;
+
+      // Filter 2: Exclude quasi-governmental entities
+      if (shouldExcludeFromNGO(vendorName)) return;
+
       const totalAmount = records.reduce((sum, r) => sum + r.amount, 0);
+
+      // Filter 3: Total must be < $30M (excludes big foundations/authorities)
+      if (totalAmount > maxNonprofitTotal) return;
+
       const paymentCount = records.length;
       const avgPayment = totalAmount / paymentCount;
       const secretariats = Array.from(new Set(records.map(r => r.secretariat)));
       const fiscalYears = Array.from(new Set(records.map(r => r.fiscal_year.toString())));
       const amounts = records.map(r => r.amount);
       const expenseTypes = Array.from(new Set(records.map(r => r.expense_type)));
-
-      // Check if this vendor received direct NGO grants (highest priority)
-      const hasDirectNGOGrant = records.some(r =>
-        priorityExpenseTypes.includes(r.expense_type)
-      );
 
       const { score, flags } = calculateRedFlagScore(
         totalAmount,
@@ -1107,8 +1130,9 @@ export function BudgetDecoderView() {
         amounts
       );
 
-      // Boost red flag score for direct NGO grants (these are confirmed nonprofits)
-      const adjustedScore = hasDirectNGOGrant ? score + 5 : score;
+      // All entities in this list are confirmed community nonprofits
+      // Boost score to prioritize them
+      const adjustedScore = score + 5;
 
       aggregated.push({
         vendorName,
@@ -1118,9 +1142,7 @@ export function BudgetDecoderView() {
         avgPayment,
         secretariats,
         redFlagScore: adjustedScore,
-        redFlags: hasDirectNGOGrant
-          ? [`✓ Direct NGO Grant (${expenseTypes.filter(et => priorityExpenseTypes.includes(et)).join(', ')})`, ...flags]
-          : flags,
+        redFlags: [`✓ Community Nonprofit (Grnt-Nongovernmental Org)`, ...flags],
         fiscalYears
       });
     });
