@@ -1,0 +1,121 @@
+{
+  "fiscal_year": 2026,
+  "total_budget": 106420699707.72,
+  "source": "Virginia Auditor of Public Accounts - Data Point",
+  "last_updated": "2024-12-07",
+  "note": "FY2026 data is preliminary (partial year)",
+  "categories": [
+    {
+      "secretariat": "HEALTH AND HUMAN RESOURCES",
+      "story_bucket_id": "health_care",
+      "story_bucket_label": "Health & Care",
+      "amount": 34854776210.93,
+      "percentage": 32.75
+    },
+    {
+      "secretariat": "EDUCATION",
+      "story_bucket_id": "schools_kids",
+      "story_bucket_label": "Schools & Kids",
+      "amount": 34127735262.19,
+      "percentage": 32.07
+    },
+    {
+      "secretariat": "TRANSPORTATION",
+      "story_bucket_id": "roads_transit",
+      "story_bucket_label": "Roads & Transit",
+      "amount": 13232292106.86,
+      "percentage": 12.43
+    },
+    {
+      "secretariat": "ADMINISTRATION",
+      "story_bucket_id": "government_overhead",
+      "story_bucket_label": "Government & Overhead",
+      "amount": 5130950096.82,
+      "percentage": 4.82
+    },
+    {
+      "secretariat": "FINANCE",
+      "story_bucket_id": "government_overhead",
+      "story_bucket_label": "Government & Overhead",
+      "amount": 3962572732.54,
+      "percentage": 3.72
+    },
+    {
+      "secretariat": "PUBLIC SAFETY",
+      "story_bucket_id": "safety_justice",
+      "story_bucket_label": "Safety & Justice",
+      "amount": 3642526139.64,
+      "percentage": 3.42
+    },
+    {
+      "secretariat": "INDEPENDENT AGENCIES",
+      "story_bucket_id": "unclassified",
+      "story_bucket_label": "Other Services",
+      "amount": 3281202103.85,
+      "percentage": 3.08
+    },
+    {
+      "secretariat": "NATURAL RESOURCES",
+      "story_bucket_id": "parks_environment_energy",
+      "story_bucket_label": "Parks, Environment & Energy",
+      "amount": 2096040481.65,
+      "percentage": 1.97
+    },
+    {
+      "secretariat": "CENTRAL APPROPRIATIONS",
+      "story_bucket_id": "government_overhead",
+      "story_bucket_label": "Government & Overhead",
+      "amount": 1977878041.55,
+      "percentage": 1.86
+    },
+    {
+      "secretariat": "COMMERCE AND TRADE",
+      "story_bucket_id": "jobs_business_innovation",
+      "story_bucket_label": "Jobs, Business & Innovation",
+      "amount": 1398844981.29,
+      "percentage": 1.31
+    },
+    {
+      "secretariat": "LABOR",
+      "story_bucket_id": "unclassified",
+      "story_bucket_label": "Other Services",
+      "amount": 800644722.2,
+      "percentage": 0.75
+    },
+    {
+      "secretariat": "JUDICIAL",
+      "story_bucket_id": "government_overhead",
+      "story_bucket_label": "Government & Overhead",
+      "amount": 769044467.32,
+      "percentage": 0.72
+    },
+    {
+      "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+      "story_bucket_id": "veterans_military",
+      "story_bucket_label": "Veterans & Military Families",
+      "amount": 574076046.35,
+      "percentage": 0.54
+    },
+    {
+      "secretariat": "LEGISLATIVE",
+      "story_bucket_id": "government_overhead",
+      "story_bucket_label": "Government & Overhead",
+      "amount": 251818080.87,
+      "percentage": 0.24
+    },
+    {
+      "secretariat": "AGRICULTURE AND FORESTRY",
+      "story_bucket_id": "jobs_business_innovation",
+      "story_bucket_label": "Jobs, Business & Innovation",
+      "amount": 198408687.96,
+      "percentage": 0.19
+    },
+    {
+      "secretariat": "EXECUTIVE OFFICES",
+      "story_bucket_id": "government_overhead",
+      "story_bucket_label": "Government & Overhead",
+      "amount": 121889545.7,
+      "percentage": 0.11
+    }
+  ]
+}

@@ -1,0 +1,2333 @@
+[
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Dept of Med Assistance Svcs",
+    "amount": 27566121548.09,
+    "percentage": 25.903
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Direct Aid to Public Education",
+    "amount": 12852188325.22,
+    "percentage": 12.0768
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "VA Dept of Transportation",
+    "amount": 7748275923.36,
+    "percentage": 7.2808
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "University of VA Medical Ctr",
+    "amount": 3322163011.0,
+    "percentage": 3.1217
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Department of Social Services",
+    "amount": 2891303707.49,
+    "percentage": 2.7169
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "ADMINISTRATION",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Admin of Health Insurance",
+    "amount": 2556071067.0,
+    "percentage": 2.4019
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "University of Virginia",
+    "amount": 2550448248.75,
+    "percentage": 2.3966
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA Polytech Inst & State Univ",
+    "amount": 2489362655.58,
+    "percentage": 2.3392
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Dept of Accounts Transfer Pmts",
+    "amount": 2459889741.38,
+    "percentage": 2.3115
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "Virginia Port Authority",
+    "amount": 2416591015.25,
+    "percentage": 2.2708
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "George Mason University",
+    "amount": 1916385148.32,
+    "percentage": 1.8008
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Virginia Commonwealth Univ",
+    "amount": 1858702582.27,
+    "percentage": 1.7466
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "CENTRAL APPROPRIATIONS",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Central Capital Outlay",
+    "amount": 1787726585.99,
+    "percentage": 1.6799
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Department of Health",
+    "amount": 1311958764.75,
+    "percentage": 1.2328
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "NATURAL RESOURCES",
+    "story_bucket_id": "parks_environment_energy",
+    "story_bucket_label": "Parks, Environment & Energy",
+    "agency": "Dept of Environmental Quality",
+    "amount": 1236174763.63,
+    "percentage": 1.1616
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Alcoholic Beverage Control",
+    "amount": 1136102970.98,
+    "percentage": 1.0676
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "James Madison University",
+    "amount": 1127863923.63,
+    "percentage": 1.0598
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "Dept of Rail & Public Trans",
+    "amount": 1051576868.72,
+    "percentage": 0.9881
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Treasury Board",
+    "amount": 1047160071.0,
+    "percentage": 0.984
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Old Dominion University",
+    "amount": 1031100446.27,
+    "percentage": 0.9689
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "VDOT Transfer Payments",
+    "amount": 1024310709.0,
+    "percentage": 0.9625
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "ADMINISTRATION",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Compensation Board",
+    "amount": 1007288930.0,
+    "percentage": 0.9465
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Dept of Housing & Cmnty Devel",
+    "amount": 971209815.63,
+    "percentage": 0.9126
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "ADMINISTRATION",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Department of General Services",
+    "amount": 890875032.57,
+    "percentage": 0.8371
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "DBHDS Grants to Localities",
+    "amount": 821723887.49,
+    "percentage": 0.7721
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Virginia Lottery",
+    "amount": 818520350.0,
+    "percentage": 0.7691
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "College of William and Mary",
+    "amount": 763990164.32,
+    "percentage": 0.7179
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "State Corporation Commission",
+    "amount": 723913047.41,
+    "percentage": 0.6802
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Virginia State University",
+    "amount": 649678612.65,
+    "percentage": 0.6105
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Department of State Police",
+    "amount": 638105320.62,
+    "percentage": 0.5996
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "NATURAL RESOURCES",
+    "story_bucket_id": "parks_environment_energy",
+    "story_bucket_label": "Parks, Environment & Energy",
+    "agency": "Dept Conservation & Recreation",
+    "amount": 629332338.32,
+    "percentage": 0.5914
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LABOR",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Virginia Employment Commission",
+    "amount": 621618448.2,
+    "percentage": 0.5841
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Dept Behavioral Health/Develop",
+    "amount": 607960984.6,
+    "percentage": 0.5713
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Northern VA Community College",
+    "amount": 533896185.3,
+    "percentage": 0.5017
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Norfolk State University",
+    "amount": 521954783.42,
+    "percentage": 0.4905
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Radford University",
+    "amount": 505617155.88,
+    "percentage": 0.4751
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "ADMINISTRATION",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "VA Information Tech Agency",
+    "amount": 504761845.83,
+    "percentage": 0.4743
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Dept of Criminal Justice Svcs",
+    "amount": 496890022.0,
+    "percentage": 0.4669
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Children's Services",
+    "amount": 422323630.0,
+    "percentage": 0.3968
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "Department of Motor Vehicles",
+    "amount": 412915388.53,
+    "percentage": 0.388
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Dept of Ed Central Operations",
+    "amount": 403784934.3,
+    "percentage": 0.3794
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "VA Passenger Rail Authority",
+    "amount": 368747920.0,
+    "percentage": 0.3465
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Department of Military Affairs",
+    "amount": 350479960.54,
+    "percentage": 0.3293
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Commonwealth Savers Plan",
+    "amount": 301170641.0,
+    "percentage": 0.283
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Longwood University",
+    "amount": 300132108.38,
+    "percentage": 0.282
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Christopher Newport University",
+    "amount": 295860444.86,
+    "percentage": 0.278
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Department of Juvenile Justice",
+    "amount": 280119217.31,
+    "percentage": 0.2632
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Department of Taxation",
+    "amount": 277808249.0,
+    "percentage": 0.261
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Dept for Aging & Rehab Svcs",
+    "amount": 272523340.13,
+    "percentage": 0.2561
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "University of Mary Washington",
+    "amount": 257137582.83,
+    "percentage": 0.2416
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "State Council of Higher Educ",
+    "amount": 248294296.55,
+    "percentage": 0.2333
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Virginia Military Institute",
+    "amount": 242170491.41,
+    "percentage": 0.2276
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Department of Corrections",
+    "amount": 238752348.05,
+    "percentage": 0.2243
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Dept of Emergency Management",
+    "amount": 229579003.46,
+    "percentage": 0.2157
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA Community College System",
+    "amount": 209340276.89,
+    "percentage": 0.1967
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Dept of Corr - Div of Inst",
+    "amount": 201410898.0,
+    "percentage": 0.1893
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VCCS - Central Office",
+    "amount": 168890159.48,
+    "percentage": 0.1587
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "General District Courts",
+    "amount": 162625138.48,
+    "percentage": 0.1528
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Dept of Corr - Central Admin",
+    "amount": 162161936.0,
+    "percentage": 0.1524
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Tidewater Community College",
+    "amount": 156629829.77,
+    "percentage": 0.1472
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Circuit Courts",
+    "amount": 154810637.25,
+    "percentage": 0.1455
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Div of Community Corrections",
+    "amount": 148203723.0,
+    "percentage": 0.1393
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Virginia Retirement System",
+    "amount": 143962005.0,
+    "percentage": 0.1353
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "NATURAL RESOURCES",
+    "story_bucket_id": "parks_environment_energy",
+    "story_bucket_label": "Parks, Environment & Energy",
+    "agency": "Dept of Wildlife Resources",
+    "amount": 143086710.69,
+    "percentage": 0.1345
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "DMV Transfer Payments",
+    "amount": 135346529.0,
+    "percentage": 0.1272
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Department of Forensic Science",
+    "amount": 131222552.2,
+    "percentage": 0.1233
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Juv and Domestic Relations Crt",
+    "amount": 130369395.94,
+    "percentage": 0.1225
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Dept for Blind/Vision Impaired",
+    "amount": 125155446.46,
+    "percentage": 0.1176
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Virginia Peninsula Cmnty Coll",
+    "amount": 124459605.02,
+    "percentage": 0.117
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LABOR",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Dept Wrkfrc Dvlpmnt & Advncmnt",
+    "amount": 123314350.0,
+    "percentage": 0.1159
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "ADMINISTRATION",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Dept of Human Resource Mgt",
+    "amount": 123188358.0,
+    "percentage": 0.1158
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Coop Extension & Agr Experimnt",
+    "amount": 120059001.54,
+    "percentage": 0.1128
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "AGRICULTURE AND FORESTRY",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Agriculture & Consumer Svcs",
+    "amount": 115028296.48,
+    "percentage": 0.1081
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Dept of Veterans Services",
+    "amount": 114206198.38,
+    "percentage": 0.1073
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "VA Innovation Partnership Auth",
+    "amount": 111537719.0,
+    "percentage": 0.1048
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "CENTRAL APPROPRIATIONS",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Central Appropriations",
+    "amount": 108373319.56,
+    "percentage": 0.1018
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Eastern State Hospital",
+    "amount": 103549474.0,
+    "percentage": 0.0973
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Central State Hospital",
+    "amount": 102041498.0,
+    "percentage": 0.0959
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Western State Hospital",
+    "amount": 99846555.0,
+    "percentage": 0.0938
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Indigent Defense Commission",
+    "amount": 94232320.72,
+    "percentage": 0.0885
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "The Science Museum of Virginia",
+    "amount": 92885529.78,
+    "percentage": 0.0873
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Attorney General & Dept of Law",
+    "amount": 92359388.11,
+    "percentage": 0.0868
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Department of the Treasury",
+    "amount": 91134849.0,
+    "percentage": 0.0856
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Supreme Court",
+    "amount": 90868653.44,
+    "percentage": 0.0854
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "J Sargeant Reynolds Cmnty Coll",
+    "amount": 87348257.71,
+    "percentage": 0.0821
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Univ of VA's College at Wise",
+    "amount": 86908170.41,
+    "percentage": 0.0817
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Greensville Correctional Ctr",
+    "amount": 85842553.0,
+    "percentage": 0.0807
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "CENTRAL APPROPRIATIONS",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Appropriation Vetoes",
+    "amount": 81778126.0,
+    "percentage": 0.0768
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA Institute of Marine Science",
+    "amount": 79948794.06,
+    "percentage": 0.0751
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Germanna Community College",
+    "amount": 78175774.07,
+    "percentage": 0.0735
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Opioid Abatement Authority",
+    "amount": 77828565.0,
+    "percentage": 0.0731
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Virginia Museum of Fine Arts",
+    "amount": 77501303.26,
+    "percentage": 0.0728
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Department of Fire Programs",
+    "amount": 74806405.0,
+    "percentage": 0.0703
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Brightpoint Community College",
+    "amount": 74582473.73,
+    "percentage": 0.0701
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "AGRICULTURE AND FORESTRY",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Department of Forestry",
+    "amount": 73898930.48,
+    "percentage": 0.0694
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Frontier Culture Musuem of VA",
+    "amount": 73790077.13,
+    "percentage": 0.0693
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "VA Workers' Compensation Comm",
+    "amount": 71037758.0,
+    "percentage": 0.0668
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Department of Accounts",
+    "amount": 70474613.0,
+    "percentage": 0.0662
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "House of Delegates",
+    "amount": 69635659.32,
+    "percentage": 0.0654
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Department of Energy",
+    "amount": 68821753.34,
+    "percentage": 0.0647
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "The Library of Virginia",
+    "amount": 68427185.55,
+    "percentage": 0.0643
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "VA Center for Behavioral Rehab",
+    "amount": 66028195.0,
+    "percentage": 0.062
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "State Farm Complex",
+    "amount": 65359687.0,
+    "percentage": 0.0614
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Southwestern VA Mntal Hlth",
+    "amount": 65035516.0,
+    "percentage": 0.0611
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "VA Econ Develop Partnership",
+    "amount": 61210104.0,
+    "percentage": 0.0575
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA Western Community College",
+    "amount": 57600864.38,
+    "percentage": 0.0541
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Senate",
+    "amount": 56469622.34,
+    "percentage": 0.0531
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Sec of Commerce and Trade",
+    "amount": 55589940.32,
+    "percentage": 0.0522
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Northern VA Mental Health Inst",
+    "amount": 55354549.0,
+    "percentage": 0.052
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Laurel Ridge Community College",
+    "amount": 55300592.28,
+    "percentage": 0.052
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Econ Develop Incentive Pymts",
+    "amount": 54582097.0,
+    "percentage": 0.0513
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Fluvanna Corr Ctr for Women",
+    "amount": 53733634.0,
+    "percentage": 0.0505
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "VA Correctional Enterprises",
+    "amount": 53187596.0,
+    "percentage": 0.05
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Dept of Health Professions",
+    "amount": 51189013.0,
+    "percentage": 0.0481
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Deerfield Correctional Center",
+    "amount": 47475825.0,
+    "percentage": 0.0446
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "NATURAL RESOURCES",
+    "story_bucket_id": "parks_environment_energy",
+    "story_bucket_label": "Parks, Environment & Energy",
+    "agency": "Marine Resources Commission",
+    "amount": 46815328.6,
+    "percentage": 0.044
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Wallens Ridge State Prison",
+    "amount": 46645496.0,
+    "percentage": 0.0438
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "ADMINISTRATION",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Department of Elections",
+    "amount": 46457033.42,
+    "percentage": 0.0437
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Piedmont Geriatric Hospital",
+    "amount": 45917343.0,
+    "percentage": 0.0431
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Red Onion State Prison",
+    "amount": 45368581.0,
+    "percentage": 0.0426
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "Department of Aviation",
+    "amount": 44154460.0,
+    "percentage": 0.0415
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Magistrate System",
+    "amount": 43825931.35,
+    "percentage": 0.0412
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Piedmont VA Community College",
+    "amount": 43240077.78,
+    "percentage": 0.0406
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Sussex I & II St Prisons Cmplx",
+    "amount": 42994995.0,
+    "percentage": 0.0404
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Catawba Hospital",
+    "amount": 42275097.0,
+    "percentage": 0.0397
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Nottoway Correctional Center",
+    "amount": 42124522.0,
+    "percentage": 0.0396
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Lawrenceville Correctional Ctr",
+    "amount": 40076731.0,
+    "percentage": 0.0377
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "New River Community College",
+    "amount": 39831512.09,
+    "percentage": 0.0374
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Blue Ridge Community College",
+    "amount": 39392551.91,
+    "percentage": 0.037
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "NATURAL RESOURCES",
+    "story_bucket_id": "parks_environment_energy",
+    "story_bucket_label": "Parks, Environment & Energy",
+    "agency": "Dept of Historic Resources",
+    "amount": 39235927.41,
+    "percentage": 0.0369
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Patrick & Henry Community Coll",
+    "amount": 38723344.68,
+    "percentage": 0.0364
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "VA Correctional Ctr for Women",
+    "amount": 38627856.0,
+    "percentage": 0.0363
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Richard Bland College",
+    "amount": 37675433.63,
+    "percentage": 0.0354
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Buckingham Correctional Center",
+    "amount": 37124369.0,
+    "percentage": 0.0349
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Southeastern VA Training Ctr",
+    "amount": 37123524.0,
+    "percentage": 0.0349
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Central VA Community College",
+    "amount": 36219096.5,
+    "percentage": 0.034
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Dillwyn Correctional Center",
+    "amount": 36028271.0,
+    "percentage": 0.0339
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Virginia State Bar",
+    "amount": 35789457.0,
+    "percentage": 0.0336
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Mental Health Treatment Ctrs",
+    "amount": 35453550.01,
+    "percentage": 0.0333
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Southside VA Community College",
+    "amount": 35045210.0,
+    "percentage": 0.0329
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Haynesville Correctional Ctr",
+    "amount": 34972029.0,
+    "percentage": 0.0329
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Corr - Employee Rel & Train",
+    "amount": 34040280.0,
+    "percentage": 0.032
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Sitter & Barfoot Vet Care Ctr",
+    "amount": 34011901.0,
+    "percentage": 0.032
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Jamestown-Yorktown Foundation",
+    "amount": 33867453.77,
+    "percentage": 0.0318
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "River North Correctional Ctr",
+    "amount": 33453857.0,
+    "percentage": 0.0314
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Green Rock Correctional Center",
+    "amount": 33164109.0,
+    "percentage": 0.0312
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Keen Mountain Correctional Ctr",
+    "amount": 33026560.0,
+    "percentage": 0.031
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LABOR",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Dept of Prof & Occup Reg",
+    "amount": 32279027.0,
+    "percentage": 0.0303
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Pocahontas St Correctional Ctr",
+    "amount": 31423014.0,
+    "percentage": 0.0295
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Davis & McDaniel Vet Care Ctr",
+    "amount": 31135221.0,
+    "percentage": 0.0293
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "St. Brides Correctional Center",
+    "amount": 30799771.0,
+    "percentage": 0.0289
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Southwest VA Community College",
+    "amount": 30466323.01,
+    "percentage": 0.0286
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Tobacco Rgn Revitalizatn Comm",
+    "amount": 30000000.0,
+    "percentage": 0.0282
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Wilson Workforce & Rehab Ctr",
+    "amount": 29608933.91,
+    "percentage": 0.0278
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Rappahannock Community College",
+    "amount": 29399522.0,
+    "percentage": 0.0276
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Division of Capitol Police",
+    "amount": 29297192.3,
+    "percentage": 0.0275
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Lunenburg Correctional Center",
+    "amount": 28526305.0,
+    "percentage": 0.0268
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Coffeewood Correctional Center",
+    "amount": 28370884.0,
+    "percentage": 0.0267
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Danville Community College",
+    "amount": 28000592.0,
+    "percentage": 0.0263
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Southern VA Mental Health Inst",
+    "amount": 27781156.0,
+    "percentage": 0.0261
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Bland Correctional Center",
+    "amount": 27758348.0,
+    "percentage": 0.0261
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Hiram Davis Medical Center",
+    "amount": 27447428.0,
+    "percentage": 0.0258
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Combined District Courts",
+    "amount": 27391074.55,
+    "percentage": 0.0257
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Coop Extension & Agr Research",
+    "amount": 27336446.83,
+    "percentage": 0.0257
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Virginia Tourism Authority",
+    "amount": 26734184.0,
+    "percentage": 0.0251
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Wytheville Community College",
+    "amount": 26276766.25,
+    "percentage": 0.0247
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "Commercial Space Flt Authority",
+    "amount": 25714049.0,
+    "percentage": 0.0242
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Indian Creek Correctional Ctr",
+    "amount": 25637650.0,
+    "percentage": 0.0241
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Marion Correctional Center",
+    "amount": 24972322.0,
+    "percentage": 0.0235
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Mountain Empire Community Coll",
+    "amount": 23792904.0,
+    "percentage": 0.0224
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA School for the Deaf & Blind",
+    "amount": 23787332.53,
+    "percentage": 0.0224
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA Highlands Community College",
+    "amount": 23286495.04,
+    "percentage": 0.0219
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Court of Appeals of Virginia",
+    "amount": 23109740.51,
+    "percentage": 0.0217
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LABOR",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Dept of Labor and Industry",
+    "amount": 22719305.0,
+    "percentage": 0.0213
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "American Revolution 250 Comssn",
+    "amount": 21737603.01,
+    "percentage": 0.0204
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Jones & Cabacoy Vetrn Care Ctr",
+    "amount": 20520000.0,
+    "percentage": 0.0193
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Center Children & Adolescents",
+    "amount": 19571471.0,
+    "percentage": 0.0184
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Auditor of Public Accounts",
+    "amount": 19133847.09,
+    "percentage": 0.018
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Paul D. Camp Community College",
+    "amount": 17603860.89,
+    "percentage": 0.0165
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Puller Veterans Care Center",
+    "amount": 17454352.43,
+    "percentage": 0.0164
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Western Region Corr FieldUnits",
+    "amount": 17342044.0,
+    "percentage": 0.0163
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Div of Legislative Services",
+    "amount": 15652065.52,
+    "percentage": 0.0147
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Baskerville Correctional Cntr",
+    "amount": 15276880.0,
+    "percentage": 0.0144
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Eastern VA Medical School",
+    "amount": 13315882.04,
+    "percentage": 0.0125
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "VA Foundation for Hlthy Youth",
+    "amount": 12765060.0,
+    "percentage": 0.012
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Office of the Governor",
+    "amount": 12516507.29,
+    "percentage": 0.0118
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Mountain Gateway Cmnty Coll",
+    "amount": 11903750.38,
+    "percentage": 0.0112
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Eastern Shore Community Coll",
+    "amount": 11857707.8,
+    "percentage": 0.0111
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Southern VA Higher Educ Center",
+    "amount": 10757530.94,
+    "percentage": 0.0101
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Inst for Adv Learn & Research",
+    "amount": 10303688.87,
+    "percentage": 0.0097
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Dept of Planning and Budget",
+    "amount": 10018648.0,
+    "percentage": 0.0094
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Fort Monroe Authority",
+    "amount": 9934617.0,
+    "percentage": 0.0093
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Gunston Hall",
+    "amount": 9604507.38,
+    "percentage": 0.009
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "COMMERCE AND TRADE",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Small Bus and Supp Diversity",
+    "amount": 9224751.0,
+    "percentage": 0.0087
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Office of State Inspector Gen",
+    "amount": 9080023.54,
+    "percentage": 0.0085
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA Commission for the Arts",
+    "amount": 8928083.26,
+    "percentage": 0.0084
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Southwest VA Higher Educ Ctr",
+    "amount": 8903556.77,
+    "percentage": 0.0084
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "INDEPENDENT AGENCIES",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "VA Cannabis Control Authority",
+    "amount": 8666766.46,
+    "percentage": 0.0081
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Div Legislative Automated Sys",
+    "amount": 8611619.11,
+    "percentage": 0.0081
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "AGRICULTURE AND FORESTRY",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Virginia Racing Commission",
+    "amount": 8361561.0,
+    "percentage": 0.0079
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Joint Legis Audit & Review Com",
+    "amount": 7036694.52,
+    "percentage": 0.0066
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "New College Institute",
+    "amount": 6933817.52,
+    "percentage": 0.0065
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VA Museum of Natural History",
+    "amount": 6293750.79,
+    "percentage": 0.0059
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Roanoke Higher Educ Authority",
+    "amount": 5947648.53,
+    "percentage": 0.0056
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Sec Veteran & Defense Affairs",
+    "amount": 4932594.0,
+    "percentage": 0.0046
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Legis Dep Reversion Clear Acct",
+    "amount": 4065002.0,
+    "percentage": 0.0038
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "VCCS - Shared Services Center",
+    "amount": 4000000.0,
+    "percentage": 0.0038
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Dept for Deaf & Hard-of-Hearng",
+    "amount": 3831530.0,
+    "percentage": 0.0036
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Division of Debt Collection",
+    "amount": 3653502.0,
+    "percentage": 0.0034
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "Motor Vehicle Dealer Board",
+    "amount": 3590258.0,
+    "percentage": 0.0034
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Intell Disabilities Train Ctrs",
+    "amount": 3451412.0,
+    "percentage": 0.0032
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Secretary of the Commonwealth",
+    "amount": 3396784.0,
+    "percentage": 0.0032
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Rehab Ctr for the Blind",
+    "amount": 3340080.0,
+    "percentage": 0.0031
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Virginia Parole Board",
+    "amount": 3071434.0,
+    "percentage": 0.0029
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Comm on VA Alcohol Safety Pgm",
+    "amount": 2934239.0,
+    "percentage": 0.0028
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Board of Accountancy",
+    "amount": 2767913.0,
+    "percentage": 0.0026
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "VA Criminal Sentencing Comm",
+    "amount": 2577236.8,
+    "percentage": 0.0024
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Comm Attys' Services Council",
+    "amount": 2510935.0,
+    "percentage": 0.0024
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "VA Mangment Fellows Prog Admin",
+    "amount": 2452591.16,
+    "percentage": 0.0023
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Brown v. Board of Ed Committee",
+    "amount": 2363459.95,
+    "percentage": 0.0022
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "ADMINISTRATION",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Secretary of Administration",
+    "amount": 2307830.0,
+    "percentage": 0.0022
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "VA Board People w/Disabilities",
+    "amount": 2293630.0,
+    "percentage": 0.0022
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "VA State Crime Commission",
+    "amount": 2152328.34,
+    "percentage": 0.002
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Board of Bar Examiners",
+    "amount": 1930184.0,
+    "percentage": 0.0018
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Joint Comm on Health Care",
+    "amount": 1848003.28,
+    "percentage": 0.0017
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Conflict Int & Ethics Adv Cncl",
+    "amount": 1768933.87,
+    "percentage": 0.0017
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Sec of Pub Safety&Homeland Sec",
+    "amount": 1583888.0,
+    "percentage": 0.0015
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Jefferson Science Assoc LLC",
+    "amount": 1547627.0,
+    "percentage": 0.0015
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "JUDICIAL",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Jud Inquiry and Review Comm",
+    "amount": 1514697.28,
+    "percentage": 0.0014
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "NATURAL RESOURCES",
+    "story_bucket_id": "parks_environment_energy",
+    "story_bucket_label": "Parks, Environment & Energy",
+    "agency": "Sec of Natural&Historical Rsrc",
+    "amount": 1395413.0,
+    "percentage": 0.0013
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "VETERANS AND DEFENSE AFFAIRS",
+    "story_bucket_id": "veterans_military",
+    "story_bucket_label": "Veterans & Military Families",
+    "agency": "Veterans Services Foundation",
+    "amount": 1335819.0,
+    "percentage": 0.0013
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Comm on Elec Util Regulation",
+    "amount": 1326403.67,
+    "percentage": 0.0012
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Behavioral Health Commission",
+    "amount": 1256270.96,
+    "percentage": 0.0012
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "TRANSPORTATION",
+    "story_bucket_id": "roads_transit",
+    "story_bucket_label": "Roads & Transit",
+    "agency": "Secretary of Transportation",
+    "amount": 1068986.0,
+    "percentage": 0.001
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Sec of Health & Human Resource",
+    "amount": 1059843.0,
+    "percentage": 0.001
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Joint Comm on Tech & Science",
+    "amount": 1040740.03,
+    "percentage": 0.001
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "VA Commission on Intergov Coop",
+    "amount": 1014790.0,
+    "percentage": 0.001
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EDUCATION",
+    "story_bucket_id": "schools_kids",
+    "story_bucket_label": "Schools & Kids",
+    "agency": "Secretary of Education",
+    "amount": 913792.0,
+    "percentage": 0.0009
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "FINANCE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Secretary of Finance",
+    "amount": 866057.0,
+    "percentage": 0.0008
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Virginia Housing Commission",
+    "amount": 799519.42,
+    "percentage": 0.0008
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "PUBLIC SAFETY",
+    "story_bucket_id": "safety_justice",
+    "story_bucket_label": "Safety & Justice",
+    "agency": "Augusta Correctional Center",
+    "amount": 754288.0,
+    "percentage": 0.0007
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "HEALTH AND HUMAN RESOURCES",
+    "story_bucket_id": "health_care",
+    "story_bucket_label": "Health & Care",
+    "agency": "Central VA Training Center",
+    "amount": 740044.0,
+    "percentage": 0.0007
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LABOR",
+    "story_bucket_id": "unclassified",
+    "story_bucket_label": "Other Services",
+    "agency": "Secretary of Labor",
+    "amount": 713592.0,
+    "percentage": 0.0007
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "AGRICULTURE AND FORESTRY",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Sec of Agriculture & Forestry",
+    "amount": 629478.0,
+    "percentage": 0.0006
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Lieutenant Governor",
+    "amount": 624827.0,
+    "percentage": 0.0006
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Virginia Code Commission",
+    "amount": 578405.73,
+    "percentage": 0.0005
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Virginia Commission on Youth",
+    "amount": 572553.71,
+    "percentage": 0.0005
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "VA Freedom of Info Advisory Cn",
+    "amount": 559313.16,
+    "percentage": 0.0005
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Dr Martin Luther King Mem Comm",
+    "amount": 517175.69,
+    "percentage": 0.0005
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "AGRICULTURE AND FORESTRY",
+    "story_bucket_id": "jobs_business_innovation",
+    "story_bucket_label": "Jobs, Business & Innovation",
+    "agency": "Agricultural Council",
+    "amount": 490422.0,
+    "percentage": 0.0005
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Study Discrm Agst African Amer",
+    "amount": 381133.6,
+    "percentage": 0.0004
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Chesapeake Bay Commission",
+    "amount": 377301.5,
+    "percentage": 0.0004
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Virginia-Israel Advisory Board",
+    "amount": 320119.5,
+    "percentage": 0.0003
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Interstate Org Contributions",
+    "amount": 210940.0,
+    "percentage": 0.0002
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Comm VA Beach Mass Shooting",
+    "amount": 191444.55,
+    "percentage": 0.0002
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Promotion Uniformity of Legis",
+    "amount": 176639.7,
+    "percentage": 0.0002
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "EXECUTIVE OFFICES",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Citizens' Council Exec Mansion",
+    "amount": 47573.76,
+    "percentage": 0.0
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "CENTRAL APPROPRIATIONS",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Planned Reversions",
+    "amount": 10.0,
+    "percentage": 0.0
+  },
+  {
+    "fiscal_year": 2026,
+    "secretariat": "LEGISLATIVE",
+    "story_bucket_id": "government_overhead",
+    "story_bucket_label": "Government & Overhead",
+    "agency": "Capitol Square Preservation Cn",
+    "amount": 0.0,
+    "percentage": 0.0
+  }
+]
