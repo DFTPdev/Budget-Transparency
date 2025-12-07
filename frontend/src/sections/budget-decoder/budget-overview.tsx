@@ -78,7 +78,8 @@ export function BudgetOverview({ fiscalYear, onCategoryClick, onFiscalYearChange
     const loadAllYearsData = async () => {
       setIsLoading(true);
       try {
-        const years = [2024, 2025, 2026];
+        // Only load FY2025 and FY2026 (current biennium FY2024-2026)
+        const years = [2025, 2026];
         const promises = years.map(async (year) => {
           const response = await fetch(`/data/budget_summary_${year}.json`);
           if (!response.ok) {
@@ -204,7 +205,8 @@ export function BudgetOverview({ fiscalYear, onCategoryClick, onFiscalYearChange
   const comparisonData = useMemo(() => {
     if (Object.keys(allYearsData).length === 0) return [];
 
-    const years = [2024, 2025, 2026];
+    // Only compare FY2025 and FY2026 (current biennium)
+    const years = [2025, 2026];
     const bucketIds = new Set<StoryBucketId>();
 
     // Collect all unique bucket IDs
@@ -338,7 +340,8 @@ export function BudgetOverview({ fiscalYear, onCategoryClick, onFiscalYearChange
             transition={{ duration: 0.3 }}
           >
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-              {[2024, 2025, 2026].map((year) => {
+              {/* Only show FY2025 and FY2026 (current biennium) */}
+              {[2025, 2026].map((year) => {
                 const yearData = allYearsData[year];
                 if (!yearData) return null;
 
@@ -523,7 +526,6 @@ export function BudgetOverview({ fiscalYear, onCategoryClick, onFiscalYearChange
                     }}
                   />
                   <Legend />
-                  <Bar dataKey="FY2024" fill={theme.palette.info.main} name="FY 2024" />
                   <Bar dataKey="FY2025" fill={theme.palette.primary.main} name="FY 2025" />
                   <Bar dataKey="FY2026" fill={theme.palette.secondary.main} name="FY 2026" />
                 </BarChart>
@@ -554,22 +556,19 @@ export function BudgetOverview({ fiscalYear, onCategoryClick, onFiscalYearChange
                       Category
                     </Typography>
                     <Typography variant="caption" fontWeight="bold" textAlign="right">
-                      FY 2024
-                    </Typography>
-                    <Typography variant="caption" fontWeight="bold" textAlign="right">
                       FY 2025
                     </Typography>
                     <Typography variant="caption" fontWeight="bold" textAlign="right">
                       FY 2026
                     </Typography>
                     <Typography variant="caption" fontWeight="bold" textAlign="right">
-                      Change (24→26)
+                      Change (25→26)
                     </Typography>
                   </Box>
 
                   {/* Rows */}
                   {comparisonData.map((item) => {
-                    const change = ((item.FY2026 - item.FY2024) / item.FY2024) * 100;
+                    const change = ((item.FY2026 - item.FY2025) / item.FY2025) * 100;
                     const changeColor = change > 0 ? theme.palette.success.main : change < 0 ? theme.palette.error.main : theme.palette.text.secondary;
 
                     return (
@@ -598,9 +597,6 @@ export function BudgetOverview({ fiscalYear, onCategoryClick, onFiscalYearChange
                           />
                           <Typography variant="body2">{item.name}</Typography>
                         </Box>
-                        <Typography variant="body2" textAlign="right">
-                          ${(item.FY2024 / 1e9).toFixed(2)}B
-                        </Typography>
                         <Typography variant="body2" textAlign="right">
                           ${(item.FY2025 / 1e9).toFixed(2)}B
                         </Typography>
