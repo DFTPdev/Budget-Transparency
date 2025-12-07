@@ -104,16 +104,7 @@ type EntityType = 'NGO' | 'Local Government' | 'Authority' | 'Private Company' |
 function classifyEntityType(vendorName: string): EntityType {
   const name = vendorName.toUpperCase();
 
-  // NGO patterns
-  if (name.includes(' INC') || name.includes(' INCORPORATED') ||
-      name.includes('FOUNDATION') || name.includes('COALITION') ||
-      name.includes('SOCIETY') || name.includes('ASSOCIATION') ||
-      name.includes('INSTITUTE') || name.includes('CENTER FOR') ||
-      name.includes('COUNCIL') || name.includes('ALLIANCE')) {
-    return 'NGO';
-  }
-
-  // Local Government patterns
+  // Local Government patterns (check first - most specific)
   if (name.includes('COUNTY') || name.includes('CITY OF') ||
       name.includes('TOWN OF') || name.includes('TREASURER') ||
       name.includes('DIRECTOR OF FINANCE') || name.includes('COMMONWEALTH')) {
@@ -126,11 +117,42 @@ function classifyEntityType(vendorName: string): EntityType {
     return 'Authority';
   }
 
-  // Private Company patterns
-  if (name.includes(' LLC') || name.includes(' CORP') ||
-      name.includes(' CO') || name.includes(' LTD') ||
-      name.includes('COMPANY')) {
+  // Private Company patterns (check before NGO to avoid false positives)
+  // Strong indicators of for-profit companies
+  const isPrivateCompany = (
+    name.includes(' LLC') || name.includes(' L.L.C') ||
+    name.includes(' CORP') || name.includes(' CORPORATION') ||
+    name.includes(' LTD') || name.includes(' LIMITED') ||
+    name.includes(' LP') || name.includes(' L.P.') ||
+    name.includes(' COMPANY') || name.includes(' CO.') ||
+    name.includes(' USA') || name.includes(' INTERNATIONAL') ||
+    name.includes(' TECHNOLOGIES') || name.includes(' SOLUTIONS') ||
+    name.includes(' SERVICES') || name.includes(' SYSTEMS') ||
+    name.includes(' ENTERPRISES') || name.includes(' INDUSTRIES') ||
+    name.includes(' PARTNERS') || name.includes(' GROUP')
+  );
+
+  // Also check for "Inc" with corporate indicators (e.g., "Amazon.com Inc", "Walmart Inc")
+  const hasIncWithCorporateIndicator = (
+    (name.includes(' INC') || name.includes('.COM')) &&
+    (name.includes('.COM') || name.includes('WALMART') || name.includes('AMAZON') ||
+     name.includes('GOOGLE') || name.includes('APPLE') || name.includes('MICROSOFT'))
+  );
+
+  if (isPrivateCompany || hasIncWithCorporateIndicator) {
     return 'Private Company';
+  }
+
+  // NGO patterns (more refined to avoid for-profit companies)
+  // Use "INC." with period or ", INC" with comma to be more specific
+  if (name.includes(' INC.') || name.includes(', INC') ||
+      name.includes('FOUNDATION') || name.includes('COALITION') ||
+      name.includes('SOCIETY') || name.includes('ASSOCIATION') ||
+      name.includes('INSTITUTE') || name.includes('CENTER FOR') ||
+      name.includes('COUNCIL') || name.includes('ALLIANCE') ||
+      name.includes('NONPROFIT') || name.includes('NON-PROFIT') ||
+      name.includes('CHARITY') || name.includes('CHARITABLE')) {
+    return 'NGO';
   }
 
   return 'Other';
