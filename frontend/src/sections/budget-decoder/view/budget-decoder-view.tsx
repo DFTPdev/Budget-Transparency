@@ -1066,6 +1066,15 @@ export function BudgetDecoderView() {
   // NGO Tracker data processing - aggregate comprehensive transfer payments by vendor
   const ngoTrackerData = useMemo(() => {
     // Use comprehensive transfer payments data (all CARDINAL records, not just budget-matched)
+    // PRIORITY: Focus on "Grnt-Nongovernmental Org" expense type (direct NGO grants)
+    // Also include other transfer payment types that may go to nonprofits
+
+    const priorityExpenseTypes = [
+      'Grnt-Nongovernmental Org',           // Direct grants to NGOs (HIGHEST PRIORITY)
+      'Grnt-Intergovernmental Org',         // Intergovernmental grants (may include nonprofits)
+      'Disaster Aid-Nongovernmnt Org',      // Disaster aid to NGOs
+    ];
+
     // Group by vendor name
     const vendorMap = new Map<string, TransferPaymentRecord[]>();
     transferPayments.forEach(record => {
@@ -1083,6 +1092,12 @@ export function BudgetDecoderView() {
       const secretariats = Array.from(new Set(records.map(r => r.secretariat)));
       const fiscalYears = Array.from(new Set(records.map(r => r.fiscal_year.toString())));
       const amounts = records.map(r => r.amount);
+      const expenseTypes = Array.from(new Set(records.map(r => r.expense_type)));
+
+      // Check if this vendor received direct NGO grants (highest priority)
+      const hasDirectNGOGrant = records.some(r =>
+        priorityExpenseTypes.includes(r.expense_type)
+      );
 
       const { score, flags } = calculateRedFlagScore(
         totalAmount,
@@ -1092,6 +1107,9 @@ export function BudgetDecoderView() {
         amounts
       );
 
+      // Boost red flag score for direct NGO grants (these are confirmed nonprofits)
+      const adjustedScore = hasDirectNGOGrant ? score + 5 : score;
+
       aggregated.push({
         vendorName,
         entityType: classifyEntityType(vendorName),
@@ -1099,8 +1117,10 @@ export function BudgetDecoderView() {
         paymentCount,
         avgPayment,
         secretariats,
-        redFlagScore: score,
-        redFlags: flags,
+        redFlagScore: adjustedScore,
+        redFlags: hasDirectNGOGrant
+          ? [`✓ Direct NGO Grant (${expenseTypes.filter(et => priorityExpenseTypes.includes(et)).join(', ')})`, ...flags]
+          : flags,
         fiscalYears
       });
     });
