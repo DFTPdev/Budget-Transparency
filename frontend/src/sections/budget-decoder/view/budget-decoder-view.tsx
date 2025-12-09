@@ -1140,7 +1140,14 @@ export function BudgetDecoderView() {
       'ECONOMIC DEVELOPMENT PARTNERSHIP', 'TOURISM',
       'RAIL AUTHORITY', 'COMMERCIAL SPACE',
       'DETAILED DATA NOT YET AVAILABLE',
-      'HUNTINGTON INGALLS'  // Defense contractor
+      'HUNTINGTON INGALLS',  // Defense contractor
+      // Local governments (cities, counties, towns)
+      'COUNTY', 'CITY OF', 'TOWN OF', 'CITY ', 'COUNTY OF',
+      'BOARD OF SUPERVISORS', 'CIRCUIT COURT', 'PUBLIC SCHOOLS',
+      'COMMUNITY SERVICES BOARD', 'CSB',
+      'DIRECTOR OF FINANCE',
+      'MISCELLANEOUS ADJUSTMENT',
+      '** CONTACT AGENCY FOR MORE INFO **'
     ];
 
     // Helper function to check if vendor should be excluded from NGO classification
