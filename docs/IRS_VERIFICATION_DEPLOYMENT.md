@@ -36,13 +36,25 @@ City: PORTSMOUTH, VA
 
 ## 📊 Coverage Statistics
 
-**Total NGO Grant Recipients:** 3,210  
-**IRS Verified:** 1,225 (38.2%)  
-**Not Verified:** 1,985 (61.8%)
+**UPDATE (Dec 9, 2024 - Improved Algorithm):**
+
+**Total NGO Grant Recipients:** 3,210
+**IRS Verified:** 1,947 (60.7%) ⬆️
+**Not Verified:** 1,263 (39.3%) ⬇️
 
 **Match Quality:**
-- Exact matches: 1,058 (86.4% of verified)
-- Fuzzy matches: 324 (13.6% of verified)
+- Exact matches: 933 (47.9% of verified)
+- Fuzzy matches: 2,199 (52.1% of verified)
+
+**Dollar Coverage:**
+- Total NGO grants: $2.32 billion
+- IRS Verified: $875 million (37.7%)
+- Not Verified: $1.45 billion (62.3%)
+
+**Improvement from Initial Release:**
+- +722 nonprofits verified (+58.9% increase)
+- +$191 million in verified grants
+- Coverage improved from 38.2% → 60.7%
 
 **Why 61.8% are not verified:**
 1. **Placeholder data:** "DETAILED DATA NOT YET AVAILABLE" ($225M)
@@ -122,15 +134,16 @@ All of your known community nonprofits are now IRS-verified:
 
 ## 🚀 Deployment
 
-**Commit:** c913f1e  
-**Branch:** main  
-**Pushed:** December 9, 2024  
+**Latest Commit:** ff0e84f
+**Branch:** main
+**Pushed:** December 9, 2024
 **Netlify:** Auto-deploying (2-3 minutes)
 
 **Latest Commits:**
-1. `c913f1e` - Add IRS 501(c)(3) verification to NGO Tracker
-2. `30ff62c` - Remove FY2024 data to accurately represent current biennium
-3. `98bf129` - Add budget data files for Budget Decoder
+1. `ff0e84f` - Improve IRS matching algorithm - 60.7% coverage achieved
+2. `aaaac73` - Add IRS verification deployment documentation
+3. `c913f1e` - Add IRS 501(c)(3) verification to NGO Tracker
+4. `30ff62c` - Remove FY2024 data to accurately represent current biennium
 
 ---
 
