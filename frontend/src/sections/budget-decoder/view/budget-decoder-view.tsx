@@ -595,11 +595,11 @@ export function BudgetDecoderView() {
 
   // NGO Tracker filter state
   const [ngoRedFlagFilter, setNgoRedFlagFilter] = useState<'All' | 'High' | 'Medium' | 'Low'>('All');
-  const [ngoEntityTypeFilter, setNgoEntityTypeFilter] = useState<'All' | 'Nonprofit' | 'For-Profit' | 'Unknown'>('All');
+  const [ngoEntityTypeFilter, setNgoEntityTypeFilter] = useState<'All' | 'Nonprofit' | 'Unknown'>('All');
 
   // NGO Tracker sorting state
   const [ngoOrder, setNgoOrder] = useState<Order>('desc');
-  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'location' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore'>('redFlagScore');
+  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore'>('redFlagScore');
 
   // IRS verification data
   const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
@@ -1265,32 +1265,30 @@ export function BudgetDecoderView() {
 
   // Filtered and sorted NGO tracker data
   const filteredNGOData = useMemo(() => {
-    let filtered = ngoTrackerData;
+    // First, exclude all for-profit companies from the base data
+    let filtered = ngoTrackerData.filter(ngo => {
+      const irsVerified = !!irsMatches[ngo.vendorName];
+      const classification = classifyEntityType(ngo.vendorName, irsVerified);
+      return classification.type !== 'for-profit'; // Exclude for-profits
+    });
 
-    // Debug: Count entity types in base data
-    if (ngoTrackerData.length > 0) {
-      const nonprofitCount = ngoTrackerData.filter(ngo => {
+    // Debug: Count entity types in filtered data
+    if (filtered.length > 0) {
+      const nonprofitCount = filtered.filter(ngo => {
         const irsVerified = !!irsMatches[ngo.vendorName];
         const classification = classifyEntityType(ngo.vendorName, irsVerified);
         return classification.type === 'nonprofit';
       }).length;
 
-      const forProfitCount = ngoTrackerData.filter(ngo => {
-        const irsVerified = !!irsMatches[ngo.vendorName];
-        const classification = classifyEntityType(ngo.vendorName, irsVerified);
-        return classification.type === 'for-profit';
-      }).length;
-
-      const unknownCount = ngoTrackerData.filter(ngo => {
+      const unknownCount = filtered.filter(ngo => {
         const irsVerified = !!irsMatches[ngo.vendorName];
         const classification = classifyEntityType(ngo.vendorName, irsVerified);
         return classification.type === 'unknown';
       }).length;
 
-      console.log('🔍 NGO Entity Type Breakdown:');
-      console.log(`  Total NGO vendors: ${ngoTrackerData.length}`);
+      console.log('🔍 NGO Entity Type Breakdown (For-Profits Excluded):');
+      console.log(`  Total NGO vendors: ${filtered.length}`);
       console.log(`  Nonprofit (IRS verified): ${nonprofitCount}`);
-      console.log(`  For-Profit Company: ${forProfitCount}`);
       console.log(`  Unknown: ${unknownCount}`);
       console.log(`  IRS matches loaded: ${Object.keys(irsMatches).length}`);
     }
@@ -1312,7 +1310,6 @@ export function BudgetDecoderView() {
         const classification = classifyEntityType(ngo.vendorName, irsVerified);
 
         if (ngoEntityTypeFilter === 'Nonprofit') return classification.type === 'nonprofit';
-        if (ngoEntityTypeFilter === 'For-Profit') return classification.type === 'for-profit';
         if (ngoEntityTypeFilter === 'Unknown') return classification.type === 'unknown';
         return true;
       });
@@ -1354,11 +1351,6 @@ export function BudgetDecoderView() {
           aValue = irsMatches[a.vendorName]?.ein || '';
           bValue = irsMatches[b.vendorName]?.ein || '';
           break;
-        case 'location':
-          // Sort by city (verified with location first)
-          aValue = irsMatches[a.vendorName]?.city?.toLowerCase() || 'zzz'; // Put unverified at end
-          bValue = irsMatches[b.vendorName]?.city?.toLowerCase() || 'zzz';
-          break;
         case 'totalAmount':
           aValue = a.totalAmount;
           bValue = b.totalAmount;
@@ -1398,7 +1390,7 @@ export function BudgetDecoderView() {
   }, [ngoTrackerData, ngoRedFlagFilter, ngoEntityTypeFilter, filterName, irsMatches, classifyEntityType, ngoOrder, ngoOrderBy]);
 
   // NGO Tracker sorting handler
-  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'location' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore') => {
+  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore') => {
     const isAsc = ngoOrderBy === property && ngoOrder === 'asc';
     setNgoOrder(isAsc ? 'desc' : 'asc');
     setNgoOrderBy(property);
@@ -2086,12 +2078,11 @@ export function BudgetDecoderView() {
                     fullWidth
                     label="Entity Type"
                     value={ngoEntityTypeFilter}
-                    onChange={(e) => setNgoEntityTypeFilter(e.target.value as 'All' | 'Nonprofit' | 'For-Profit' | 'Unknown')}
+                    onChange={(e) => setNgoEntityTypeFilter(e.target.value as 'All' | 'Nonprofit' | 'Unknown')}
                     SelectProps={{ native: true }}
                   >
                     <option value="All">All Types</option>
                     <option value="Nonprofit">Nonprofit</option>
-                    <option value="For-Profit">For-Profit Company</option>
                     <option value="Unknown">Unknown</option>
                   </TextField>
                 </Grid>
@@ -2162,15 +2153,6 @@ export function BudgetDecoderView() {
                             onClick={() => handleNgoSort('ein')}
                           >
                             EIN/990
-                          </TableSortLabel>
-                        </TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
-                          <TableSortLabel
-                            active={ngoOrderBy === 'location'}
-                            direction={ngoOrderBy === 'location' ? ngoOrder : 'asc'}
-                            onClick={() => handleNgoSort('location')}
-                          >
-                            Location
                           </TableSortLabel>
                         </TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
@@ -2295,17 +2277,6 @@ export function BudgetDecoderView() {
                                 {irsVerification ? (
                                   <Typography variant="body2" fontFamily="monospace">
                                     {irsVerification.ein}
-                                  </Typography>
-                                ) : (
-                                  <Typography variant="caption" color="text.secondary">
-                                    —
-                                  </Typography>
-                                )}
-                              </TableCell>
-                              <TableCell>
-                                {irsVerification ? (
-                                  <Typography variant="body2">
-                                    {irsVerification.city}, VA
                                   </Typography>
                                 ) : (
                                   <Typography variant="caption" color="text.secondary">
