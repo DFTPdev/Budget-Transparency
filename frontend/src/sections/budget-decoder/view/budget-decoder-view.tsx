@@ -599,7 +599,7 @@ export function BudgetDecoderView() {
 
   // NGO Tracker sorting state
   const [ngoOrder, setNgoOrder] = useState<Order>('desc');
-  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore'>('redFlagScore');
+  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats'>('totalAmount');
 
   // IRS verification data
   const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
@@ -1346,11 +1346,6 @@ export function BudgetDecoderView() {
           aValue = typeOrder[aClassification.type];
           bValue = typeOrder[bClassification.type];
           break;
-        case 'ein':
-          // Sort by EIN (verified with EIN first)
-          aValue = irsMatches[a.vendorName]?.ein || '';
-          bValue = irsMatches[b.vendorName]?.ein || '';
-          break;
         case 'totalAmount':
           aValue = a.totalAmount;
           bValue = b.totalAmount;
@@ -1367,13 +1362,9 @@ export function BudgetDecoderView() {
           aValue = a.secretariats.join(', ').toLowerCase();
           bValue = b.secretariats.join(', ').toLowerCase();
           break;
-        case 'redFlagScore':
-          aValue = a.redFlagScore;
-          bValue = b.redFlagScore;
-          break;
         default:
-          aValue = a.redFlagScore;
-          bValue = b.redFlagScore;
+          aValue = a.totalAmount;
+          bValue = b.totalAmount;
       }
 
       // Handle string vs number comparison
@@ -1390,7 +1381,7 @@ export function BudgetDecoderView() {
   }, [ngoTrackerData, ngoRedFlagFilter, ngoEntityTypeFilter, filterName, irsMatches, classifyEntityType, ngoOrder, ngoOrderBy]);
 
   // NGO Tracker sorting handler
-  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore') => {
+  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats') => {
     const isAsc = ngoOrderBy === property && ngoOrder === 'asc';
     setNgoOrder(isAsc ? 'desc' : 'asc');
     setNgoOrderBy(property);
@@ -2119,6 +2110,7 @@ export function BudgetDecoderView() {
                   <Table>
                     <TableHead sx={{ bgcolor: '#f5f5f5' }}>
                       <TableRow>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000', width: 50 }} />
                         <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
                           <TableSortLabel
                             active={ngoOrderBy === 'recipient'}
@@ -2144,15 +2136,6 @@ export function BudgetDecoderView() {
                             onClick={() => handleNgoSort('entityType')}
                           >
                             Entity Type
-                          </TableSortLabel>
-                        </TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
-                          <TableSortLabel
-                            active={ngoOrderBy === 'ein'}
-                            direction={ngoOrderBy === 'ein' ? ngoOrder : 'asc'}
-                            onClick={() => handleNgoSort('ein')}
-                          >
-                            EIN/990
                           </TableSortLabel>
                         </TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
@@ -2191,16 +2174,6 @@ export function BudgetDecoderView() {
                             Secretariats
                           </TableSortLabel>
                         </TableCell>
-                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
-                          <TableSortLabel
-                            active={ngoOrderBy === 'redFlagScore'}
-                            direction={ngoOrderBy === 'redFlagScore' ? ngoOrder : 'asc'}
-                            onClick={() => handleNgoSort('redFlagScore')}
-                          >
-                            Red Flag Score
-                          </TableSortLabel>
-                        </TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Red Flags</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -2220,18 +2193,42 @@ export function BudgetDecoderView() {
                           // Classify entity type
                           const entityClassification = classifyEntityType(ngo.vendorName, !!irsVerification);
 
+                          // Check if this row is expanded
+                          const isExpanded = expandedRows.has(ngo.vendorName);
+
+                          // Toggle expand/collapse
+                          const handleToggleExpand = () => {
+                            const newExpanded = new Set(expandedRows);
+                            if (isExpanded) {
+                              newExpanded.delete(ngo.vendorName);
+                            } else {
+                              newExpanded.add(ngo.vendorName);
+                            }
+                            setExpandedRows(newExpanded);
+                          };
+
                           return (
-                            <TableRow key={`${ngo.vendorName}-${idx}`} hover>
-                              <TableCell>
-                                <Box>
-                                  <Typography variant="body2" fontWeight="medium">
-                                    {ngo.vendorName}
-                                  </Typography>
-                                  <Typography variant="caption" color="text.secondary">
-                                    FY {ngo.fiscalYears.join(', ')}
-                                  </Typography>
-                                </Box>
-                              </TableCell>
+                            <React.Fragment key={`${ngo.vendorName}-${idx}`}>
+                              <TableRow hover>
+                                <TableCell sx={{ width: 50 }}>
+                                  <IconButton
+                                    size="small"
+                                    onClick={handleToggleExpand}
+                                    aria-label={isExpanded ? 'collapse row' : 'expand row'}
+                                  >
+                                    {isExpanded ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
+                                  </IconButton>
+                                </TableCell>
+                                <TableCell>
+                                  <Box>
+                                    <Typography variant="body2" fontWeight="medium">
+                                      {ngo.vendorName}
+                                    </Typography>
+                                    <Typography variant="caption" color="text.secondary">
+                                      FY {ngo.fiscalYears.join(', ')}
+                                    </Typography>
+                                  </Box>
+                                </TableCell>
                               <TableCell align="center">
                                 {entityClassification.type === 'nonprofit' ? (
                                   <Tooltip title={verificationTooltip} arrow>
@@ -2273,17 +2270,6 @@ export function BudgetDecoderView() {
                                   {entityClassification.label}
                                 </Typography>
                               </TableCell>
-                              <TableCell>
-                                {irsVerification ? (
-                                  <Typography variant="body2" fontFamily="monospace">
-                                    {irsVerification.ein}
-                                  </Typography>
-                                ) : (
-                                  <Typography variant="caption" color="text.secondary">
-                                    —
-                                  </Typography>
-                                )}
-                              </TableCell>
                               <TableCell align="right">
                                 <Typography variant="body2" fontWeight="medium">
                                   {fCurrency(ngo.totalAmount)}
@@ -2305,31 +2291,82 @@ export function BudgetDecoderView() {
                                   {ngo.secretariats.length > 2 && ` +${ngo.secretariats.length - 2} more`}
                                 </Typography>
                               </TableCell>
-                              <TableCell align="center">
-                                <Chip
-                                  label={ngo.redFlagScore}
-                                  size="small"
-                                  sx={{
-                                    bgcolor: scoreColor,
-                                    color: 'white',
-                                    fontWeight: 'bold'
-                                  }}
-                                />
-                              </TableCell>
-                              <TableCell>
-                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                                  {ngo.redFlags.map((flag, i) => (
-                                    <Chip
-                                      key={i}
-                                      label={flag}
-                                      size="small"
-                                      variant="outlined"
-                                      sx={{ fontSize: '0.7rem' }}
-                                    />
-                                  ))}
-                                </Box>
+                            </TableRow>
+
+                            {/* Expanded Detail Row */}
+                            <TableRow>
+                              <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
+                                <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                                  <Box sx={{ margin: 2, p: 2, bgcolor: 'background.neutral', borderRadius: 1 }}>
+                                    <Grid container spacing={3}>
+                                      {/* EIN/990 Section */}
+                                      <Grid item xs={12} md={6}>
+                                        <Card sx={{ p: 2 }}>
+                                          <Typography variant="subtitle2" gutterBottom>
+                                            IRS Information
+                                          </Typography>
+                                          {irsVerification ? (
+                                            <Box>
+                                              <Typography variant="body2" color="text.secondary">
+                                                EIN/990:
+                                              </Typography>
+                                              <Typography variant="h6" fontFamily="monospace" sx={{ mt: 0.5 }}>
+                                                {irsVerification.ein}
+                                              </Typography>
+                                              <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
+                                                {verificationTooltip}
+                                              </Typography>
+                                            </Box>
+                                          ) : (
+                                            <Typography variant="body2" color="text.secondary">
+                                              No IRS verification available
+                                            </Typography>
+                                          )}
+                                        </Card>
+                                      </Grid>
+
+                                      {/* Red Flags Section */}
+                                      <Grid item xs={12} md={6}>
+                                        <Card sx={{ p: 2 }}>
+                                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+                                            <Typography variant="subtitle2">
+                                              Red Flags
+                                            </Typography>
+                                            <Chip
+                                              label={ngo.redFlagScore}
+                                              size="small"
+                                              sx={{
+                                                bgcolor: scoreColor,
+                                                color: 'white',
+                                                fontWeight: 'bold'
+                                              }}
+                                            />
+                                          </Box>
+                                          {ngo.redFlags.length > 0 ? (
+                                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                                              {ngo.redFlags.map((flag, i) => (
+                                                <Chip
+                                                  key={i}
+                                                  label={flag}
+                                                  size="small"
+                                                  variant="outlined"
+                                                  sx={{ fontSize: '0.75rem' }}
+                                                />
+                                              ))}
+                                            </Box>
+                                          ) : (
+                                            <Typography variant="body2" color="text.secondary">
+                                              No red flags detected
+                                            </Typography>
+                                          )}
+                                        </Card>
+                                      </Grid>
+                                    </Grid>
+                                  </Box>
+                                </Collapse>
                               </TableCell>
                             </TableRow>
+                          </React.Fragment>
                           );
                         })}
                     </TableBody>
