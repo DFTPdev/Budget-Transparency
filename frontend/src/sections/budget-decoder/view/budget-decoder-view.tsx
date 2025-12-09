@@ -163,7 +163,6 @@ function classifyEntityType(vendorName: string): EntityType {
 // NGO Tracker aggregated record type
 type NGOTrackerRecord = {
   vendorName: string;
-  entityType: EntityType;
   totalAmount: number;
   paymentCount: number;
   avgPayment: number;
@@ -592,7 +591,6 @@ export function BudgetDecoderView() {
   const [expenditureOrderBy, setExpenditureOrderBy] = useState<'category' | 'vendor' | 'amount' | 'fiscal_year'>('amount');
 
   // NGO Tracker filter state
-  const [ngoEntityTypeFilter, setNgoEntityTypeFilter] = useState<EntityType | 'All'>('All');
   const [ngoRedFlagFilter, setNgoRedFlagFilter] = useState<'All' | 'High' | 'Medium' | 'Low'>('All');
 
   // IRS verification data
@@ -1144,7 +1142,6 @@ export function BudgetDecoderView() {
 
       aggregated.push({
         vendorName,
-        entityType: classifyEntityType(vendorName),
         totalAmount,
         paymentCount,
         avgPayment,
@@ -1168,11 +1165,6 @@ export function BudgetDecoderView() {
   const filteredNGOData = useMemo(() => {
     let filtered = ngoTrackerData;
 
-    // Filter by entity type
-    if (ngoEntityTypeFilter !== 'All') {
-      filtered = filtered.filter(ngo => ngo.entityType === ngoEntityTypeFilter);
-    }
-
     // Filter by red flag score
     if (ngoRedFlagFilter !== 'All') {
       filtered = filtered.filter(ngo => {
@@ -1192,7 +1184,7 @@ export function BudgetDecoderView() {
     }
 
     return filtered;
-  }, [ngoTrackerData, ngoEntityTypeFilter, ngoRedFlagFilter, filterName]);
+  }, [ngoTrackerData, ngoRedFlagFilter, filterName]);
 
   const totalBudget = budgetData.reduce((sum, item) => sum + item.amount, 0);
 
@@ -1870,24 +1862,7 @@ export function BudgetDecoderView() {
             {/* Filter Controls */}
             <Card sx={{ mb: 3, p: 3 }}>
               <Grid container spacing={2}>
-                <Grid item xs={12} md={4}>
-                  <TextField
-                    select
-                    fullWidth
-                    label="Entity Type"
-                    value={ngoEntityTypeFilter}
-                    onChange={(e) => setNgoEntityTypeFilter(e.target.value as EntityType | 'All')}
-                    SelectProps={{ native: true }}
-                  >
-                    <option value="All">All Types</option>
-                    <option value="NGO">NGO</option>
-                    <option value="Local Government">Local Government</option>
-                    <option value="Authority">Authority</option>
-                    <option value="Private Company">Private Company</option>
-                    <option value="Other">Other</option>
-                  </TextField>
-                </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={6}>
                   <TextField
                     select
                     fullWidth
@@ -1902,7 +1877,7 @@ export function BudgetDecoderView() {
                     <option value="Low">Low (Score &lt;4)</option>
                   </TextField>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={6}>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                     Total Recipients: {filteredNGOData.length}
                   </Typography>
@@ -1921,7 +1896,7 @@ export function BudgetDecoderView() {
                     <TableHead sx={{ bgcolor: '#f5f5f5' }}>
                       <TableRow>
                         <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Recipient</TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Entity Type</TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>IRS Status</TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Total Amount</TableCell>
                         <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Payments</TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Avg Payment</TableCell>
@@ -1973,11 +1948,7 @@ export function BudgetDecoderView() {
                                 </Box>
                               </TableCell>
                               <TableCell>
-                                <Chip
-                                  label={ngo.entityType}
-                                  size="small"
-                                  color={ngo.entityType === 'NGO' ? 'primary' : 'default'}
-                                />
+                                {/* IRS Status column - empty for now */}
                               </TableCell>
                               <TableCell align="right">
                                 <Typography variant="body2" fontWeight="medium">
