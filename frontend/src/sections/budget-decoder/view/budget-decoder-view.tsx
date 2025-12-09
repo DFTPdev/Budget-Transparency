@@ -1161,6 +1161,7 @@ export function BudgetDecoderView() {
     let ngoGrantVendors = 0;
     let afterExclusionVendors = 0;
     let afterAmountFilterVendors = 0;
+    let vendorsOver30M: string[] = [];
 
     // Aggregate and calculate red flags
     // ONLY include actual community nonprofits (not all transfer payment recipients)
@@ -1178,7 +1179,10 @@ export function BudgetDecoderView() {
       const totalAmount = records.reduce((sum, r) => sum + r.amount, 0);
 
       // Filter 3: Total must be < $30M (excludes big foundations/authorities)
-      if (totalAmount > maxNonprofitTotal) return;
+      if (totalAmount >= maxNonprofitTotal) {
+        vendorsOver30M.push(`${vendorName}: $${(totalAmount / 1000000).toFixed(2)}M`);
+        return;
+      }
       afterAmountFilterVendors++;
 
       const paymentCount = records.length;
@@ -1219,6 +1223,7 @@ export function BudgetDecoderView() {
     console.log(`  After Filter 2 (exclude keywords): ${afterExclusionVendors}`);
     console.log(`  After Filter 3 (<$30M): ${afterAmountFilterVendors}`);
     console.log(`  Final aggregated vendors: ${aggregated.length}`);
+    console.log(`  Vendors filtered out by $30M threshold (${vendorsOver30M.length}):`, vendorsOver30M);
 
     // Sort by red flag score (highest first), then by total amount
     return aggregated.sort((a, b) => {
