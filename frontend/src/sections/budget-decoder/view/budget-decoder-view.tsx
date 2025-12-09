@@ -1157,6 +1157,11 @@ export function BudgetDecoderView() {
       vendorMap.set(record.vendor_name, existing);
     });
 
+    // Debug: Count vendors at each filter stage
+    let ngoGrantVendors = 0;
+    let afterExclusionVendors = 0;
+    let afterAmountFilterVendors = 0;
+
     // Aggregate and calculate red flags
     // ONLY include actual community nonprofits (not all transfer payment recipients)
     const aggregated: NGOTrackerRecord[] = [];
@@ -1164,14 +1169,17 @@ export function BudgetDecoderView() {
       // Filter 1: Must receive "Grnt-Nongovernmental Org" expense type
       const hasNGOGrant = records.some(r => r.expense_type === ngoGrantExpenseType);
       if (!hasNGOGrant) return;
+      ngoGrantVendors++;
 
       // Filter 2: Exclude quasi-governmental entities
       if (shouldExcludeFromNGO(vendorName)) return;
+      afterExclusionVendors++;
 
       const totalAmount = records.reduce((sum, r) => sum + r.amount, 0);
 
       // Filter 3: Total must be < $30M (excludes big foundations/authorities)
       if (totalAmount > maxNonprofitTotal) return;
+      afterAmountFilterVendors++;
 
       const paymentCount = records.length;
       const avgPayment = totalAmount / paymentCount;
@@ -1203,6 +1211,14 @@ export function BudgetDecoderView() {
         fiscalYears
       });
     });
+
+    // Debug logging
+    console.log('📊 NGO Tracker Filter Stages:');
+    console.log(`  Total unique vendors in transfer payments: ${vendorMap.size}`);
+    console.log(`  After Filter 1 (has NGO grant): ${ngoGrantVendors}`);
+    console.log(`  After Filter 2 (exclude keywords): ${afterExclusionVendors}`);
+    console.log(`  After Filter 3 (<$30M): ${afterAmountFilterVendors}`);
+    console.log(`  Final aggregated vendors: ${aggregated.length}`);
 
     // Sort by red flag score (highest first), then by total amount
     return aggregated.sort((a, b) => {
