@@ -27,11 +27,15 @@ def normalize_name(name: str) -> str:
     """Normalize organization name for matching."""
     if not name:
         return ""
-    
+
     normalized = name.upper()
-    
-    # Remove common legal suffixes
-    suffixes = [
+
+    # Remove common prefixes and suffixes that don't affect identity
+    # Based on client feedback: these variations should match
+    prefixes_suffixes = [
+        r'\bTHE TRUSTEES OF\b',
+        r'\bTRUSTEES OF\b',
+        r'\bBOARD OF\b',
         r'\bINCORPORATED\b',
         r'\bINC\.?\b',
         r'\bCORPORATION\b',
@@ -43,24 +47,78 @@ def normalize_name(name: str) -> str:
         r'\bCOMPANY\b',
         r'\bCO\.?\b',
         r'\bTHE\b',
+        r'\bFOUNDATION\b',
+        r'\bFDN\b',
     ]
-    
-    for suffix in suffixes:
-        normalized = re.sub(suffix, '', normalized)
-    
+
+    for pattern in prefixes_suffixes:
+        normalized = re.sub(pattern, '', normalized)
+
+    # Normalize common word variations
+    # College <-> University, National <-> Natl, etc.
+    word_replacements = {
+        r'\bUNIVERSITY\b': 'COLLEGE',
+        r'\bCOLLEGE\b': 'COLLEGE',
+        r'\bNATIONAL\b': 'NATL',
+        r'\bNATL\b': 'NATL',
+        r'\bCAPITAL\b': 'CAP',
+        r'\bCAP\b': 'CAP',
+        r'\bSOUTHEASTERN\b': 'SE',
+        r'\bSOUTHEAST\b': 'SE',
+        r'\bNORTHEASTERN\b': 'NE',
+        r'\bNORTHEAST\b': 'NE',
+        r'\bSOUTHWESTERN\b': 'SW',
+        r'\bSOUTHWEST\b': 'SW',
+        r'\bNORTHWESTERN\b': 'NW',
+        r'\bNORTHWEST\b': 'NW',
+    }
+
+    for pattern, replacement in word_replacements.items():
+        normalized = re.sub(pattern, replacement, normalized)
+
     # Remove punctuation except spaces
     normalized = re.sub(r'[^\w\s]', ' ', normalized)
-    
+
     # Remove extra whitespace
     normalized = re.sub(r'\s+', ' ', normalized).strip()
-    
+
     return normalized
 
 def calculate_similarity(str1: str, str2: str) -> float:
     """Calculate similarity ratio between two strings."""
     return SequenceMatcher(None, str1, str2).ratio()
 
-def find_best_match(vendor_name: str, irs_index: Dict, irs_nonprofits: List[Dict], threshold: float = 0.85) -> Optional[Dict]:
+def calculate_partial_similarity(str1: str, str2: str) -> float:
+    """
+    Calculate partial similarity - checks if one string is contained in the other.
+    This handles cases like:
+    - "Senior Connections" vs "Senior Connections The Capital Area Agency On Aging"
+    - "Institute for Advanced Learning and" vs "Institute for Advanced Learning and Research Foundation"
+    """
+    words1 = set(str1.split())
+    words2 = set(str2.split())
+
+    # If one is empty, no match
+    if not words1 or not words2:
+        return 0.0
+
+    # Calculate word overlap
+    common_words = words1.intersection(words2)
+
+    # Percentage of smaller set that overlaps
+    smaller_set_size = min(len(words1), len(words2))
+    if smaller_set_size == 0:
+        return 0.0
+
+    overlap_ratio = len(common_words) / smaller_set_size
+
+    # Also check if shorter string is substring of longer
+    if str1 in str2 or str2 in str1:
+        overlap_ratio = max(overlap_ratio, 0.9)  # Boost score for substring matches
+
+    return overlap_ratio
+
+def find_best_match(vendor_name: str, irs_index: Dict, irs_nonprofits: List[Dict], threshold: float = 0.70) -> Optional[Dict]:
     """
     Find best IRS nonprofit match for a vendor name using optimized search.
 
@@ -86,42 +144,65 @@ def find_best_match(vendor_name: str, irs_index: Dict, irs_nonprofits: List[Dict
             'match_score': 1.0
         }
 
-    # For fuzzy matching, only check nonprofits with similar first words
-    # This dramatically reduces search space
+    # For fuzzy matching, check nonprofits with overlapping words
+    # This dramatically reduces search space while being more flexible
     vendor_words = normalized_vendor.split()
     if not vendor_words:
         return None
 
-    first_word = vendor_words[0]
+    # Get significant words (3+ chars) for better filtering
+    significant_words = [w for w in vendor_words if len(w) >= 3]
+    if not significant_words:
+        significant_words = vendor_words
 
-    # Filter candidates: must start with same first word or contain it
+    # Filter candidates: must share at least one significant word
     candidates = []
     for nonprofit in irs_nonprofits:
         irs_name = nonprofit['normalized_name']
-        if first_word in irs_name or irs_name.split()[0] == first_word if irs_name.split() else False:
+        irs_words = set(irs_name.split())
+
+        # Check if any significant word overlaps
+        if any(word in irs_words for word in significant_words):
             candidates.append(nonprofit)
 
-    # If too many candidates, skip fuzzy matching (likely common word)
-    if len(candidates) > 500:
+    # If too many candidates, use only first word filter
+    if len(candidates) > 1000:
+        first_word = vendor_words[0]
+        candidates = [np for np in irs_nonprofits
+                     if first_word in np['normalized_name']]
+
+    # If still too many, skip
+    if len(candidates) > 1000:
         return None
 
-    # Fuzzy match against candidates only
+    # Fuzzy match against candidates using BOTH methods
     best_match = None
     best_score = 0.0
+    best_method = None
 
     for nonprofit in candidates:
         normalized_irs = nonprofit['normalized_name']
-        score = calculate_similarity(normalized_vendor, normalized_irs)
+
+        # Method 1: Full string similarity (good for close matches)
+        full_score = calculate_similarity(normalized_vendor, normalized_irs)
+
+        # Method 2: Partial/word overlap similarity (good for truncated/extra words)
+        partial_score = calculate_partial_similarity(normalized_vendor, normalized_irs)
+
+        # Take the better of the two scores
+        score = max(full_score, partial_score)
 
         if score > best_score:
             best_score = score
             best_match = nonprofit
+            best_method = 'full' if full_score > partial_score else 'partial'
 
     # Only return if score meets threshold
     if best_score >= threshold:
         return {
             **best_match,
-            'match_score': round(best_score, 3)
+            'match_score': round(best_score, 3),
+            'match_method': best_method
         }
 
     return None
@@ -184,8 +265,8 @@ def match_vendors():
             }
             exact_matches += 1
         else:
-            # Try fuzzy match with optimized search
-            best_match = find_best_match(vendor_name, irs_index, irs_nonprofits, threshold=0.85)
+            # Try fuzzy match with optimized search (lowered threshold to 0.70)
+            best_match = find_best_match(vendor_name, irs_index, irs_nonprofits, threshold=0.70)
             if best_match:
                 matches[vendor_name] = {
                     **best_match,
