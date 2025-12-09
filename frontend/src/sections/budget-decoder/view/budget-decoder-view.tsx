@@ -597,6 +597,10 @@ export function BudgetDecoderView() {
   const [ngoRedFlagFilter, setNgoRedFlagFilter] = useState<'All' | 'High' | 'Medium' | 'Low'>('All');
   const [ngoEntityTypeFilter, setNgoEntityTypeFilter] = useState<'All' | 'Nonprofit' | 'For-Profit' | 'Unknown'>('All');
 
+  // NGO Tracker sorting state
+  const [ngoOrder, setNgoOrder] = useState<Order>('desc');
+  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore'>('redFlagScore');
+
   // IRS verification data
   const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
 
@@ -1077,9 +1081,9 @@ export function BudgetDecoderView() {
   const classifyEntityType = useCallback((vendorName: string, irsVerified: boolean): { type: 'nonprofit' | 'for-profit' | 'unknown', label: string } => {
     const nameUpper = vendorName.toUpperCase();
 
-    // If IRS verified, it's definitely a 501(c)(3) nonprofit
+    // If IRS verified, it's definitely a nonprofit
     if (irsVerified) {
-      return { type: 'nonprofit', label: '501(c)(3) Nonprofit' };
+      return { type: 'nonprofit', label: 'Nonprofit' };
     }
 
     // Check for obvious for-profit indicators
@@ -1209,7 +1213,7 @@ export function BudgetDecoderView() {
     });
   }, [transferPayments]);
 
-  // Filtered NGO tracker data
+  // Filtered and sorted NGO tracker data
   const filteredNGOData = useMemo(() => {
     let filtered = ngoTrackerData;
 
@@ -1244,8 +1248,78 @@ export function BudgetDecoderView() {
       );
     }
 
-    return filtered;
-  }, [ngoTrackerData, ngoRedFlagFilter, ngoEntityTypeFilter, filterName, irsMatches, classifyEntityType]);
+    // Apply sorting
+    const sorted = [...filtered].sort((a, b) => {
+      let aValue: any;
+      let bValue: any;
+
+      switch (ngoOrderBy) {
+        case 'recipient':
+          aValue = a.vendorName.toLowerCase();
+          bValue = b.vendorName.toLowerCase();
+          break;
+        case 'irsStatus':
+          // Sort by IRS verification status (verified first)
+          aValue = !!irsMatches[a.vendorName] ? 1 : 0;
+          bValue = !!irsMatches[b.vendorName] ? 1 : 0;
+          break;
+        case 'entityType':
+          // Sort by entity type (nonprofit, for-profit, unknown)
+          const aClassification = classifyEntityType(a.vendorName, !!irsMatches[a.vendorName]);
+          const bClassification = classifyEntityType(b.vendorName, !!irsMatches[b.vendorName]);
+          const typeOrder = { 'nonprofit': 0, 'for-profit': 1, 'unknown': 2 };
+          aValue = typeOrder[aClassification.type];
+          bValue = typeOrder[bClassification.type];
+          break;
+        case 'ein':
+          // Sort by EIN (verified with EIN first)
+          aValue = irsMatches[a.vendorName]?.ein || '';
+          bValue = irsMatches[b.vendorName]?.ein || '';
+          break;
+        case 'totalAmount':
+          aValue = a.totalAmount;
+          bValue = b.totalAmount;
+          break;
+        case 'payments':
+          aValue = a.paymentCount;
+          bValue = b.paymentCount;
+          break;
+        case 'avgPayment':
+          aValue = a.avgPayment;
+          bValue = b.avgPayment;
+          break;
+        case 'secretariats':
+          aValue = a.secretariats.join(', ').toLowerCase();
+          bValue = b.secretariats.join(', ').toLowerCase();
+          break;
+        case 'redFlagScore':
+          aValue = a.redFlagScore;
+          bValue = b.redFlagScore;
+          break;
+        default:
+          aValue = a.redFlagScore;
+          bValue = b.redFlagScore;
+      }
+
+      // Handle string vs number comparison
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
+        return ngoOrder === 'asc'
+          ? aValue.localeCompare(bValue)
+          : bValue.localeCompare(aValue);
+      }
+
+      return ngoOrder === 'asc' ? aValue - bValue : bValue - aValue;
+    });
+
+    return sorted;
+  }, [ngoTrackerData, ngoRedFlagFilter, ngoEntityTypeFilter, filterName, irsMatches, classifyEntityType, ngoOrder, ngoOrderBy]);
+
+  // NGO Tracker sorting handler
+  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore') => {
+    const isAsc = ngoOrderBy === property && ngoOrder === 'asc';
+    setNgoOrder(isAsc ? 'desc' : 'asc');
+    setNgoOrderBy(property);
+  };
 
   const totalBudget = budgetData.reduce((sum, item) => sum + item.amount, 0);
 
@@ -1933,7 +2007,7 @@ export function BudgetDecoderView() {
                     SelectProps={{ native: true }}
                   >
                     <option value="All">All Types</option>
-                    <option value="Nonprofit">501(c)(3) Nonprofit</option>
+                    <option value="Nonprofit">Nonprofit</option>
                     <option value="For-Profit">For-Profit Company</option>
                     <option value="Unknown">Unknown</option>
                   </TextField>
@@ -1971,15 +2045,87 @@ export function BudgetDecoderView() {
                   <Table>
                     <TableHead sx={{ bgcolor: '#f5f5f5' }}>
                       <TableRow>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Recipient</TableCell>
-                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>IRS Status</TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Entity Type</TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>EIN/990</TableCell>
-                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Total Amount</TableCell>
-                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Payments</TableCell>
-                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Avg Payment</TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Secretariats</TableCell>
-                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Red Flag Score</TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'recipient'}
+                            direction={ngoOrderBy === 'recipient' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('recipient')}
+                          >
+                            Recipient
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'irsStatus'}
+                            direction={ngoOrderBy === 'irsStatus' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('irsStatus')}
+                          >
+                            IRS Status
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'entityType'}
+                            direction={ngoOrderBy === 'entityType' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('entityType')}
+                          >
+                            Entity Type
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'ein'}
+                            direction={ngoOrderBy === 'ein' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('ein')}
+                          >
+                            EIN/990
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'totalAmount'}
+                            direction={ngoOrderBy === 'totalAmount' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('totalAmount')}
+                          >
+                            Total Amount
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'payments'}
+                            direction={ngoOrderBy === 'payments' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('payments')}
+                          >
+                            Payments
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'avgPayment'}
+                            direction={ngoOrderBy === 'avgPayment' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('avgPayment')}
+                          >
+                            Avg Payment
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'secretariats'}
+                            direction={ngoOrderBy === 'secretariats' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('secretariats')}
+                          >
+                            Secretariats
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'redFlagScore'}
+                            direction={ngoOrderBy === 'redFlagScore' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('redFlagScore')}
+                          >
+                            Red Flag Score
+                          </TableSortLabel>
+                        </TableCell>
                         <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Red Flags</TableCell>
                       </TableRow>
                     </TableHead>
