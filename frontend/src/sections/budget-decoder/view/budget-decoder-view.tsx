@@ -1140,11 +1140,14 @@ export function BudgetDecoderView() {
       'ECONOMIC DEVELOPMENT PARTNERSHIP', 'TOURISM',
       'RAIL AUTHORITY', 'COMMERCIAL SPACE',
       'DETAILED DATA NOT YET AVAILABLE',
-      'HUNTINGTON INGALLS',  // Defense contractor
-      // Local governments (cities, counties, towns)
-      'COUNTY', 'CITY OF', 'TOWN OF', 'CITY ', 'COUNTY OF',
+      'HUNTINGTON INGALLS'  // Defense contractor
+    ];
+
+    // Local government patterns (more specific to avoid false positives)
+    const localGovtPatterns = [
+      'CITY OF', 'TOWN OF', 'COUNTY OF',
       'BOARD OF SUPERVISORS', 'CIRCUIT COURT', 'PUBLIC SCHOOLS',
-      'COMMUNITY SERVICES BOARD', 'CSB',
+      'COMMUNITY SERVICES BOARD',
       'DIRECTOR OF FINANCE',
       'MISCELLANEOUS ADJUSTMENT',
       '** CONTACT AGENCY FOR MORE INFO **'
@@ -1153,7 +1156,26 @@ export function BudgetDecoderView() {
     // Helper function to check if vendor should be excluded from NGO classification
     const shouldExcludeFromNGO = (vendorName: string): boolean => {
       const nameUpper = vendorName.toUpperCase();
-      return excludeFromNGOKeywords.some(keyword => nameUpper.includes(keyword));
+
+      // Check general exclusion keywords
+      if (excludeFromNGOKeywords.some(keyword => nameUpper.includes(keyword))) {
+        return true;
+      }
+
+      // Check local government patterns
+      if (localGovtPatterns.some(pattern => nameUpper.includes(pattern))) {
+        return true;
+      }
+
+      // Check if it's a standalone county/city name (starts with county/city name)
+      // Pattern: "CountyName County:" or "City of CityName:"
+      const countyPattern = /^[A-Z\s]+ COUNTY:/i;
+      const cityPattern = /^CITY /i;
+      if (countyPattern.test(nameUpper) || cityPattern.test(nameUpper)) {
+        return true;
+      }
+
+      return false;
     };
 
     // Group by vendor name
