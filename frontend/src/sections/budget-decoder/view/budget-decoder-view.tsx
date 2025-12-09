@@ -595,6 +595,7 @@ export function BudgetDecoderView() {
 
   // NGO Tracker filter state
   const [ngoRedFlagFilter, setNgoRedFlagFilter] = useState<'All' | 'High' | 'Medium' | 'Low'>('All');
+  const [ngoEntityTypeFilter, setNgoEntityTypeFilter] = useState<'All' | 'Nonprofit' | 'For-Profit' | 'Unknown'>('All');
 
   // IRS verification data
   const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
@@ -1072,6 +1073,50 @@ export function BudgetDecoderView() {
     return vendors;
   }, [vendorData, rollupData, filterFiscalYear, filterName, filterCategory, expenditureOrder, expenditureOrderBy]);
 
+  // Helper function to classify entity type based on name patterns
+  const classifyEntityType = useCallback((vendorName: string, irsVerified: boolean): { type: 'nonprofit' | 'for-profit' | 'unknown', label: string } => {
+    const nameUpper = vendorName.toUpperCase();
+
+    // If IRS verified, it's definitely a 501(c)(3) nonprofit
+    if (irsVerified) {
+      return { type: 'nonprofit', label: '501(c)(3) Nonprofit' };
+    }
+
+    // Check for obvious for-profit indicators
+    const forProfitKeywords = [
+      'LLC', 'L.L.C.', 'L L C',
+      'INC.', 'INC', 'INCORPORATED',
+      'CORP.', 'CORP', 'CORPORATION',
+      'COMPANY', 'CO.', 'CO ',
+      'LTD', 'LIMITED',
+      'LP', 'L.P.', 'L P',
+      'ELECTRIC', 'GAS & ELECTRIC', 'POWER COMPANY', 'ENERGY COMPANY',
+      'INSURANCE CO', 'LIFE INSURANCE', 'HEALTH INSURANCE',
+      'HEALTHKEEPERS', 'CIGNA', 'AETNA', 'ANTHEM', 'OPTIMA', 'OPTIMUM',
+      'BANK ', ' BANK', 'FINANCIAL SERVICES',
+      'REALTY', 'PROPERTIES LLC', 'PROPERTIES INC',
+      'CONSTRUCTION CO', 'BUILDERS INC', 'CONTRACTORS',
+      'CONSULTING LLC', 'CONSULTANTS INC',
+      'TECHNOLOGY LLC', 'SOLUTIONS LLC', 'SERVICES LLC',
+      'MERCK', 'PFIZER', 'PHARMACEUTICAL'
+    ];
+
+    // Check if name contains for-profit indicators
+    const hasForProfitIndicator = forProfitKeywords.some(keyword => {
+      // Use word boundary matching for better accuracy
+      const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      return regex.test(nameUpper);
+    });
+
+    if (hasForProfitIndicator) {
+      return { type: 'for-profit', label: 'For-Profit Company' };
+    }
+
+    // If not verified and no for-profit indicators, it's unknown
+    // (could be a nonprofit that didn't match IRS database, or misclassified)
+    return { type: 'unknown', label: 'Unknown' };
+  }, []);
+
   // NGO Tracker data processing - aggregate comprehensive transfer payments by vendor
   const ngoTrackerData = useMemo(() => {
     // FOCUS: Community nonprofit pass-through recipients
@@ -1098,50 +1143,6 @@ export function BudgetDecoderView() {
     const shouldExcludeFromNGO = (vendorName: string): boolean => {
       const nameUpper = vendorName.toUpperCase();
       return excludeFromNGOKeywords.some(keyword => nameUpper.includes(keyword));
-    };
-
-    // Helper function to classify entity type based on name patterns
-    const classifyEntityType = (vendorName: string, irsVerified: boolean): { type: 'nonprofit' | 'for-profit' | 'unknown', label: string } => {
-      const nameUpper = vendorName.toUpperCase();
-
-      // If IRS verified, it's definitely a 501(c)(3) nonprofit
-      if (irsVerified) {
-        return { type: 'nonprofit', label: '501(c)(3) Nonprofit' };
-      }
-
-      // Check for obvious for-profit indicators
-      const forProfitKeywords = [
-        'LLC', 'L.L.C.', 'L L C',
-        'INC.', 'INC', 'INCORPORATED',
-        'CORP.', 'CORP', 'CORPORATION',
-        'COMPANY', 'CO.', 'CO ',
-        'LTD', 'LIMITED',
-        'LP', 'L.P.', 'L P',
-        'ELECTRIC', 'GAS & ELECTRIC', 'POWER COMPANY', 'ENERGY COMPANY',
-        'INSURANCE CO', 'LIFE INSURANCE', 'HEALTH INSURANCE',
-        'HEALTHKEEPERS', 'CIGNA', 'AETNA', 'ANTHEM', 'OPTIMA', 'OPTIMUM',
-        'BANK ', ' BANK', 'FINANCIAL SERVICES',
-        'REALTY', 'PROPERTIES LLC', 'PROPERTIES INC',
-        'CONSTRUCTION CO', 'BUILDERS INC', 'CONTRACTORS',
-        'CONSULTING LLC', 'CONSULTANTS INC',
-        'TECHNOLOGY LLC', 'SOLUTIONS LLC', 'SERVICES LLC',
-        'MERCK', 'PFIZER', 'PHARMACEUTICAL'
-      ];
-
-      // Check if name contains for-profit indicators
-      const hasForProfitIndicator = forProfitKeywords.some(keyword => {
-        // Use word boundary matching for better accuracy
-        const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-        return regex.test(nameUpper);
-      });
-
-      if (hasForProfitIndicator) {
-        return { type: 'for-profit', label: 'For-Profit Company' };
-      }
-
-      // If not verified and no for-profit indicators, it's unknown
-      // (could be a nonprofit that didn't match IRS database, or misclassified)
-      return { type: 'unknown', label: 'Unknown' };
     };
 
     // Group by vendor name
@@ -1222,6 +1223,19 @@ export function BudgetDecoderView() {
       });
     }
 
+    // Filter by entity type
+    if (ngoEntityTypeFilter !== 'All') {
+      filtered = filtered.filter(ngo => {
+        const irsVerified = !!irsMatches[ngo.vendorName];
+        const classification = classifyEntityType(ngo.vendorName, irsVerified);
+
+        if (ngoEntityTypeFilter === 'Nonprofit') return classification.type === 'nonprofit';
+        if (ngoEntityTypeFilter === 'For-Profit') return classification.type === 'for-profit';
+        if (ngoEntityTypeFilter === 'Unknown') return classification.type === 'unknown';
+        return true;
+      });
+    }
+
     // Apply search filter
     if (filterName) {
       filtered = filtered.filter(ngo =>
@@ -1231,7 +1245,7 @@ export function BudgetDecoderView() {
     }
 
     return filtered;
-  }, [ngoTrackerData, ngoRedFlagFilter, filterName]);
+  }, [ngoTrackerData, ngoRedFlagFilter, ngoEntityTypeFilter, filterName, irsMatches, classifyEntityType]);
 
   const totalBudget = budgetData.reduce((sum, item) => sum + item.amount, 0);
 
@@ -1909,7 +1923,22 @@ export function BudgetDecoderView() {
             {/* Filter Controls */}
             <Card sx={{ mb: 3, p: 3 }}>
               <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4}>
+                  <TextField
+                    select
+                    fullWidth
+                    label="Entity Type"
+                    value={ngoEntityTypeFilter}
+                    onChange={(e) => setNgoEntityTypeFilter(e.target.value as 'All' | 'Nonprofit' | 'For-Profit' | 'Unknown')}
+                    SelectProps={{ native: true }}
+                  >
+                    <option value="All">All Types</option>
+                    <option value="Nonprofit">501(c)(3) Nonprofit</option>
+                    <option value="For-Profit">For-Profit Company</option>
+                    <option value="Unknown">Unknown</option>
+                  </TextField>
+                </Grid>
+                <Grid item xs={12} md={4}>
                   <TextField
                     select
                     fullWidth
@@ -1924,7 +1953,7 @@ export function BudgetDecoderView() {
                     <option value="Low">Low (Score &lt;4)</option>
                   </TextField>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4}>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                     Total Recipients: {filteredNGOData.length}
                   </Typography>
