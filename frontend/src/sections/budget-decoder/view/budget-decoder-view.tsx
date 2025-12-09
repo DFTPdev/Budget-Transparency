@@ -33,6 +33,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import FlagIcon from '@mui/icons-material/Flag';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
 import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, loadAgencyBudgets, loadProgramBudgets, loadTransferPayments, type ProgramRollup, type VendorRecord, type AgencyBudget, type ProgramBudget, type TransferPaymentRecord } from 'src/lib/decoderDataLoader';
@@ -1896,7 +1897,8 @@ export function BudgetDecoderView() {
                     <TableHead sx={{ bgcolor: '#f5f5f5' }}>
                       <TableRow>
                         <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Recipient</TableCell>
-                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>IRS Status</TableCell>
+                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>IRS Status</TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>EIN/990</TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Total Amount</TableCell>
                         <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Payments</TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Avg Payment</TableCell>
@@ -1922,33 +1924,41 @@ export function BudgetDecoderView() {
                           return (
                             <TableRow key={`${ngo.vendorName}-${idx}`} hover>
                               <TableCell>
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                  <Box>
-                                    <Typography variant="body2" fontWeight="medium">
-                                      {ngo.vendorName}
-                                    </Typography>
-                                    <Typography variant="caption" color="text.secondary">
-                                      FY {ngo.fiscalYears.join(', ')}
-                                    </Typography>
-                                  </Box>
-                                  {verificationBadge && (
-                                    <Tooltip title={verificationTooltip} arrow>
-                                      <Chip
-                                        label={verificationBadge}
-                                        size="small"
-                                        color="success"
-                                        sx={{
-                                          fontWeight: 'bold',
-                                          fontSize: '0.7rem',
-                                          height: 20,
-                                        }}
-                                      />
-                                    </Tooltip>
-                                  )}
+                                <Box>
+                                  <Typography variant="body2" fontWeight="medium">
+                                    {ngo.vendorName}
+                                  </Typography>
+                                  <Typography variant="caption" color="text.secondary">
+                                    FY {ngo.fiscalYears.join(', ')}
+                                  </Typography>
                                 </Box>
                               </TableCell>
+                              <TableCell align="center">
+                                {irsVerification ? (
+                                  <Tooltip title={verificationTooltip} arrow>
+                                    <CheckCircleIcon
+                                      sx={{
+                                        color: 'success.main',
+                                        fontSize: 24
+                                      }}
+                                    />
+                                  </Tooltip>
+                                ) : (
+                                  <Typography variant="caption" color="text.secondary">
+                                    Not Verified
+                                  </Typography>
+                                )}
+                              </TableCell>
                               <TableCell>
-                                {/* IRS Status column - empty for now */}
+                                {irsVerification ? (
+                                  <Typography variant="body2" fontFamily="monospace">
+                                    {irsVerification.ein}
+                                  </Typography>
+                                ) : (
+                                  <Typography variant="caption" color="text.secondary">
+                                    —
+                                  </Typography>
+                                )}
                               </TableCell>
                               <TableCell align="right">
                                 <Typography variant="body2" fontWeight="medium">
