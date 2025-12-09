@@ -599,7 +599,7 @@ export function BudgetDecoderView() {
 
   // NGO Tracker sorting state
   const [ngoOrder, setNgoOrder] = useState<Order>('desc');
-  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats'>('totalAmount');
+  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore'>('redFlagScore');
 
   // IRS verification data
   const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
@@ -1362,9 +1362,13 @@ export function BudgetDecoderView() {
           aValue = a.secretariats.join(', ').toLowerCase();
           bValue = b.secretariats.join(', ').toLowerCase();
           break;
+        case 'redFlagScore':
+          aValue = a.redFlagScore;
+          bValue = b.redFlagScore;
+          break;
         default:
-          aValue = a.totalAmount;
-          bValue = b.totalAmount;
+          aValue = a.redFlagScore;
+          bValue = b.redFlagScore;
       }
 
       // Handle string vs number comparison
@@ -1381,7 +1385,7 @@ export function BudgetDecoderView() {
   }, [ngoTrackerData, ngoRedFlagFilter, ngoEntityTypeFilter, filterName, irsMatches, classifyEntityType, ngoOrder, ngoOrderBy]);
 
   // NGO Tracker sorting handler
-  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats') => {
+  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore') => {
     const isAsc = ngoOrderBy === property && ngoOrder === 'asc';
     setNgoOrder(isAsc ? 'desc' : 'asc');
     setNgoOrderBy(property);
@@ -2174,6 +2178,15 @@ export function BudgetDecoderView() {
                             Secretariats
                           </TableSortLabel>
                         </TableCell>
+                        <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'redFlagScore'}
+                            direction={ngoOrderBy === 'redFlagScore' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('redFlagScore')}
+                          >
+                            Red Flag Score
+                          </TableSortLabel>
+                        </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -2291,11 +2304,22 @@ export function BudgetDecoderView() {
                                   {ngo.secretariats.length > 2 && ` +${ngo.secretariats.length - 2} more`}
                                 </Typography>
                               </TableCell>
+                              <TableCell align="center">
+                                <Chip
+                                  label={ngo.redFlagScore}
+                                  size="small"
+                                  sx={{
+                                    bgcolor: scoreColor,
+                                    color: 'white',
+                                    fontWeight: 'bold'
+                                  }}
+                                />
+                              </TableCell>
                             </TableRow>
 
                             {/* Expanded Detail Row */}
                             <TableRow>
-                              <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
+                              <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={9}>
                                 <Collapse in={isExpanded} timeout="auto" unmountOnExit>
                                   <Box sx={{ margin: 2, p: 2, bgcolor: 'background.neutral', borderRadius: 1 }}>
                                     <Grid container spacing={3}>
@@ -2328,20 +2352,9 @@ export function BudgetDecoderView() {
                                       {/* Red Flags Section */}
                                       <Grid item xs={12} md={6}>
                                         <Card sx={{ p: 2 }}>
-                                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                                            <Typography variant="subtitle2">
-                                              Red Flags
-                                            </Typography>
-                                            <Chip
-                                              label={ngo.redFlagScore}
-                                              size="small"
-                                              sx={{
-                                                bgcolor: scoreColor,
-                                                color: 'white',
-                                                fontWeight: 'bold'
-                                              }}
-                                            />
-                                          </Box>
+                                          <Typography variant="subtitle2" gutterBottom>
+                                            Red Flags
+                                          </Typography>
                                           {ngo.redFlags.length > 0 ? (
                                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
                                               {ngo.redFlags.map((flag, i) => (
