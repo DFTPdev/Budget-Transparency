@@ -244,6 +244,40 @@ export function filterVendorsByProgram(
 // Load comprehensive transfer payments (all CARDINAL fields)
 let transferPaymentsCache: TransferPaymentRecord[] | null = null;
 
+// Helper function to parse CSV line with proper quote handling
+function parseCSVLine(line: string): string[] {
+  const result: string[] = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    const nextChar = line[i + 1];
+
+    if (char === '"') {
+      if (inQuotes && nextChar === '"') {
+        // Escaped quote
+        current += '"';
+        i++; // Skip next quote
+      } else {
+        // Toggle quote state
+        inQuotes = !inQuotes;
+      }
+    } else if (char === ',' && !inQuotes) {
+      // Field separator
+      result.push(current.trim());
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+
+  // Add last field
+  result.push(current.trim());
+
+  return result;
+}
+
 export async function loadTransferPayments(): Promise<TransferPaymentRecord[]> {
   if (transferPaymentsCache) return transferPaymentsCache;
 
@@ -263,17 +297,17 @@ export async function loadTransferPayments(): Promise<TransferPaymentRecord[]> {
     const csvText = await decompressedStream.text();
     console.log('✅ Decompressed CSV text length:', csvText.length);
 
-    // Parse CSV manually (same logic as fetchCSV)
+    // Parse CSV with proper quote handling
     const lines = csvText.split('\n').filter(line => line.trim());
     if (lines.length === 0) {
       throw new Error('Empty CSV file');
     }
 
-    const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    const headers = parseCSVLine(lines[0]);
     const rows: any[] = [];
 
     for (let i = 1; i < lines.length; i++) {
-      const values = lines[i].split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+      const values = parseCSVLine(lines[i]);
       if (values.length === headers.length) {
         const row: any = {};
         headers.forEach((header, index) => {
