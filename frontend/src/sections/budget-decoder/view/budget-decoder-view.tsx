@@ -599,7 +599,7 @@ export function BudgetDecoderView() {
 
   // NGO Tracker sorting state
   const [ngoOrder, setNgoOrder] = useState<Order>('desc');
-  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore'>('redFlagScore');
+  const [ngoOrderBy, setNgoOrderBy] = useState<'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'location' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore'>('redFlagScore');
 
   // IRS verification data
   const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
@@ -1354,6 +1354,11 @@ export function BudgetDecoderView() {
           aValue = irsMatches[a.vendorName]?.ein || '';
           bValue = irsMatches[b.vendorName]?.ein || '';
           break;
+        case 'location':
+          // Sort by city (verified with location first)
+          aValue = irsMatches[a.vendorName]?.city?.toLowerCase() || 'zzz'; // Put unverified at end
+          bValue = irsMatches[b.vendorName]?.city?.toLowerCase() || 'zzz';
+          break;
         case 'totalAmount':
           aValue = a.totalAmount;
           bValue = b.totalAmount;
@@ -1393,7 +1398,7 @@ export function BudgetDecoderView() {
   }, [ngoTrackerData, ngoRedFlagFilter, ngoEntityTypeFilter, filterName, irsMatches, classifyEntityType, ngoOrder, ngoOrderBy]);
 
   // NGO Tracker sorting handler
-  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore') => {
+  const handleNgoSort = (property: 'recipient' | 'irsStatus' | 'entityType' | 'ein' | 'location' | 'totalAmount' | 'payments' | 'avgPayment' | 'secretariats' | 'redFlagScore') => {
     const isAsc = ngoOrderBy === property && ngoOrder === 'asc';
     setNgoOrder(isAsc ? 'desc' : 'asc');
     setNgoOrderBy(property);
@@ -2159,6 +2164,15 @@ export function BudgetDecoderView() {
                             EIN/990
                           </TableSortLabel>
                         </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={ngoOrderBy === 'location'}
+                            direction={ngoOrderBy === 'location' ? ngoOrder : 'asc'}
+                            onClick={() => handleNgoSort('location')}
+                          >
+                            Location
+                          </TableSortLabel>
+                        </TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
                           <TableSortLabel
                             active={ngoOrderBy === 'totalAmount'}
@@ -2281,6 +2295,17 @@ export function BudgetDecoderView() {
                                 {irsVerification ? (
                                   <Typography variant="body2" fontFamily="monospace">
                                     {irsVerification.ein}
+                                  </Typography>
+                                ) : (
+                                  <Typography variant="caption" color="text.secondary">
+                                    —
+                                  </Typography>
+                                )}
+                              </TableCell>
+                              <TableCell>
+                                {irsVerification ? (
+                                  <Typography variant="body2">
+                                    {irsVerification.city}, VA
                                   </Typography>
                                 ) : (
                                   <Typography variant="caption" color="text.secondary">
