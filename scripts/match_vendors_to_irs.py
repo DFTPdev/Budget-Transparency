@@ -118,6 +118,116 @@ def calculate_partial_similarity(str1: str, str2: str) -> float:
 
     return overlap_ratio
 
+def get_entity_type(name: str) -> Optional[str]:
+    """
+    Extract legal entity type from organization name.
+
+    Returns:
+        'foundation' if name contains FOUNDATION
+        'insurance' if name contains INSURANCE
+        'inc' if name contains INC/INCORPORATED
+        'llc' if name contains LLC
+        'corp' if name contains CORP/CORPORATION
+        None if no clear entity type
+    """
+    name_upper = name.upper()
+
+    # Check for foundation (nonprofits) - must be exact word
+    if re.search(r'\bFOUNDATION\b', name_upper):
+        return 'foundation'
+
+    # Check for insurance company (for-profit)
+    if re.search(r'\bINSURANCE\b', name_upper):
+        return 'insurance'
+
+    # Check for LLC
+    if re.search(r'\bL\.?L\.?C\.?\b', name_upper):
+        return 'llc'
+
+    # Check for Corp
+    if re.search(r'\bCORP(ORATION)?\b', name_upper):
+        return 'corp'
+
+    # Check for Inc (but not if it's part of "INC" in "INCORPORATED")
+    if re.search(r'\bINC\b', name_upper) and 'FOUNDATION' not in name_upper:
+        return 'inc'
+
+    return None
+
+def has_significant_name_overlap(vendor_name: str, irs_name: str) -> bool:
+    """
+    Check if vendor and IRS names have significant word overlap.
+
+    This prevents matching completely unrelated organizations.
+    For example: "Nestle USA INC" should NOT match "WINDLE USA"
+    """
+    # Normalize and get words
+    vendor_words = set(normalize_name(vendor_name).split())
+    irs_words = set(normalize_name(irs_name).split())
+
+    # Remove very common words that don't indicate identity
+    # Including geographic/generic terms like USA, VIRGINIA, WASHINGTON, etc.
+    common_words = {
+        'OF', 'THE', 'AND', 'FOR', 'IN', 'A', 'AN', 'AT',
+        'USA', 'US', 'VIRGINIA', 'VA', 'AMERICA', 'AMERICAN',
+        'WASHINGTON', 'DC', 'D', 'C',  # Washington DC variations
+        'ALLIANCE', 'FOUNDATION', 'FUND', 'CENTER', 'CENTRE',  # Generic org words
+    }
+    vendor_words = {w for w in vendor_words if w not in common_words and len(w) >= 3}
+    irs_words = {w for w in irs_words if w not in common_words and len(w) >= 3}
+
+    if not vendor_words or not irs_words:
+        return False
+
+    # Calculate overlap
+    common = vendor_words.intersection(irs_words)
+
+    # Require at least 60% overlap of the smaller set (increased from 50%)
+    # This is stricter to avoid false positives
+    smaller_set_size = min(len(vendor_words), len(irs_words))
+    overlap_ratio = len(common) / smaller_set_size if smaller_set_size > 0 else 0
+
+    return overlap_ratio >= 0.6
+
+def is_valid_entity_match(vendor_name: str, irs_name: str) -> bool:
+    """
+    Check if vendor and IRS entity types are compatible.
+
+    Prevents matching for-profit companies to nonprofit foundations.
+    For example: "Nestle USA INC" should NOT match "NESTLE USA FOUNDATION"
+    """
+    # First check if names have significant overlap
+    if not has_significant_name_overlap(vendor_name, irs_name):
+        return False
+
+    vendor_type = get_entity_type(vendor_name)
+    irs_type = get_entity_type(irs_name)
+
+    # If neither has a clear entity type, allow the match
+    if vendor_type is None and irs_type is None:
+        return True
+
+    # If only one has an entity type, allow the match
+    # (e.g., "Big Brothers Big Sisters" vs "Big Brothers Big Sisters Foundation")
+    if vendor_type is None or irs_type is None:
+        return True
+
+    # If both have entity types, they must match
+    # Exception: 'inc' and 'foundation' can both be nonprofits if the base name matches
+    # (e.g., "Historic Fredericksburg Foundation Inc" is a foundation that's incorporated)
+    if vendor_type == irs_type:
+        return True
+
+    # Allow foundation + inc combination (foundations can be incorporated)
+    if (vendor_type == 'foundation' and irs_type == 'inc') or \
+       (vendor_type == 'inc' and irs_type == 'foundation'):
+        # Only if BOTH names contain "foundation"
+        if 'FOUNDATION' in vendor_name.upper() and 'FOUNDATION' in irs_name.upper():
+            return True
+
+    # Otherwise, entity types must match
+    return False
+
 def find_best_match(vendor_name: str, irs_index: Dict, irs_nonprofits: List[Dict], threshold: float = 0.70) -> Optional[Dict]:
     """
     Find best IRS nonprofit match for a vendor name using optimized search.
@@ -139,6 +249,9 @@ def find_best_match(vendor_name: str, irs_index: Dict, irs_nonprofits: List[Dict
     # Try exact match first
     if normalized_vendor in irs_index:
         match = irs_index[normalized_vendor][0]
+        # Validate entity type compatibility
+        if not is_valid_entity_match(vendor_name, match['name']):
+            return None
         return {
             **match,
             'match_score': 1.0
@@ -182,6 +295,10 @@ def find_best_match(vendor_name: str, irs_index: Dict, irs_nonprofits: List[Dict
 
     for nonprofit in candidates:
         normalized_irs = nonprofit['normalized_name']
+
+        # Validate entity type compatibility BEFORE scoring
+        if not is_valid_entity_match(vendor_name, nonprofit['name']):
+            continue
 
         # Method 1: Full string similarity (good for close matches)
         full_score = calculate_similarity(normalized_vendor, normalized_irs)
