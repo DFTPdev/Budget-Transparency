@@ -34,6 +34,8 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import FlagIcon from '@mui/icons-material/Flag';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import WarningIcon from '@mui/icons-material/Warning';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
 import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, loadAgencyBudgets, loadProgramBudgets, loadTransferPayments, type ProgramRollup, type VendorRecord, type AgencyBudget, type ProgramBudget, type TransferPaymentRecord } from 'src/lib/decoderDataLoader';
@@ -1098,6 +1100,50 @@ export function BudgetDecoderView() {
       return excludeFromNGOKeywords.some(keyword => nameUpper.includes(keyword));
     };
 
+    // Helper function to classify entity type based on name patterns
+    const classifyEntityType = (vendorName: string, irsVerified: boolean): { type: 'nonprofit' | 'for-profit' | 'unknown', label: string } => {
+      const nameUpper = vendorName.toUpperCase();
+
+      // If IRS verified, it's definitely a 501(c)(3) nonprofit
+      if (irsVerified) {
+        return { type: 'nonprofit', label: '501(c)(3) Nonprofit' };
+      }
+
+      // Check for obvious for-profit indicators
+      const forProfitKeywords = [
+        'LLC', 'L.L.C.', 'L L C',
+        'INC.', 'INC', 'INCORPORATED',
+        'CORP.', 'CORP', 'CORPORATION',
+        'COMPANY', 'CO.', 'CO ',
+        'LTD', 'LIMITED',
+        'LP', 'L.P.', 'L P',
+        'ELECTRIC', 'GAS & ELECTRIC', 'POWER COMPANY', 'ENERGY COMPANY',
+        'INSURANCE CO', 'LIFE INSURANCE', 'HEALTH INSURANCE',
+        'HEALTHKEEPERS', 'CIGNA', 'AETNA', 'ANTHEM', 'OPTIMA', 'OPTIMUM',
+        'BANK ', ' BANK', 'FINANCIAL SERVICES',
+        'REALTY', 'PROPERTIES LLC', 'PROPERTIES INC',
+        'CONSTRUCTION CO', 'BUILDERS INC', 'CONTRACTORS',
+        'CONSULTING LLC', 'CONSULTANTS INC',
+        'TECHNOLOGY LLC', 'SOLUTIONS LLC', 'SERVICES LLC',
+        'MERCK', 'PFIZER', 'PHARMACEUTICAL'
+      ];
+
+      // Check if name contains for-profit indicators
+      const hasForProfitIndicator = forProfitKeywords.some(keyword => {
+        // Use word boundary matching for better accuracy
+        const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        return regex.test(nameUpper);
+      });
+
+      if (hasForProfitIndicator) {
+        return { type: 'for-profit', label: 'For-Profit Company' };
+      }
+
+      // If not verified and no for-profit indicators, it's unknown
+      // (could be a nonprofit that didn't match IRS database, or misclassified)
+      return { type: 'unknown', label: 'Unknown' };
+    };
+
     // Group by vendor name
     const vendorMap = new Map<string, TransferPaymentRecord[]>();
     transferPayments.forEach(record => {
@@ -1898,6 +1944,7 @@ export function BudgetDecoderView() {
                       <TableRow>
                         <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Recipient</TableCell>
                         <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>IRS Status</TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Entity Type</TableCell>
                         <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>EIN/990</TableCell>
                         <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Total Amount</TableCell>
                         <TableCell align="center" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>Payments</TableCell>
@@ -1921,6 +1968,9 @@ export function BudgetDecoderView() {
                           const verificationBadge = irsVerification ? getVerificationBadge(irsVerification) : null;
                           const verificationTooltip = irsVerification ? getVerificationTooltip(irsVerification) : '';
 
+                          // Classify entity type
+                          const entityClassification = classifyEntityType(ngo.vendorName, !!irsVerification);
+
                           return (
                             <TableRow key={`${ngo.vendorName}-${idx}`} hover>
                               <TableCell>
@@ -1934,7 +1984,7 @@ export function BudgetDecoderView() {
                                 </Box>
                               </TableCell>
                               <TableCell align="center">
-                                {irsVerification ? (
+                                {entityClassification.type === 'nonprofit' ? (
                                   <Tooltip title={verificationTooltip} arrow>
                                     <CheckCircleIcon
                                       sx={{
@@ -1943,11 +1993,36 @@ export function BudgetDecoderView() {
                                       }}
                                     />
                                   </Tooltip>
+                                ) : entityClassification.type === 'for-profit' ? (
+                                  <Tooltip title="For-profit company - not a 501(c)(3) nonprofit" arrow>
+                                    <WarningIcon
+                                      sx={{
+                                        color: 'warning.main',
+                                        fontSize: 24
+                                      }}
+                                    />
+                                  </Tooltip>
                                 ) : (
-                                  <Typography variant="caption" color="text.secondary">
-                                    Not Verified
-                                  </Typography>
+                                  <Tooltip title="Unable to verify nonprofit status - may be a nonprofit not in IRS database or misclassified by state" arrow>
+                                    <HelpOutlineIcon
+                                      sx={{
+                                        color: 'text.secondary',
+                                        fontSize: 24
+                                      }}
+                                    />
+                                  </Tooltip>
                                 )}
+                              </TableCell>
+                              <TableCell>
+                                <Typography
+                                  variant="body2"
+                                  color={entityClassification.type === 'nonprofit' ? 'success.main' :
+                                         entityClassification.type === 'for-profit' ? 'warning.main' :
+                                         'text.secondary'}
+                                  fontWeight={entityClassification.type === 'for-profit' ? 'bold' : 'normal'}
+                                >
+                                  {entityClassification.label}
+                                </Typography>
                               </TableCell>
                               <TableCell>
                                 {irsVerification ? (
