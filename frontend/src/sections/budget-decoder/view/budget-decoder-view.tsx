@@ -26,6 +26,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Chip from '@mui/material/Chip';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Tooltip from '@mui/material/Tooltip';
 import { alpha, useTheme } from '@mui/material/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -35,6 +36,7 @@ import FlagIcon from '@mui/icons-material/Flag';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
 import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, loadAgencyBudgets, loadProgramBudgets, loadTransferPayments, type ProgramRollup, type VendorRecord, type AgencyBudget, type ProgramBudget, type TransferPaymentRecord } from 'src/lib/decoderDataLoader';
+import { loadVendorIRSMatches, getVerificationBadge, getVerificationTooltip, type VendorIRSMatches, type IRSNonprofit } from 'src/lib/irsVerification';
 
 import { varFade, MotionViewport } from 'src/components/animate';
 import { Scrollbar } from 'src/components/scrollbar';
@@ -593,6 +595,9 @@ export function BudgetDecoderView() {
   const [ngoEntityTypeFilter, setNgoEntityTypeFilter] = useState<EntityType | 'All'>('All');
   const [ngoRedFlagFilter, setNgoRedFlagFilter] = useState<'All' | 'High' | 'Medium' | 'Low'>('All');
 
+  // IRS verification data
+  const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
+
   // Drill-down state for vendor expansion
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
   const [vendorDataCache, setVendorDataCache] = useState<Record<string, VendorRecord[]>>({});
@@ -627,13 +632,14 @@ export function BudgetDecoderView() {
         const fiscalYear = filterFiscalYear ? parseInt(filterFiscalYear) : 2025;
         console.log('🔄 Using fiscal year:', fiscalYear);
 
-        const [rollups, vendors, districts, agencies, programs, transfers] = await Promise.all([
+        const [rollups, vendors, districts, agencies, programs, transfers, irsData] = await Promise.all([
           loadProgramRollups(),
           loadVendorRecords(),
           fetch('/data/budget_by_district_2025.json').then(r => r.json()).catch(() => null),
           loadAgencyBudgets(fiscalYear),
           loadProgramBudgets(fiscalYear),
-          loadTransferPayments()
+          loadTransferPayments(),
+          loadVendorIRSMatches()
         ]);
 
         console.log('✅ Loaded rollup data:', rollups.length, 'programs');
@@ -641,12 +647,14 @@ export function BudgetDecoderView() {
         console.log('✅ Loaded agency data:', agencies.length, 'agencies');
         console.log('✅ Loaded program data:', programs.length, 'programs');
         console.log('✅ Loaded transfer payments:', transfers.length, 'records');
+        console.log('✅ Loaded IRS verification data:', Object.keys(irsData).length, 'verified nonprofits');
 
         setRollupData(rollups);
         setVendorData(vendors);
         setAgencyData(agencies);
         setProgramData(programs);
         setTransferPayments(transfers);
+        setIrsMatches(irsData);
 
         // Create flat table with all agencies and programs
         console.log('🔄 Creating flat table...');
@@ -1931,15 +1939,38 @@ export function BudgetDecoderView() {
                                            ngo.redFlagScore >= 4 ? 'warning.main' :
                                            'success.main';
 
+                          // Check IRS verification
+                          const irsVerification = irsMatches[ngo.vendorName];
+                          const verificationBadge = irsVerification ? getVerificationBadge(irsVerification) : null;
+                          const verificationTooltip = irsVerification ? getVerificationTooltip(irsVerification) : '';
+
                           return (
                             <TableRow key={`${ngo.vendorName}-${idx}`} hover>
                               <TableCell>
-                                <Typography variant="body2" fontWeight="medium">
-                                  {ngo.vendorName}
-                                </Typography>
-                                <Typography variant="caption" color="text.secondary">
-                                  FY {ngo.fiscalYears.join(', ')}
-                                </Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                  <Box>
+                                    <Typography variant="body2" fontWeight="medium">
+                                      {ngo.vendorName}
+                                    </Typography>
+                                    <Typography variant="caption" color="text.secondary">
+                                      FY {ngo.fiscalYears.join(', ')}
+                                    </Typography>
+                                  </Box>
+                                  {verificationBadge && (
+                                    <Tooltip title={verificationTooltip} arrow>
+                                      <Chip
+                                        label={verificationBadge}
+                                        size="small"
+                                        color="success"
+                                        sx={{
+                                          fontWeight: 'bold',
+                                          fontSize: '0.7rem',
+                                          height: 20,
+                                        }}
+                                      />
+                                    </Tooltip>
+                                  )}
+                                </Box>
                               </TableCell>
                               <TableCell>
                                 <Chip
