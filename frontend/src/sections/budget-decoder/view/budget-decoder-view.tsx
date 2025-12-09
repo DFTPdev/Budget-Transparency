@@ -1217,6 +1217,34 @@ export function BudgetDecoderView() {
   const filteredNGOData = useMemo(() => {
     let filtered = ngoTrackerData;
 
+    // Debug: Count entity types in base data
+    if (ngoTrackerData.length > 0) {
+      const nonprofitCount = ngoTrackerData.filter(ngo => {
+        const irsVerified = !!irsMatches[ngo.vendorName];
+        const classification = classifyEntityType(ngo.vendorName, irsVerified);
+        return classification.type === 'nonprofit';
+      }).length;
+
+      const forProfitCount = ngoTrackerData.filter(ngo => {
+        const irsVerified = !!irsMatches[ngo.vendorName];
+        const classification = classifyEntityType(ngo.vendorName, irsVerified);
+        return classification.type === 'for-profit';
+      }).length;
+
+      const unknownCount = ngoTrackerData.filter(ngo => {
+        const irsVerified = !!irsMatches[ngo.vendorName];
+        const classification = classifyEntityType(ngo.vendorName, irsVerified);
+        return classification.type === 'unknown';
+      }).length;
+
+      console.log('🔍 NGO Entity Type Breakdown:');
+      console.log(`  Total NGO vendors: ${ngoTrackerData.length}`);
+      console.log(`  Nonprofit (IRS verified): ${nonprofitCount}`);
+      console.log(`  For-Profit Company: ${forProfitCount}`);
+      console.log(`  Unknown: ${unknownCount}`);
+      console.log(`  IRS matches loaded: ${Object.keys(irsMatches).length}`);
+    }
+
     // Filter by red flag score
     if (ngoRedFlagFilter !== 'All') {
       filtered = filtered.filter(ngo => {
