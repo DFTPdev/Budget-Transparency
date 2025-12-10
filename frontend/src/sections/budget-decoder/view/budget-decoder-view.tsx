@@ -1163,16 +1163,19 @@ export function BudgetDecoderView() {
     // Exclude quasi-governmental entities that aren't true community nonprofits
     const excludeFromNGOKeywords = [
       // Authorities and Commissions
-      'AUTHORITY', 'COMMISSION', 'AIRPORT', 'RAILROAD',
+      'AUTHORITY', 'AUTH', 'COMMISSION', 'AIRPORT', 'RAILROAD',
       'REDEVELOPMENT', 'HOUSING AUTHORITY', 'REDEVELOPMENT AND HOUSING',
       'PLANNING DISTRICT', 'PLANNING DISTR', 'PDC',
-      'ECONOMIC DEVELOPMENT PARTNERSHIP', 'TOURISM',
+      'ECONOMIC DEVELOPMENT', 'INDUSTRIAL DEVELOPMENT', 'WORKFORCE DEVELOPMENT',
+      'TOURISM AUTHORITY', 'TOURISM',
       'RAIL AUTHORITY', 'COMMERCIAL SPACE',
+      'FORT MONROE AUTHORITY', 'INNOVATION AND ENTREPRENEUR',
 
       // Insurance/Health Plans
       'INSURANCE', 'HEALTH PLAN', 'HMO', 'CIGNA', 'SENTARA', 'KAISER', 'HEALTHKEEPERS', 'OPTIMA', 'OPTIMUM',
+      'CAREFIRST', 'BLUECHOICE', 'GROUP HOSPITALIZATION',
 
-      // Universities and Colleges
+      // Universities and Colleges (comprehensive list)
       'UNIVERSITY', 'COLLEGE', 'INSTITUTE OF TECHNOLOGY',
       'VIRGINIA TECH', 'VA TECH', 'VPI', 'VIRGINIA POLYTECHNIC',
       'VIRGINIA COMMONWEALTH UNIVERSITY', 'VCU',
@@ -1186,6 +1189,12 @@ export function BudgetDecoderView() {
       'NORFOLK STATE UNIVERSITY', 'NSU',
       'UNIVERSITY OF VIRGINIA', 'UVA',
       'VIRGINIA MILITARY INSTITUTE', 'VMI',
+      'LIBERTY UNIVERSITY', 'HAMPTON UNIVERSITY', 'VIRGINIA UNION UNIVERSITY',
+      'SHENANDOAH UNIVERSITY', 'UNIVERSITY OF LYNCHBURG', 'MARYMOUNT UNIVERSITY',
+      'MARY BALDWIN UNIVERSITY', 'VIRGINIA WESLEYAN UNIVERSITY', 'REGENT UNIVERSITY',
+      'AVERETT UNIVERSITY', 'UNIVERSITY OF RICHMOND', 'HAMPDEN-SYDNEY',
+      'RANDOLPH MACON', 'ROANOKE COLLEGE', 'BRIDGEWATER COLLEGE',
+      'EMORY & HENRY', 'FERRUM COLLEGE',
 
       // Law Enforcement
       'SHERIFF', 'SHERIFF\'S OFFICE', 'POLICE DEPARTMENT',
@@ -1201,9 +1210,37 @@ export function BudgetDecoderView() {
       'DEPARTMENT OF', 'DEPT OF', 'DEPARTMENT FOR',
       'DIVISION OF', 'OFFICE OF',
 
+      // Regional/District Entities
+      'REGIONAL', 'DISTRICT OF', 'GOVERNMENTAL COOPERATIVE',
+
+      // Hospitals and Healthcare Systems
+      'HOSPITAL', 'MEDICAL CENTER', 'HEALTH SYSTEM',
+
+      // Large Foundations (not community nonprofits)
+      'VIRGINIA EARLY CHILDHOOD FOUNDATION',
+      'VIRGINIA RESOURCES AUTHORITY',
+      'GROW CAPITAL JOBS FOUNDATION',
+
+      // Associations (often trade/industry groups)
+      'HOSPITAL & HEALTHCARE ASSOCIATI', 'HOSPITAL RESEARCH',
+      'PHARMACISTS ASSOCIATION', 'TRANSIT ASSOCIATION',
+      'DRIVER EDUCATION', 'VOLUNTEER RESCUE',
+
+      // Financial Institutions
+      'CREDIT UNION', 'FEDERAL CREDIT UNION',
+
+      // Railroads
+      'BELT LINE RR', 'RAILROAD',
+
+      // Research Institutions
+      'RESEARCH ASSOC', 'UNIVERSITIES RESEARCH',
+
       // Other
       'DETAILED DATA NOT YET AVAILABLE',
-      'HUNTINGTON INGALLS'  // Defense contractor
+      'MISCELLANEOUS ADJUSTMENT',
+      'HUNTINGTON INGALLS',  // Defense contractor
+      'BOARD OF CONTROL',
+      'CITY SCHOOLS', 'TOWN SCHOOLS'  // Local government schools
     ];
 
     // Local government patterns (more specific to avoid false positives)
