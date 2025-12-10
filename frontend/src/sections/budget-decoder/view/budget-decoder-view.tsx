@@ -2359,7 +2359,7 @@ export function BudgetDecoderView() {
                                   </Box>
                                 </TableCell>
                               <TableCell align="center">
-                                {irsVerified ? (
+                                {irsVerification ? (
                                   <Tooltip title={`IRS Form 990 filing available - ${irsMatches[ngo.vendorName]?.city || 'Virginia'}`} arrow>
                                     <CheckIcon
                                       sx={{
