@@ -1150,8 +1150,106 @@ export function BudgetDecoderView() {
       return { type: 'for-profit', label: 'For-Profit Company' };
     }
 
-    // If not verified and no for-profit indicators, it's unknown
-    // (could be a nonprofit that didn't match IRS database, or misclassified)
+    // Check for nonprofit indicator patterns (strong signals of nonprofit status)
+    // These are checked AFTER for-profit patterns to avoid false positives
+    const nonprofitIndicators = [
+      // Organizational types
+      'FOUNDATION',
+      'CHARITY', 'CHARITABLE',
+      'NONPROFIT', 'NON-PROFIT', 'NOT-FOR-PROFIT',
+
+      // Religious organizations
+      'CHURCH', 'CHURCHES',
+      'MINISTRY', 'MINISTRIES',
+      'PARISH',
+      'DIOCESE',
+      'SYNAGOGUE',
+      'MOSQUE',
+      'TEMPLE',
+      'CONGREGATION',
+
+      // Community services
+      'COMMUNITY SERVICES',
+      'COMMUNITY ACTION',
+      'COMMUNITY CENTER',
+      'COMMUNITY FOUNDATION',
+
+      // Social services
+      'FOOD BANK',
+      'FOOD PANTRY',
+      'SHELTER',
+      'HOUSING SERVICES',
+      'YOUTH SERVICES',
+      'SENIOR SERVICES',
+      'SENIOR CENTER',
+      'FAMILY SERVICES',
+      'CHILD CARE CENTER',
+      'DAYCARE CENTER',
+      'RESCUE MISSION',
+      'RESCUE SQUAD',
+      'VOLUNTEER FIRE',
+      'FIRE DEPARTMENT',
+
+      // Health & wellness (without corporate suffixes)
+      'HEALTH CENTER',
+      'WELLNESS CENTER',
+      'MENTAL HEALTH',
+      'COUNSELING CENTER',
+
+      // Arts & culture
+      'ARTS COUNCIL',
+      'CULTURAL CENTER',
+      'MUSEUM',
+      'THEATER',
+      'THEATRE',
+      'SYMPHONY',
+      'ORCHESTRA',
+      'OPERA',
+      'BALLET',
+
+      // Historical & preservation
+      'HISTORICAL SOCIETY',
+      'HISTORIC PRESERVATION',
+      'PRESERVATION SOCIETY',
+      'HERITAGE',
+
+      // Education (non-university)
+      'PRESCHOOL',
+      'PRE-SCHOOL',
+      'LEARNING CENTER',
+      'TUTORING',
+
+      // Environmental
+      'CONSERVATION',
+      'ENVIRONMENTAL',
+      'NATURE CENTER',
+      'WILDLIFE',
+
+      // Advocacy & civic
+      'ADVOCACY',
+      'CIVIC LEAGUE',
+      'CITIZENS ASSOCIATION',
+      'NEIGHBORHOOD ASSOCIATION',
+
+      // Other common nonprofit patterns
+      'ALLIANCE',
+      'COALITION',
+      'FEDERATION',
+      'LEAGUE',
+      'ASSOCIATION' // Be careful with this one as some for-profits use it
+    ];
+
+    // Check if name contains nonprofit indicators
+    const hasNonprofitIndicator = nonprofitIndicators.some(keyword => {
+      const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      return regex.test(nameUpper);
+    });
+
+    if (hasNonprofitIndicator) {
+      return { type: 'nonprofit', label: 'Nonprofit' };
+    }
+
+    // If not verified and no clear indicators, it's unknown
     return { type: 'unknown', label: 'Unknown' };
   }, [form990Data]);
 
