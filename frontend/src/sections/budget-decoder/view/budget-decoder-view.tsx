@@ -1423,17 +1423,29 @@ export function BudgetDecoderView() {
         return classification.type === 'nonprofit';
       }).length;
 
-      const unknownCount = filtered.filter(ngo => {
+      const unknownEntities = filtered.filter(ngo => {
         const irsVerified = !!irsMatches[ngo.vendorName];
         const classification = classifyEntityType(ngo.vendorName, irsVerified);
         return classification.type === 'unknown';
-      }).length;
+      });
+      const unknownCount = unknownEntities.length;
+
+      // Debug: Check if any Unknown entities have 990 data
+      const unknownWith990 = unknownEntities.filter(ngo => {
+        const nonprofit990 = get990Data(ngo.vendorName, form990Data);
+        return nonprofit990 && nonprofit990.filings_count > 0;
+      });
 
       console.log('🔍 NGO Entity Type Breakdown (For-Profits Excluded):');
       console.log(`  Total NGO vendors: ${filtered.length}`);
       console.log(`  Nonprofit (IRS verified): ${nonprofitCount}`);
       console.log(`  Unknown: ${unknownCount}`);
+      console.log(`  Unknown entities with 990 data: ${unknownWith990.length}`);
+      if (unknownWith990.length > 0) {
+        console.log(`  ⚠️ WARNING: These Unknown entities have 990 filings:`, unknownWith990.map(ngo => ngo.vendorName));
+      }
       console.log(`  IRS matches loaded: ${Object.keys(irsMatches).length}`);
+      console.log(`  Form 990 data loaded: ${Object.keys(form990Data).length}`);
     }
 
     // Filter by red flag score
