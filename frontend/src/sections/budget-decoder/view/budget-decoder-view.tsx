@@ -2399,7 +2399,7 @@ export function BudgetDecoderView() {
                               </TableCell>
                               <TableCell align="right">
                                 <Typography variant="body2" fontWeight="medium">
-                                  {fCurrency(ngo.totalAmount)}
+                                  {fCurrency(ngo.totalAmount, { maximumFractionDigits: 0 })}
                                 </Typography>
                               </TableCell>
                               <TableCell align="center">
