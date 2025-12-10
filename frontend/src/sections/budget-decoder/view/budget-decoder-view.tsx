@@ -2359,26 +2359,31 @@ export function BudgetDecoderView() {
                                   </Box>
                                 </TableCell>
                               <TableCell align="center">
-                                {irsVerification ? (
-                                  <Tooltip title={`IRS Form 990 filing available - ${irsMatches[ngo.vendorName]?.city || 'Virginia'}`} arrow>
-                                    <CheckIcon
-                                      sx={{
-                                        color: 'success.main',
-                                        fontSize: 24,
-                                        fontWeight: 'bold'
-                                      }}
-                                    />
-                                  </Tooltip>
-                                ) : (
-                                  <Tooltip title="No IRS Form 990 filing found in database" arrow>
-                                    <CloseIcon
-                                      sx={{
-                                        color: 'error.main',
-                                        fontSize: 24
-                                      }}
-                                    />
-                                  </Tooltip>
-                                )}
+                                {(() => {
+                                  const nonprofit990 = get990Data(ngo.vendorName, form990Data);
+                                  const has990Filings = nonprofit990 && nonprofit990.filings_count > 0;
+
+                                  return has990Filings ? (
+                                    <Tooltip title="IRS Form 990 filings available" arrow>
+                                      <CheckIcon
+                                        sx={{
+                                          color: 'success.main',
+                                          fontSize: 24,
+                                          fontWeight: 'bold'
+                                        }}
+                                      />
+                                    </Tooltip>
+                                  ) : (
+                                    <Tooltip title="No IRS Form 990 filings found in database" arrow>
+                                      <CloseIcon
+                                        sx={{
+                                          color: 'error.main',
+                                          fontSize: 24
+                                        }}
+                                      />
+                                    </Tooltip>
+                                  );
+                                })()}
                               </TableCell>
                               <TableCell>
                                 <Typography
