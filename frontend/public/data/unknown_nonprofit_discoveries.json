@@ -1,0 +1,529 @@
+{
+  "checked_count": 100,
+  "discoveries_count": 35,
+  "not_found_count": 65,
+  "discoveries": [
+    {
+      "vendor_name": "nan",
+      "total_amount": 1944589481.7200007,
+      "propublica_data": {
+        "ein": 208712765,
+        "name": "Nan Foundation",
+        "city": "Southampton",
+        "state": "PA",
+        "subsection": null,
+        "ntee_code": "P60",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/208712765"
+      }
+    },
+    {
+      "vendor_name": "City of Portsmouth",
+      "total_amount": 268001866.98000002,
+      "propublica_data": {
+        "ein": 546048012,
+        "name": "Club De Porres Of The City Of Portsmouth Va",
+        "city": "Portsmouth",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": "N50",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/546048012"
+      }
+    },
+    {
+      "vendor_name": "City of Suffolk",
+      "total_amount": 185806723.13000008,
+      "propublica_data": {
+        "ein": 993813231,
+        "name": "Toastmasters International",
+        "city": "Suffolk",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/993813231"
+      }
+    },
+    {
+      "vendor_name": "Bank of America",
+      "total_amount": 154926341.7799999,
+      "propublica_data": {
+        "ein": 521917267,
+        "name": "American Association Of Bank Directors",
+        "city": "Gaithersburg",
+        "state": "MD",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/521917267"
+      }
+    },
+    {
+      "vendor_name": "City of Chesapeake",
+      "total_amount": 154086873.79000002,
+      "propublica_data": {
+        "ein": 522251952,
+        "name": "Chesapeake City Of Praise",
+        "city": "North Beach",
+        "state": "MD",
+        "subsection": null,
+        "ntee_code": "X20",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/522251952"
+      }
+    },
+    {
+      "vendor_name": "City of Petersburg",
+      "total_amount": 109459650.68,
+      "propublica_data": {
+        "ein": 593238874,
+        "name": "City Federation Of Colored Women Club Of St Petersburg Flordia Inc",
+        "city": "St Petersburg",
+        "state": "FL",
+        "subsection": null,
+        "ntee_code": "N50",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/593238874"
+      }
+    },
+    {
+      "vendor_name": "County of Dinwiddie",
+      "total_amount": 51485206.40999998,
+      "propublica_data": {
+        "ein": 472141175,
+        "name": "Dinwiddie County Chamber Of Commerce Inc",
+        "city": "Colonial Hgts",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": "S40",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/472141175"
+      }
+    },
+    {
+      "vendor_name": "CITY OF STAUNTON",
+      "total_amount": 41888704.760000005,
+      "propublica_data": {
+        "ein": 260062715,
+        "name": "American Federation Of State County & Municipal Employees",
+        "city": "Stayton",
+        "state": "OR",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/260062715"
+      }
+    },
+    {
+      "vendor_name": "City of Salem",
+      "total_amount": 41246500.870000005,
+      "propublica_data": {
+        "ein": 932801097,
+        "name": "Salem Church Of Pocomoke City",
+        "city": "Pocomoke City",
+        "state": "MD",
+        "subsection": null,
+        "ntee_code": "X20",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/932801097"
+      }
+    },
+    {
+      "vendor_name": "County of Northampton",
+      "total_amount": 38433504.99,
+      "propublica_data": {
+        "ein": 273351353,
+        "name": "Miracle League Of Northampton County",
+        "city": "Palmer",
+        "state": "PA",
+        "subsection": null,
+        "ntee_code": "N72",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/273351353"
+      }
+    },
+    {
+      "vendor_name": "County of Appomattox",
+      "total_amount": 35335875.07,
+      "propublica_data": {
+        "ein": 541446973,
+        "name": "Appomattox County Chamber Of Commerce",
+        "city": "Appomattox",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": "S41",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/541446973"
+      }
+    },
+    {
+      "vendor_name": "County of Greensville",
+      "total_amount": 32440007.760000005,
+      "propublica_data": {
+        "ein": 993247642,
+        "name": "Guardians Of Greenville County",
+        "city": "Greenville",
+        "state": "SC",
+        "subsection": null,
+        "ntee_code": "R99",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/993247642"
+      }
+    },
+    {
+      "vendor_name": "Kaiser Foundation Health Plan of The Mid",
+      "total_amount": 21931700.6,
+      "propublica_data": {
+        "ein": 520954463,
+        "name": "Kaiser Foundation Health Plan Of The Mid Atlantic States Inc",
+        "city": "Hyattsville",
+        "state": "MD",
+        "subsection": null,
+        "ntee_code": "E310",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/520954463"
+      }
+    },
+    {
+      "vendor_name": "Bon Secours Mercy Health",
+      "total_amount": 20028581.669999998,
+      "propublica_data": {
+        "ein": 521301088,
+        "name": "Bon Secours Mercy Health Inc",
+        "city": "Blue Ash",
+        "state": "OH",
+        "subsection": null,
+        "ntee_code": "E210",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/521301088"
+      }
+    },
+    {
+      "vendor_name": "County of Goochland",
+      "total_amount": 17217644.61,
+      "propublica_data": {
+        "ein": 541141172,
+        "name": "Goochland County Chamber Of Commerce",
+        "city": "Goochland",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/541141172"
+      }
+    },
+    {
+      "vendor_name": "City of Norton",
+      "total_amount": 14071617.7,
+      "propublica_data": {
+        "ein": 541589718,
+        "name": "Norfolk Naval Base & City Of Norfol Rec And Welfare Perpetual Fund Inc",
+        "city": "Norfolk",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/541589718"
+      }
+    },
+    {
+      "vendor_name": "The Bank of New York Mellon",
+      "total_amount": 12877436.56,
+      "propublica_data": {
+        "ein": 311605320,
+        "name": "The Bank Of New York Mellon Corporation Foundation",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "subsection": null,
+        "ntee_code": "T20Z",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/311605320"
+      }
+    },
+    {
+      "vendor_name": "The Bank of New York",
+      "total_amount": 8221328.99,
+      "propublica_data": {
+        "ein": 311605320,
+        "name": "The Bank Of New York Mellon Corporation Foundation",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "subsection": null,
+        "ntee_code": "T20Z",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/311605320"
+      }
+    },
+    {
+      "vendor_name": "Rappahannock Electric Cooperative",
+      "total_amount": 5982637.370000001,
+      "propublica_data": {
+        "ein": 541135340,
+        "name": "Rappahannock Electric Cooperative",
+        "city": "Fredericksbrg",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/541135340"
+      }
+    },
+    {
+      "vendor_name": "Virginia Hospital & Healthcare Associati",
+      "total_amount": 5342090.33,
+      "propublica_data": {
+        "ein": 540701665,
+        "name": "Virginia Hospital And Healthcare Association",
+        "city": "Glen Allen",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/540701665"
+      }
+    },
+    {
+      "vendor_name": "Ballad Health",
+      "total_amount": 4923206.42,
+      "propublica_data": {
+        "ein": 611771290,
+        "name": "Ballad Health",
+        "city": "Johnson City",
+        "state": "TN",
+        "subsection": null,
+        "ntee_code": "E19",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/611771290"
+      }
+    },
+    {
+      "vendor_name": "KPMG LLP",
+      "total_amount": 4895804.48,
+      "propublica_data": {
+        "ein": 746528872,
+        "name": "Kpmg Llp Health Plans Tr",
+        "city": "Montvale",
+        "state": "NJ",
+        "subsection": null,
+        "ntee_code": "Y43",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/746528872"
+      }
+    },
+    {
+      "vendor_name": "County of Bath",
+      "total_amount": 4803378.339999998,
+      "propublica_data": {
+        "ein": 541614210,
+        "name": "Bath County Chamber Of Commerce",
+        "city": "Hot Springs",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": "S40",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/541614210"
+      }
+    },
+    {
+      "vendor_name": "Washington County Service Authority",
+      "total_amount": 4530227.419999999,
+      "propublica_data": {
+        "ein": 10541892,
+        "name": "Washington County Emergency Medical Service Authority",
+        "city": "Calais",
+        "state": "ME",
+        "subsection": null,
+        "ntee_code": "E20",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/10541892"
+      }
+    },
+    {
+      "vendor_name": "Hampton University",
+      "total_amount": 4512736.83,
+      "propublica_data": {
+        "ein": 541246569,
+        "name": "Hampton University",
+        "city": "Sharon Hill",
+        "state": "PA",
+        "subsection": null,
+        "ntee_code": "B82",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/541246569"
+      }
+    },
+    {
+      "vendor_name": "International Rescue Committee",
+      "total_amount": 4248700.59,
+      "propublica_data": {
+        "ein": 135660870,
+        "name": "International Rescue Committee Inc",
+        "city": "New York",
+        "state": "NY",
+        "subsection": null,
+        "ntee_code": "Q710",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/135660870"
+      }
+    },
+    {
+      "vendor_name": "USGS",
+      "total_amount": 2504957.25,
+      "propublica_data": {
+        "ein": 334797830,
+        "name": "Usgos",
+        "city": "Alton",
+        "state": "MO",
+        "subsection": null,
+        "ntee_code": "D20",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/334797830"
+      }
+    },
+    {
+      "vendor_name": "City of Williamsburg",
+      "total_amount": 2290620.33,
+      "propublica_data": {
+        "ein": 540844073,
+        "name": "United Fund Of Greater Williamsburg & James City County Virginia Inc",
+        "city": "Williamsburg",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/540844073"
+      }
+    },
+    {
+      "vendor_name": "BANK OF AMERICA",
+      "total_amount": 2229650.96,
+      "propublica_data": {
+        "ein": 521917267,
+        "name": "American Association Of Bank Directors",
+        "city": "Gaithersburg",
+        "state": "MD",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/521917267"
+      }
+    },
+    {
+      "vendor_name": "UNITED PARCEL SERVICE",
+      "total_amount": 2034507.8199999996,
+      "propublica_data": {
+        "ein": 582046334,
+        "name": "United Parcel Service Health And Welfare Plan Tr",
+        "city": "Atlanta",
+        "state": "GA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/582046334"
+      }
+    },
+    {
+      "vendor_name": "CENTRAL VIRGINIA ELECTRIC COOPERATIVE",
+      "total_amount": 1905602.87,
+      "propublica_data": {
+        "ein": 540164798,
+        "name": "Central Virginia Electric Cooperative",
+        "city": "Lovingston",
+        "state": "VA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/540164798"
+      }
+    },
+    {
+      "vendor_name": "United States Postal Service",
+      "total_amount": 1808212.68,
+      "propublica_data": {
+        "ein": 237392342,
+        "name": "Veterans Of Foreign Wars Of The United States Dept Of Texas",
+        "city": "San Antonio",
+        "state": "TX",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/237392342"
+      }
+    },
+    {
+      "vendor_name": "McGuireWoods LLP",
+      "total_amount": 1794711.5200000005,
+      "propublica_data": {
+        "ein": 251392928,
+        "name": "Circle C Youth & Family Services C/O Gary Regan Mcguirewoods Llp",
+        "city": "Pittsburgh",
+        "state": "PA",
+        "subsection": null,
+        "ntee_code": null,
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/251392928"
+      }
+    },
+    {
+      "vendor_name": "TRANE",
+      "total_amount": 1792936.8599999999,
+      "propublica_data": {
+        "ein": 10357178,
+        "name": "Tranet",
+        "city": "Rangeley",
+        "state": "ME",
+        "subsection": null,
+        "ntee_code": "W99",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/10357178"
+      }
+    },
+    {
+      "vendor_name": "Lyrasis",
+      "total_amount": 1792301.5799999998,
+      "propublica_data": {
+        "ein": 231365979,
+        "name": "Lyrasis",
+        "city": "Atlanta",
+        "state": "GA",
+        "subsection": null,
+        "ntee_code": "B70C",
+        "propublica_url": "https://projects.propublica.org/nonprofits/organizations/231365979"
+      }
+    }
+  ],
+  "not_found": [
+    "Director of Finance Cty of Fairfax VA",
+    "City of Chesapeake Virginia",
+    "City of Hampton VA",
+    "** CONTACT AGENCY FOR MORE INFO **",
+    "City of Danville",
+    "VIRGINIA RESOURCES AUTHORITY",
+    "City of Harrisonburg VA",
+    "City of Fredericksburg",
+    "City of Charlottesville",
+    "City of Bristol Virginia",
+    "City of Radford",
+    "CITY OF ALEXANDRIA VIRGINIA SANITATION",
+    "City of Waynesboro",
+    "Virginia Tourism Authority",
+    "City of Colonial Heights VA",
+    "CGI Technologies & Solutions CGI",
+    "City of Galax",
+    "City of Franklin VA",
+    "Deloitte Consulting LLP",
+    "Nottoway County Public Schools",
+    "City of Poquoson",
+    "VIRGINIA CORRECTIONAL ENTERPRISES",
+    "Bristol Regional Improvement Commission",
+    "Sheehy Ford of Richmond",
+    "Prince Edward County Sheriff's Office",
+    "Fort Monroe Authority",
+    "Accenture LLP",
+    "Group Hospitalization and Medical Ser.",
+    "City of Lexington",
+    "County of Dinwiddie, Virginia",
+    "WEST POINT PUBLIC SCHOOLS",
+    "Lonesome Pine Office on Youth",
+    "Accenture, LLP",
+    "LYNCHBURG CITY SCHOOLS NUTRITION PROGRAM",
+    "International Game Technology",
+    "Scott County Department Social Services",
+    "CDWG Government",
+    "Sysco Hampton Roads",
+    "Wise County Public Service Authority",
+    "GPT PROPERTIES TRUST",
+    "BLACKROCK FINANCIAL MANAGEMENT",
+    "Virginia Integrated Communication",
+    "Sentry Force",
+    "Town of Glasgow",
+    "GREENS/EMPORIA SOCIAL SERVICE-TREAS",
+    "DATAMATX",
+    "UPPER OCCOQUAN SEWAGE AUTHORITY",
+    "TOWN OF CHATHAM",
+    "VIRGINIA POLYTECHNIC INSTITUTE & ST UNIV",
+    "Direct Mail Works",
+    "ESTES EXPRESS LINES",
+    "CLAREMONT TOWN TREASURER",
+    "Loudoun County Sanitation Authority",
+    "TOWN OF EXMORE",
+    "The Budd Group",
+    "Wm R Hill III",
+    "Poe & Cronk Real Estate Group",
+    "City of Emporia Virginia",
+    "Virginia Polytechnic Institute & State U",
+    "Virginia Center for Policing Innovation",
+    "National Center for Policing Innovation",
+    "C&S CONSTRUCTION & EXCAVATING",
+    "Accurate Courier Express",
+    "RR Donnelley",
+    "Environmental Systems Research Institute"
+  ]
+}

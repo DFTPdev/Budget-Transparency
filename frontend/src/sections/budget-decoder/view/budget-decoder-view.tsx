@@ -1095,7 +1095,7 @@ export function BudgetDecoderView() {
       return { type: 'nonprofit', label: 'Nonprofit' };
     }
 
-    // Check for obvious for-profit indicators
+    // Check for obvious for-profit indicators (legal entity types)
     const forProfitKeywords = [
       'LLC', 'L.L.C.', 'L L C',
       'INC.', 'INC', 'INCORPORATED',
@@ -1103,19 +1103,38 @@ export function BudgetDecoderView() {
       'COMPANY', 'CO.', 'CO ',
       'LTD', 'LIMITED',
       'LP', 'L.P.', 'L P',
+      'PLLC', 'P.L.L.C.',
+      'PC', 'P.C.',
+      'LLP', 'L.L.P.',
+      'PA', 'P.A.',
+    ];
+
+    // Check for business name patterns (strong indicators of for-profit)
+    const businessPatterns = [
+      'CONSULTING', 'CONSULTANTS',
+      'SOLUTIONS', 'SERVICES',
+      'GROUP', 'PARTNERS', 'ASSOCIATES',
+      'TECHNOLOGIES', 'TECHNOLOGY',
+      'SYSTEMS', 'SOFTWARE',
+      'ENTERPRISES', 'INDUSTRIES',
+      'HOLDINGS', 'INVESTMENTS',
+      '& SONS', '& DAUGHTERS', '& BROS',
+      'CONSTRUCTION', 'CONTRACTORS',
+      'MANAGEMENT',
       'ELECTRIC', 'GAS & ELECTRIC', 'POWER COMPANY', 'ENERGY COMPANY',
       'INSURANCE CO', 'LIFE INSURANCE', 'HEALTH INSURANCE',
       'HEALTHKEEPERS', 'CIGNA', 'AETNA', 'ANTHEM', 'OPTIMA', 'OPTIMUM',
-      'BANK ', ' BANK', 'FINANCIAL SERVICES',
-      'REALTY', 'PROPERTIES LLC', 'PROPERTIES INC',
-      'CONSTRUCTION CO', 'BUILDERS INC', 'CONTRACTORS',
-      'CONSULTING LLC', 'CONSULTANTS INC',
-      'TECHNOLOGY LLC', 'SOLUTIONS LLC', 'SERVICES LLC',
+      'BANK ', ' BANK', 'FINANCIAL SERVICES', 'FINANCIAL MANAGEMENT',
+      'REALTY', 'PROPERTIES LLC', 'PROPERTIES INC', 'REAL ESTATE',
+      'BUILDERS INC',
       'MERCK', 'PFIZER', 'PHARMACEUTICAL'
     ];
 
+    // Combine all for-profit indicators
+    const allForProfitIndicators = [...forProfitKeywords, ...businessPatterns];
+
     // Check if name contains for-profit indicators
-    const hasForProfitIndicator = forProfitKeywords.some(keyword => {
+    const hasForProfitIndicator = allForProfitIndicators.some(keyword => {
       // Use word boundary matching for better accuracy
       const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
       return regex.test(nameUpper);
@@ -1199,7 +1218,9 @@ export function BudgetDecoderView() {
     let ngoGrantVendors = 0;
     let afterExclusionVendors = 0;
     let afterAmountFilterVendors = 0;
+    let afterForProfitFilterVendors = 0;
     let vendorsOver30M: string[] = [];
+    let forProfitVendorsExcluded: string[] = [];
 
     // Aggregate and calculate red flags
     // ONLY include actual community nonprofits (not all transfer payment recipients)
@@ -1222,6 +1243,16 @@ export function BudgetDecoderView() {
         return;
       }
       afterAmountFilterVendors++;
+
+      // Filter 4: Exclude for-profit companies
+      // Check if vendor is classified as for-profit based on name patterns
+      const irsVerified = !!irsMatches[vendorName];
+      const classification = classifyEntityType(vendorName, irsVerified);
+      if (classification.type === 'for-profit') {
+        forProfitVendorsExcluded.push(`${vendorName}: $${(totalAmount / 1000000).toFixed(2)}M`);
+        return;
+      }
+      afterForProfitFilterVendors++;
 
       const paymentCount = records.length;
       const avgPayment = totalAmount / paymentCount;
@@ -1260,8 +1291,10 @@ export function BudgetDecoderView() {
     console.log(`  After Filter 1 (has NGO grant): ${ngoGrantVendors}`);
     console.log(`  After Filter 2 (exclude keywords): ${afterExclusionVendors}`);
     console.log(`  After Filter 3 (<$30M): ${afterAmountFilterVendors}`);
+    console.log(`  After Filter 4 (exclude for-profits): ${afterForProfitFilterVendors}`);
     console.log(`  Final aggregated vendors: ${aggregated.length}`);
     console.log(`  Vendors filtered out by $30M threshold (${vendorsOver30M.length}):`, vendorsOver30M);
+    console.log(`  For-profit vendors excluded (${forProfitVendorsExcluded.length}):`, forProfitVendorsExcluded);
 
     // Sort by red flag score (highest first), then by total amount
     return aggregated.sort((a, b) => {

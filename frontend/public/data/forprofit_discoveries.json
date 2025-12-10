@@ -1,0 +1,1699 @@
+{
+  "pattern_matches": [
+    {
+      "vendor_name": "CGI Technologies & Solutions CGI",
+      "total_amount": 31653591.810000002,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "VIRGINIA CORRECTIONAL ENTERPRISES",
+      "total_amount": 16100018.52,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Group Hospitalization and Medical Ser.",
+      "total_amount": 10336709.3,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "International Game Technology",
+      "total_amount": 5291775.8,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Scott County Department Social Services",
+      "total_amount": 5107225.079999999,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "BLACKROCK FINANCIAL MANAGEMENT",
+      "total_amount": 3843458.44,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The Budd Group",
+      "total_amount": 2325097.14,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Poe & Cronk Real Estate Group",
+      "total_amount": 2189018.37,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "C&S CONSTRUCTION & EXCAVATING",
+      "total_amount": 2026380.69,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Environmental Systems Research Institute",
+      "total_amount": 1752425.6899999997,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Lewis Media Partners",
+      "total_amount": 1398168.32,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Environmental Consultants & Contractors",
+      "total_amount": 1189986.0699999998,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Family Holdings LC",
+      "total_amount": 947899.04,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Integrated Solutions Consulting",
+      "total_amount": 803368.6900000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "SYNIGENT TECHNOLOGIES",
+      "total_amount": 739174.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Glave & Holmes Associates",
+      "total_amount": 716080.6399999999,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Piney Ridge Contracting & Consulting",
+      "total_amount": 687554.14,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The Canton Group",
+      "total_amount": 687357.21,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "RMT Construction & Development Group LL",
+      "total_amount": 675606.8300000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Colliers International Asset Services LL",
+      "total_amount": 537227.6900000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Virginia Association of Counties Group S",
+      "total_amount": 516199.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "SOUTH BARCROFT ASSOCIATES LC",
+      "total_amount": 488540.95,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The Marathon Group",
+      "total_amount": 405868.2,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "NEIGHBORHOOD INVESTMENTS",
+      "total_amount": 397725.13,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "GUARDIAN REALTY INVESTMENTS LLLP",
+      "total_amount": 386931.29000000004,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "EIS Office Solutions",
+      "total_amount": 382631.6500000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Commonwealth Environmental Associates",
+      "total_amount": 349484.39,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Exela Enterprise Solutions",
+      "total_amount": 334140.04,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Leger The Research Intelligence Group",
+      "total_amount": 316097.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Motorola Solutions",
+      "total_amount": 295420.79000000004,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Commonwealth Sports Group",
+      "total_amount": 256944.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "MANSOUR MANAGEMENT ASSO",
+      "total_amount": 249971.41999999998,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Impression Technology",
+      "total_amount": 246656.89,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Timmons Group",
+      "total_amount": 231014.36,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ProMiles Software Development Corporatio",
+      "total_amount": 220080.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "R & R INVESTMENTS",
+      "total_amount": 216844.27,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Institutional Shareholder Services",
+      "total_amount": 204234.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Pitney Bowes Global Financial Services",
+      "total_amount": 199500.47999999992,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Alamo City Engineering Services",
+      "total_amount": 194817.86,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "James River Solutions",
+      "total_amount": 175305.02000000002,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Cornerstone Engineering & Consulting",
+      "total_amount": 156701.67,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "EVANS LAW GROUP PLC",
+      "total_amount": 155983.24999999997,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Lionbridge Global Solutions II",
+      "total_amount": 150749.68,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Fidelity National Information Systems In",
+      "total_amount": 149214.48,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "DLT SOLUTIONS",
+      "total_amount": 149211.73,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "MEDICAL ENTERPRISES GROUP ASSOCIATES",
+      "total_amount": 144641.77000000002,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Stantec Consulting Services",
+      "total_amount": 142626.58000000002,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Bishops Services",
+      "total_amount": 141800.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "BLUE RIDGE THERAPY ASSOCIATES",
+      "total_amount": 141161.97,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Lightbeam Solutions",
+      "total_amount": 135000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "International consulting Services",
+      "total_amount": 124635.08,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "NETWORKING TECHNOLOGIES & SUPPORT",
+      "total_amount": 119522.03,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "RIVERS BEND EAST OFFICE & TECHNOLOGY CEN",
+      "total_amount": 118506.42,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Green Street Intermediate Holdings",
+      "total_amount": 115294.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Stillwater Solutions 23",
+      "total_amount": 113776.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ROBINSON LAW SERVICES",
+      "total_amount": 112186.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Psychological Services of Chesapeake",
+      "total_amount": 107860.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Holland Park Associates I",
+      "total_amount": 104287.64,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Brighton Training Group",
+      "total_amount": 102800.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "TESSCO Technologies",
+      "total_amount": 100077.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "DILE CLEANING SYSTEMS",
+      "total_amount": 97881.40000000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Clean Harbors Environmental Services",
+      "total_amount": 94969.94,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Marine Corps Community Services MCCS - 0",
+      "total_amount": 91019.04,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "GOLD ASSOCIATES",
+      "total_amount": 90060.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "WILLIAMSBURG LAW GROUP PLC",
+      "total_amount": 88354.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "GARRETT LAW GROUP PLC",
+      "total_amount": 86765.77,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "OHG Training Solutions",
+      "total_amount": 85840.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ASSOCIATED INSURANCE SYSTEMS SERVICES",
+      "total_amount": 85646.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "LONNIE L KERN & ASSOCIATES",
+      "total_amount": 84520.51,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "288 Sports Group",
+      "total_amount": 82080.04,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PLAB B PSYCHOLOGICAL SERVICES",
+      "total_amount": 81700.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Matthew Thompson Consulting Engineers In",
+      "total_amount": 80575.4,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Strata Information Group",
+      "total_amount": 79556.25,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Allied Barton Security Services",
+      "total_amount": 79020.15,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Tri-Cities Law Group",
+      "total_amount": 78190.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Mercer Investment Consulting",
+      "total_amount": 77728.64,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Commercial Business Systems",
+      "total_amount": 74180.7,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Aon Risk Services",
+      "total_amount": 74021.95,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "GALLERY SYSTEMS",
+      "total_amount": 72450.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Tandym Group LLLC",
+      "total_amount": 72385.59,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "MILLENNIUM GROUP COMMUNITY FACILITY",
+      "total_amount": 72148.36,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Gans & Pugh Associates",
+      "total_amount": 71856.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "VANGUARD INDUSTRIES EAST",
+      "total_amount": 67822.55,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Sedwick Claims Management Services",
+      "total_amount": 64625.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "THERMO-TROL SYSTEMS",
+      "total_amount": 63982.12,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "FOCUSWORKS CONSULTING GROUP",
+      "total_amount": 63757.39,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "RVA Site Services",
+      "total_amount": 61652.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The Gregg Law Group",
+      "total_amount": 61228.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Sullivan Law Group PLC",
+      "total_amount": 60235.85,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Hana Engineers and Consultants",
+      "total_amount": 59075.98,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "J Michael Consulting",
+      "total_amount": 57803.51,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Birsch Industries",
+      "total_amount": 57397.93000000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Equifax Information Services",
+      "total_amount": 56775.979999999996,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Cobble Stone Software",
+      "total_amount": 54392.05,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Commonwealths Attorneys Services Council",
+      "total_amount": 53949.729999999996,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "JAMA Enterprises",
+      "total_amount": 53811.1,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Air Duct Solutions",
+      "total_amount": 52688.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "American Public Human Services Assoc",
+      "total_amount": 52345.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "HUPPS MILL PLAZA ASSOCIATES",
+      "total_amount": 52219.11,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Central Virginia Soil Consulting",
+      "total_amount": 51392.36,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The Theo Group TTG",
+      "total_amount": 51001.6,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "CTG REALTY GROUP",
+      "total_amount": 50998.979999999996,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "21st Century Software Technologies",
+      "total_amount": 49887.19,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Health Management Associates",
+      "total_amount": 49256.22,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "SIGNATURE AVIATION US HOLDINGS",
+      "total_amount": 49115.82,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Resource Recycling Systems",
+      "total_amount": 48670.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Lantagne Duplicating Services",
+      "total_amount": 47201.41,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "INTERPRETING AND TRANSLATION SERVICES",
+      "total_amount": 46945.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Collaborative Testing Services",
+      "total_amount": 46415.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ESCAL INSTITUTE OF ADVANCED TECHNOLOGIES",
+      "total_amount": 45026.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "A G A S Manufacturing Group",
+      "total_amount": 45003.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Alan Newman Associates",
+      "total_amount": 43900.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Mackenzie Enterprises",
+      "total_amount": 43498.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "FREEDOM PROPERTY MANAGEMENT AND SALES",
+      "total_amount": 43140.41,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "EMC MECHANICAL SERVICES",
+      "total_amount": 42109.25,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Central VA Waste Management Authority",
+      "total_amount": 41863.14,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Communications-Applied Technology",
+      "total_amount": 40675.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Pratt Industries - Virginia Box",
+      "total_amount": 39150.3,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Mutual Telecommunications Services",
+      "total_amount": 39093.13,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "VIRGINIA EMERGENCY MANAGEMENT ASSOCIATIO",
+      "total_amount": 38585.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Handle With Care Behavior Management Sys",
+      "total_amount": 37651.25,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Premium Power Systems",
+      "total_amount": 37342.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Baker Tilly Advisory Group Parent",
+      "total_amount": 35240.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Security Alarm Systems USA",
+      "total_amount": 34375.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "F.H. Paschen, S.N. Nielson & Associates",
+      "total_amount": 34200.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The iMoreno Group PLC",
+      "total_amount": 34079.44,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Incident Communication Solutions",
+      "total_amount": 33590.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "E & F ELEVATOR INSPECTIONS & CONSULTING",
+      "total_amount": 32582.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Clinical & Forensic Associates",
+      "total_amount": 32299.15,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Seattle Technology Group",
+      "total_amount": 32026.25,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Hope Enterprises Spurgeon Interpreting",
+      "total_amount": 31988.32,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "UNIVERSITY PARK LEGAL NURSE CONSULTING",
+      "total_amount": 30081.25,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Trapeze Software Group",
+      "total_amount": 29855.95,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Washington Headquarters Services",
+      "total_amount": 27770.13,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "More Music Group",
+      "total_amount": 27700.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Stearns Conrad & Schmidt Consulting En",
+      "total_amount": 27357.29,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PF II Holdings",
+      "total_amount": 25859.590000000004,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "LGD Partners",
+      "total_amount": 24750.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Professional Innovative Solutions",
+      "total_amount": 24453.99,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "A-Z PROFESSIONAL CLEANING SERVICES",
+      "total_amount": 24440.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Barber Property Management",
+      "total_amount": 24091.28,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Impact Paradigm Associates",
+      "total_amount": 23859.77,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Strategic Compensation Solutions",
+      "total_amount": 23500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "DOUGLAS A WARD & RONALD C WARD PARTNERS",
+      "total_amount": 23341.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Agile Sports Technologies",
+      "total_amount": 22450.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "NEUROPSYCHLOGICAL ASSOCIATES OF WINCHEST",
+      "total_amount": 22275.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Matthew J Thompson Consulting Engineers",
+      "total_amount": 22050.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Advanced Business Software Consulting",
+      "total_amount": 22035.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "DB SOFTWARE",
+      "total_amount": 22000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "BANKS AND ASSOCIATES",
+      "total_amount": 21967.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "A G REESE & ASSOCIATES P C",
+      "total_amount": 21927.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Payer Construction",
+      "total_amount": 21849.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "JonesandJones Cleaning Solutions of VA",
+      "total_amount": 21775.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Adrian Builders Group",
+      "total_amount": 21467.88,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ABA Enviromental  and Emergency Services",
+      "total_amount": 20782.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "1 Advanced Enterprises",
+      "total_amount": 20754.19,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "HEALTHCARE REALTY HOLDINGS, L.P.",
+      "total_amount": 20499.829999999998,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Environmental Resource Associates",
+      "total_amount": 20063.21,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "DONEGAL INSURANCE GROUP A/S/O",
+      "total_amount": 19798.12,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Longevity Holdings",
+      "total_amount": 19386.34,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PULASKI COUNTY SOCIAL SERVICES",
+      "total_amount": 19109.56,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Teel Technologies",
+      "total_amount": 19055.65,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "JRC Services",
+      "total_amount": 19009.16,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Mirion Technologies",
+      "total_amount": 18585.12,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "TenFiveSix Consulting",
+      "total_amount": 18156.67,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Professional Psychological Services",
+      "total_amount": 17850.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "LAF Consulting Services",
+      "total_amount": 17774.86,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Gotham Artists Talent Services",
+      "total_amount": 17500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "CONGRESSIONAL VILLAGE ASSOCIATES",
+      "total_amount": 17425.12,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Kay & Jay Enterprises",
+      "total_amount": 17336.29,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Richmond Commercial Services",
+      "total_amount": 17057.3,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "EA Engineering Science & Technology",
+      "total_amount": 16900.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Simar Enterprises",
+      "total_amount": 16393.63,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "White Whale Web Services",
+      "total_amount": 16240.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Virginia League of Social Services Exec",
+      "total_amount": 16000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "FORESTWOOD PARTNERS II",
+      "total_amount": 15451.76,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Organic Standard Solutions International",
+      "total_amount": 15065.43,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Partnership of Office Services",
+      "total_amount": 15000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Decision Point Partners",
+      "total_amount": 14900.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "International Responder Systems",
+      "total_amount": 14700.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "United Site Services of Maryland",
+      "total_amount": 14549.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Companion Data Services",
+      "total_amount": 14371.279999999999,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ERIE INSURANCE GROUP A/S/O FREDA",
+      "total_amount": 14134.51,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The Johnson Law Group PLC",
+      "total_amount": 13865.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "California Institute of Technology",
+      "total_amount": 12714.04,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Fireside Enterprises",
+      "total_amount": 12500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Bravo Consulting Group",
+      "total_amount": 11921.25,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "HEALTHCARE REALTY HOLDINGS",
+      "total_amount": 11614.88,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Maquette Fine Art Services",
+      "total_amount": 11600.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Ennas Technology Systems Intergration",
+      "total_amount": 11416.11,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "JIM WILLIAMS & ASSOCIATES",
+      "total_amount": 10820.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Pepsi Bottling Group EVA",
+      "total_amount": 10502.95,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Enterprise Group A Weyerhaeuser Business",
+      "total_amount": 10500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "TriTech Software Systems",
+      "total_amount": 10470.23,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Data Network Solutions",
+      "total_amount": 10400.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Chad Aarons Consulting",
+      "total_amount": 10400.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "The Estevez Group",
+      "total_amount": 10320.01,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "FACTS Education Solutions",
+      "total_amount": 10066.58,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Themis Forensic Psychological Services",
+      "total_amount": 10000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Applied Technology Services",
+      "total_amount": 9945.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Kay Sohl Consulting",
+      "total_amount": 9900.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "KIMAGES WHARF ASSOCIATES LC",
+      "total_amount": 9500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "KEYSTONE FOREST INVESTMENTS",
+      "total_amount": 9405.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Mendoza Media Services",
+      "total_amount": 9174.73,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Clinical & Forensic Consulting P L C",
+      "total_amount": 9065.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Mullen Consulting Services L",
+      "total_amount": 9000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Carlis Psychological Services",
+      "total_amount": 9000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Spry Payment Systems",
+      "total_amount": 9000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "SYCOM TECHNOLOGIES",
+      "total_amount": 8810.37,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "connected solutions group",
+      "total_amount": 8651.619999999999,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Measurement Technology Laboratories",
+      "total_amount": 8406.85,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Maximum Environmental Services",
+      "total_amount": 8320.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "VIRGINIA DISPUTE SOLUTIONS",
+      "total_amount": 8084.699999999999,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Chico State Enterprises",
+      "total_amount": 8000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Cox Matthews & Associates",
+      "total_amount": 7850.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Graphic Information Services",
+      "total_amount": 7834.6,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Manufacturing Automation & Software Syst",
+      "total_amount": 7800.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "National Emergency Management Associatio",
+      "total_amount": 7725.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Compliance Directive Solutions",
+      "total_amount": 7665.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ALTERNATIVE CLAIMS MANAGEMENT A S O",
+      "total_amount": 7358.18,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "THE MYERSON LAW GROUP",
+      "total_amount": 7350.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Sterile Solutions",
+      "total_amount": 7245.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "MedSupply Partners",
+      "total_amount": 6813.460000000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "LEADERSHIP DEVELOPMENT GROUP",
+      "total_amount": 6625.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ICF CONSULTING GROUP",
+      "total_amount": 6601.15,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "AAE Holdings",
+      "total_amount": 6500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "B.I.R.D. Media Enterprises",
+      "total_amount": 6500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Murry, Smith and Associates",
+      "total_amount": 6500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Mixed Reality Systems",
+      "total_amount": 6050.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ECPI College of Technology",
+      "total_amount": 6000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Virginia Construction Solutions",
+      "total_amount": 5824.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "National Center for Construction Educati",
+      "total_amount": 5784.25,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Learning Technologies Group",
+      "total_amount": 5750.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Applied Digital Solutions",
+      "total_amount": 5744.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ProSeal Services",
+      "total_amount": 5725.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Stanley Convergent Security Solutions I",
+      "total_amount": 5470.13,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "DF DRUMMOND ENTERPRISES",
+      "total_amount": 5400.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "DAN MILLER & ASSOCIATES",
+      "total_amount": 5047.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "TBC Associates",
+      "total_amount": 4933.2,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Stoker Construction",
+      "total_amount": 4875.03,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Precision Trial Solutions",
+      "total_amount": 4828.35,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Caroline County Investments",
+      "total_amount": 4560.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "MONROE PARK ASSOCIATES",
+      "total_amount": 4486.96,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "MARK B WILLIAMS & ASSOCIATES PLC",
+      "total_amount": 4470.389999999999,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "National Assoc State Comm Services Prog",
+      "total_amount": 4322.91,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Falling Creek Environmental Group",
+      "total_amount": 4282.68,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PEMBELTON INVESTMENTS LC",
+      "total_amount": 3825.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "HPS Group Holdings I L P",
+      "total_amount": 3800.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ERIE INSURANCE GROUP A/S/O HESTER",
+      "total_amount": 3759.02,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ROC Software Systems",
+      "total_amount": 3721.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Harrison Therapy & Educational Services",
+      "total_amount": 3549.69,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Kudzai Consulting Group",
+      "total_amount": 3500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "CAMPBELL COUNTY SOCIAL SERVICES",
+      "total_amount": 3383.41,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "WEAVER LAW SERVICES",
+      "total_amount": 3318.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ATKINS TIMBER HOLDINGS",
+      "total_amount": 3150.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Advanced Covert Technology",
+      "total_amount": 3135.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "GOVERNMENT TACTICAL SOLUTIONS",
+      "total_amount": 3000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PureWater Solutions of VA",
+      "total_amount": 2987.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PPT Holdings I",
+      "total_amount": 2973.55,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Harris Industries",
+      "total_amount": 2945.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Rubina Interpretation Services",
+      "total_amount": 2870.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Curtis M Rogers & Associates",
+      "total_amount": 2809.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Broyles and Associates P.C.",
+      "total_amount": 2747.17,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "MID-ATLANTIC ASSOC FOR COURT MANAGEMENT",
+      "total_amount": 2725.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Zapata Clinical & Forensic Consulting",
+      "total_amount": 2700.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Growing Perspectives Career Consulting",
+      "total_amount": 2675.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Atlantic Emergency Solutions",
+      "total_amount": 2625.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Publishers Service Associates",
+      "total_amount": 2369.58,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Wright Express Financial Services Corpor",
+      "total_amount": 2319.94,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Avid Technology",
+      "total_amount": 2300.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PLASTICS FAMILY HOLDINGS",
+      "total_amount": 2263.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Final Phase Construction L T D",
+      "total_amount": 2240.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "AYRSHIRE FARM MANAGEMENT",
+      "total_amount": 2025.69,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Aalis Management Consulting",
+      "total_amount": 2000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "KAPS Solutions",
+      "total_amount": 2000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Wellmont Health Systems",
+      "total_amount": 1982.1100000000001,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "GeoWGS84 Geospatial Solutions",
+      "total_amount": 1940.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Cenmed Enterprises",
+      "total_amount": 1822.02,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "LUNDQUIST ASSOCIATES INTEGRATED SYSTEMS",
+      "total_amount": 1764.19,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Manifest in You Consulting",
+      "total_amount": 1750.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Bug Busters Pest Control Services",
+      "total_amount": 1738.6799999999998,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "GILLETTE LAW GROUP",
+      "total_amount": 1630.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ERIE INS GROUP A/S/F/ PHILLIP MARTIN",
+      "total_amount": 1589.18,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "BioFront Technologies",
+      "total_amount": 1575.9,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Greenwood Law Group",
+      "total_amount": 1534.16,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Cumberland Mountain Community Services",
+      "total_amount": 1500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "EXECUTIVE HOUSING CONSULTANTS",
+      "total_amount": 1500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Beechtree Group",
+      "total_amount": 1440.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "South Carolina Telecommunications Group",
+      "total_amount": 1401.63,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "D Stafford & Associates",
+      "total_amount": 1400.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Partners in Healthcare",
+      "total_amount": 1350.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Lichtenstein Law Group PLC",
+      "total_amount": 1320.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Allied Instructional Services",
+      "total_amount": 1320.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Green State Enterprises",
+      "total_amount": 1300.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Holbrook Reporting Services",
+      "total_amount": 1270.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "RUSSELL INVESTMENT GROUP",
+      "total_amount": 1250.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Cell Signaling Technology",
+      "total_amount": 1245.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "VIRCHOW CONSULTING",
+      "total_amount": 1225.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Language Line Services",
+      "total_amount": 1105.42,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Laboratory Technical Services",
+      "total_amount": 1079.76,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Grateful Grouse Holdings",
+      "total_amount": 1064.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "HEALTHCARE SYSTEMS FEDERAL CREDIT UNION",
+      "total_amount": 1000.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Maxey & Associates P C",
+      "total_amount": 907.5,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Botanical Landscape Management",
+      "total_amount": 900.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Commonwealth Commercial Construction",
+      "total_amount": 886.65,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Simon Property Group",
+      "total_amount": 875.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Patrick Henry Family Services Operations",
+      "total_amount": 850.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Lanthorn Construction and Plumbing",
+      "total_amount": 825.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Partners Too of Virginia",
+      "total_amount": 825.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Information Systems Audit and Control As",
+      "total_amount": 770.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "WB Waste Solutions",
+      "total_amount": 770.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "TPS Systems",
+      "total_amount": 752.6,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "TAC Solutions",
+      "total_amount": 750.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Column Software PBC",
+      "total_amount": 729.72,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Decision Insight Information Group US In",
+      "total_amount": 688.2,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Central Elevator Inspection Services II",
+      "total_amount": 595.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "King George Social Services",
+      "total_amount": 500.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Sempergreen Contract Services",
+      "total_amount": 490.02,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "EXCEL MEDIATION SERVICES",
+      "total_amount": 480.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ADVANCE IT & LANGUAGE SOLUTIONS",
+      "total_amount": 400.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Belew Enterprises",
+      "total_amount": 312.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Commonwealth Spectrum Management Service",
+      "total_amount": 300.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Advanced Fueling Systems",
+      "total_amount": 278.4,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Momentive Software",
+      "total_amount": 249.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Henry-Martinsville Social Services",
+      "total_amount": 230.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Rare Language Services",
+      "total_amount": 210.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Whitneys Court Reporting & Consulting",
+      "total_amount": 200.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "VA Powerschool Users Group",
+      "total_amount": 200.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "OOBE Apparel Design Group",
+      "total_amount": 193.05,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "ABINGDON PHYSICAN PARTNERS",
+      "total_amount": 175.96,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Museum Associates",
+      "total_amount": 175.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Virginia Biotechnology Research Partners",
+      "total_amount": 150.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Sandag Solutions",
+      "total_amount": 150.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Project Management Institute",
+      "total_amount": 150.0,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "PATHOLOGY ASSOCIATES OF SW VA",
+      "total_amount": 140.6,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Propio Language Services",
+      "total_amount": 70.12,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "BRISTOL TENNESSEE ESSENTIAL SERVICES",
+      "total_amount": 39.77,
+      "has_business_pattern": true
+    },
+    {
+      "vendor_name": "Partners in Aging",
+      "total_amount": 25.0,
+      "has_business_pattern": true
+    }
+  ],
+  "pattern_matches_count": 338,
+  "pattern_matches_spending": 103492638.73,
+  "sam_discoveries": [],
+  "sam_discoveries_count": 0,
+  "sam_checked_count": 50
+}
