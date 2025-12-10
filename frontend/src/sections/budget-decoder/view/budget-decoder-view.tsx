@@ -36,10 +36,13 @@ import FlagIcon from '@mui/icons-material/Flag';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WarningIcon from '@mui/icons-material/Warning';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import DescriptionIcon from '@mui/icons-material/Description';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
 import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, loadAgencyBudgets, loadProgramBudgets, loadTransferPayments, type ProgramRollup, type VendorRecord, type AgencyBudget, type ProgramBudget, type TransferPaymentRecord } from 'src/lib/decoderDataLoader';
 import { loadVendorIRSMatches, getVerificationBadge, getVerificationTooltip, type VendorIRSMatches, type IRSNonprofit } from 'src/lib/irsVerification';
+import { loadForm990Data, get990Data, getFormTypeLabel, type Form990DataMap, type Nonprofit990Data } from 'src/lib/form990Data';
 
 import { varFade, MotionViewport } from 'src/components/animate';
 import { Scrollbar } from 'src/components/scrollbar';
@@ -604,6 +607,9 @@ export function BudgetDecoderView() {
   // IRS verification data
   const [irsMatches, setIrsMatches] = useState<VendorIRSMatches>({});
 
+  // Form 990 filing data
+  const [form990Data, setForm990Data] = useState<Form990DataMap>({});
+
   // Drill-down state for vendor expansion
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
   const [vendorDataCache, setVendorDataCache] = useState<Record<string, VendorRecord[]>>({});
@@ -638,14 +644,15 @@ export function BudgetDecoderView() {
         const fiscalYear = filterFiscalYear ? parseInt(filterFiscalYear) : 2025;
         console.log('🔄 Using fiscal year:', fiscalYear);
 
-        const [rollups, vendors, districts, agencies, programs, transfers, irsData] = await Promise.all([
+        const [rollups, vendors, districts, agencies, programs, transfers, irsData, form990] = await Promise.all([
           loadProgramRollups(),
           loadVendorRecords(),
           fetch('/data/budget_by_district_2025.json').then(r => r.json()).catch(() => null),
           loadAgencyBudgets(fiscalYear),
           loadProgramBudgets(fiscalYear),
           loadTransferPayments(),
-          loadVendorIRSMatches()
+          loadVendorIRSMatches(),
+          loadForm990Data()
         ]);
 
         console.log('✅ Loaded rollup data:', rollups.length, 'programs');
@@ -654,6 +661,7 @@ export function BudgetDecoderView() {
         console.log('✅ Loaded program data:', programs.length, 'programs');
         console.log('✅ Loaded transfer payments:', transfers.length, 'records');
         console.log('✅ Loaded IRS verification data:', Object.keys(irsData).length, 'verified nonprofits');
+        console.log('✅ Loaded Form 990 data:', Object.keys(form990).length, 'nonprofits with 990 filings');
 
         setRollupData(rollups);
         setVendorData(vendors);
@@ -661,6 +669,7 @@ export function BudgetDecoderView() {
         setProgramData(programs);
         setTransferPayments(transfers);
         setIrsMatches(irsData);
+        setForm990Data(form990);
 
         // Create flat table with all agencies and programs
         console.log('🔄 Creating flat table...');
@@ -2372,6 +2381,65 @@ export function BudgetDecoderView() {
                                               No red flags detected
                                             </Typography>
                                           )}
+                                        </Card>
+                                      </Grid>
+
+                                      {/* Form 990 Filings Section */}
+                                      <Grid item xs={12}>
+                                        <Card sx={{ p: 2 }}>
+                                          <Typography variant="subtitle2" gutterBottom>
+                                            IRS Form 990 Filings
+                                          </Typography>
+                                          {(() => {
+                                            const nonprofit990 = get990Data(ngo.recipient, form990Data);
+
+                                            if (nonprofit990 && nonprofit990.filings_count > 0) {
+                                              return (
+                                                <Box>
+                                                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 1.5 }}>
+                                                    {nonprofit990.filings.map((filing, idx) => (
+                                                      <Button
+                                                        key={idx}
+                                                        variant="outlined"
+                                                        size="small"
+                                                        startIcon={<DescriptionIcon />}
+                                                        href={filing.pdf_url || nonprofit990.propublica_url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        disabled={!filing.pdf_url}
+                                                        sx={{
+                                                          textTransform: 'none',
+                                                          fontSize: '0.875rem',
+                                                        }}
+                                                      >
+                                                        Form {getFormTypeLabel(filing.form_type)} - {filing.tax_year}
+                                                      </Button>
+                                                    ))}
+                                                  </Box>
+                                                  <Button
+                                                    variant="text"
+                                                    size="small"
+                                                    href={nonprofit990.propublica_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    endIcon={<OpenInNewIcon />}
+                                                    sx={{
+                                                      textTransform: 'none',
+                                                      fontSize: '0.75rem',
+                                                    }}
+                                                  >
+                                                    View all filings on ProPublica
+                                                  </Button>
+                                                </Box>
+                                              );
+                                            }
+
+                                            return (
+                                              <Typography variant="body2" color="text.secondary">
+                                                No 990 forms available
+                                              </Typography>
+                                            );
+                                          })()}
                                         </Card>
                                       </Grid>
                                     </Grid>
