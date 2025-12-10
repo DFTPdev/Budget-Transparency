@@ -78,7 +78,7 @@ export function HomeView() {
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Grid container spacing={6} alignItems="center">
           {/* Left Column - Text Content */}
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Stack spacing={6} sx={{ textAlign: { xs: 'center', md: 'left' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
               <m.div variants={varFade('inUp')}>
                 <Typography
@@ -171,20 +171,33 @@ export function HomeView() {
           </Grid>
 
           {/* Right Column - DFTP Image */}
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <m.div variants={varFade('inRight', 0.3)}>
               <Box
-                component="img"
-                src="/assets/images/home/dftp-hero.png"
-                alt="Don't Fuck The People"
                 sx={{
                   width: '100%',
                   maxWidth: 500,
                   height: 'auto',
                   mx: 'auto',
-                  display: 'block',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: 400,
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src="/assets/images/home/dftp-logo.png"
+                  alt="Don't Fuck The People"
+                  onError={(e: any) => {
+                    e.target.style.display = 'none';
+                  }}
+                  sx={{
+                    width: '100%',
+                    height: 'auto',
+                  }}
+                />
+              </Box>
             </m.div>
           </Grid>
         </Grid>
