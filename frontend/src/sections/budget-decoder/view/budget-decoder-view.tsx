@@ -2391,7 +2391,7 @@ export function BudgetDecoderView() {
                                             IRS Form 990 Filings
                                           </Typography>
                                           {(() => {
-                                            const nonprofit990 = get990Data(ngo.recipient, form990Data);
+                                            const nonprofit990 = get990Data(ngo.vendorName, form990Data);
 
                                             if (nonprofit990 && nonprofit990.filings_count > 0) {
                                               return (
