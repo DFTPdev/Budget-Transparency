@@ -38,6 +38,8 @@ import WarningIcon from '@mui/icons-material/Warning';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import DescriptionIcon from '@mui/icons-material/Description';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
 import { loadProgramRollups, loadVendorRecords, filterVendorsByProgram, loadAgencyBudgets, loadProgramBudgets, loadTransferPayments, type ProgramRollup, type VendorRecord, type AgencyBudget, type ProgramBudget, type TransferPaymentRecord } from 'src/lib/decoderDataLoader';
@@ -2244,7 +2246,7 @@ export function BudgetDecoderView() {
                             direction={ngoOrderBy === 'irsStatus' ? ngoOrder : 'asc'}
                             onClick={() => handleNgoSort('irsStatus')}
                           >
-                            IRS Status
+                            990
                           </TableSortLabel>
                         </TableCell>
                         <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
@@ -2357,29 +2359,21 @@ export function BudgetDecoderView() {
                                   </Box>
                                 </TableCell>
                               <TableCell align="center">
-                                {entityClassification.type === 'nonprofit' ? (
-                                  <Tooltip title={verificationTooltip} arrow>
-                                    <CheckCircleIcon
+                                {irsVerified ? (
+                                  <Tooltip title={`IRS Form 990 filing available - ${irsMatches[ngo.vendorName]?.city || 'Virginia'}`} arrow>
+                                    <CheckIcon
                                       sx={{
                                         color: 'success.main',
-                                        fontSize: 24
-                                      }}
-                                    />
-                                  </Tooltip>
-                                ) : entityClassification.type === 'for-profit' ? (
-                                  <Tooltip title="For-profit company - not a 501(c)(3) nonprofit" arrow>
-                                    <WarningIcon
-                                      sx={{
-                                        color: 'warning.main',
-                                        fontSize: 24
+                                        fontSize: 24,
+                                        fontWeight: 'bold'
                                       }}
                                     />
                                   </Tooltip>
                                 ) : (
-                                  <Tooltip title="Unable to verify nonprofit status - may be a nonprofit not in IRS database or misclassified by state" arrow>
-                                    <HelpOutlineIcon
+                                  <Tooltip title="No IRS Form 990 filing found in database" arrow>
+                                    <CloseIcon
                                       sx={{
-                                        color: 'text.secondary',
+                                        color: 'error.main',
                                         fontSize: 24
                                       }}
                                     />
