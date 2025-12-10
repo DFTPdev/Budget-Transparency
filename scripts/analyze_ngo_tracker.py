@@ -75,6 +75,7 @@ def should_exclude_from_ngo(vendor_name: str) -> bool:
         'REDEVELOPMENT', 'HOUSING AUTHORITY', 'REDEVELOPMENT AND HOUSING',
         'PLANNING DISTRICT', 'PLANNING DISTR', 'PDC',
         'ECONOMIC DEVELOPMENT', 'INDUSTRIAL DEVELOPMENT', 'WORKFORCE DEVELOPMENT',
+        'INDUSTRIAL',
         'TOURISM AUTHORITY', 'TOURISM',
         'RAIL AUTHORITY', 'COMMERCIAL SPACE',
         'FORT MONROE AUTHORITY', 'INNOVATION AND ENTREPRENEUR',
@@ -120,9 +121,19 @@ def should_exclude_from_ngo(vendor_name: str) -> bool:
 
         # Regional/District Entities
         'REGIONAL', 'DISTRICT OF', 'GOVERNMENTAL COOPERATIVE',
+        'WATERSHED DISTRICT', 'SCHOOL DISTRICT',
+        'PLANNING DISTRICT COMM', 'GOVERNMENTAL DISTRICT',
+        'JUDICIAL DISTRICT',
+
+        # Councils (specific types)
+        'GRAINS COUNCIL', 'EGG COUNCIL', 'BEEF COUNCIL', 'HORSE COUNCIL',
+        'REGIONAL COUNCIL',
 
         # Hospitals and Healthcare Systems
         'HOSPITAL', 'MEDICAL CENTER', 'HEALTH SYSTEM',
+
+        # Centers (government-run or large institutions)
+        'SPACE CENTER', 'AIR & SPACE',
 
         # Large Foundations (not community nonprofits)
         'VIRGINIA EARLY CHILDHOOD FOUNDATION',
@@ -147,6 +158,7 @@ def should_exclude_from_ngo(vendor_name: str) -> bool:
         'DETAILED DATA NOT YET AVAILABLE',
         'MISCELLANEOUS ADJUSTMENT',
         'HUNTINGTON INGALLS',
+        'HITACHI',
         'BOARD OF CONTROL',
         'CITY SCHOOLS', 'TOWN SCHOOLS'
     ]

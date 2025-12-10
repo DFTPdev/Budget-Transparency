@@ -1167,6 +1167,7 @@ export function BudgetDecoderView() {
       'REDEVELOPMENT', 'HOUSING AUTHORITY', 'REDEVELOPMENT AND HOUSING',
       'PLANNING DISTRICT', 'PLANNING DISTR', 'PDC',
       'ECONOMIC DEVELOPMENT', 'INDUSTRIAL DEVELOPMENT', 'WORKFORCE DEVELOPMENT',
+      'INDUSTRIAL',  // Catches "REG. INDUSTRIAL", "REGIONAL INDUSTRIAL"
       'TOURISM AUTHORITY', 'TOURISM',
       'RAIL AUTHORITY', 'COMMERCIAL SPACE',
       'FORT MONROE AUTHORITY', 'INNOVATION AND ENTREPRENEUR',
@@ -1212,9 +1213,19 @@ export function BudgetDecoderView() {
 
       // Regional/District Entities
       'REGIONAL', 'DISTRICT OF', 'GOVERNMENTAL COOPERATIVE',
+      'WATERSHED DISTRICT', 'SCHOOL DISTRICT',
+      'PLANNING DISTRICT COMM', 'GOVERNMENTAL DISTRICT',
+      'JUDICIAL DISTRICT',
+
+      // Councils (specific types - not all councils)
+      'GRAINS COUNCIL', 'EGG COUNCIL', 'BEEF COUNCIL', 'HORSE COUNCIL',
+      'REGIONAL COUNCIL',
 
       // Hospitals and Healthcare Systems
       'HOSPITAL', 'MEDICAL CENTER', 'HEALTH SYSTEM',
+
+      // Centers (often government-run or large institutions)
+      'SPACE CENTER', 'AIR & SPACE',
 
       // Large Foundations (not community nonprofits)
       'VIRGINIA EARLY CHILDHOOD FOUNDATION',
@@ -1239,6 +1250,7 @@ export function BudgetDecoderView() {
       'DETAILED DATA NOT YET AVAILABLE',
       'MISCELLANEOUS ADJUSTMENT',
       'HUNTINGTON INGALLS',  // Defense contractor
+      'HITACHI',  // Energy/technology company
       'BOARD OF CONTROL',
       'CITY SCHOOLS', 'TOWN SCHOOLS'  // Local government schools
     ];
