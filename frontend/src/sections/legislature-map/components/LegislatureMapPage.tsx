@@ -179,7 +179,7 @@ export function LegislatureMapPage({ mapboxToken }: LegislatureMapPageProps) {
         {/* Header */}
         <Box>
           <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
-            Virginia Legislature Map
+            Legislator Spotlight Map
           </Typography>
           <Typography variant="body1" color="textSecondary">
             Find your representatives in the Virginia House of Delegates and Senate
