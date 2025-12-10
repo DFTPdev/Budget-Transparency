@@ -68,146 +68,126 @@ export function HomeView() {
       sx={{
         py: { xs: 10, md: 15 },
         position: 'relative',
-        background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.08)} 0%, ${alpha(theme.palette.secondary.main, 0.08)} 100%)`,
+        background: '#012767',
         overflow: 'hidden',
         minHeight: { xs: 'auto', md: '80vh' },
         display: 'flex',
         alignItems: 'center',
       }}
     >
-      {/* Enhanced Background Pattern */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          opacity: 0.04,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='70' cy='10' r='2'/%3E%3Ccircle cx='10' cy='70' r='2'/%3E%3Ccircle cx='70' cy='70' r='2'/%3E%3Ccircle cx='40' cy='40' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '80px 80px',
-        }}
-      />
-
-      {/* Decorative shapes */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '10%',
-          left: '5%',
-          width: 100,
-          height: 100,
-          borderRadius: '50%',
-          background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)}, transparent)`,
-          filter: 'blur(40px)',
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '15%',
-          right: '8%',
-          width: 120,
-          height: 120,
-          borderRadius: '50%',
-          background: `linear-gradient(135deg, ${alpha(theme.palette.secondary.main, 0.1)}, transparent)`,
-          filter: 'blur(50px)',
-        }}
-      />
-
-      {/* Floating decorative elements */}
-      <FloatPlusIcon sx={{ top: '20%', left: '15%', color: 'primary.main', opacity: 0.3 }} />
-      <FloatPlusIcon sx={{ bottom: '25%', right: '20%', color: 'secondary.main', opacity: 0.3 }} />
-      <FloatDotIcon sx={{ top: '30%', right: '10%', color: 'info.main', opacity: 0.4 }} />
-      <FloatDotIcon sx={{ bottom: '35%', left: '12%', color: 'warning.main', opacity: 0.4 }} />
-
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <Stack spacing={6} sx={{ textAlign: { xs: 'center', md: 'left' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
-          <m.div variants={varFade('inUp')}>
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: '2.8rem', md: '4rem', lg: '4.5rem' },
-                fontWeight: 800,
-                background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                mb: 2,
-                lineHeight: 1.1,
-              }}
-            >
-              See where Virginia's money goes.
-            </Typography>
-          </m.div>
+        <Grid container spacing={6} alignItems="center">
+          {/* Left Column - Text Content */}
+          <Grid item xs={12} md={7}>
+            <Stack spacing={6} sx={{ textAlign: { xs: 'center', md: 'left' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
+              <m.div variants={varFade('inUp')}>
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontSize: { xs: '2.8rem', md: '4rem', lg: '4.5rem' },
+                    fontWeight: 800,
+                    color: '#ffffff',
+                    mb: 2,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  See where Virginia's money goes.
+                </Typography>
+              </m.div>
 
-          <m.div variants={varFade('inUp', 0.1)}>
-            <Typography
-              variant="h5"
-              sx={{
-                color: 'text.secondary',
-                fontWeight: 400,
-                maxWidth: 700,
-                lineHeight: 1.6,
-                fontSize: { xs: '1.15rem', md: '1.35rem' },
-              }}
-            >
-              Budgets shouldn't be a black box. We translate state budget jargon into plain language and visuals so anyone can follow the money.
-            </Typography>
-          </m.div>
+              <m.div variants={varFade('inUp', 0.1)}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: alpha('#ffffff', 0.9),
+                    fontWeight: 400,
+                    maxWidth: 700,
+                    lineHeight: 1.6,
+                    fontSize: { xs: '1.15rem', md: '1.35rem' },
+                  }}
+                >
+                  Budgets shouldn't be a black box. We translate state budget jargon into plain language and visuals so anyone can follow the money.
+                </Typography>
+              </m.div>
 
-          <m.div variants={varFade('inUp', 0.2)}>
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              spacing={3}
-              sx={{ mt: 4 }}
-            >
-              <Button
-                variant="contained"
-                size="large"
-                href="/budget-decoder"
-                startIcon={<Iconify icon="solar:chart-bold" />}
-                sx={{
-                  px: 5,
-                  py: 2,
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  boxShadow: theme.shadows[8],
-                  '&:hover': {
-                    boxShadow: theme.shadows[12],
-                    transform: 'translateY(-2px)',
-                  },
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                Explore the Budget
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
-                href="/spotlight-map"
-                startIcon={<Iconify icon="solar:map-point-bold" />}
-                sx={{
-                  px: 5,
-                  py: 2,
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  borderWidth: 2,
-                  '&:hover': {
-                    borderWidth: 2,
-                    transform: 'translateY(-2px)',
-                    backgroundColor: alpha(theme.palette.primary.main, 0.04),
-                  },
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                See the Map
-              </Button>
+              <m.div variants={varFade('inUp', 0.2)}>
+                <Stack
+                  direction={{ xs: 'column', sm: 'row' }}
+                  spacing={3}
+                  sx={{ mt: 4 }}
+                >
+                  <Button
+                    variant="contained"
+                    size="large"
+                    href="/budget-decoder"
+                    startIcon={<Iconify icon="solar:chart-bold" />}
+                    sx={{
+                      px: 5,
+                      py: 2,
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                      borderRadius: 2,
+                      backgroundColor: '#ffffff',
+                      color: '#012767',
+                      boxShadow: theme.shadows[8],
+                      '&:hover': {
+                        backgroundColor: alpha('#ffffff', 0.9),
+                        boxShadow: theme.shadows[12],
+                        transform: 'translateY(-2px)',
+                      },
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    Explore the Budget
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    href="/spotlight-map"
+                    startIcon={<Iconify icon="solar:map-point-bold" />}
+                    sx={{
+                      px: 5,
+                      py: 2,
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                      borderRadius: 2,
+                      borderWidth: 2,
+                      borderColor: '#ffffff',
+                      color: '#ffffff',
+                      '&:hover': {
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                        transform: 'translateY(-2px)',
+                        backgroundColor: alpha('#ffffff', 0.1),
+                      },
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    See the Map
+                  </Button>
+                </Stack>
+              </m.div>
             </Stack>
-          </m.div>
-        </Stack>
+          </Grid>
+
+          {/* Right Column - DFTP Image */}
+          <Grid item xs={12} md={5}>
+            <m.div variants={varFade('inRight', 0.3)}>
+              <Box
+                component="img"
+                src="/assets/images/home/dftp-hero.png"
+                alt="Don't Fuck The People"
+                sx={{
+                  width: '100%',
+                  maxWidth: 500,
+                  height: 'auto',
+                  mx: 'auto',
+                  display: 'block',
+                }}
+              />
+            </m.div>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
