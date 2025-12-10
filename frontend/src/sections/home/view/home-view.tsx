@@ -23,36 +23,40 @@ import { FloatPlusIcon, FloatDotIcon, CircleSvg } from '../components/svg-elemen
 
 const FEATURES = [
   {
-    title: 'FOIA Toolkit',
-    description: 'Access templates and guides for requesting public records under Virginia\'s Freedom of Information Act.',
-    shortDescription: 'Request public records with ease',
-    icon: 'solar:document-text-bold-duotone',
-    href: '/foia',
-    color: 'primary',
-  },
-  {
     title: 'Budget Decoder',
-    description: 'Explore line-item budget data and understand how your tax dollars are allocated across government programs.',
+    description: 'Government budgets are dense by design. The Decoder turns technical documents into plain English and clear charts. Every line item shows where tax dollars go—schools, public safety, healthcare, or pet projects—so you can check whether spending matches community priorities.',
     shortDescription: 'Decode government spending data',
     icon: 'solar:chart-bold-duotone',
     href: '/budget-decoder',
-    color: 'secondary',
+    color: 'primary',
+    ctaText: 'Open the Decoder',
   },
   {
     title: 'Spotlight Map',
-    description: 'Visualize district-level spending patterns and compare budget allocations across regions.',
+    description: 'Spending isn\'t abstract—it lands in neighborhoods. The Spotlight Map connects dollars to places: roads paved, grants awarded, projects delayed. See whether your community is being fairly invested in—or left behind.',
     shortDescription: 'Map spending across districts',
     icon: 'solar:map-point-bold-duotone',
     href: '/spotlight-map',
+    color: 'secondary',
+    ctaText: 'View the Map',
+  },
+  {
+    title: 'FOIA Toolkit',
+    description: 'You have the right to public records. Our step-by-step guide and templates make Virginia FOIA requests simple, so agencies can\'t hide behind process. Use FOIA to get answers and shine light where it\'s needed.',
+    shortDescription: 'Request public records with ease',
+    icon: 'solar:document-text-bold-duotone',
+    href: '/foia',
     color: 'info',
+    ctaText: 'Use the Toolkit',
   },
   {
     title: 'Whistleblower Portal',
-    description: 'Report government misconduct, fraud, or abuse safely and anonymously with legal protection.',
+    description: 'Report waste, fraud, abuse, or corruption safely. Our secure, independent portal protects your identity and explains your legal rights. Courageous disclosures stop wrongdoing before it drains public resources.',
     shortDescription: 'Report misconduct securely',
     icon: 'solar:shield-check-bold-duotone',
     href: '/whistleblower',
     color: 'warning',
+    ctaText: 'Report Securely',
   },
 ];
 
@@ -118,7 +122,7 @@ export function HomeView() {
       <FloatDotIcon sx={{ bottom: '35%', left: '12%', color: 'warning.main', opacity: 0.4 }} />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <Stack spacing={6} sx={{ textAlign: 'center', alignItems: 'center' }}>
+        <Stack spacing={6} sx={{ textAlign: { xs: 'center', md: 'left' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
           <m.div variants={varFade('inUp')}>
             <Typography
               variant="h1"
@@ -133,24 +137,22 @@ export function HomeView() {
                 lineHeight: 1.1,
               }}
             >
-              Democratizing Fiscal
-              <br />
-              Transparency
+              See where Virginia's money goes.
             </Typography>
           </m.div>
 
           <m.div variants={varFade('inUp', 0.1)}>
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{
                 color: 'text.secondary',
                 fontWeight: 400,
                 maxWidth: 700,
                 lineHeight: 1.6,
-                fontSize: { xs: '1.25rem', md: '1.5rem' },
+                fontSize: { xs: '1.15rem', md: '1.35rem' },
               }}
             >
-              A civic platform for accessing, understanding, and acting on public budget data.
+              Budgets shouldn't be a black box. We translate state budget jargon into plain language and visuals so anyone can follow the money.
             </Typography>
           </m.div>
 
@@ -179,13 +181,13 @@ export function HomeView() {
                   transition: 'all 0.3s ease',
                 }}
               >
-                Explore Budget Decoder
+                Explore the Budget
               </Button>
               <Button
                 variant="outlined"
                 size="large"
-                href="/foia"
-                startIcon={<Iconify icon="solar:document-text-bold" />}
+                href="/spotlight-map"
+                startIcon={<Iconify icon="solar:map-point-bold" />}
                 sx={{
                   px: 5,
                   py: 2,
@@ -201,7 +203,7 @@ export function HomeView() {
                   transition: 'all 0.3s ease',
                 }}
               >
-                Use FOIA Toolkit
+                See the Map
               </Button>
             </Stack>
           </m.div>
@@ -355,7 +357,7 @@ export function HomeView() {
         <m.div variants={varFade('inUp')}>
           <Stack spacing={2} sx={{ textAlign: 'center', mb: 8 }}>
             <Typography variant="h3" sx={{ fontWeight: 700 }}>
-              Platform Features
+              Tools to follow the money
             </Typography>
             <Typography
               variant="h6"
@@ -448,8 +450,8 @@ export function HomeView() {
                       sx={{
                         color: 'text.secondary',
                         mb: 3,
-                        lineHeight: 1.6,
-                        minHeight: 48,
+                        lineHeight: 1.7,
+                        minHeight: { xs: 'auto', md: 120 },
                       }}
                     >
                       {feature.description}
@@ -466,7 +468,7 @@ export function HomeView() {
                         },
                       }}
                     >
-                      Learn More
+                      {feature.ctaText}
                     </Button>
                   </CardContent>
                 </Card>
@@ -474,6 +476,64 @@ export function HomeView() {
             </Grid>
           ))}
         </Grid>
+      </Container>
+    </Box>
+  );
+
+  const renderTrustBand = () => (
+    <Box
+      sx={{
+        py: { xs: 6, md: 8 },
+        bgcolor: alpha(theme.palette.grey[500], 0.04),
+        borderTop: `1px solid ${alpha(theme.palette.grey[500], 0.08)}`,
+        borderBottom: `1px solid ${alpha(theme.palette.grey[500], 0.08)}`,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={{ xs: 3, md: 4 }}
+          sx={{
+            alignItems: { xs: 'flex-start', md: 'center' },
+            justifyContent: 'space-between',
+          }}
+        >
+          <Box sx={{ flex: 1 }}>
+            <Typography
+              variant="body2"
+              sx={{
+                color: 'text.secondary',
+                lineHeight: 1.8,
+                fontSize: { xs: '0.875rem', md: '0.95rem' },
+              }}
+            >
+              <strong>Sources:</strong> Virginia DPB, LIS (Chapter 1 & 2), IRS TEOS/BMF + 990 filings.{' '}
+              <strong>Methods:</strong> Deterministic reconciliation, audited totals, official-only nonprofit status.
+            </Typography>
+          </Box>
+          <Box sx={{ flexShrink: 0 }}>
+            <Button
+              variant="outlined"
+              size="medium"
+              href="/budget-overview"
+              endIcon={<Iconify icon="solar:arrow-right-linear" />}
+              sx={{
+                px: 3,
+                py: 1.5,
+                fontWeight: 600,
+                borderRadius: 1.5,
+                whiteSpace: 'nowrap',
+                '&:hover': {
+                  transform: 'translateY(-2px)',
+                  backgroundColor: alpha(theme.palette.primary.main, 0.04),
+                },
+                transition: 'all 0.3s ease',
+              }}
+            >
+              How the Data Works
+            </Button>
+          </Box>
+        </Stack>
       </Container>
     </Box>
   );
@@ -700,9 +760,10 @@ export function HomeView() {
   return (
     <MotionViewport>
       {renderHero()}
+      {renderFeatures()}
+      {renderTrustBand()}
       {renderBudgetOverview()}
       {renderMission()}
-      {renderFeatures()}
       {renderCallToAction()}
     </MotionViewport>
   );
