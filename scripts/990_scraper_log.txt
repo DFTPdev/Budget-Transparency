@@ -1,0 +1,16 @@
+================================================================================
+IRS Form 990 Filing Data Fetcher (Hybrid Website Scraper)
+================================================================================
+
+This script scrapes ProPublica's website to get complete 990 filing data,
+including the most recent filings and actual PDF download links.
+
+📂 Loading IRS matches from: frontend/public/data/vendor_irs_matches.json
+Traceback (most recent call last):
+  File "/Users/secretservice/Budget-Transparency/scripts/fetch_990_links.py", line 367, in <module>
+    main()
+    ~~~~^^
+  File "/Users/secretservice/Budget-Transparency/scripts/fetch_990_links.py", line 278, in main
+    with open(IRS_MATCHES_FILE, 'r') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'frontend/public/data/vendor_irs_matches.json'

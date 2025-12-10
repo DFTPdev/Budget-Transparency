@@ -2397,24 +2397,32 @@ export function BudgetDecoderView() {
                                               return (
                                                 <Box>
                                                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 1.5 }}>
-                                                    {nonprofit990.filings.map((filing, idx) => (
-                                                      <Button
-                                                        key={idx}
-                                                        variant="outlined"
-                                                        size="small"
-                                                        startIcon={<DescriptionIcon />}
-                                                        href={filing.pdf_url || nonprofit990.propublica_url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        disabled={!filing.pdf_url}
-                                                        sx={{
-                                                          textTransform: 'none',
-                                                          fontSize: '0.875rem',
-                                                        }}
-                                                      >
-                                                        Form {getFormTypeLabel(filing.form_type)} - {filing.tax_year}
-                                                      </Button>
-                                                    ))}
+                                                    {nonprofit990.filings.map((filing, idx) => {
+                                                      // Build button label with filing date if available
+                                                      let buttonLabel = `Form ${getFormTypeLabel(filing.form_type)} - ${filing.tax_year}`;
+                                                      if (filing.filed_date) {
+                                                        buttonLabel += ` (Filed ${filing.filed_date})`;
+                                                      }
+
+                                                      return (
+                                                        <Button
+                                                          key={idx}
+                                                          variant="outlined"
+                                                          size="small"
+                                                          startIcon={<DescriptionIcon />}
+                                                          href={filing.pdf_url || nonprofit990.propublica_url}
+                                                          target="_blank"
+                                                          rel="noopener noreferrer"
+                                                          disabled={!filing.pdf_url}
+                                                          sx={{
+                                                            textTransform: 'none',
+                                                            fontSize: '0.875rem',
+                                                          }}
+                                                        >
+                                                          {buttonLabel}
+                                                        </Button>
+                                                      );
+                                                    })}
                                                   </Box>
                                                   <Button
                                                     variant="text"
