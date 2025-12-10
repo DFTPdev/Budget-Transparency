@@ -1094,6 +1094,13 @@ export function BudgetDecoderView() {
       return { type: 'nonprofit', label: 'Nonprofit' };
     }
 
+    // Check ProPublica 990 data - if entity has 990 filings, it's a nonprofit
+    // (501(c)(3) organizations are required to file Form 990)
+    const nonprofit990 = get990Data(vendorName, form990Data);
+    if (nonprofit990 && nonprofit990.filings_count > 0) {
+      return { type: 'nonprofit', label: 'Nonprofit' };
+    }
+
     // Check for obvious for-profit indicators (legal entity types)
     const forProfitKeywords = [
       'LLC', 'L.L.C.', 'L L C',
@@ -1146,7 +1153,7 @@ export function BudgetDecoderView() {
     // If not verified and no for-profit indicators, it's unknown
     // (could be a nonprofit that didn't match IRS database, or misclassified)
     return { type: 'unknown', label: 'Unknown' };
-  }, []);
+  }, [form990Data]);
 
   // NGO Tracker data processing - aggregate comprehensive transfer payments by vendor
   const ngoTrackerData = useMemo(() => {
