@@ -54,9 +54,6 @@ import { STORY_BUCKET_LABELS, STORY_BUCKET_COLORS, type StoryBucketId } from 'sr
 // Budget data types
 import type { BudgetRow } from 'src/lib/budgetDrillDown';
 
-// Budget Overview component
-import { BudgetOverview } from '../budget-overview';
-
 // ----------------------------------------------------------------------
 
 type BudgetItem = {
@@ -1687,26 +1684,6 @@ export function BudgetDecoderView() {
           </m.div>
 
         </Box>
-
-        {/* Budget Overview with Pie Chart */}
-        <m.div variants={varFade('inUp')}>
-          <BudgetOverview
-            fiscalYear={filterFiscalYear ? parseInt(filterFiscalYear) : 2025}
-            onCategoryClick={(storyBucketId) => {
-              // Find the category label for this story bucket
-              const categoryLabel = STORY_BUCKET_LABELS[storyBucketId];
-              if (categoryLabel) {
-                setFilterCategory(categoryLabel);
-                setPage(0); // Reset to first page
-              }
-            }}
-            onFiscalYearChange={(year) => {
-              // Sync fiscal year selection from BudgetOverview tabs to main filter
-              setFilterFiscalYear(year.toString());
-              setPage(0); // Reset to first page
-            }}
-          />
-        </m.div>
 
         {/* Filters */}
         <m.div variants={varFade('inUp')}>

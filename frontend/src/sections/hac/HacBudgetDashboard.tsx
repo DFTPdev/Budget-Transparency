@@ -23,6 +23,8 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { hacDashboardData } from 'src/data/hacDashboardData';
 import { Chart, useChart } from 'src/components/chart';
 import { fNumber } from 'src/utils/format-number';
+import { BudgetOverview } from 'src/sections/budget-decoder/budget-overview';
+import type { StoryBucketId } from 'src/data/spendingStoryBuckets';
 
 // ----------------------------------------------------------------------
 
@@ -802,6 +804,16 @@ export function HacBudgetDashboard() {
     >
       <Container maxWidth="lg">
         {renderHeroStats()}
+
+        {/* Budget Overview with Pie Charts */}
+        <BudgetOverview
+          fiscalYear={2025}
+          onCategoryClick={(storyBucketId: StoryBucketId) => {
+            // Optional: Add navigation to Budget Decoder with category filter
+            console.log('Category clicked:', storyBucketId);
+          }}
+        />
+
         {renderSpendingByArea()}
         {renderOneTimeVsOngoing()}
         {renderGfRevenueComposition()}
