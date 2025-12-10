@@ -1162,11 +1162,46 @@ export function BudgetDecoderView() {
 
     // Exclude quasi-governmental entities that aren't true community nonprofits
     const excludeFromNGOKeywords = [
+      // Authorities and Commissions
       'AUTHORITY', 'COMMISSION', 'AIRPORT', 'RAILROAD',
-      'INSURANCE', 'HEALTH PLAN', 'HMO', 'CIGNA', 'SENTARA', 'KAISER', 'HEALTHKEEPERS', 'OPTIMA', 'OPTIMUM',
-      'UNIVERSITY', 'COLLEGE', 'INSTITUTE OF TECHNOLOGY',
+      'REDEVELOPMENT', 'HOUSING AUTHORITY', 'REDEVELOPMENT AND HOUSING',
+      'PLANNING DISTRICT', 'PLANNING DISTR', 'PDC',
       'ECONOMIC DEVELOPMENT PARTNERSHIP', 'TOURISM',
       'RAIL AUTHORITY', 'COMMERCIAL SPACE',
+
+      // Insurance/Health Plans
+      'INSURANCE', 'HEALTH PLAN', 'HMO', 'CIGNA', 'SENTARA', 'KAISER', 'HEALTHKEEPERS', 'OPTIMA', 'OPTIMUM',
+
+      // Universities and Colleges
+      'UNIVERSITY', 'COLLEGE', 'INSTITUTE OF TECHNOLOGY',
+      'VIRGINIA TECH', 'VA TECH', 'VPI', 'VIRGINIA POLYTECHNIC',
+      'VIRGINIA COMMONWEALTH UNIVERSITY', 'VCU',
+      'GEORGE MASON UNIVERSITY', 'GMU',
+      'JAMES MADISON UNIVERSITY', 'JMU',
+      'OLD DOMINION UNIVERSITY', 'ODU',
+      'WILLIAM & MARY', 'WILLIAM AND MARY',
+      'RADFORD UNIVERSITY', 'LONGWOOD UNIVERSITY',
+      'CHRISTOPHER NEWPORT UNIVERSITY', 'CNU',
+      'VIRGINIA STATE UNIVERSITY', 'VSU',
+      'NORFOLK STATE UNIVERSITY', 'NSU',
+      'UNIVERSITY OF VIRGINIA', 'UVA',
+      'VIRGINIA MILITARY INSTITUTE', 'VMI',
+
+      // Law Enforcement
+      'SHERIFF', 'SHERIFF\'S OFFICE', 'POLICE DEPARTMENT',
+
+      // Correctional/Detention Facilities
+      'DETENTION', 'CORRECTIONAL', 'JAIL', 'PRISON',
+      'JUVENILE DETENTION', 'DETENTION CENTER',
+
+      // Libraries (often government-run)
+      'LIBRARY SYSTEM', 'REGIONAL LIBRARY', 'PUBLIC LIBRARY',
+
+      // State/Local Government Departments
+      'DEPARTMENT OF', 'DEPT OF', 'DEPARTMENT FOR',
+      'DIVISION OF', 'OFFICE OF',
+
+      // Other
       'DETAILED DATA NOT YET AVAILABLE',
       'HUNTINGTON INGALLS'  // Defense contractor
     ];
@@ -1185,9 +1220,20 @@ export function BudgetDecoderView() {
     const shouldExcludeFromNGO = (vendorName: string): boolean => {
       const nameUpper = vendorName.toUpperCase();
 
-      // Check general exclusion keywords
-      if (excludeFromNGOKeywords.some(keyword => nameUpper.includes(keyword))) {
-        return true;
+      // Check general exclusion keywords (with word boundary for short acronyms)
+      for (const keyword of excludeFromNGOKeywords) {
+        // For short acronyms (3 chars or less), use word boundary matching
+        if (keyword.length <= 3) {
+          const regex = new RegExp(`\\b${keyword}\\b`, 'i');
+          if (regex.test(nameUpper)) {
+            return true;
+          }
+        } else {
+          // For longer keywords, use simple includes
+          if (nameUpper.includes(keyword)) {
+            return true;
+          }
+        }
       }
 
       // Check local government patterns
