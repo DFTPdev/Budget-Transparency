@@ -718,11 +718,49 @@ export function BudgetDecoderView() {
           return intersection.size / union.size; // Jaccard similarity
         };
 
+        // Aggregate rollup data by program (sum across service areas)
+        // This fixes the issue where programs with multiple service areas have duplicated budget amounts
+        console.log('🔄 Aggregating rollup data by program...');
+        const aggregatedRollups = new Map<string, ProgramRollup>();
+
+        rollups.forEach(rollup => {
+          const key = `${rollup.fiscal_year}-${rollup.agency}-${rollup.program}`;
+
+          if (aggregatedRollups.has(key)) {
+            // Aggregate with existing rollup
+            const existing = aggregatedRollups.get(key)!;
+            existing.total_spent_ytd += rollup.total_spent_ytd;
+            existing.number_of_unique_recipients += rollup.number_of_unique_recipients;
+
+            // Merge top recipients (deduplicate)
+            const allRecipients = [...existing.top_10_recipients, ...rollup.top_10_recipients];
+            existing.top_10_recipients = Array.from(new Set(allRecipients)).slice(0, 10);
+
+            // Merge category breakdowns
+            Object.entries(rollup.category_breakdown).forEach(([category, count]) => {
+              existing.category_breakdown[category] = (existing.category_breakdown[category] || 0) + count;
+            });
+
+            // Recalculate execution rate
+            existing.execution_rate = existing.appropriated_amount > 0
+              ? existing.total_spent_ytd / existing.appropriated_amount
+              : 0;
+            existing.remaining_balance = existing.appropriated_amount - existing.total_spent_ytd;
+          } else {
+            // First occurrence of this program
+            aggregatedRollups.set(key, { ...rollup });
+          }
+        });
+
+        const aggregatedRollupsArray = Array.from(aggregatedRollups.values());
+        console.log(`✅ Aggregated ${rollups.length} rollup records into ${aggregatedRollupsArray.length} programs`);
+        console.log(`📊 Reduction: ${((1 - aggregatedRollupsArray.length / rollups.length) * 100).toFixed(1)}%`);
+
         // Add all programs with rollup data for drill-down
         programs.forEach((program, index) => {
-          // Find matching rollup data for this program
+          // Find matching rollup data for this program (using aggregated rollups)
           // Try exact match first
-          let matchingRollup = rollups.find(r =>
+          let matchingRollup = aggregatedRollupsArray.find(r =>
             r.fiscal_year === program.fiscal_year &&
             r.agency === program.agency &&
             r.program === program.program
@@ -730,7 +768,7 @@ export function BudgetDecoderView() {
 
           // If no exact match, try fuzzy matching
           if (!matchingRollup) {
-            const candidates = rollups.filter(r =>
+            const candidates = aggregatedRollupsArray.filter(r =>
               r.fiscal_year === program.fiscal_year &&
               r.agency === program.agency
             );
