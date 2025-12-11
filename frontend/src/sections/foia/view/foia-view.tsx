@@ -589,23 +589,47 @@ export function FoiaView() {
   if (!isClient) {
     return (
       <Container maxWidth="lg">
-        <Box sx={{ py: 8, textAlign: 'center' }}>
-          <Typography variant="h2" sx={{ mb: 3 }}>
+        <Box sx={{ py: 8 }}>
+          <Typography variant="h2" sx={{ mb: 3, textAlign: 'center' }}>
             Freedom of Information Toolkit
           </Typography>
           <Typography
-            variant="h5"
+            variant="body1"
             sx={{
-              color: 'text.secondary',
-              maxWidth: 800,
+              color: 'text.primary',
+              maxWidth: 900,
               mx: 'auto',
-              lineHeight: 1.6,
-              mb: 4,
+              lineHeight: 1.8,
+              mb: 3,
+              textAlign: 'justify',
             }}
           >
-            Virginia's Freedom of Information Act ensures your right to access government records.
-            Use these tools to request public documents, understand the process, and hold your
-            government accountable.
+            Virginia's Freedom of Information Act ensures your right to access government records. Use these tools to request public documents, understand the process, and hold your government accountable.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'text.primary',
+              maxWidth: 900,
+              mx: 'auto',
+              lineHeight: 1.8,
+              mb: 3,
+              textAlign: 'justify',
+            }}
+          >
+            This step-by-step guide and template system empowers citizens to file Freedom of Information Act requests with ease. Most people don't realize they have a legal right to access public records but the process is often intimidating. Agencies count on people giving up. The FOIA Toolkit breaks down the barriers, making it simple to request the information you're entitled to. When citizens use FOIA, government secrets lose power. Whether you're a parent, a journalist, or just a concerned resident, the Toolkit equips you to demand answers and shine light where it's needed most.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'text.primary',
+              maxWidth: 900,
+              mx: 'auto',
+              lineHeight: 1.8,
+              textAlign: 'justify',
+            }}
+          >
+            Explore how you can request public records here. Each template and guide is designed to make the Freedom of Information process simple, clear, and accessible to every citizen.
           </Typography>
         </Box>
       </Container>
@@ -616,27 +640,57 @@ export function FoiaView() {
     <Container maxWidth="lg">
       <MotionViewport>
         {/* Hero Section */}
-        <Box sx={{ py: 8, textAlign: 'center' }}>
+        <Box sx={{ py: 8 }}>
           <m.div variants={varFade('inUp')}>
-            <Typography variant="h2" sx={{ mb: 3 }}>
+            <Typography variant="h2" sx={{ mb: 3, textAlign: 'center' }}>
               Freedom of Information Toolkit
             </Typography>
           </m.div>
 
           <m.div variants={varFade('inUp')}>
             <Typography
-              variant="h5"
+              variant="body1"
               sx={{
-                color: 'text.secondary',
-                maxWidth: 800,
+                color: 'text.primary',
+                maxWidth: 900,
                 mx: 'auto',
-                lineHeight: 1.6,
-                mb: 4,
+                lineHeight: 1.8,
+                mb: 3,
+                textAlign: 'justify',
               }}
             >
-              Virginia's Freedom of Information Act ensures your right to access government records.
-              Use these tools to request public documents, understand the process, and hold your
-              government accountable.
+              Virginia's Freedom of Information Act ensures your right to access government records. Use these tools to request public documents, understand the process, and hold your government accountable.
+            </Typography>
+          </m.div>
+
+          <m.div variants={varFade('inUp')}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'text.primary',
+                maxWidth: 900,
+                mx: 'auto',
+                lineHeight: 1.8,
+                mb: 3,
+                textAlign: 'justify',
+              }}
+            >
+              This step-by-step guide and template system empowers citizens to file Freedom of Information Act requests with ease. Most people don't realize they have a legal right to access public records but the process is often intimidating. Agencies count on people giving up. The FOIA Toolkit breaks down the barriers, making it simple to request the information you're entitled to. When citizens use FOIA, government secrets lose power. Whether you're a parent, a journalist, or just a concerned resident, the Toolkit equips you to demand answers and shine light where it's needed most.
+            </Typography>
+          </m.div>
+
+          <m.div variants={varFade('inUp')}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'text.primary',
+                maxWidth: 900,
+                mx: 'auto',
+                lineHeight: 1.8,
+                textAlign: 'justify',
+              }}
+            >
+              Explore how you can request public records here. Each template and guide is designed to make the Freedom of Information process simple, clear, and accessible to every citizen.
             </Typography>
           </m.div>
         </Box>
