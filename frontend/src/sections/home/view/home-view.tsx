@@ -33,8 +33,8 @@ const FEATURES = [
   },
   {
     title: 'Legislator Spotlight',
-    description: 'Know who represents you and how they vote on your tax dollars. Search by address or district to see your legislators\' voting records, committee assignments, and contact information. Hold them accountable for budget decisions that affect your community.',
-    shortDescription: 'Track your representatives',
+    description: 'Know who represents you in Richmond. Search by address or explore the interactive map to find your state legislators, view their contact information, and see their district boundaries. Connect directly with the officials who make budget decisions for your community.',
+    shortDescription: 'Find your representatives',
     icon: 'solar:map-point-bold-duotone',
     href: '/spotlight-map',
     color: 'secondary',
@@ -371,6 +371,7 @@ export function HomeView() {
               maxWidth: 600,
               mx: 'auto',
               lineHeight: 1.6,
+              textAlign: 'justify',
             }}
           >
             Explore our suite of transparency tools designed for citizens, journalists, and civic organizations.
@@ -419,7 +420,7 @@ export function HomeView() {
                     }}
                   />
 
-                  <CardContent sx={{ p: 4, textAlign: 'center', position: 'relative', zIndex: 2 }}>
+                  <CardContent sx={{ p: 4, position: 'relative', zIndex: 2 }}>
                     <Box
                       className="feature-icon"
                       sx={{
@@ -443,7 +444,7 @@ export function HomeView() {
                       />
                     </Box>
 
-                    <Typography variant="h5" sx={{ mb: 2, fontWeight: 600 }}>
+                    <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, textAlign: 'center' }}>
                       {feature.title}
                     </Typography>
 
@@ -454,6 +455,7 @@ export function HomeView() {
                         mb: 3,
                         lineHeight: 1.7,
                         minHeight: { xs: 'auto', md: 120 },
+                        textAlign: 'justify',
                       }}
                     >
                       {feature.description}
@@ -623,6 +625,7 @@ export function HomeView() {
               maxWidth: 600,
               mx: 'auto',
               lineHeight: 1.6,
+              textAlign: 'justify',
             }}
           >
             Access public records and report misconduct with tools designed to protect your rights and amplify your voice.
@@ -671,7 +674,7 @@ export function HomeView() {
                   }}
                 />
 
-                <CardContent sx={{ p: 4, textAlign: 'center', position: 'relative', zIndex: 2 }}>
+                <CardContent sx={{ p: 4, position: 'relative', zIndex: 2 }}>
                   <Box
                     className="feature-icon"
                     sx={{
@@ -695,7 +698,7 @@ export function HomeView() {
                     />
                   </Box>
 
-                  <Typography variant="h5" sx={{ mb: 2, fontWeight: 600 }}>
+                  <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, textAlign: 'center' }}>
                     {feature.title}
                   </Typography>
 
@@ -706,6 +709,7 @@ export function HomeView() {
                       mb: 3,
                       lineHeight: 1.7,
                       minHeight: { xs: 'auto', md: 120 },
+                      textAlign: 'justify',
                     }}
                   >
                     {feature.description}
