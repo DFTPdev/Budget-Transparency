@@ -200,113 +200,120 @@ export function HomeView() {
   );
 
   const renderMission = () => (
-    <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
-      <Stack spacing={6} sx={{ textAlign: 'center', maxWidth: 900, mx: 'auto' }}>
-        <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
-          Our Mission
-        </Typography>
+    <Box
+      sx={{
+        py: { xs: 10, md: 15 },
+        bgcolor: '#BE2937',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Stack spacing={6} sx={{ textAlign: 'center', maxWidth: 900, mx: 'auto' }}>
+          <Typography variant="h3" sx={{ fontWeight: 700, mb: 2, color: '#ffffff' }}>
+            Our Mission
+          </Typography>
 
-        <Typography
-          variant="h5"
-          sx={{
-            color: 'text.secondary',
-            fontWeight: 400,
-            lineHeight: 1.8,
-            fontSize: { xs: '1.1rem', md: '1.25rem' },
-            maxWidth: 700,
-            mx: 'auto',
-          }}
-        >
-          DFTP empowers citizens with the tools and knowledge needed to understand government spending,
-          access public records, and hold elected officials accountable.
-        </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              color: alpha('#ffffff', 0.95),
+              fontWeight: 400,
+              lineHeight: 1.8,
+              fontSize: { xs: '1.1rem', md: '1.25rem' },
+              maxWidth: 700,
+              mx: 'auto',
+            }}
+          >
+            DFTP empowers citizens with the tools and knowledge needed to understand government spending,
+            access public records, and hold elected officials accountable.
+          </Typography>
 
-        {/* Key principles */}
-        <Grid container spacing={4} sx={{ mt: 2 }}>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Stack spacing={2} sx={{ textAlign: 'center' }}>
-              <Box
-                sx={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mx: 'auto',
-                }}
-              >
-                <Iconify icon="solar:book-open-bold-duotone" width={28} sx={{ color: 'primary.main' }} />
-              </Box>
-              <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                Civic Education
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                Empowering citizens with knowledge and tools for civic engagement
-              </Typography>
-            </Stack>
+          {/* Key principles */}
+          <Grid container spacing={4} sx={{ mt: 2 }}>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Stack spacing={2} sx={{ textAlign: 'center' }}>
+                <Box
+                  sx={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: '50%',
+                    bgcolor: alpha('#ffffff', 0.2),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                  }}
+                >
+                  <Iconify icon="solar:book-open-bold-duotone" width={28} sx={{ color: '#ffffff' }} />
+                </Box>
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff' }}>
+                  Civic Education
+                </Typography>
+                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6 }}>
+                  Empowering citizens with knowledge and tools for civic engagement
+                </Typography>
+              </Stack>
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Stack spacing={2} sx={{ textAlign: 'center' }}>
+                <Box
+                  sx={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: '50%',
+                    bgcolor: alpha('#ffffff', 0.2),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                  }}
+                >
+                  <Iconify icon="solar:database-bold-duotone" width={28} sx={{ color: '#ffffff' }} />
+                </Box>
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff' }}>
+                  Open Data
+                </Typography>
+                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6 }}>
+                  Making government data accessible and understandable for all
+                </Typography>
+              </Stack>
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Stack spacing={2} sx={{ textAlign: 'center' }}>
+                <Box
+                  sx={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: '50%',
+                    bgcolor: alpha('#ffffff', 0.2),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mx: 'auto',
+                  }}
+                >
+                  <Iconify icon="solar:eye-bold-duotone" width={28} sx={{ color: '#ffffff' }} />
+                </Box>
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff' }}>
+                  Transparency
+                </Typography>
+                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6 }}>
+                  Building accountability through transparent reporting and oversight
+                </Typography>
+              </Stack>
+            </Grid>
           </Grid>
-
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Stack spacing={2} sx={{ textAlign: 'center' }}>
-              <Box
-                sx={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: alpha(theme.palette.info.main, 0.1),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mx: 'auto',
-                }}
-              >
-                <Iconify icon="solar:database-bold-duotone" width={28} sx={{ color: 'info.main' }} />
-              </Box>
-              <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                Open Data
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                Making government data accessible and understandable for all
-              </Typography>
-            </Stack>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Stack spacing={2} sx={{ textAlign: 'center' }}>
-              <Box
-                sx={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: alpha(theme.palette.secondary.main, 0.1),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mx: 'auto',
-                }}
-              >
-                <Iconify icon="solar:eye-bold-duotone" width={28} sx={{ color: 'secondary.main' }} />
-              </Box>
-              <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                Transparency
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                Building accountability through transparent reporting and oversight
-              </Typography>
-            </Stack>
-          </Grid>
-        </Grid>
-      </Stack>
-    </Container>
+        </Stack>
+      </Container>
+    </Box>
   );
 
   const renderFeatures = () => (
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        bgcolor: 'background.neutral',
+        bgcolor: '#EBF5ED',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -346,7 +353,7 @@ export function HomeView() {
           <Typography
             variant="h6"
             sx={{
-              color: 'text.secondary',
+              color: '#2E3B3E',
               fontWeight: 400,
               maxWidth: 600,
               mx: 'auto',
