@@ -41,6 +41,18 @@ const FEATURES = [
     ctaText: 'View the Map',
   },
   {
+    title: 'Budget Overview',
+    description: 'Virginia\'s biennial budget broken down into interactive charts and spending breakdowns. Track revenue sources, compare agency allocations, and understand how billions in tax dollars flow through state government each year.',
+    shortDescription: 'Explore budget visualizations',
+    icon: 'solar:pie-chart-bold-duotone',
+    href: '/budget-overview',
+    color: 'info',
+    ctaText: 'View Overview',
+  },
+];
+
+const ACCOUNTABILITY_TOOLS = [
+  {
     title: 'FOIA Toolkit',
     description: 'You have the right to public records. Our step-by-step guide and templates make Virginia FOIA requests simple, so agencies can\'t hide behind process. Use FOIA to get answers and shine light where it\'s needed.',
     shortDescription: 'Request public records with ease',
@@ -365,10 +377,10 @@ export function HomeView() {
           </Typography>
         </Stack>
 
-        {/* 2x2 Grid Layout */}
-        <Grid container spacing={{ xs: 3, md: 4 }} sx={{ maxWidth: 1000, mx: 'auto' }}>
+        {/* 3-column Grid Layout */}
+        <Grid container spacing={{ xs: 3, md: 4 }}>
           {FEATURES.map((feature, index) => (
-            <Grid size={{ xs: 12, sm: 6 }} key={feature.title}>
+            <Grid size={{ xs: 12, md: 4 }} key={feature.title}>
               <Card
                   sx={{
                     height: '100%',
@@ -562,124 +574,161 @@ export function HomeView() {
     </Box>
   );
 
-  const renderBudgetOverview = () => (
+  const renderAccountabilityTools = () => (
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        bgcolor: alpha(theme.palette.grey[500], 0.04),
+        bgcolor: '#EDE5DF',
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
-      <Container maxWidth="lg">
-        <Stack spacing={4} sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
-            <Typography variant="h3" sx={{ fontWeight: 700 }}>
-              Virginia's Budget at a Glance
-            </Typography>
+      {/* Background decorative elements */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          opacity: 0.03,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M50 50m-25 0a25,25 0 1,1 50,0a25,25 0 1,1 -50,0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '100px 100px',
+        }}
+      />
 
-            <Typography
-              variant="h6"
-              sx={{
-                color: 'text.secondary',
-                fontWeight: 400,
-                lineHeight: 1.8,
-                maxWidth: 600,
-                mx: 'auto',
-              }}
-            >
-              Explore Virginia's FY 2024–26 biennial budget with interactive visualizations,
-              spending breakdowns, and revenue analysis.
-            </Typography>
+      {/* Subtle background circle */}
+      <CircleSvg
+        sx={{
+          opacity: 0.02,
+          color: 'primary.main',
+          width: 400,
+          height: 400,
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
 
-            <Box sx={{ pt: 2 }}>
-              <Button
-                variant="contained"
-                size="large"
-                href={paths.budgetOverview}
-                endIcon={<Iconify icon="solar:arrow-right-bold" />}
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+        <Stack spacing={2} sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="h3" sx={{ fontWeight: 700 }}>
+            Hold Power Accountable
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              color: '#2E3B3E',
+              fontWeight: 400,
+              maxWidth: 600,
+              mx: 'auto',
+              lineHeight: 1.6,
+            }}
+          >
+            Access public records and report misconduct with tools designed to protect your rights and amplify your voice.
+          </Typography>
+        </Stack>
+
+        {/* 2-column Grid Layout */}
+        <Grid container spacing={{ xs: 3, md: 4 }} sx={{ maxWidth: 800, mx: 'auto' }}>
+          {ACCOUNTABILITY_TOOLS.map((feature, index) => (
+            <Grid size={{ xs: 12, sm: 6 }} key={feature.title}>
+              <Card
                 sx={{
-                  px: 5,
-                  py: 2,
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  boxShadow: theme.shadows[8],
+                  height: '100%',
+                  minHeight: 280,
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
                   '&:hover': {
-                    boxShadow: theme.shadows[12],
-                    transform: 'translateY(-2px)',
+                    transform: 'translateY(-12px) scale(1.02)',
+                    boxShadow: theme.shadows[20],
+                    '& .feature-icon': {
+                      transform: 'scale(1.1) rotate(5deg)',
+                    },
+                    '& .feature-bg': {
+                      transform: 'scale(1.1)',
+                      opacity: 0.15,
+                    },
                   },
-                  transition: 'all 0.3s ease',
                 }}
+                onClick={() => window.location.href = feature.href}
               >
-                View Budget Overview
-              </Button>
-            </Box>
-
-            {/* Quick Stats Preview */}
-            <Grid container spacing={3} sx={{ mt: 4 }}>
-              <Grid size={{ xs: 12, sm: 4 }}>
-                <Card
+                {/* Background gradient shape */}
+                <Box
+                  className="feature-bg"
                   sx={{
-                    p: 3,
-                    textAlign: 'center',
-                    transition: 'all 0.3s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: theme.shadows[8],
-                    },
+                    position: 'absolute',
+                    top: -20,
+                    right: -20,
+                    width: 120,
+                    height: 120,
+                    borderRadius: '50%',
+                    background: `linear-gradient(135deg, ${alpha(theme.palette[feature.color as keyof typeof theme.palette].main, 0.1)}, ${alpha(theme.palette[feature.color as keyof typeof theme.palette].light, 0.05)})`,
+                    transition: 'all 0.4s ease',
+                    opacity: 0.08,
                   }}
-                >
-                  <Typography variant="h4" sx={{ fontWeight: 700, color: 'primary.main', mb: 1 }}>
-                    $188.2B
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Total Biennial Budget
-                  </Typography>
-                </Card>
-              </Grid>
+                />
 
-              <Grid size={{ xs: 12, sm: 4 }}>
-                <Card
-                  sx={{
-                    p: 3,
-                    textAlign: 'center',
-                    transition: 'all 0.3s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: theme.shadows[8],
-                    },
-                  }}
-                >
-                  <Typography variant="h4" sx={{ fontWeight: 700, color: 'secondary.main', mb: 1 }}>
-                    $66.8B
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    General Fund
-                  </Typography>
-                </Card>
-              </Grid>
+                <CardContent sx={{ p: 4, textAlign: 'center', position: 'relative', zIndex: 2 }}>
+                  <Box
+                    className="feature-icon"
+                    sx={{
+                      width: 88,
+                      height: 88,
+                      borderRadius: '50%',
+                      background: `linear-gradient(135deg, ${alpha(theme.palette[feature.color as keyof typeof theme.palette].main, 0.15)}, ${alpha(theme.palette[feature.color as keyof typeof theme.palette].light, 0.08)})`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mx: 'auto',
+                      mb: 3,
+                      transition: 'all 0.4s ease',
+                      border: `2px solid ${alpha(theme.palette[feature.color as keyof typeof theme.palette].main, 0.1)}`,
+                    }}
+                  >
+                    <Iconify
+                      icon={feature.icon}
+                      width={44}
+                      sx={{ color: `${feature.color}.main` }}
+                    />
+                  </Box>
 
-              <Grid size={{ xs: 12, sm: 4 }}>
-                <Card
-                  sx={{
-                    p: 3,
-                    textAlign: 'center',
-                    transition: 'all 0.3s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: theme.shadows[8],
-                    },
-                  }}
-                >
-                  <Typography variant="h4" sx={{ fontWeight: 700, color: 'info.main', mb: 1 }}>
-                    $121.4B
+                  <Typography variant="h5" sx={{ mb: 2, fontWeight: 600 }}>
+                    {feature.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Non-General Fund
+
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'text.secondary',
+                      mb: 3,
+                      lineHeight: 1.7,
+                      minHeight: { xs: 'auto', md: 120 },
+                    }}
+                  >
+                    {feature.description}
                   </Typography>
-                </Card>
-              </Grid>
+
+                  <Button
+                    variant="text"
+                    endIcon={<Iconify icon="solar:arrow-right-linear" />}
+                    sx={{
+                      color: `${feature.color}.main`,
+                      fontWeight: 600,
+                      '&:hover': {
+                        backgroundColor: alpha(theme.palette[feature.color as keyof typeof theme.palette].main, 0.08),
+                      },
+                    }}
+                  >
+                    {feature.ctaText}
+                  </Button>
+                </CardContent>
+              </Card>
             </Grid>
-          </Stack>
+          ))}
+        </Grid>
       </Container>
     </Box>
   );
@@ -689,7 +738,7 @@ export function HomeView() {
       {renderHero()}
       {renderMission()}
       {renderFeatures()}
-      {renderBudgetOverview()}
+      {renderAccountabilityTools()}
       {renderCallToAction()}
     </MotionViewport>
   );
