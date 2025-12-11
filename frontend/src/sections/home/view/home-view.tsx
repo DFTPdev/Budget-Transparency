@@ -201,106 +201,104 @@ export function HomeView() {
 
   const renderMission = () => (
     <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
-      <m.div variants={varFade('inUp')}>
-        <Stack spacing={6} sx={{ textAlign: 'center', maxWidth: 900, mx: 'auto' }}>
-          <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
-            Our Mission
-          </Typography>
+      <Stack spacing={6} sx={{ textAlign: 'center', maxWidth: 900, mx: 'auto' }}>
+        <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+          Our Mission
+        </Typography>
 
-          <Typography
-            variant="h5"
-            sx={{
-              color: 'text.secondary',
-              fontWeight: 400,
-              lineHeight: 1.8,
-              fontSize: { xs: '1.1rem', md: '1.25rem' },
-              maxWidth: 700,
-              mx: 'auto',
-            }}
-          >
-            DFTP empowers citizens with the tools and knowledge needed to understand government spending,
-            access public records, and hold elected officials accountable.
-          </Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: 'text.secondary',
+            fontWeight: 400,
+            lineHeight: 1.8,
+            fontSize: { xs: '1.1rem', md: '1.25rem' },
+            maxWidth: 700,
+            mx: 'auto',
+          }}
+        >
+          DFTP empowers citizens with the tools and knowledge needed to understand government spending,
+          access public records, and hold elected officials accountable.
+        </Typography>
 
-          {/* Key principles */}
-          <Grid container spacing={4} sx={{ mt: 2 }}>
-            <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={2} sx={{ textAlign: 'center' }}>
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    bgcolor: alpha(theme.palette.primary.main, 0.1),
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mx: 'auto',
-                  }}
-                >
-                  <Iconify icon="solar:book-open-bold-duotone" width={28} sx={{ color: 'primary.main' }} />
-                </Box>
-                <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                  Civic Education
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                  Empowering citizens with knowledge and tools for civic engagement
-                </Typography>
-              </Stack>
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={2} sx={{ textAlign: 'center' }}>
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    bgcolor: alpha(theme.palette.info.main, 0.1),
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mx: 'auto',
-                  }}
-                >
-                  <Iconify icon="solar:database-bold-duotone" width={28} sx={{ color: 'info.main' }} />
-                </Box>
-                <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                  Open Data
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                  Making government data accessible and understandable for all
-                </Typography>
-              </Stack>
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={2} sx={{ textAlign: 'center' }}>
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    bgcolor: alpha(theme.palette.secondary.main, 0.1),
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mx: 'auto',
-                  }}
-                >
-                  <Iconify icon="solar:eye-bold-duotone" width={28} sx={{ color: 'secondary.main' }} />
-                </Box>
-                <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                  Transparency
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
-                  Building accountability through transparent reporting and oversight
-                </Typography>
-              </Stack>
-            </Grid>
+        {/* Key principles */}
+        <Grid container spacing={4} sx={{ mt: 2 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Stack spacing={2} sx={{ textAlign: 'center' }}>
+              <Box
+                sx={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: '50%',
+                  bgcolor: alpha(theme.palette.primary.main, 0.1),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mx: 'auto',
+                }}
+              >
+                <Iconify icon="solar:book-open-bold-duotone" width={28} sx={{ color: 'primary.main' }} />
+              </Box>
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                Civic Education
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
+                Empowering citizens with knowledge and tools for civic engagement
+              </Typography>
+            </Stack>
           </Grid>
-        </Stack>
-      </m.div>
+
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Stack spacing={2} sx={{ textAlign: 'center' }}>
+              <Box
+                sx={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: '50%',
+                  bgcolor: alpha(theme.palette.info.main, 0.1),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mx: 'auto',
+                }}
+              >
+                <Iconify icon="solar:database-bold-duotone" width={28} sx={{ color: 'info.main' }} />
+              </Box>
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                Open Data
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
+                Making government data accessible and understandable for all
+              </Typography>
+            </Stack>
+          </Grid>
+
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Stack spacing={2} sx={{ textAlign: 'center' }}>
+              <Box
+                sx={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: '50%',
+                  bgcolor: alpha(theme.palette.secondary.main, 0.1),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mx: 'auto',
+                }}
+              >
+                <Iconify icon="solar:eye-bold-duotone" width={28} sx={{ color: 'secondary.main' }} />
+              </Box>
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                Transparency
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
+                Building accountability through transparent reporting and oversight
+              </Typography>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Stack>
     </Container>
   );
 
@@ -341,32 +339,29 @@ export function HomeView() {
       />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <m.div variants={varFade('inUp')}>
-          <Stack spacing={2} sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography variant="h3" sx={{ fontWeight: 700 }}>
-              Tools to follow the money
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{
-                color: 'text.secondary',
-                fontWeight: 400,
-                maxWidth: 600,
-                mx: 'auto',
-                lineHeight: 1.6,
-              }}
-            >
-              Explore our suite of transparency tools designed for citizens, journalists, and civic organizations.
-            </Typography>
-          </Stack>
-        </m.div>
+        <Stack spacing={2} sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="h3" sx={{ fontWeight: 700 }}>
+            Tools to follow the money
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              color: 'text.secondary',
+              fontWeight: 400,
+              maxWidth: 600,
+              mx: 'auto',
+              lineHeight: 1.6,
+            }}
+          >
+            Explore our suite of transparency tools designed for citizens, journalists, and civic organizations.
+          </Typography>
+        </Stack>
 
         {/* 2x2 Grid Layout */}
         <Grid container spacing={{ xs: 3, md: 4 }} sx={{ maxWidth: 1000, mx: 'auto' }}>
           {FEATURES.map((feature, index) => (
             <Grid size={{ xs: 12, sm: 6 }} key={feature.title}>
-              <m.div variants={varFade('inUp', 0.1 * index)}>
-                <Card
+              <Card
                   sx={{
                     height: '100%',
                     minHeight: 280,
@@ -459,7 +454,6 @@ export function HomeView() {
                     </Button>
                   </CardContent>
                 </Card>
-              </m.div>
             </Grid>
           ))}
         </Grid>
@@ -549,8 +543,7 @@ export function HomeView() {
       />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <m.div variants={varFade('inUp')}>
-          <Stack spacing={5} sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
+        <Stack spacing={5} sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
             <Typography variant="h3" sx={{ fontWeight: 700 }}>
               Get Involved
             </Typography>
@@ -615,7 +608,6 @@ export function HomeView() {
               </Button>
             </Stack>
           </Stack>
-        </m.div>
       </Container>
     </Box>
   );
@@ -629,8 +621,7 @@ export function HomeView() {
       }}
     >
       <Container maxWidth="lg">
-        <m.div variants={varFade('inUp')}>
-          <Stack spacing={4} sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
+        <Stack spacing={4} sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
             <Typography variant="h3" sx={{ fontWeight: 700 }}>
               Virginia's Budget at a Glance
             </Typography>
@@ -739,7 +730,6 @@ export function HomeView() {
               </Grid>
             </Grid>
           </Stack>
-        </m.div>
       </Container>
     </Box>
   );
