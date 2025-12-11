@@ -1779,26 +1779,41 @@ export function BudgetDecoderView() {
     <Container maxWidth="lg">
       <MotionViewport>
         {/* Hero Section */}
-        <Box sx={{ py: 8, textAlign: 'center' }}>
+        <Box sx={{ py: 8 }}>
           <m.div variants={varFade('inUp')}>
-            <Typography variant="h2" sx={{ mb: 3 }}>
+            <Typography variant="h2" sx={{ mb: 3, textAlign: 'center' }}>
               Budget Decoder
             </Typography>
           </m.div>
 
           <m.div variants={varFade('inUp')}>
             <Typography
-              variant="h5"
+              variant="body1"
               sx={{
-                color: 'text.secondary',
-                maxWidth: 800,
+                color: 'text.primary',
+                maxWidth: 900,
                 mx: 'auto',
-                lineHeight: 1.6,
-                mb: 2,
+                lineHeight: 1.8,
+                mb: 3,
+                textAlign: 'justify',
               }}
             >
-              Explore how your tax dollars are allocated across different government programs and services.
-              Each line item represents a detailed breakdown of state spending.
+              Government budgets are often buried in jargon and spreadsheets that make them nearly impossible for the average citizen to read. The Budget Decoder translates those technical documents into plain, accessible language and visuals. Every dollar in the budget represents your tax money. Without transparency, it's easy for waste, fraud, and political favoritism to hide in plain sight. By making budgets understandable, citizens gain the power to see how their money is really being spent on schools, public safety, healthcare, or political pet projects. With the Decoder, you don't need to be an accountant or a lawyer to hold your government accountable. Anyone can see, question, and share where the money goes and whether it reflects community priorities.
+            </Typography>
+          </m.div>
+
+          <m.div variants={varFade('inUp')}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'text.primary',
+                maxWidth: 900,
+                mx: 'auto',
+                lineHeight: 1.8,
+                textAlign: 'justify',
+              }}
+            >
+              Explore how your tax dollars are allocated across different government programs and services here. Each line item represents a detailed breakdown of state spending each biennial cycle.
             </Typography>
           </m.div>
 
