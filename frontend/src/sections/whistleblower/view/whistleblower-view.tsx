@@ -496,12 +496,47 @@ export function WhistleblowerView() {
   if (!isClient) {
     return (
       <Container maxWidth="lg">
-        <Box sx={{ py: 8, textAlign: 'center' }}>
-          <Typography variant="h2" sx={{ mb: 3 }}>
+        <Box sx={{ py: 8 }}>
+          <Typography variant="h2" sx={{ mb: 3, textAlign: 'center' }}>
             Whistleblower Portal
           </Typography>
-          <Typography variant="h5" sx={{ color: 'text.secondary', maxWidth: 800, mx: 'auto' }}>
-            Report government misconduct, fraud, waste, or abuse safely and securely.
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'text.primary',
+              maxWidth: 900,
+              mx: 'auto',
+              lineHeight: 1.8,
+              mb: 3,
+              textAlign: 'justify',
+            }}
+          >
+            Report government misconduct, fraud, waste, or abuse safely and securely. Your identity is protected, and retaliation is prohibited by law.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'text.primary',
+              maxWidth: 900,
+              mx: 'auto',
+              lineHeight: 1.8,
+              mb: 3,
+              textAlign: 'justify',
+            }}
+          >
+            A secure, anonymous channel for insiders to report waste, fraud, mismanagement, abuse, or corruption. Sometimes the most critical information comes from within. But without protection, employees and contractors risk retaliation if they speak up. A trusted, independent portal creates a safe way for truth to come forward. Courageous individuals shouldn't lose their livelihoods for doing what is right. This feature ensures that insiders have a voice — and that their warnings can help stop wrongdoing before it drains public resources or undermines trust in government.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'text.primary',
+              maxWidth: 900,
+              mx: 'auto',
+              lineHeight: 1.8,
+              textAlign: 'justify',
+            }}
+          >
+            Report concerns about waste, fraud, mismanagement, abuse, or corruption here. Each submission is protected to ensure your information is handled securely and responsibly.
           </Typography>
         </Box>
       </Container>
@@ -512,25 +547,57 @@ export function WhistleblowerView() {
     <Container maxWidth="lg">
       <MotionViewport>
         {/* Hero Section */}
-        <Box sx={{ py: 6, textAlign: 'center' }}>
+        <Box sx={{ py: 6 }}>
           <m.div variants={varFade('inUp')}>
-            <Typography variant="h2" sx={{ mb: 2 }}>
+            <Typography variant="h2" sx={{ mb: 3, textAlign: 'center' }}>
               Whistleblower Portal
             </Typography>
           </m.div>
 
           <m.div variants={varFade('inUp')}>
             <Typography
-              variant="h5"
+              variant="body1"
               sx={{
-                color: 'text.secondary',
-                maxWidth: 800,
+                color: 'text.primary',
+                maxWidth: 900,
                 mx: 'auto',
-                lineHeight: 1.6,
+                lineHeight: 1.8,
                 mb: 3,
+                textAlign: 'justify',
               }}
             >
-              Report government misconduct, fraud, waste, or abuse safely and securely.
+              Report government misconduct, fraud, waste, or abuse safely and securely. Your identity is protected, and retaliation is prohibited by law.
+            </Typography>
+          </m.div>
+
+          <m.div variants={varFade('inUp')}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'text.primary',
+                maxWidth: 900,
+                mx: 'auto',
+                lineHeight: 1.8,
+                mb: 3,
+                textAlign: 'justify',
+              }}
+            >
+              A secure, anonymous channel for insiders to report waste, fraud, mismanagement, abuse, or corruption. Sometimes the most critical information comes from within. But without protection, employees and contractors risk retaliation if they speak up. A trusted, independent portal creates a safe way for truth to come forward. Courageous individuals shouldn't lose their livelihoods for doing what is right. This feature ensures that insiders have a voice — and that their warnings can help stop wrongdoing before it drains public resources or undermines trust in government.
+            </Typography>
+          </m.div>
+
+          <m.div variants={varFade('inUp')}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'text.primary',
+                maxWidth: 900,
+                mx: 'auto',
+                lineHeight: 1.8,
+                textAlign: 'justify',
+              }}
+            >
+              Report concerns about waste, fraud, mismanagement, abuse, or corruption here. Each submission is protected to ensure your information is handled securely and responsibly.
             </Typography>
           </m.div>
         </Box>
