@@ -234,6 +234,7 @@ export function HomeView() {
               fontSize: { xs: '1.1rem', md: '1.25rem' },
               maxWidth: 700,
               mx: 'auto',
+              textAlign: 'justify',
             }}
           >
             DFTP empowers citizens with the tools and knowledge needed to understand government spending,
@@ -243,7 +244,7 @@ export function HomeView() {
           {/* Key principles */}
           <Grid container spacing={4} sx={{ mt: 2 }}>
             <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={2} sx={{ textAlign: 'center' }}>
+              <Stack spacing={2}>
                 <Box
                   sx={{
                     width: 60,
@@ -258,17 +259,17 @@ export function HomeView() {
                 >
                   <Iconify icon="solar:book-open-bold-duotone" width={28} sx={{ color: '#ffffff' }} />
                 </Box>
-                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff' }}>
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff', textAlign: 'center' }}>
                   Civic Education
                 </Typography>
-                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6 }}>
+                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6, textAlign: 'justify' }}>
                   Empowering citizens with knowledge and tools for civic engagement
                 </Typography>
               </Stack>
             </Grid>
 
             <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={2} sx={{ textAlign: 'center' }}>
+              <Stack spacing={2}>
                 <Box
                   sx={{
                     width: 60,
@@ -283,17 +284,17 @@ export function HomeView() {
                 >
                   <Iconify icon="solar:database-bold-duotone" width={28} sx={{ color: '#ffffff' }} />
                 </Box>
-                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff' }}>
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff', textAlign: 'center' }}>
                   Open Data
                 </Typography>
-                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6 }}>
+                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6, textAlign: 'justify' }}>
                   Making government data accessible and understandable for all
                 </Typography>
               </Stack>
             </Grid>
 
             <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={2} sx={{ textAlign: 'center' }}>
+              <Stack spacing={2}>
                 <Box
                   sx={{
                     width: 60,
@@ -308,10 +309,10 @@ export function HomeView() {
                 >
                   <Iconify icon="solar:eye-bold-duotone" width={28} sx={{ color: '#ffffff' }} />
                 </Box>
-                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff' }}>
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#ffffff', textAlign: 'center' }}>
                   Transparency
                 </Typography>
-                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6 }}>
+                <Typography variant="body2" sx={{ color: alpha('#ffffff', 0.9), lineHeight: 1.6, textAlign: 'justify' }}>
                   Building accountability through transparent reporting and oversight
                 </Typography>
               </Stack>
@@ -507,8 +508,8 @@ export function HomeView() {
       />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-        <Stack spacing={5} sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
-            <Typography variant="h3" sx={{ fontWeight: 700 }}>
+        <Stack spacing={5} sx={{ maxWidth: 800, mx: 'auto' }}>
+            <Typography variant="h3" sx={{ fontWeight: 700, textAlign: 'center' }}>
               Get Involved
             </Typography>
 
@@ -519,58 +520,12 @@ export function HomeView() {
                 fontWeight: 400,
                 lineHeight: 1.7,
                 fontSize: { xs: '1.1rem', md: '1.25rem' },
+                textAlign: 'justify',
               }}
             >
               Join the movement for government transparency. Whether you're a citizen, journalist,
               or civic organization, there are many ways to contribute to fiscal accountability.
             </Typography>
-
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              spacing={4}
-              sx={{ justifyContent: 'center', mt: 6 }}
-            >
-              <Button
-                variant="contained"
-                size="large"
-                startIcon={<Iconify icon="solar:phone-bold" />}
-                href="/contact"
-                sx={{
-                  px: 6,
-                  py: 1.5,
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  boxShadow: theme.shadows[8],
-                  '&:hover': {
-                    boxShadow: theme.shadows[12],
-                    transform: 'translateY(-2px)',
-                  },
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                Contact Us
-              </Button>
-              <Button
-                variant="text"
-                size="large"
-                startIcon={<Iconify icon="solar:letter-bold" />}
-                href="/subscribe"
-                sx={{
-                  px: 6,
-                  py: 1.5,
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  '&:hover': {
-                    backgroundColor: alpha(theme.palette.primary.main, 0.08),
-                    transform: 'translateY(-2px)',
-                  },
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                Subscribe to Updates
-              </Button>
-            </Stack>
           </Stack>
       </Container>
     </Box>
