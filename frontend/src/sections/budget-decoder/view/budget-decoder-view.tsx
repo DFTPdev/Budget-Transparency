@@ -1906,9 +1906,13 @@ export function BudgetDecoderView() {
         </m.div>
 
         {/* Budget Appropriations Table */}
-        {viewMode === 'appropriations' && (
-          <m.div key="appropriations-table" variants={varFade('inUp')}>
-            <Card sx={{ mb: 5 }}>
+        {viewMode === 'appropriations' && (() => {
+          console.log('🎯 Rendering Budget Appropriations Table');
+          console.log('🎯 flatTableRows length:', flatTableRows.length);
+          console.log('🎯 sortedAndFilteredRows length:', sortedAndFilteredRows.length);
+          console.log('🎯 page:', page, 'rowsPerPage:', rowsPerPage);
+          return (
+            <Card key="appropriations-table" sx={{ mb: 5 }}>
               <Scrollbar>
                 <TableContainer sx={{ minWidth: 1000 }}>
                   <Table>
@@ -2111,8 +2115,8 @@ export function BudgetDecoderView() {
               </Box>
             </Box>
             </Card>
-          </m.div>
-        )}
+          );
+        })()}
 
         {/* Actual Expenditures Table */}
         {viewMode === 'expenditures' && (
