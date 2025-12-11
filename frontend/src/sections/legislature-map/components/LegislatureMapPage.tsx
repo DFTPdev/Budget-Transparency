@@ -177,12 +177,34 @@ export function LegislatureMapPage({ mapboxToken }: LegislatureMapPageProps) {
     <Container maxWidth="xl" sx={{ py: 4 }}>
       <Stack spacing={4}>
         {/* Header */}
-        <Box>
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+        <Box sx={{ py: 4 }}>
+          <Typography variant="h2" sx={{ mb: 3, textAlign: 'center' }}>
             Legislator Spotlight Map
           </Typography>
-          <Typography variant="body1" color="textSecondary">
-            Find your representatives in the Virginia House of Delegates and Senate
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'text.primary',
+              maxWidth: 900,
+              mx: 'auto',
+              lineHeight: 1.8,
+              mb: 3,
+              textAlign: 'justify',
+            }}
+          >
+            Your elected representatives make decisions about billions of dollars in state spending, but most citizens don't know who represents them or how to reach them. The Legislator Spotlight Map puts that power back in your hands. Simply enter your address to instantly discover your state legislators in both the House of Delegates and Senate. See their district boundaries on an interactive map, view their contact information, and explore their budget amendment requests to understand their spending priorities. Whether you want to voice your concerns, ask questions, or hold them accountable for their votes, this tool makes it easy to connect with the officials who represent you in Richmond.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'text.primary',
+              maxWidth: 900,
+              mx: 'auto',
+              lineHeight: 1.8,
+              textAlign: 'justify',
+            }}
+          >
+            Find your representatives in the Virginia House of Delegates and Senate by entering your address below or exploring the interactive map.
           </Typography>
         </Box>
 
