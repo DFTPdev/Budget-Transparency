@@ -618,8 +618,8 @@ export function BudgetDecoderView() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(30);
 
-  // View toggle state: 'appropriations', 'expenditures', or 'ngo-tracker'
-  const [viewMode, setViewMode] = useState<'appropriations' | 'expenditures' | 'ngo-tracker'>('appropriations');
+  // View toggle state: 'appropriations', 'expenditures', 'ngo-tracker', or 'test-table'
+  const [viewMode, setViewMode] = useState<'appropriations' | 'expenditures' | 'ngo-tracker' | 'test-table'>('appropriations');
 
   // NEW: Decoder data state
   const [rollupData, setRollupData] = useState<ProgramRollup[]>([]);
@@ -1916,6 +1916,10 @@ export function BudgetDecoderView() {
                 <FlagIcon sx={{ mr: 1 }} />
                 Pass-Through NGO Tracker
               </ToggleButton>
+              <ToggleButton value="test-table">
+                <DescriptionIcon sx={{ mr: 1 }} />
+                Test Table
+              </ToggleButton>
             </ToggleButtonGroup>
           </Box>
         </m.div>
@@ -2758,6 +2762,299 @@ export function BudgetDecoderView() {
             </Card>
           </Box>
         )}
+
+        {/* Test Table - Expandable Expenditure Details */}
+        {viewMode === 'test-table' && (() => {
+          console.log('🎯 Rendering Test Table');
+          console.log('🎯 flatTableRows length:', flatTableRows.length);
+          console.log('🎯 sortedAndFilteredRows length:', sortedAndFilteredRows.length);
+          return (
+            <Card key="test-table" sx={{ mb: 5 }}>
+              <Scrollbar>
+                <TableContainer sx={{ minWidth: 1000 }}>
+                  <Table>
+                    <TableHead sx={{ bgcolor: '#f5f5f5' }}>
+                      <TableRow>
+                        <TableCell sx={{ width: 50, bgcolor: '#f5f5f5' }}></TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={flatTableOrderBy === 'category'}
+                            direction={flatTableOrderBy === 'category' ? flatTableOrder : 'asc'}
+                            onClick={() => handleFlatTableSort('category')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Category
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={flatTableOrderBy === 'agency'}
+                            direction={flatTableOrderBy === 'agency' ? flatTableOrder : 'asc'}
+                            onClick={() => handleFlatTableSort('agency')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Agency
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={flatTableOrderBy === 'program'}
+                            direction={flatTableOrderBy === 'program' ? flatTableOrder : 'asc'}
+                            onClick={() => handleFlatTableSort('program')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Program
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={flatTableOrderBy === 'amount'}
+                            direction={flatTableOrderBy === 'amount' ? flatTableOrder : 'asc'}
+                            onClick={() => handleFlatTableSort('amount')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            Budget Amount
+                          </TableSortLabel>
+                        </TableCell>
+                        <TableCell align="right" sx={{ bgcolor: '#f5f5f5', color: '#000' }}>
+                          <TableSortLabel
+                            active={flatTableOrderBy === 'percentage'}
+                            direction={flatTableOrderBy === 'percentage' ? flatTableOrder : 'asc'}
+                            onClick={() => handleFlatTableSort('percentage')}
+                            sx={{
+                              color: '#000 !important',
+                              '&.Mui-active': { color: '#000 !important' },
+                              '& .MuiTableSortLabel-icon': { color: '#000 !important' }
+                            }}
+                          >
+                            % of Total
+                          </TableSortLabel>
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {sortedAndFilteredRows.slice(page * rowsPerPage, (page + 1) * rowsPerPage).map((row) => {
+                        const categoryColor = row.storyBucketId ? STORY_BUCKET_COLORS[row.storyBucketId] : theme.palette.primary.main;
+                        const isExpanded = expandedRows.has(row.id);
+                        const vendors = row.type === 'program' && row.rollup ? getVendorsForItem({
+                          id: row.id,
+                          category: row.storyBucketLabel || '',
+                          subcategory: '',
+                          amount: row.amount,
+                          percentage: row.percentage,
+                          description: row.description || '',
+                          change: 0,
+                          priority: 'medium',
+                          rollup: row.rollup
+                        }) : [];
+                        const hasExpenditures = vendors.length > 0;
+
+                        return (
+                          <React.Fragment key={row.id}>
+                            {/* Main Row */}
+                            <TableRow hover>
+                              <TableCell sx={{ width: 50 }}>
+                                {hasExpenditures && (
+                                  <IconButton
+                                    size="small"
+                                    onClick={() => handleToggleExpand(row.id)}
+                                    aria-label={isExpanded ? 'collapse expenditures' : 'expand expenditures'}
+                                  >
+                                    {isExpanded ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
+                                  </IconButton>
+                                )}
+                              </TableCell>
+
+                              {/* Category Column */}
+                              <TableCell>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                  <Box
+                                    sx={{
+                                      width: 12,
+                                      height: 12,
+                                      borderRadius: '50%',
+                                      backgroundColor: categoryColor,
+                                      flexShrink: 0
+                                    }}
+                                  />
+                                  <Typography variant="body2">
+                                    {row.storyBucketLabel || '-'}
+                                  </Typography>
+                                </Box>
+                              </TableCell>
+
+                              {/* Agency Column */}
+                              <TableCell>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                  <Typography variant="body2">
+                                    {row.type === 'agency' ? row.name : (row.agency || '-')}
+                                  </Typography>
+                                  {hasExpenditures && (
+                                    <Chip
+                                      label={`${vendors.length} vendors`}
+                                      size="small"
+                                      variant="outlined"
+                                      sx={{ fontSize: '0.7rem', height: 20 }}
+                                    />
+                                  )}
+                                </Box>
+                              </TableCell>
+
+                              {/* Program Column */}
+                              <TableCell>
+                                <Typography variant="body2">
+                                  {row.type === 'program' ? row.name : '-'}
+                                </Typography>
+                              </TableCell>
+
+                              {/* Amount Column */}
+                              <TableCell align="right">
+                                <Box>
+                                  <Typography variant="body2" fontWeight="medium">
+                                    {fCurrency(row.amount)}
+                                  </Typography>
+                                  {row.rollup && (
+                                    <Typography variant="caption" color="text.secondary">
+                                      Spent: {fCurrency(row.rollup.total_spent_ytd)}
+                                    </Typography>
+                                  )}
+                                </Box>
+                              </TableCell>
+
+                              {/* Percentage Column */}
+                              <TableCell align="right">
+                                <Box>
+                                  <Typography variant="body2">
+                                    {fPercent(row.percentage)}
+                                  </Typography>
+                                  {row.rollup && (
+                                    <Typography
+                                      variant="caption"
+                                      color={row.rollup.execution_rate > 0.9 ? 'success.main' :
+                                             row.rollup.execution_rate < 0.5 ? 'error.main' : 'warning.main'}
+                                    >
+                                      {fPercent(row.rollup.execution_rate * 100)} exec
+                                    </Typography>
+                                  )}
+                                </Box>
+                              </TableCell>
+                            </TableRow>
+
+                            {/* Expandable Expenditure Details */}
+                            {hasExpenditures && (
+                              <TableRow>
+                                <TableCell sx={{ p: 0, border: 'none' }} colSpan={6}>
+                                  <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                                    <Box sx={{ p: 2, bgcolor: 'background.neutral' }}>
+                                      <Typography variant="subtitle2" gutterBottom>
+                                        Actual Expenditures ({vendors.length} vendors)
+                                      </Typography>
+
+                                      <Table size="small">
+                                        <TableHead>
+                                          <TableRow>
+                                            <TableCell>Vendor</TableCell>
+                                            <TableCell align="right">Amount Spent</TableCell>
+                                            <TableCell align="center">Match Quality</TableCell>
+                                            <TableCell>Expense Type</TableCell>
+                                          </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                          {vendors.slice(0, 10).map((vendor, idx) => (
+                                            <TableRow key={`${vendor.vendor_name}-${idx}`}>
+                                              <TableCell>
+                                                <Typography variant="body2">
+                                                  {vendor.vendor_name}
+                                                </Typography>
+                                              </TableCell>
+                                              <TableCell align="right">
+                                                <Typography variant="body2" fontWeight="medium">
+                                                  {fCurrency(vendor.spent_amount_ytd)}
+                                                </Typography>
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                <Chip
+                                                  label={vendor.match_type || 'Unknown'}
+                                                  size="small"
+                                                  color={vendor.match_type === 'strict' ? 'success' :
+                                                         vendor.match_type === 'fuzzy' ? 'warning' : 'default'}
+                                                  variant="outlined"
+                                                />
+                                              </TableCell>
+                                              <TableCell>
+                                                <Typography variant="caption" color="text.secondary">
+                                                  {vendor.expense_type || '-'}
+                                                </Typography>
+                                              </TableCell>
+                                            </TableRow>
+                                          ))}
+                                          {vendors.length > 10 && (
+                                            <TableRow>
+                                              <TableCell colSpan={4} align="center">
+                                                <Typography variant="caption" color="text.secondary">
+                                                  ... and {vendors.length - 10} more vendors
+                                                </Typography>
+                                              </TableCell>
+                                            </TableRow>
+                                          )}
+                                        </TableBody>
+                                      </Table>
+                                    </Box>
+                                  </Collapse>
+                                </TableCell>
+                              </TableRow>
+                            )}
+                          </React.Fragment>
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Scrollbar>
+
+              {/* Pagination */}
+              <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography variant="body2" color="text.secondary">
+                  Showing {page * rowsPerPage + 1} to {Math.min((page + 1) * rowsPerPage, sortedAndFilteredRows.length)} of {sortedAndFilteredRows.length} items
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1 }}>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    onClick={() => handleChangePage(page - 1)}
+                    disabled={page === 0}
+                  >
+                    Previous
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    onClick={() => handleChangePage(page + 1)}
+                    disabled={(page + 1) * rowsPerPage >= sortedAndFilteredRows.length}
+                  >
+                    Next
+                  </Button>
+                </Box>
+              </Box>
+            </Card>
+          );
+        })()}
 
         {/* Analysis Section */}
         <m.div variants={varFade('inUp')}>
