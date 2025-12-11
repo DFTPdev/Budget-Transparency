@@ -1907,7 +1907,7 @@ export function BudgetDecoderView() {
 
         {/* Budget Appropriations Table */}
         {viewMode === 'appropriations' && (
-          <m.div variants={varFade('inUp')}>
+          <m.div key="appropriations-table" variants={varFade('inUp')}>
             <Card sx={{ mb: 5 }}>
               <Scrollbar>
                 <TableContainer sx={{ minWidth: 1000 }}>
@@ -2116,7 +2116,7 @@ export function BudgetDecoderView() {
 
         {/* Actual Expenditures Table */}
         {viewMode === 'expenditures' && (
-          <Box>
+          <Box key="expenditures-table">
             <Card sx={{ mb: 5 }}>
               <Scrollbar>
                 <TableContainer sx={{ minWidth: 1000 }}>
@@ -2296,7 +2296,7 @@ export function BudgetDecoderView() {
 
         {/* Pass-Through NGO Tracker Table */}
         {viewMode === 'ngo-tracker' && (
-          <Box>
+          <Box key="ngo-tracker-table">
             {/* Filter Controls */}
             <Card sx={{ mb: 3, p: 3 }}>
               <Grid container spacing={2}>
