@@ -77,8 +77,37 @@ export function HomeView() {
     >
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Grid container spacing={6} alignItems="center">
-          {/* Left Column - Text Content */}
-          <Grid size={{ xs: 12, md: 7 }}>
+          {/* DFTP Image - Shows first on mobile, second on desktop */}
+          <Grid size={{ xs: 12, md: 5 }} sx={{ order: { xs: 1, md: 2 } }}>
+            <Box
+              sx={{
+                width: '100%',
+                maxWidth: 500,
+                height: 'auto',
+                mx: 'auto',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: { xs: 300, md: 400 },
+              }}
+            >
+              <Box
+                component="img"
+                src="/assets/images/home/dftp-logo.png"
+                alt="Don't Fuck The People"
+                onError={(e: any) => {
+                  e.target.style.display = 'none';
+                }}
+                sx={{
+                  width: '100%',
+                  height: 'auto',
+                }}
+              />
+            </Box>
+          </Grid>
+
+          {/* Text Content - Shows second on mobile, first on desktop */}
+          <Grid size={{ xs: 12, md: 7 }} sx={{ order: { xs: 2, md: 1 } }}>
             <Stack spacing={6} sx={{ textAlign: { xs: 'center', md: 'left' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
               <Typography
                 variant="h1"
@@ -101,6 +130,7 @@ export function HomeView() {
                   maxWidth: 700,
                   lineHeight: 1.6,
                   fontSize: { xs: '1.15rem', md: '1.35rem' },
+                  textAlign: 'justify',
                 }}
               >
                 Budgets shouldn't be a black box. We translate state budget jargon into plain language and visuals so anyone can follow the money.
@@ -164,35 +194,6 @@ export function HomeView() {
                 </Stack>
               </div>
             </Stack>
-          </Grid>
-
-          {/* Right Column - DFTP Image */}
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box
-              sx={{
-                width: '100%',
-                maxWidth: 500,
-                height: 'auto',
-                mx: 'auto',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minHeight: 400,
-              }}
-            >
-              <Box
-                component="img"
-                src="/assets/images/home/dftp-logo.png"
-                alt="Don't Fuck The People"
-                onError={(e: any) => {
-                  e.target.style.display = 'none';
-                }}
-                sx={{
-                  width: '100%',
-                  height: 'auto',
-                }}
-              />
-            </Box>
           </Grid>
         </Grid>
       </Container>
