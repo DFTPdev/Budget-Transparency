@@ -32,13 +32,13 @@ const FEATURES = [
     ctaText: 'Open the Decoder',
   },
   {
-    title: 'Spotlight Map',
-    description: 'Spending isn\'t abstract—it lands in neighborhoods. The Spotlight Map connects dollars to places: roads paved, grants awarded, projects delayed. See whether your community is being fairly invested in—or left behind.',
-    shortDescription: 'Map spending across districts',
+    title: 'Legislator Spotlight',
+    description: 'Know who represents you and how they vote on your tax dollars. Search by address or district to see your legislators\' voting records, committee assignments, and contact information. Hold them accountable for budget decisions that affect your community.',
+    shortDescription: 'Track your representatives',
     icon: 'solar:map-point-bold-duotone',
     href: '/spotlight-map',
     color: 'secondary',
-    ctaText: 'View the Map',
+    ctaText: 'Find Your Legislators',
   },
   {
     title: 'Budget Overview',
