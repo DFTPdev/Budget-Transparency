@@ -461,64 +461,6 @@ export function HomeView() {
     </Box>
   );
 
-  const renderTrustBand = () => (
-    <Box
-      sx={{
-        py: { xs: 6, md: 8 },
-        bgcolor: alpha(theme.palette.grey[500], 0.04),
-        borderTop: `1px solid ${alpha(theme.palette.grey[500], 0.08)}`,
-        borderBottom: `1px solid ${alpha(theme.palette.grey[500], 0.08)}`,
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack
-          direction={{ xs: 'column', md: 'row' }}
-          spacing={{ xs: 3, md: 4 }}
-          sx={{
-            alignItems: { xs: 'flex-start', md: 'center' },
-            justifyContent: 'space-between',
-          }}
-        >
-          <Box sx={{ flex: 1 }}>
-            <Typography
-              variant="body2"
-              sx={{
-                color: 'text.secondary',
-                lineHeight: 1.8,
-                fontSize: { xs: '0.875rem', md: '0.95rem' },
-              }}
-            >
-              <strong>Sources:</strong> Virginia DPB, LIS (Chapter 1 & 2), IRS TEOS/BMF + 990 filings.{' '}
-              <strong>Methods:</strong> Deterministic reconciliation, audited totals, official-only nonprofit status.
-            </Typography>
-          </Box>
-          <Box sx={{ flexShrink: 0 }}>
-            <Button
-              variant="outlined"
-              size="medium"
-              href="/budget-overview"
-              endIcon={<Iconify icon="solar:arrow-right-linear" />}
-              sx={{
-                px: 3,
-                py: 1.5,
-                fontWeight: 600,
-                borderRadius: 1.5,
-                whiteSpace: 'nowrap',
-                '&:hover': {
-                  transform: 'translateY(-2px)',
-                  backgroundColor: alpha(theme.palette.primary.main, 0.04),
-                },
-                transition: 'all 0.3s ease',
-              }}
-            >
-              How the Data Works
-            </Button>
-          </Box>
-        </Stack>
-      </Container>
-    </Box>
-  );
-
   const renderCallToAction = () => (
     <Box
       sx={{
@@ -737,10 +679,9 @@ export function HomeView() {
   return (
     <MotionViewport>
       {renderHero()}
-      {renderFeatures()}
-      {renderTrustBand()}
-      {renderBudgetOverview()}
       {renderMission()}
+      {renderFeatures()}
+      {renderBudgetOverview()}
       {renderCallToAction()}
     </MotionViewport>
   );
