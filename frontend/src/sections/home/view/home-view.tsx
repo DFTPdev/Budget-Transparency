@@ -80,37 +80,33 @@ export function HomeView() {
           {/* Left Column - Text Content */}
           <Grid size={{ xs: 12, md: 7 }}>
             <Stack spacing={6} sx={{ textAlign: { xs: 'center', md: 'left' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
-              <m.div variants={varFade('inUp')}>
-                <Typography
-                  variant="h1"
-                  sx={{
-                    fontSize: { xs: '2.8rem', md: '4rem', lg: '4.5rem' },
-                    fontWeight: 800,
-                    color: '#ffffff',
-                    mb: 2,
-                    lineHeight: 1.1,
-                  }}
-                >
-                  See where Virginia's money goes.
-                </Typography>
-              </m.div>
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: { xs: '2.8rem', md: '4rem', lg: '4.5rem' },
+                  fontWeight: 800,
+                  color: '#ffffff',
+                  mb: 2,
+                  lineHeight: 1.1,
+                }}
+              >
+                See where Virginia's money goes.
+              </Typography>
 
-              <m.div variants={varFade('inUp', 0.1)}>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    color: alpha('#ffffff', 0.9),
-                    fontWeight: 400,
-                    maxWidth: 700,
-                    lineHeight: 1.6,
-                    fontSize: { xs: '1.15rem', md: '1.35rem' },
-                  }}
-                >
-                  Budgets shouldn't be a black box. We translate state budget jargon into plain language and visuals so anyone can follow the money.
-                </Typography>
-              </m.div>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: alpha('#ffffff', 0.9),
+                  fontWeight: 400,
+                  maxWidth: 700,
+                  lineHeight: 1.6,
+                  fontSize: { xs: '1.15rem', md: '1.35rem' },
+                }}
+              >
+                Budgets shouldn't be a black box. We translate state budget jargon into plain language and visuals so anyone can follow the money.
+              </Typography>
 
-              <m.div variants={varFade('inUp', 0.2)}>
+              <div>
                 <Stack
                   direction={{ xs: 'column', sm: 'row' }}
                   spacing={3}
@@ -166,39 +162,37 @@ export function HomeView() {
                     See the Map
                   </Button>
                 </Stack>
-              </m.div>
+              </div>
             </Stack>
           </Grid>
 
           {/* Right Column - DFTP Image */}
           <Grid size={{ xs: 12, md: 5 }}>
-            <m.div variants={varFade('inRight', 0.3)}>
+            <Box
+              sx={{
+                width: '100%',
+                maxWidth: 500,
+                height: 'auto',
+                mx: 'auto',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: 400,
+              }}
+            >
               <Box
+                component="img"
+                src="/assets/images/home/dftp-logo.png"
+                alt="Don't Fuck The People"
+                onError={(e: any) => {
+                  e.target.style.display = 'none';
+                }}
                 sx={{
                   width: '100%',
-                  maxWidth: 500,
                   height: 'auto',
-                  mx: 'auto',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: 400,
                 }}
-              >
-                <Box
-                  component="img"
-                  src="/assets/images/home/dftp-logo.png"
-                  alt="Don't Fuck The People"
-                  onError={(e: any) => {
-                    e.target.style.display = 'none';
-                  }}
-                  sx={{
-                    width: '100%',
-                    height: 'auto',
-                  }}
-                />
-              </Box>
-            </m.div>
+              />
+            </Box>
           </Grid>
         </Grid>
       </Container>
