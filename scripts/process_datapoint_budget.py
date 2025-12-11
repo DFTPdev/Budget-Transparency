@@ -34,10 +34,10 @@ SECRETARIAT_TO_STORY_BUCKET = {
 
 # Story bucket display names
 STORY_BUCKET_LABELS = {
-    'schools_kids': 'Schools & Kids',
-    'health_care': 'Health & Care',
-    'safety_justice': 'Safety & Justice',
-    'roads_transit': 'Roads & Transit',
+    'schools_kids': 'Education',
+    'health_care': 'Healthcare',
+    'safety_justice': 'Law Enforcement',
+    'roads_transit': 'Transportation',
     'jobs_business_innovation': 'Jobs, Business & Innovation',
     'parks_environment_energy': 'Parks, Environment & Energy',
     'veterans_military': 'Veterans & Military Families',

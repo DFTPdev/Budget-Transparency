@@ -8,21 +8,21 @@
     {
       "secretariat": "HEALTH AND HUMAN RESOURCES",
       "story_bucket_id": "health_care",
-      "story_bucket_label": "Health & Care",
+      "story_bucket_label": "Healthcare",
       "amount": 34854776210.93,
       "percentage": 32.75
     },
     {
       "secretariat": "EDUCATION",
       "story_bucket_id": "schools_kids",
-      "story_bucket_label": "Schools & Kids",
+      "story_bucket_label": "Education",
       "amount": 34127735262.19,
       "percentage": 32.07
     },
     {
       "secretariat": "TRANSPORTATION",
       "story_bucket_id": "roads_transit",
-      "story_bucket_label": "Roads & Transit",
+      "story_bucket_label": "Transportation",
       "amount": 13232292106.86,
       "percentage": 12.43
     },
@@ -43,7 +43,7 @@
     {
       "secretariat": "PUBLIC SAFETY",
       "story_bucket_id": "safety_justice",
-      "story_bucket_label": "Safety & Justice",
+      "story_bucket_label": "Law Enforcement",
       "amount": 3642526139.64,
       "percentage": 3.42
     },

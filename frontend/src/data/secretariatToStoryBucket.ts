@@ -31,17 +31,17 @@ import type { StoryBucketId } from './spendingStoryBuckets';
  * - Veterans and Defense Affairs
  */
 export const SECRETARIAT_TO_STORY_BUCKET: Record<string, StoryBucketId> = {
-  // Education → Schools & Kids
+  // Education → Education
   'EDUCATION': 'schools_kids',
 
-  // Health and Human Resources → Health & Care
+  // Health and Human Resources → Healthcare
   'HEALTH AND HUMAN RESOURCES': 'health_care',
 
-  // Public Safety → Safety & Justice
+  // Public Safety → Law Enforcement
   'PUBLIC SAFETY AND HOMELAND SECURITY': 'safety_justice',
   'PUBLIC SAFETY': 'safety_justice', // Alternative name
 
-  // Transportation → Roads & Transit
+  // Transportation → Transportation
   'TRANSPORTATION': 'roads_transit',
 
   // Commerce, Trade, Agriculture, Labor → Jobs, Business & Innovation

@@ -37,10 +37,10 @@ export type StoryBucketId =
  * Display labels for story buckets
  */
 export const STORY_BUCKET_LABELS: Record<StoryBucketId, string> = {
-  schools_kids: 'Schools & Kids',
-  health_care: 'Health & Care',
-  safety_justice: 'Safety & Justice',
-  roads_transit: 'Roads & Transit',
+  schools_kids: 'Education',
+  health_care: 'Healthcare',
+  safety_justice: 'Law Enforcement',
+  roads_transit: 'Transportation',
   jobs_business_innovation: 'Jobs, Business & Innovation',
   parks_environment_energy: 'Parks, Environment & Energy',
   veterans_military: 'Veterans & Military Families',
@@ -52,10 +52,10 @@ export const STORY_BUCKET_LABELS: Record<StoryBucketId, string> = {
  * Short labels for story buckets (for compact displays)
  */
 export const STORY_BUCKET_SHORT_LABELS: Record<StoryBucketId, string> = {
-  schools_kids: 'Schools & Kids',
-  health_care: 'Health & Care',
-  safety_justice: 'Safety & Justice',
-  roads_transit: 'Roads & Transit',
+  schools_kids: 'Education',
+  health_care: 'Healthcare',
+  safety_justice: 'Law Enforcement',
+  roads_transit: 'Transportation',
   jobs_business_innovation: 'Jobs & Business',
   parks_environment_energy: 'Parks & Environment',
   veterans_military: 'Veterans',
@@ -94,18 +94,18 @@ export const STORY_BUCKET_COLORS: Record<StoryBucketId, string> = {
  * technical categories into 9 narrative buckets.
  */
 export const SPENDING_CATEGORY_TO_BUCKET: Record<SpendingCategoryId, StoryBucketId> = {
-  // Education → Schools & Kids
+  // Education → Education
   k12_education: 'schools_kids',
   higher_education: 'schools_kids',
 
-  // Health → Health & Care
+  // Health → Healthcare
   health_and_human_resources: 'health_care',
 
-  // Public Safety + Judicial → Safety & Justice
+  // Public Safety + Judicial → Law Enforcement
   public_safety_and_homeland_security: 'safety_justice',
   judicial: 'safety_justice',
 
-  // Transportation → Roads & Transit
+  // Transportation → Transportation
   transportation: 'roads_transit',
 
   // Commerce + Agriculture → Jobs, Business & Innovation

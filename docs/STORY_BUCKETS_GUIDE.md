@@ -4,7 +4,7 @@ This guide explains the 9 "story buckets" used in the Legislator Card's **Spendi
 
 ---
 
-## 🎓 1. Schools & Kids
+## 🎓 1. Education
 
 **What it covers:** All education spending from pre-K through graduate school
 
@@ -33,7 +33,7 @@ Education is typically the largest portion of Virginia's budget. These amendment
 
 ---
 
-## 🏥 2. Health & Care
+## 🏥 2. Healthcare
 
 **What it covers:** Healthcare, mental health, social services, and support for vulnerable populations
 
@@ -63,7 +63,7 @@ Health and human services touch the most vulnerable Virginians—children in cri
 
 ---
 
-## 👮 3. Safety & Justice
+## 👮 3. Law Enforcement
 
 **What it covers:** Law enforcement, courts, corrections, and public safety
 
@@ -93,7 +93,7 @@ These amendments affect response times when you call 911, wait times in courts, 
 
 ---
 
-## 🛣️ 4. Roads & Transit
+## 🛣️ 4. Transportation
 
 **What it covers:** Transportation infrastructure, highways, transit, and mobility
 
