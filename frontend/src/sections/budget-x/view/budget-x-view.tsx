@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { m } from 'framer-motion';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -43,17 +42,16 @@ import InfoIcon from '@mui/icons-material/Info';
 import SearchIcon from '@mui/icons-material/Search';
 
 import { fCurrency, fPercent } from 'src/utils/format-number';
-import { 
-  loadProgramRollups, 
-  loadVendorRecords, 
-  filterVendorsByProgram, 
+import {
+  loadProgramRollups,
+  loadVendorRecords,
+  filterVendorsByProgram,
   loadProgramBudgets,
-  type ProgramRollup, 
-  type VendorRecord, 
-  type ProgramBudget 
+  type ProgramRollup,
+  type VendorRecord,
+  type ProgramBudget
 } from 'src/lib/decoderDataLoader';
 
-import { varFade, MotionViewport } from 'src/components/animate';
 import { Scrollbar } from 'src/components/scrollbar';
 import { STORY_BUCKET_COLORS, type StoryBucketId } from 'src/data/spendingStoryBuckets';
 
@@ -370,23 +368,50 @@ export function BudgetXView() {
     return (
       <Container maxWidth="xl" sx={{ py: 8 }}>
         <Box display="flex" justifyContent="center" alignItems="center" minHeight="60vh">
-          <CircularProgress size={60} />
+          <Stack spacing={2} alignItems="center">
+            <CircularProgress size={60} />
+            <Typography variant="body2" color="text.secondary">
+              Loading budget data...
+            </Typography>
+          </Stack>
         </Box>
       </Container>
     );
   }
 
+  console.log('📊 Budget X Render:', {
+    programData: programData.length,
+    rollupData: rollupData.length,
+    vendorData: vendorData.length,
+    unifiedRows: unifiedRows.length,
+    filteredRows: filteredRows.length,
+    paginatedRows: paginatedRows.length
+  });
+
+  // Show error state if no data loaded
+  if (!loading && programData.length === 0) {
+    return (
+      <Container maxWidth="xl" sx={{ py: 8 }}>
+        <Alert severity="error">
+          <AlertTitle>Data Loading Error</AlertTitle>
+          <Typography variant="body2">
+            Failed to load budget data. Please check that the data files exist in the public/data directory.
+          </Typography>
+        </Alert>
+      </Container>
+    );
+  }
+
   return (
-    <Container component={MotionViewport} maxWidth="xl" sx={{ py: { xs: 5, md: 8 } }}>
+    <Container maxWidth="xl" sx={{ py: { xs: 5, md: 8 } }}>
       {/* Page Header */}
-      <m.div variants={varFade('inUp')}>
+      <Box sx={{ mb: 5 }}>
         <Typography variant="h2" sx={{ mb: 2, textAlign: 'center' }}>
           Budget X
         </Typography>
         <Typography
           variant="body1"
           sx={{
-            mb: 5,
             textAlign: 'center',
             color: 'text.secondary',
             maxWidth: 800,
@@ -396,11 +421,10 @@ export function BudgetXView() {
           Unified budget and expenditure explorer with transparent data quality indicators.
           See which programs have complete spending data and which are budget-only.
         </Typography>
-      </m.div>
+      </Box>
 
       {/* Summary Stats Card - QUICK WIN #2 */}
-      <m.div variants={varFade('inUp')}>
-        <Card sx={{ mb: 4, bgcolor: alpha(theme.palette.primary.main, 0.08) }}>
+      <Card sx={{ mb: 4, bgcolor: alpha(theme.palette.primary.main, 0.08) }}>
           <CardContent>
             <Stack spacing={2}>
               <Box display="flex" alignItems="center" gap={1}>
@@ -487,11 +511,9 @@ export function BudgetXView() {
             </Stack>
           </CardContent>
         </Card>
-      </m.div>
 
       {/* Help Text - QUICK WIN #5 */}
-      <m.div variants={varFade('inUp')}>
-        <Alert severity="info" sx={{ mb: 4 }}>
+      <Alert severity="info" sx={{ mb: 4 }}>
           <AlertTitle>Understanding Data Completeness</AlertTitle>
           <Typography variant="body2" paragraph>
             <strong>Why do some programs show "Budget Only"?</strong> Virginia's budget data comes
@@ -524,11 +546,9 @@ export function BudgetXView() {
             {summaryStats.completeCount} programs with full budget + spending + vendor details.
           </Typography>
         </Alert>
-      </m.div>
 
       {/* Filters and Controls */}
-      <m.div variants={varFade('inUp')}>
-        <Card sx={{ mb: 3 }}>
+      <Card sx={{ mb: 3 }}>
           <CardContent>
             <Stack spacing={2}>
               {/* Search */}
@@ -579,11 +599,9 @@ export function BudgetXView() {
             </Stack>
           </CardContent>
         </Card>
-      </m.div>
 
       {/* Unified Budget Table - QUICK WIN #1 & #3 */}
-      <m.div variants={varFade('inUp')}>
-        <Card>
+      <Card>
           <Scrollbar>
             <TableContainer sx={{ minWidth: 1200 }}>
               <Table>
@@ -885,7 +903,6 @@ export function BudgetXView() {
             />
           )}
         </Card>
-      </m.div>
     </Container>
   );
 }
