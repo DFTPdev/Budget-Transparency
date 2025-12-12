@@ -28,6 +28,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
+import TablePagination from '@mui/material/TablePagination';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import { alpha, useTheme } from '@mui/material/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -88,6 +93,8 @@ export function BudgetXView() {
   const [order, setOrder] = useState<Order>('desc');
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
   const [showCompleteOnly, setShowCompleteOnly] = useState(false);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(50);
 
   // Load data on mount
   useEffect(() => {
@@ -264,11 +271,29 @@ export function BudgetXView() {
     return filtered;
   }, [unifiedRows, searchQuery, showCompleteOnly, orderBy, order]);
 
+  // Paginated rows
+  const paginatedRows = useMemo(() => {
+    const startIndex = page * rowsPerPage;
+    return filteredRows.slice(startIndex, startIndex + rowsPerPage);
+  }, [filteredRows, page, rowsPerPage]);
+
   // Handle sort
   const handleSort = (property: keyof UnifiedBudgetRow) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
+  };
+
+  // Handle pagination
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+    setExpandedRows(new Set()); // Collapse all rows when changing page
+  };
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+    setExpandedRows(new Set());
   };
 
   // Handle row expand
@@ -547,7 +572,9 @@ export function BudgetXView() {
 
               {/* Results count */}
               <Typography variant="body2" color="text.secondary">
-                Showing {filteredRows.length} of {summaryStats.totalPrograms} programs
+                {filteredRows.length === summaryStats.totalPrograms
+                  ? `Showing all ${filteredRows.length} programs`
+                  : `Showing ${filteredRows.length} of ${summaryStats.totalPrograms} programs (filtered)`}
               </Typography>
             </Stack>
           </CardContent>
@@ -637,7 +664,7 @@ export function BudgetXView() {
                 </TableHead>
 
                 <TableBody>
-                  {filteredRows.map((row) => {
+                  {paginatedRows.map((row) => {
                     const isExpanded = expandedRows.has(row.id);
                     const vendors = getVendorsForRow(row);
                     const hasVendors = vendors.length > 0;
@@ -839,6 +866,23 @@ export function BudgetXView() {
                 Try adjusting your search or filters
               </Typography>
             </Box>
+          )}
+
+          {filteredRows.length > 0 && (
+            <TablePagination
+              component="div"
+              count={filteredRows.length}
+              page={page}
+              onPageChange={handleChangePage}
+              rowsPerPage={rowsPerPage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              rowsPerPageOptions={[30, 50, 100, 200]}
+              labelRowsPerPage="Programs per page:"
+              sx={{
+                borderTop: 1,
+                borderColor: 'divider'
+              }}
+            />
           )}
         </Card>
       </m.div>
