@@ -23,6 +23,15 @@ import { FloatPlusIcon, FloatDotIcon, CircleSvg } from '../components/svg-elemen
 
 const FEATURES = [
   {
+    title: 'Budget X',
+    description: 'NEW: Unified budget explorer with transparent data quality indicators. See which programs have complete spending data (budget + expenditures + vendors) and which are budget-only. Filter, search, and drill down into vendor details with full transparency about data completeness.',
+    shortDescription: 'Unified budget & spending explorer',
+    icon: 'solar:chart-square-bold-duotone',
+    href: '/budget-x',
+    color: 'success',
+    ctaText: 'Try Budget X',
+  },
+  {
     title: 'Budget Decoder',
     description: 'Government budgets are dense by design. The Decoder turns technical documents into plain English and clear charts. Every line item shows where tax dollars go—schools, public safety, healthcare, or pet projects—so you can check whether spending matches community priorities.',
     shortDescription: 'Decode government spending data',
